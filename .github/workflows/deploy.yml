@@ -12,13 +12,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Upload via FTP
+        with:
+          fetch-depth: 0
+      - name: Upload via SFTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: vh404.timeweb.ru
-          username: cg75134
-          password: DexterMan1590!@&&&
-          port: 21
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 22
+          protocol: sftp
           local-dir: ./
           server-dir: /public_html/
