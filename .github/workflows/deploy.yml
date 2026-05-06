@@ -1,4 +1,4 @@
-name: Deploy to Timeweb
+name: Deploy via FTP
 
 on:
   push:
@@ -10,13 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          host: ${{ secrets.TIMEWEB_HOST }}
-          username: ${{ secrets.TIMEWEB_USER }}
-          key: ${{ secrets.TIMEWEB_SSH_KEY }}
-          port: 22
-          script: |
-            cd ~/public_html
-            git pull origin prod
+          server: vh404.timeweb.ru
+          username: cg75134
+          password: DexterMan1590!@&&&
+          port: 21
+          local-dir: ./
+          server-dir: /public_html/
