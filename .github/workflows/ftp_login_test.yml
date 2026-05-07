@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Test FTP Login
         run: |
-          curl -v ftp://${{ secrets.FTP_HOST }} \
-          --user "${{ secrets.FTP_USER }}:${{ secrets.FTP_PASSWORD }}" \
+          curl -v ftp://vh404.timeweb.ru \
+          --user "cg75134_anton:DexterMan1590" \
           --ftp-pasv \
           --connect-timeout 100
