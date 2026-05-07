@@ -16,4 +16,4 @@ jobs:
           curl -v ftp://${{ secrets.FTP_HOST }} \
           --user "${{ secrets.FTP_USER }}:${{ secrets.FTP_PASSWORD }}" \
           --ftp-pasv \
-          --connect-timeout 20
+          --connect-timeout 100
