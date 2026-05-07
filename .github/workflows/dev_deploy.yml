@@ -23,6 +23,22 @@ jobs:
           lftp -u "${{ secrets.FTP_USER }}","${{ secrets.FTP_PASSWORD }}" ftp://${{ secrets.FTP_HOST }} -e "
           set ftp:passive-mode true
           set ssl:verify-certificate no
-          mirror -R --verbose --exclude .git/ --exclude .github/ ./ /dev-antondorovs/public_html/
+          set net:timeout 30
+          set net:max-retries 2
+
+          cd /dev-antondorovs/public_html/
+
+          put index.html
+          put script.js
+
+          mirror -R --verbose styles styles
+          mirror -R --verbose img img
+          mirror -R --verbose icons icons
+          mirror -R --verbose GameDino GameDino
+          mirror -R --verbose GameFlappyBird GameFlappyBird
+          mirror -R --verbose GameOfLife GameOfLife
+          mirror -R --verbose GameSnake GameSnake
+          mirror -R --verbose GameSnakeUnlimited GameSnakeUnlimited
+
           bye
           "
