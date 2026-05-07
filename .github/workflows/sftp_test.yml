@@ -16,7 +16,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y sshpass
 
-          sshpass -p "${{ secrets.FTP_PASSWORD }}" ssh \
+          sshpass -p "${{ secrets.FTP_PASSWORD }}" ssh -4 \
             -o StrictHostKeyChecking=no \
             -o ConnectTimeout=20 \
             ${{ secrets.FTP_USER }}@${{ secrets.FTP_HOST }} \
