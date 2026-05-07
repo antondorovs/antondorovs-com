@@ -1,0 +1,19 @@
+name: FTP Login Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test FTP Login
+        run: |
+          curl -v ftp://${{ secrets.FTP_HOST }} \
+          --user "${{ secrets.FTP_USER }}:${{ secrets.FTP_PASSWORD }}" \
+          --ftp-pasv \
+          --connect-timeout 20
