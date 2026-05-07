@@ -11,21 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Test raw port 21
+      - name: Install lftp
         run: |
-          timeout 10 bash -c "</dev/tcp/${{ secrets.FTP_HOST }}/21" && echo "RAW FTP PORT OPEN" || echo "RAW FTP PORT CLOSED"
+          sudo apt-get update
+          sudo apt-get install -y lftp
 
-      - name: Test FTP IPv4
+      - name: Test FTP with lftp
         run: |
-          curl -4 -v ftp://${{ secrets.FTP_HOST }} \
-            --user "${{ secrets.FTP_USER }}:${{ secrets.FTP_PASSWORD }}" \
-            --ftp-pasv \
-            --connect-timeout 30
-
-      - name: Test FTPS IPv4
-        if: always()
-        run: |
-          curl -4 -v --ftp-ssl-reqd ftp://${{ secrets.FTP_HOST }} \
-            --user "${{ secrets.FTP_USER }}:${{ secrets.FTP_PASSWORD }}" \
-            --ftp-pasv \
-            --connect-timeout 30
+          lftp -d -u "${{ secrets.FTP_USER }}","${{ secrets.FTP_PASSWORD }}" ftp://${{ secrets.FTP_HOST }} -e "
+          set ftp:passive-mode true
+          set net:timeout 30
+          set net:max-retries 1
+          set ssl:verify-certificate no
+          pwd
+          ls
+          bye
+          "
