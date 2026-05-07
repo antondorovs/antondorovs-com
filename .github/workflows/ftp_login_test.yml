@@ -14,6 +14,6 @@ jobs:
       - name: Test FTP Login
         run: |
           curl -v ftp://vh404.timeweb.ru \
-          --user "cg75134_anton:PrivetBro0105" \
+          --user "cg75134_deploy:PrivetBro0105" \
           --ftp-pasv \
-          --connect-timeout 100
+          --connect-timeout 20
