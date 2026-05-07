@@ -11,9 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Test FTP Login
+      - name: Test raw port 21
         run: |
-          curl -v ftp://vh404.timeweb.ru \
-          --user "cg75134_deploy:PrivetBro0105" \
-          --ftp-pasv \
-          --connect-timeout 20
+          timeout 10 bash -c "</dev/tcp/${{ secrets.FTP_HOST }}/21" && echo "RAW FTP PORT OPEN" || echo "RAW FTP PORT CLOSED"
+
+      - name: Test FTP IPv4
+        run: |
+          curl -4 -v ftp://${{ secrets.FTP_HOST }} \
+            --user "${{ secrets.FTP_USER }}:${{ secrets.FTP_PASSWORD }}" \
+            --ftp-pasv \
+            --connect-timeout 30
+
+      - name: Test FTPS IPv4
+        if: always()
+        run: |
+          curl -4 -v --ftp-ssl-reqd ftp://${{ secrets.FTP_HOST }} \
+            --user "${{ secrets.FTP_USER }}:${{ secrets.FTP_PASSWORD }}" \
+            --ftp-pasv \
+            --connect-timeout 30
