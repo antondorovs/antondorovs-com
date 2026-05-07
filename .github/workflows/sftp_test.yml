@@ -1,23 +1,23 @@
 name: SFTP Test
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - dev
+    workflow_dispatch:
+    push:
+        branches:
+        - dev
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+    test:
+        runs-on: ubuntu-latest
 
     steps:
-      - name: Test SFTP
+        - name: Test SFTP
         run: |
-          sudo apt-get update
-          sudo apt-get install -y sshpass
-
-          sshpass -p "${{ secrets.FTP_PASSWORD }}" ssh -4 \
+            sudo apt-get update
+            sudo apt-get install -y sshpass
+        
+            sshpass -p "${{ secrets.TIMEWEB_PASSWORD }}" ssh -4 \
             -o StrictHostKeyChecking=no \
             -o ConnectTimeout=20 \
-            ${{ secrets.FTP_USER }}@${{ secrets.FTP_HOST }} \
+            ${{ secrets.TIMEWEB_USER }}@${{ secrets.TIMEWEB_HOST }} \
             "echo SSH SUCCESS"
