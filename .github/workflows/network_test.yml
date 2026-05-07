@@ -2,6 +2,9 @@ name: Network Test
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - dev
 
 jobs:
   test:
