@@ -1,9 +1,13 @@
-name: Deploy to Main
+name: Deploy MAIN
 
 on:
   push:
     branches:
       - main
+
+concurrency:
+  group: deploy-main
+  cancel-in-progress: true
 
 jobs:
   deploy:
