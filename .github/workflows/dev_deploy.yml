@@ -31,14 +31,5 @@ jobs:
           put index.html
           put script.js
 
-          mirror -R --verbose styles styles
-          mirror -R --verbose img img
-          mirror -R --verbose icons icons
-          mirror -R --verbose GameDino GameDino
-          mirror -R --verbose GameFlappyBird GameFlappyBird
-          mirror -R --verbose GameOfLife GameOfLife
-          mirror -R --verbose GameSnake GameSnake
-          mirror -R --verbose GameSnakeUnlimited GameSnakeUnlimited
-
           bye
           "
