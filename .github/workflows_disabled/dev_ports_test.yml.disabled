@@ -1,0 +1,20 @@
+name: Network Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test FTP Port
+        run: |
+          timeout 10 bash -c "</dev/tcp/vh404.timeweb.ru/21" && echo "FTP OPEN" || echo "FTP CLOSED"
+
+      - name: Test SSH Port
+        run: |
+          timeout 10 bash -c "</dev/tcp/vh404.timeweb.ru/22" && echo "SSH OPEN" || echo "SSH CLOSED"

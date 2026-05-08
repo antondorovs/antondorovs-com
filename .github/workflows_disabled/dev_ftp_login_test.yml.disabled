@@ -1,0 +1,29 @@
+name: FTP Login Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install lftp
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+      - name: Test FTP with lftp
+        run: |
+          lftp -d -u "${{ secrets.FTP_USER }}","${{ secrets.FTP_PASSWORD }}" ftp://${{ secrets.FTP_HOST }} -e "
+          set ftp:passive-mode true
+          set net:timeout 30
+          set net:max-retries 1
+          set ssl:verify-certificate no
+          pwd
+          ls
+          bye
+          "
