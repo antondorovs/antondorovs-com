@@ -1,27 +1,21 @@
-name: Deploy PROD
+name: Deploy to Main
 
 on:
   push:
     branches:
       - main
 
-concurrency:
-  group: deploy-prod
-  cancel-in-progress: true
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy via SSH
+      - name: Deploy via SSH to main
         uses: appleboy/ssh-action@v1.0.3
-
         with:
           host: ${{ secrets.TIMEWEB_HOST }}
           username: ${{ secrets.TIMEWEB_USER }}
-          password: ${{ secrets.TIMEWEB_PASSWORD }}
-
+          key: ${{ secrets.TIMEWEB_SSH_KEY }}
           script: |
             cd ~/public_html
             git pull origin main
