@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Java
+*.class
+bin/
+
+# VS Code
+.vscode/
+
+# logs
+*.log
