@@ -1,0 +1,32 @@
+name: Deploy MAIN
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: deploy-main
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install lftp
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+      - name: Deploy MAIN via FTP
+        run: |
+          lftp -u "${{ secrets.FTP_USER }}","${{ secrets.FTP_PASSWORD }}" ftp://${{ secrets.FTP_HOST }} -e "
+          set ftp:passive-mode true
+          set ssl:verify-certificate no
+          mirror -R --verbose --exclude .git/ --exclude .github/ ./ /public_html/
+          bye
+          "
