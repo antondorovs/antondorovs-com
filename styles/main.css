@@ -240,13 +240,25 @@ header {
     }
 
     #wall {
-        height: 200px;
+        height: 220px;
+    }
+
+    #wall-text {
+        font-size: 34px;
+        line-height: 1.2;
+        padding: 0 20px;
+    }
+
+    .class {
+        font-size: 16px;
+        line-height: 1.6;
+        padding: 0 18px;
     }
 }
 
 @media screen and (max-width: 576px) {
     h1 {
-        font-size: 25px;
+        font-size: 24px;
     }
 
     strong {
@@ -254,8 +266,83 @@ header {
     }
 
     p {
+        font-size: inherit;
+    }
+
+    #wall {
+        height: 180px;
+    }
+
+    #wall-text {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    #mainpic {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        border: 1px solid #1a1a1a;
+        margin-top: -50px;
+        margin-right: 5px;
+    }
+
+    .class {
+        font-size: 14px;
+        line-height: 1.6;
+        padding: 0 16px;
+    }
+
+    .icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 385px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    strong {
         font-size: 12px;
     }
+
+    p {
+        font-size: inherit;
+    }
+
+    #wall {
+        height: 170px;
+    }
+
+    #wall-text {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    #mainpic {
+        height: 70px;
+        width: 70px;
+        border: 2px solid #1a1a1a;
+        margin-top: -40px;
+    }
+
+    .class {
+        font-size: 13px;
+        line-height: 1.6;
+        padding: 0 14px;
+    }
+
+    .icons {
+        min-width: 250px;
+    }
+
+    .icon {
+        width: 30px;
+        height: 30px;
+    }
+}
 
     #mainpic {
         height: 100px;
@@ -270,7 +357,7 @@ header {
         width: 40px;
         height: 40px;
     }
-}
+
 
 @media screen and (max-width: 385px) {
     #wall-text {
