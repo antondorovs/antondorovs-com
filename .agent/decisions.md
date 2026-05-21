@@ -33,3 +33,6 @@
 
 - Decision: Упростить YAML для Telegram job и переименовать `checks` в `ci_checks`.
   Rationale: GitLab продолжил отклонять pipeline с ошибкой про `jobs project config`, хотя top-level `workflow` уже удален. Вероятный источник — неоднозначное чтение многострочного shell-блока с строками вида `Project:`. Формирование сообщения через `printf` и явное имя job уменьшают риск конфликтов с GitLab CI linter.
+
+- Decision: Использовать `node:22-alpine` и зафиксировать `html-validate@11.2.0` для HTML validation.
+  Rationale: `html-validate@11.2.0` требует Node `^22.17.0 || >= 24.0.0`; на `node:20-alpine` CI падал с `EBADENGINE` и `fs.globSync is not a function`. Фиксация версии валидатора делает pipeline предсказуемее, чем `latest`.
