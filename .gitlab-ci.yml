@@ -139,6 +139,65 @@ deploy_dev:
       - deploy-status.env
     expire_in: 1 week
 
+deploy_prod:
+  stage: deploy
+  image: alpine:3.20
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      when: manual
+  needs:
+    - job: ci_checks
+      artifacts: true
+  before_script:
+    - apk add --no-cache lftp
+  script:
+    - |
+      set +e
+
+      deploy_target="${PROD_DEPLOY_PATH:-/public_html/}"
+
+      if [ -z "$FTP_HOST" ] || [ -z "$FTP_USER" ] || [ -z "$FTP_PASSWORD" ]; then
+        echo "DEPLOY_STATUS=missing_ftp_variables" > deploy-status.env
+        echo "Missing FTP_HOST, FTP_USER, or FTP_PASSWORD"
+        exit 1
+      fi
+
+      lftp -u "$FTP_USER","$FTP_PASSWORD" "ftp://$FTP_HOST" -e "
+      set ftp:passive-mode true
+      set ssl:verify-certificate no
+      mirror -R --verbose \
+        --exclude .git/ \
+        --exclude .github/ \
+        --exclude .agent/ \
+        --exclude .gitlab-ci.yml \
+        --exclude .gitattributes \
+        --exclude .gitignore \
+        --exclude AGENTS.md \
+        --exclude README.md \
+        --exclude ci-checks.env \
+        --exclude deploy-status.env \
+        --exclude html-validate-.*\\.log \
+        ./ ${deploy_target}
+      bye
+      "
+      deploy_result=$?
+
+      if [ "$deploy_result" -eq 0 ]; then
+        echo "DEPLOY_STATUS=success" > deploy-status.env
+      else
+        echo "DEPLOY_STATUS=failed" > deploy-status.env
+      fi
+
+      cat deploy-status.env
+      exit "$deploy_result"
+  artifacts:
+    when: always
+    reports:
+      dotenv: deploy-status.env
+    paths:
+      - deploy-status.env
+    expire_in: 1 week
+
 telegram_notify:
   stage: notify
   image: alpine:3.20
@@ -150,6 +209,9 @@ telegram_notify:
     - job: ci_checks
       artifacts: true
     - job: deploy_dev
+      artifacts: true
+      optional: true
+    - job: deploy_prod
       artifacts: true
       optional: true
   before_script:

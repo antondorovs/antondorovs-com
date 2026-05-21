@@ -16,7 +16,7 @@
 - Протестировать сейчас: вручную проверить `index.html`, ссылки на игры, мобильное меню, адаптив и консоль браузера.
 - CI-проверки: GitLab запускает `.gitlab-ci.yml` на ветках `dev` и `main`.
 
-Команды сборки сейчас нет. Полноценных app/e2e тестов пока нет; текущий GitLab pipeline выполняет smoke checks, HTML validation, dev deploy и Telegram-уведомление.
+Команды сборки сейчас нет. Полноценных app/e2e тестов пока нет; текущий GitLab pipeline выполняет smoke checks, HTML validation, dev deploy, ручной prod deploy и Telegram-уведомление.
 
 ## Правила кода
 
@@ -32,8 +32,8 @@
 
 - Проект пушится в GitHub и GitLab.
 - Старый deploy через GitHub Actions отключен переносом workflow в `.github/workflows_disabled/`.
-- Текущий GitLab pipeline выполняет проверки, dev deploy и Telegram-уведомление.
-- Main deploy пока не включён; добавляй его отдельным решением после стабильной проверки dev.
+- Текущий GitLab pipeline выполняет проверки, автоматический dev deploy, ручной prod deploy и Telegram-уведомление.
+- Production deploy запускается вручную на ветке `main`.
 - Java-архив Dino скрыт из GitHub language stats через `.gitattributes`; активная браузерная Dino-игра использует `GameDino/gameDino.js`.
 - Проектная память лежит в `.agent/`: план развития, задачи, решения, карта проекта и правила ExecPlans.
 

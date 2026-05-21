@@ -10,6 +10,7 @@
 - Добавить GitLab CI pipeline с проверками и Telegram-уведомлением без реального деплоя.
 - Почистить HTML validation ошибки в `index.html` и `gameofLife.html`.
 - Добавить `deploy_dev` stage в GitLab CI для dev-окружения.
+- Добавить ручной `deploy_prod` stage в GitLab CI для production.
 
 ## Planned
 
@@ -21,8 +22,7 @@
 - Оптимизировать изображения.
 - Оформить секцию игр карточками.
 - Добавить базовые проверки качества.
-- Проверить стабильность dev deploy в GitLab CI/CD.
-- Добавить deploy stage для `main` после успешной проверки dev.
+- Проверить стабильность production deploy после первого ручного запуска.
 
 ## Later
 

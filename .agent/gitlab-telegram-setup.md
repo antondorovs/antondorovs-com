@@ -4,7 +4,7 @@
 
 ## Цель
 
-Текущий GitLab pipeline запускает проверки, деплоит ветку `dev` в dev-окружение и отправляет уведомления в Telegram. Main deploy подключается отдельным следующим шагом.
+Текущий GitLab pipeline запускает проверки, автоматически деплоит ветку `dev`, позволяет вручную деплоить ветку `main` в production и отправляет уведомления в Telegram.
 
 ## Telegram
 
@@ -37,9 +37,9 @@
    Рекомендуемые настройки: masked, protected по ситуации.
 5. Не добавляй Telegram token или chat id в `.gitlab-ci.yml`, README или любые tracked-файлы.
 
-## Переменные для dev deploy
+## Переменные для deploy
 
-GitLab pipeline теперь включает `deploy_dev` для ветки `dev`. Переменные FTP нужно добавить в GitLab CI/CD variables.
+GitLab pipeline включает `deploy_dev` для ветки `dev` и ручной `deploy_prod` для ветки `main`. Переменные FTP нужно добавить в GitLab CI/CD variables.
 
 Обязательные переменные:
 
@@ -50,6 +50,7 @@ GitLab pipeline теперь включает `deploy_dev` для ветки `de
 Опциональная переменная:
 
 - `DEV_DEPLOY_PATH` — путь для dev-деплоя. Если переменная не задана, используется `/dev-antondorovs/public_html/`.
+- `PROD_DEPLOY_PATH` — путь для production-деплоя. Если переменная не задана, используется `/public_html/`.
 
 Для всех секретов используй GitLab CI/CD variables. Не добавляй FTP-значения в tracked-файлы.
 
@@ -60,6 +61,7 @@ GitLab pipeline теперь включает `deploy_dev` для ветки `de
 - запускаться на push в GitLab;
 - выполнять проверки;
 - деплоить ветку `dev` в dev-окружение после успешных проверок;
+- показывать ручной job `deploy_prod` для ветки `main` после успешных проверок;
 - отправлять Telegram-сообщение при успешном pipeline;
 - отправлять Telegram-сообщение при ошибке pipeline;
 - показывать количество пройденных проверок.
@@ -71,4 +73,5 @@ GitLab pipeline теперь включает `deploy_dev` для ветки `de
 - что бот добавлен в нужный чат;
 - что GitLab variables доступны pipeline;
 - что `FTP_HOST`, `FTP_USER` и `FTP_PASSWORD` доступны protected ветке `dev`;
+- что `FTP_HOST`, `FTP_USER` и `FTP_PASSWORD` доступны protected ветке `main`;
 - что pipeline действительно запустился.

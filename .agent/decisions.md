@@ -42,3 +42,6 @@
 
 - Decision: Добавить GitLab deploy только для ветки `dev`.
   Rationale: Dev deploy позволяет проверить FTP-доставку и окружение без риска для production. Main deploy будет отдельным этапом после стабильной проверки dev.
+
+- Decision: Добавить production deploy как ручной job на ветке `main`.
+  Rationale: Production должен выкатываться только после зеленых проверок и явного действия пользователя. Это снижает риск случайного автоматического деплоя в `/public_html/`.
