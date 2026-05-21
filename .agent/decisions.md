@@ -27,3 +27,6 @@
 
 - Decision: Временно отключить GitHub Actions deploy переносом workflow в `.github/workflows_disabled/`.
   Rationale: Старый GitHub Actions deploy работает нестабильно, но его полезно сохранить как историю настроек и источник параметров для будущего GitLab deploy.
+
+- Decision: Заменить top-level `workflow` в `.gitlab-ci.yml` на job-level `rules`.
+  Rationale: GitLab отклонил первый pipeline с ошибкой `jobs project config should implement the script:, run:, or trigger: keyword`, фактически распознав `workflow` как job. Job-level `rules` сохраняют ограничение запуска на `dev`, `main` и manual web pipeline без спорного top-level блока.
