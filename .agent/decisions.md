@@ -30,3 +30,6 @@
 
 - Decision: Заменить top-level `workflow` в `.gitlab-ci.yml` на job-level `rules`.
   Rationale: GitLab отклонил первый pipeline с ошибкой `jobs project config should implement the script:, run:, or trigger: keyword`, фактически распознав `workflow` как job. Job-level `rules` сохраняют ограничение запуска на `dev`, `main` и manual web pipeline без спорного top-level блока.
+
+- Decision: Упростить YAML для Telegram job и переименовать `checks` в `ci_checks`.
+  Rationale: GitLab продолжил отклонять pipeline с ошибкой про `jobs project config`, хотя top-level `workflow` уже удален. Вероятный источник — неоднозначное чтение многострочного shell-блока с строками вида `Project:`. Формирование сообщения через `printf` и явное имя job уменьшают риск конфликтов с GitLab CI linter.
