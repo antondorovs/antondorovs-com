@@ -192,10 +192,13 @@ header {
 }
 
 #mainpic {
-    width: 150px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    border: 3px solid #1a1a1a;
-    margin-top: -77.4px;
+    border: 5px solid #1a1a1a;
+    margin-top: -65px;
+    margin-right: 8px;
+    object-fit: cover;
 }
 
 .icons {
@@ -254,6 +257,15 @@ header {
         line-height: 1.6;
         padding: 0 18px;
     }
+    #mainpic {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 4px solid #1a1a1a;
+    margin-top: -55px;
+    margin-right: 8px;
+    object-fit: cover;
+}
 }
 
 @media screen and (max-width: 576px) {
@@ -279,12 +291,11 @@ header {
     }
 
     #mainpic {
-        height: 100px;
-        width: 100px;
-        border-radius: 50%;
-        border: 1px solid #1a1a1a;
-        margin-top: -50px;
-        margin-right: 5px;
+        width: 90px;
+        height: 90px;
+        margin-top: -45px;
+        margin-right: 6px;
+        border: 3px solid #1a1a1a;
     }
 
     .class {
@@ -322,10 +333,11 @@ header {
     }
 
     #mainpic {
-        height: 70px;
         width: 70px;
+        height: 70px;
+        margin-top: -35px;
+        margin-right: 5px;
         border: 2px solid #1a1a1a;
-        margin-top: -40px;
     }
 
     .class {
@@ -342,17 +354,8 @@ header {
         width: 30px;
         height: 30px;
     }
+
 }
-
-    #mainpic {
-        height: 100px;
-        width: 100px;
-        border-radius: 50%;
-        border: 1px solid #1a1a1a;
-        margin-top: -50.8px;
-        margin-right: 5px;
-    }
-
     .icon {
         width: 40px;
         height: 40px;
@@ -374,13 +377,6 @@ header {
 
     p {
         font-size: 8px;
-    }
-
-    #mainpic {
-        height: 60px;
-        width: 60px;
-        border: 3px solid #1a1a1a;
-        margin-top: -50px;
     }
 
     #wall {
