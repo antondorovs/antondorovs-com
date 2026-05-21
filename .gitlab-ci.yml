@@ -2,7 +2,7 @@ stages:
   - test
   - notify
 
-checks:
+ci_checks:
   stage: test
   image: node:20-alpine
   rules:
@@ -88,7 +88,7 @@ telegram_notify:
     - if: '$CI_COMMIT_BRANCH == "dev" || $CI_COMMIT_BRANCH == "main"'
     - if: '$CI_PIPELINE_SOURCE == "web"'
   dependencies:
-    - checks
+    - ci_checks
   before_script:
     - apk add --no-cache curl
   script:
@@ -109,14 +109,15 @@ telegram_notify:
         icon="FAILED"
       fi
 
-      message="${icon} GitLab pipeline ${status}
-Project: ${CI_PROJECT_PATH}
-Branch: ${CI_COMMIT_REF_NAME}
-Commit: ${CI_COMMIT_SHORT_SHA}
-User: ${GITLAB_USER_NAME}
-Checks: ${checks_passed}/${checks_total} passed
-Deploy: disabled (notify-only + checks)
-Pipeline: ${CI_PIPELINE_URL}"
+      message="$(printf '%s\n' \
+        "${icon} GitLab pipeline ${status}" \
+        "Project: ${CI_PROJECT_PATH}" \
+        "Branch: ${CI_COMMIT_REF_NAME}" \
+        "Commit: ${CI_COMMIT_SHORT_SHA}" \
+        "User: ${GITLAB_USER_NAME}" \
+        "Checks: ${checks_passed}/${checks_total} passed" \
+        "Deploy: disabled (notify-only + checks)" \
+        "Pipeline: ${CI_PIPELINE_URL}")"
 
       curl --fail --silent --show-error \
         --request POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
