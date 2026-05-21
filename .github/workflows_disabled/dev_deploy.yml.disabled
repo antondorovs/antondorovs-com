@@ -27,6 +27,6 @@ jobs:
           lftp -u "${{ secrets.FTP_USER }}","${{ secrets.FTP_PASSWORD }}" ftp://${{ secrets.FTP_HOST }} -e "
           set ftp:passive-mode true
           set ssl:verify-certificate no
-          mirror -R --verbose --only-newer --exclude .git/ --exclude .github/ --exclude .gitignore ./ /dev-antondorovs/public_html/
+          mirror -R --verbose --exclude .git/ --exclude .github/ ./ /dev-antondorovs/public_html/
           bye
           "

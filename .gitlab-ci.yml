@@ -1,0 +1,124 @@
+stages:
+  - test
+  - notify
+
+workflow:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev" || $CI_COMMIT_BRANCH == "main"'
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+    - when: never
+
+checks:
+  stage: test
+  image: node:20-alpine
+  script:
+    - |
+      set +e
+
+      total=0
+      passed=0
+      failed=0
+
+      check_file() {
+        total=$((total + 1))
+        if [ -f "$1" ]; then
+          echo "PASS file exists: $1"
+          passed=$((passed + 1))
+        else
+          echo "FAIL missing file: $1"
+          failed=$((failed + 1))
+        fi
+      }
+
+      check_file "index.html"
+      check_file "script.js"
+      check_file "styles/main.css"
+      check_file "gameDino.html"
+      check_file "gameSnake.html"
+      check_file "gameFB.html"
+      check_file "gameofLife.html"
+      check_file "gameSnakeUnlim.html"
+      check_file "GameDino/gameDino.js"
+      check_file "GameSnake/gameSnake.js"
+      check_file "GameFlappyBird/gameFB.js"
+      check_file "GameOfLife/gameofLife.js"
+      check_file "GameSnakeUnlimited/gameSnakeUnlim.js"
+
+      for file in $(find . -maxdepth 1 -type f -name "*.html" | sort); do
+        total=$((total + 1))
+        base="$(basename "$file" .html)"
+        log_file="html-validate-${base}.log"
+
+        echo "Validate HTML: $file"
+        npx --yes html-validate@latest "$file" > "$log_file" 2>&1
+        result=$?
+
+        if [ "$result" -eq 0 ]; then
+          echo "PASS html validation: $file"
+          passed=$((passed + 1))
+        else
+          echo "FAIL html validation: $file"
+          cat "$log_file"
+          failed=$((failed + 1))
+        fi
+      done
+
+      {
+        echo "CHECKS_TOTAL=$total"
+        echo "CHECKS_PASSED=$passed"
+        echo "CHECKS_FAILED=$failed"
+      } > ci-checks.env
+
+      cat ci-checks.env
+
+      if [ "$failed" -gt 0 ]; then
+        exit 1
+      fi
+  artifacts:
+    when: always
+    reports:
+      dotenv: ci-checks.env
+    paths:
+      - ci-checks.env
+      - html-validate-*.log
+    expire_in: 1 week
+
+telegram_notify:
+  stage: notify
+  image: alpine:3.20
+  when: always
+  dependencies:
+    - checks
+  before_script:
+    - apk add --no-cache curl
+  script:
+    - |
+      if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+        echo "Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID"
+        exit 1
+      fi
+
+      checks_total="${CHECKS_TOTAL:-0}"
+      checks_passed="${CHECKS_PASSED:-0}"
+      checks_failed="${CHECKS_FAILED:-0}"
+
+      status="success"
+      icon="OK"
+      if [ "$checks_failed" != "0" ]; then
+        status="failed"
+        icon="FAILED"
+      fi
+
+      message="${icon} GitLab pipeline ${status}
+Project: ${CI_PROJECT_PATH}
+Branch: ${CI_COMMIT_REF_NAME}
+Commit: ${CI_COMMIT_SHORT_SHA}
+User: ${GITLAB_USER_NAME}
+Checks: ${checks_passed}/${checks_total} passed
+Deploy: disabled (notify-only + checks)
+Pipeline: ${CI_PIPELINE_URL}"
+
+      curl --fail --silent --show-error \
+        --request POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+        --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+        --data-urlencode "text=${message}"
