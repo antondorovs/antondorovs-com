@@ -11,6 +11,7 @@
 - Почистить HTML validation ошибки в `index.html` и `gameofLife.html`.
 - Добавить `deploy_dev` stage в GitLab CI для dev-окружения.
 - Добавить ручной `deploy_prod` stage в GitLab CI для production.
+- Описать порядок синхронизации веток GitHub/GitLab в `README.md` и `AGENTS.md`.
 
 ## Planned
 
@@ -23,6 +24,7 @@
 - Оформить секцию игр карточками.
 - Добавить базовые проверки качества.
 - Проверить стабильность production deploy после первого ручного запуска.
+- Держать ветки `dev` и `main` синхронными между GitHub и GitLab после каждого merge/release.
 
 ## Later
 

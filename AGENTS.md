@@ -21,6 +21,7 @@
 ## Правила кода
 
 - Перед изменениями проверяй `git status --short --branch` и не трогай чужие незавершенные изменения.
+- Перед работой с ветками сверяй GitHub `origin` и GitLab `gitlab`; не пушь в одну площадку надолго без второй.
 - Держи правки маленькими и связанными с задачей.
 - Не ломай существующие игры и их HTML-точки входа.
 - Для текущего сайта используй простой HTML/CSS/JS без новых зависимостей, если задача явно не требует другого.
@@ -31,6 +32,8 @@
 ## Нюансы
 
 - Проект пушится в GitHub и GitLab.
+- Основной рабочий поток: изменения в `dev`, push в `origin` и `gitlab`, зеленый GitLab pipeline, merge `dev -> main`, ручной `deploy_prod`, затем выравнивание `dev` с `main`.
+- Если GitLab/GitHub отклоняет push из-за `fetch first`, сначала сравни ветки через `git fetch` и `git log --left-right`; не используй `--force` без отдельного решения.
 - Старый deploy через GitHub Actions отключен переносом workflow в `.github/workflows_disabled/`.
 - Текущий GitLab pipeline выполняет проверки, автоматический dev deploy, ручной prod deploy и Telegram-уведомление.
 - Production deploy запускается вручную на ветке `main`.
