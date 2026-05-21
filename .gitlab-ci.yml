@@ -4,7 +4,7 @@ stages:
 
 ci_checks:
   stage: test
-  image: node:20-alpine
+  image: node:22-alpine
   rules:
     - if: '$CI_COMMIT_BRANCH == "dev" || $CI_COMMIT_BRANCH == "main"'
     - if: '$CI_PIPELINE_SOURCE == "web"'
@@ -47,7 +47,7 @@ ci_checks:
         log_file="html-validate-${base}.log"
 
         echo "Validate HTML: $file"
-        npx --yes html-validate@latest "$file" > "$log_file" 2>&1
+        npx --yes html-validate@11.2.0 "$file" > "$log_file" 2>&1
         result=$?
 
         if [ "$result" -eq 0 ]; then
