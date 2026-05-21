@@ -1,10 +1,10 @@
 # GitLab и Telegram Setup
 
-Эта инструкция описывает ручные действия, которые нужно выполнить перед включением GitLab pipeline с Telegram-уведомлениями. Не коммить реальные токены, chat id, пароли или другие секреты в репозиторий.
+Эта инструкция описывает ручные действия, которые нужны для GitLab pipeline с Telegram-уведомлениями и dev deploy. Не коммить реальные токены, chat id, пароли или другие секреты в репозиторий.
 
 ## Цель
 
-На первом этапе GitLab pipeline будет работать в режиме `notify-only + checks`: запускать проверки и отправлять уведомления в Telegram. Реальный deploy подключается отдельным следующим шагом.
+Текущий GitLab pipeline запускает проверки, деплоит ветку `dev` в dev-окружение и отправляет уведомления в Telegram. Main deploy подключается отдельным следующим шагом.
 
 ## Telegram
 
@@ -37,17 +37,21 @@
    Рекомендуемые настройки: masked, protected по ситуации.
 5. Не добавляй Telegram token или chat id в `.gitlab-ci.yml`, README или любые tracked-файлы.
 
-## Будущие переменные для deploy
+## Переменные для dev deploy
 
-Когда pipeline перейдет от `notify-only + checks` к реальному deploy, переменные FTP/SFTP нужно добавить отдельно в GitLab CI/CD variables. Названия будут зафиксированы вместе с `.gitlab-ci.yml`.
+GitLab pipeline теперь включает `deploy_dev` для ветки `dev`. Переменные FTP нужно добавить в GitLab CI/CD variables.
 
-Ожидаемые типы секретов:
+Обязательные переменные:
 
-- host сервера;
-- username;
-- password или SSH key;
-- target path для `dev`;
-- target path для `main`.
+- `FTP_HOST` — host FTP-сервера.
+- `FTP_USER` — FTP username.
+- `FTP_PASSWORD` — FTP password.
+
+Опциональная переменная:
+
+- `DEV_DEPLOY_PATH` — путь для dev-деплоя. Если переменная не задана, используется `/dev-antondorovs/public_html/`.
+
+Для всех секретов используй GitLab CI/CD variables. Не добавляй FTP-значения в tracked-файлы.
 
 ## Проверка
 
@@ -55,6 +59,7 @@
 
 - запускаться на push в GitLab;
 - выполнять проверки;
+- деплоить ветку `dev` в dev-окружение после успешных проверок;
 - отправлять Telegram-сообщение при успешном pipeline;
 - отправлять Telegram-сообщение при ошибке pipeline;
 - показывать количество пройденных проверок.
@@ -65,4 +70,5 @@
 - что chat id правильный;
 - что бот добавлен в нужный чат;
 - что GitLab variables доступны pipeline;
+- что `FTP_HOST`, `FTP_USER` и `FTP_PASSWORD` доступны protected ветке `dev`;
 - что pipeline действительно запустился.

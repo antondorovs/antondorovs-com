@@ -392,3 +392,8 @@ header {
         height: 30px;
     }
 }
+
+.visually-hidden-counter {
+    position: absolute;
+    left: -9999px;
+}

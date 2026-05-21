@@ -11,7 +11,7 @@
 - `.htaccess` — настройки сервера Apache.
 - `.gitignore` — игнор локальных и сгенерированных файлов.
 - `.gitattributes` — настройки GitHub Linguist; скрывает архивную Java-версию Dino из статистики языков.
-- `.gitlab-ci.yml` — GitLab pipeline для проверок и Telegram-уведомлений. Реальный deploy пока выключен.
+- `.gitlab-ci.yml` — GitLab pipeline для проверок, dev deploy и Telegram-уведомлений.
 
 ## Стили и ассеты
 
@@ -34,4 +34,4 @@
 - `.github/workflows_disabled/` — отключенные экспериментальные workflow и архив старого GitHub Actions deploy.
 - `.agent/gitlab-telegram-setup.md` — ручная инструкция по подготовке Telegram bot и GitLab CI/CD variables.
 
-Текущий рабочий путь CI/CD — GitLab pipeline с проверками и Telegram-уведомлениями. Реальный deploy будет добавлен отдельным этапом.
+Текущий рабочий путь CI/CD — GitLab pipeline с проверками, dev deploy и Telegram-уведомлениями. Main deploy будет добавлен отдельным этапом после проверки dev.

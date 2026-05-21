@@ -8,6 +8,8 @@
 - Зафиксировать проектную память в `AGENTS.md` и `.agent/`.
 - Описать ручные шаги Telegram/GitLab для будущего CI/CD.
 - Добавить GitLab CI pipeline с проверками и Telegram-уведомлением без реального деплоя.
+- Почистить HTML validation ошибки в `index.html` и `gameofLife.html`.
+- Добавить `deploy_dev` stage в GitLab CI для dev-окружения.
 
 ## Planned
 
@@ -19,8 +21,8 @@
 - Оптимизировать изображения.
 - Оформить секцию игр карточками.
 - Добавить базовые проверки качества.
-- Добавить реальный deploy stage в GitLab CI/CD.
-- Расширить Telegram-уведомления после подключения deploy stage.
+- Проверить стабильность dev deploy в GitLab CI/CD.
+- Добавить deploy stage для `main` после успешной проверки dev.
 
 ## Later
 

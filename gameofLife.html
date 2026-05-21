@@ -22,13 +22,13 @@
       </p>
       <p>
         The evolution of the game is governed by simple rules:
-        <ul>
-          <li>Any live cell with fewer than two live neighbors dies (underpopulation).</li>
-          <li>Any live cell with two or three live neighbors lives on to the next generation.</li>
-          <li>Any live cell with more than three live neighbors dies (overpopulation).</li>
-          <li>Any dead cell with exactly three live neighbors becomes a live cell (reproduction).</li>
-        </ul>
       </p>
+      <ul>
+        <li>Any live cell with fewer than two live neighbors dies (underpopulation).</li>
+        <li>Any live cell with two or three live neighbors lives on to the next generation.</li>
+        <li>Any live cell with more than three live neighbors dies (overpopulation).</li>
+        <li>Any dead cell with exactly three live neighbors becomes a live cell (reproduction).</li>
+      </ul>
       <p>
         To interact with the game, click on cells to toggle their state.<br>
         Experiment with different initial configurations and observe how the patterns evolve over time.
@@ -45,10 +45,10 @@
       <input type="number" id="cycle-time" min="0.1" step="0.1" value="1">
     </div>
     <div id="button">
-      <button onclick="applyChanges()">Apply</button>
-      <button onclick="randomizeGrid()">Random</button>
-      <button onclick="startGame()">Start</button>
-      <button onclick="clearGrid()">Clear</button>
+      <button type="button" onclick="applyChanges()">Apply</button>
+      <button type="button" onclick="randomizeGrid()">Random</button>
+      <button type="button" onclick="startGame()">Start</button>
+      <button type="button" onclick="clearGrid()">Clear</button>
     </div>
     <span id="cycle-counter">Cycle: 0</span>
     <div class="grid" id="grid"></div>

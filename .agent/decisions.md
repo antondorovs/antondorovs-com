@@ -36,3 +36,9 @@
 
 - Decision: Использовать `node:22-alpine` и зафиксировать `html-validate@11.2.0` для HTML validation.
   Rationale: `html-validate@11.2.0` требует Node `^22.17.0 || >= 24.0.0`; на `node:20-alpine` CI падал с `EBADENGINE` и `fs.globSync is not a function`. Фиксация версии валидатора делает pipeline предсказуемее, чем `latest`.
+
+- Decision: Исправлять реальные HTML validation ошибки вместо ослабления правил валидатора.
+  Rationale: После обновления Node CI начал показывать настоящие ошибки разметки в `index.html` и `gameofLife.html`. Исправление HTML повышает качество сайта и позволяет использовать validation как честный quality gate.
+
+- Decision: Добавить GitLab deploy только для ветки `dev`.
+  Rationale: Dev deploy позволяет проверить FTP-доставку и окружение без риска для production. Main deploy будет отдельным этапом после стабильной проверки dev.
