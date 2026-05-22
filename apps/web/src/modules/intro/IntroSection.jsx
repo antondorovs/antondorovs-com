@@ -1,4 +1,4 @@
-import profilePhoto from '../../../../../img/AntonDorovs.png';
+import profilePhoto from '../../assets/site/AntonDorovs.png';
 import { SocialLinks } from './SocialLinks.jsx';
 import './IntroSection.css';
 

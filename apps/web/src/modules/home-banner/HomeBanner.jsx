@@ -1,4 +1,4 @@
-import wallImage from '../../../../../img/wall_quality.PNG';
+import wallImage from '../../assets/site/wall_quality.PNG';
 import './HomeBanner.css';
 
 export function HomeBanner() {

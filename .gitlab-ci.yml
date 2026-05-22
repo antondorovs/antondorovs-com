@@ -28,38 +28,13 @@ ci_checks:
         fi
       }
 
-      check_file "index.html"
-      check_file "script.js"
-      check_file "styles/main.css"
-      check_file "gameDino.html"
-      check_file "gameSnake.html"
-      check_file "gameFB.html"
-      check_file "gameofLife.html"
-      check_file "gameSnakeUnlim.html"
-      check_file "GameDino/gameDino.js"
-      check_file "GameSnake/gameSnake.js"
-      check_file "GameFlappyBird/gameFB.js"
-      check_file "GameOfLife/gameofLife.js"
-      check_file "GameSnakeUnlimited/gameSnakeUnlim.js"
-
-      for file in $(find . -maxdepth 1 -type f -name "*.html" | sort); do
-        total=$((total + 1))
-        base="$(basename "$file" .html)"
-        log_file="html-validate-${base}.log"
-
-        echo "Validate HTML: $file"
-        npx --yes html-validate@11.2.0 "$file" > "$log_file" 2>&1
-        result=$?
-
-        if [ "$result" -eq 0 ]; then
-          echo "PASS html validation: $file"
-          passed=$((passed + 1))
-        else
-          echo "FAIL html validation: $file"
-          cat "$log_file"
-          failed=$((failed + 1))
-        fi
-      done
+      check_file "apps/web/index.html"
+      check_file "apps/web/src/app/App.jsx"
+      check_file "apps/web/src/pages/HomePage/HomePage.jsx"
+      check_file "apps/web/src/modules/analytics/AnalyticsScripts.jsx"
+      check_file "apps/web/src/games/dino/DinoGame.jsx"
+      check_file "apps/web/src/games/snake/SnakeGame.jsx"
+      check_file "apps/web/src/games/game-of-life/GameOfLife.jsx"
 
       total=$((total + 1))
       echo "Install React app dependencies"
@@ -186,17 +161,7 @@ deploy_prod:
       set ftp:passive-mode true
       set ssl:verify-certificate no
       mirror -R --verbose \
-        --exclude .git/ \
-        --exclude .github/ \
-        --exclude .gitlab-ci.yml \
-        --exclude .gitattributes \
-        --exclude .gitignore \
-        --exclude apps/ \
-        --exclude README.md \
-        --exclude ci-checks.env \
-        --exclude deploy-status.env \
-        --exclude html-validate-.*\\.log \
-        ./ ${deploy_target}
+        apps/web/dist/ ${deploy_target}
       bye
       "
       deploy_result=$?
