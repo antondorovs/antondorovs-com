@@ -6,7 +6,7 @@
 
 Сейчас проект собран как статический сайт на HTML, CSS и JavaScript. Сборщика, package manager и backend-части пока нет.
 
-В будущем возможен переход на React для фронтенда и Node.js с базой данных для серверной части, но только после стабилизации текущей версии сайта.
+Подтвержденное направление v1-приложения: React на JavaScript и Vite для фронтенда, простой PHP JSON API для backend и MySQL 5.7 на текущем Timeweb-хостинге.
 
 ## Быстрый старт
 
@@ -80,6 +80,41 @@ git rev-parse main
 Сравнить, есть ли различия между dev и main
 git rev-list --left-right --count dev...main
 ```
+
+## План будущего React/PHP/MySQL приложения
+
+
+PHP API и таблицы БД пока не добавлены.
+
+React/Vite scaffold уже создан в `apps/web`. Запуск локально:
+
+```powershell
+cd apps/web
+npm.cmd install
+npm.cmd run dev
+```
+
+Production build:
+
+```powershell
+cd apps/web
+npm.cmd run build
+```
+
+GitLab CI now also runs React dependency install and production build checks. The `dev` deploy uploads `apps/web/dist/` to the dev stand. Production deploy still uses the legacy static root until the React dev stand is approved.
+
+Подтвержденное направление:
+
+- `apps/web` — будущий React-фронтенд с модулями `header`, `footer`, `home-banner`, `about`, `work`, `games`, `auth`, `profile`, `settings`, `theme`, `i18n`.
+- `apps/web/src/games` — React-страницы игр: Dino, Snake, Flappy Bird, Game of Life, Snake Unlimited.
+- `apps/web/src/modules/analytics` — отдельный модуль метрик Google tag, Yandex.Metrika и Microsoft Clarity.
+- `api` — будущий PHP JSON API для авторизации, профиля, настроек, восстановления пароля и рекордов игр.
+- `database/migrations` — SQL-миграции для MySQL 5.7.
+- Dev-БД: `cg75134_antondorovsdev`.
+- Production-БД: `cg75134_antondorovs`.
+- Рекорды игр — рекомендуется одна общая таблица `game_scores` с уникальной записью на пользователя и игру; новая запись обновляет старую только если рекорд больше или равен предыдущему.
+
+Миграции сначала применяются к `cg75134_antondorovsdev` через phpMyAdmin. После проверки dev-среды перед production-миграцией нужно экспортировать backup `cg75134_antondorovs` через phpMyAdmin и только затем применять тот же SQL к production-БД.
 
 Идеальное состояние для начала новой задачи: `origin/dev`, `origin/main`, `gitlab/dev` и `gitlab/main` указывают на один и тот же commit SHA либо `dev` содержит только осознанные новые рабочие коммиты поверх `main`.
 

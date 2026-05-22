@@ -10,3 +10,8 @@ bin/
 
 # logs
 *.log
+
+# Node / React
+node_modules/
+dist/
+.vite/

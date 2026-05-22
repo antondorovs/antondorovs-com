@@ -1,0 +1,11 @@
+.placeholder-game {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+}
+
+.placeholder-game__canvas {
+  width: min(608px, 100%);
+  height: auto;
+  background: #ccc;
+}

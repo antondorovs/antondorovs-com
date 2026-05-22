@@ -1,0 +1,5 @@
+.snake-game {
+  width: min(608px, 100%);
+  height: auto;
+  background: #ddd;
+}
