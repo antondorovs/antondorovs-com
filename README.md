@@ -52,6 +52,8 @@
 3. После коммита пушить `dev` сразу в оба remotes:
 
    ```powershell
+   git add -A
+   git commit -m "Update"
    git push origin dev
    git push gitlab dev
    ```
