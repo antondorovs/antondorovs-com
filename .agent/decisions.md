@@ -1,50 +1,55 @@
 # Decisions
 
-Журнал решений проекта. Записывай сюда не только "что решили", но и "почему", чтобы через месяц не восстанавливать контекст по коммитам.
+Project decision log. Record not only what was decided, but why, so future work does not have to reconstruct context from commits.
 
 ## 2026-05-21
 
-- Decision: Использовать `.agent/` как проектную память.
-  Rationale: В проекте не было корневой документации для Codex и будущих разработчиков. Нужен компактный набор файлов для плана, задач, решений и карты проекта.
+- Decision: Use `.agent/` as project memory.
+  Rationale: The project did not have root documentation for Codex and future contributors. It needs a compact set of files for the roadmap, tasks, decisions, and project map.
 
-- Decision: Держать `AGENTS.md` компактным.
-  Rationale: Это входной файл для агента, а не полная энциклопедия проекта. Подробные правила больших задач вынесены в `.agent/PLANS.md`.
+- Decision: Keep `AGENTS.md` compact.
+  Rationale: It is the entry file for agents, not a full project encyclopedia. Detailed rules for large tasks live in `.agent/PLANS.md`.
 
-- Decision: Не удалять `GameDino/Downasaur-download` сразу.
-  Rationale: Папка не используется сайтом, но пока безопаснее скрыть Java из статистики через `.gitattributes`, а удаление выполнить отдельным решением после проверки.
+- Decision: Do not delete `GameDino/Downasaur-download` immediately.
+  Rationale: The folder is not used by the site, but it is safer for now to hide Java from language statistics through `.gitattributes` and make deletion a separate decision after verification.
 
-- Decision: Не рефакторить структуру сайта вместе с документацией.
-  Rationale: Сейчас цель — сделать проект понятнее и безопаснее для будущих изменений. Перенос файлов может затронуть ссылки, игры и деплой.
+- Decision: Do not refactor the site structure together with documentation.
+  Rationale: The current goal is to make the project easier to understand and safer to change. Moving files could affect links, games, and deploy.
 
-- Decision: Считать GitHub Actions временным и нестабильным CI/CD.
-  Rationale: Текущий деплой на окружения работает плохо. Планируется пересборка pipeline в GitLab с Telegram-уведомлениями.
+- Decision: Treat GitHub Actions as temporary and unstable CI/CD.
+  Rationale: The current environment deploy is unreliable. The plan is to rebuild the pipeline in GitLab with Telegram notifications.
 
-- Decision: Перед внедрением `.gitlab-ci.yml` сначала документировать ручные настройки Telegram и GitLab variables.
-  Rationale: Pipeline с уведомлениями зависит от секретов, которые нельзя хранить в репозитории. Отдельная инструкция снижает риск потерять контекст и упрощает синхронизацию ручных действий.
+- Decision: Before adding `.gitlab-ci.yml`, document the manual Telegram and GitLab variable setup.
+  Rationale: The notification pipeline depends on secrets that must not be stored in the repository. A separate guide reduces the risk of losing context and makes manual setup easier to coordinate.
 
-- Decision: Начать GitLab CI/CD с режима `notify-only + checks`, без реального deploy.
-  Rationale: Сначала нужно стабилизировать связку GitLab pipeline и Telegram-уведомлений. Deploy stage будет безопаснее добавить отдельным шагом после проверки уведомлений и базовых проверок.
+- Decision: Start GitLab CI/CD with `notify-only + checks`, without real deploy.
+  Rationale: The GitLab pipeline and Telegram notification link should be stabilized first. Deploy stages are safer to add after notification and basic checks are confirmed.
 
-- Decision: Временно отключить GitHub Actions deploy переносом workflow в `.github/workflows_disabled/`.
-  Rationale: Старый GitHub Actions deploy работает нестабильно, но его полезно сохранить как историю настроек и источник параметров для будущего GitLab deploy.
+- Decision: Temporarily disable GitHub Actions deploy by moving workflows to `.github/workflows_disabled/`.
+  Rationale: The old GitHub Actions deploy is unstable, but it is useful as setup history and as a source of parameters for future GitLab deploy.
 
-- Decision: Заменить top-level `workflow` в `.gitlab-ci.yml` на job-level `rules`.
-  Rationale: GitLab отклонил первый pipeline с ошибкой `jobs project config should implement the script:, run:, or trigger: keyword`, фактически распознав `workflow` как job. Job-level `rules` сохраняют ограничение запуска на `dev`, `main` и manual web pipeline без спорного top-level блока.
+- Decision: Replace top-level `workflow` in `.gitlab-ci.yml` with job-level `rules`.
+  Rationale: GitLab rejected the first pipeline with `jobs project config should implement the script:, run:, or trigger: keyword`, effectively reading `workflow` as a job. Job-level `rules` preserve the branch restrictions for `dev`, `main`, and manual web pipelines without the disputed top-level block.
 
-- Decision: Упростить YAML для Telegram job и переименовать `checks` в `ci_checks`.
-  Rationale: GitLab продолжил отклонять pipeline с ошибкой про `jobs project config`, хотя top-level `workflow` уже удален. Вероятный источник — неоднозначное чтение многострочного shell-блока с строками вида `Project:`. Формирование сообщения через `printf` и явное имя job уменьшают риск конфликтов с GitLab CI linter.
+- Decision: Simplify the Telegram job YAML and rename `checks` to `ci_checks`.
+  Rationale: GitLab continued rejecting the pipeline with the `jobs project config` error after removing top-level `workflow`. The likely cause was ambiguous parsing of a multiline shell block containing lines like `Project:`. Building the message with `printf` and using an explicit job name reduces CI linter ambiguity.
 
-- Decision: Использовать `node:22-alpine` и зафиксировать `html-validate@11.2.0` для HTML validation.
-  Rationale: `html-validate@11.2.0` требует Node `^22.17.0 || >= 24.0.0`; на `node:20-alpine` CI падал с `EBADENGINE` и `fs.globSync is not a function`. Фиксация версии валидатора делает pipeline предсказуемее, чем `latest`.
+- Decision: Use `node:22-alpine` and pin `html-validate@11.2.0` for HTML validation.
+  Rationale: `html-validate@11.2.0` requires Node `^22.17.0 || >= 24.0.0`; on `node:20-alpine`, CI failed with `EBADENGINE` and `fs.globSync is not a function`. Pinning the validator version is more predictable than using `latest`.
 
-- Decision: Исправлять реальные HTML validation ошибки вместо ослабления правил валидатора.
-  Rationale: После обновления Node CI начал показывать настоящие ошибки разметки в `index.html` и `gameofLife.html`. Исправление HTML повышает качество сайта и позволяет использовать validation как честный quality gate.
+- Decision: Fix real HTML validation errors instead of weakening validator rules.
+  Rationale: After updating Node, CI started showing real markup errors in `index.html` and `gameofLife.html`. Fixing HTML improves site quality and makes validation an honest quality gate.
 
-- Decision: Добавить GitLab deploy только для ветки `dev`.
-  Rationale: Dev deploy позволяет проверить FTP-доставку и окружение без риска для production. Main deploy будет отдельным этапом после стабильной проверки dev.
+- Decision: Add GitLab deploy only for the `dev` branch first.
+  Rationale: Dev deploy validates FTP delivery and the environment without production risk. Main deploy should be added separately after dev is stable.
 
-- Decision: Добавить production deploy как ручной job на ветке `main`.
-  Rationale: Production должен выкатываться только после зеленых проверок и явного действия пользователя. Это снижает риск случайного автоматического деплоя в `/public_html/`.
+- Decision: Add production deploy as a manual job on the `main` branch.
+  Rationale: Production should be deployed only after green checks and an explicit user action. This lowers the risk of accidental automatic deploy to `/public_html/`.
 
-- Decision: Считать GitHub и GitLab равноправными remotes, но синхронизировать их в одном фиксированном порядке.
-  Rationale: Расхождение появилось из-за действий на обеих площадках: часть merge/push происходила через GitHub, часть через GitLab. Чтобы не получать разные merge-коммиты и отклонения `fetch first`, изменения сначала ведутся в `dev`, затем пушатся в `origin` и `gitlab`, после merge `dev -> main` ветка `dev` выравнивается с `main` и снова отправляется в обе площадки. `git push --force` для такой синхронизации не используется без отдельного решения.
+- Decision: Treat GitHub and GitLab as equal remotes, but synchronize them in one fixed order.
+  Rationale: Divergence appeared because work happened on both platforms: some merge/push actions happened through GitHub, others through GitLab. To avoid different merge commits and `fetch first` rejections, changes start on `dev`, then get pushed to both `origin` and `gitlab`; after merging `dev -> main`, `dev` is aligned back to `main` and pushed to both remotes. `git push --force` is not used for this synchronization without a separate decision.
+
+## 2026-05-22
+
+- Decision: Keep agent-facing project documentation in English.
+  Rationale: English usually tokenizes more compactly than Russian Cyrillic for the model and is easier for coding agents to consume. User-facing docs may remain Russian unless a separate task asks to translate them.

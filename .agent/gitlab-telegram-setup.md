@@ -1,77 +1,77 @@
-# GitLab и Telegram Setup
+# GitLab and Telegram Setup
 
-Эта инструкция описывает ручные действия, которые нужны для GitLab pipeline с Telegram-уведомлениями и dev deploy. Не коммить реальные токены, chat id, пароли или другие секреты в репозиторий.
+This guide describes the manual steps needed for the GitLab pipeline with Telegram notifications and deploy. Do not commit real tokens, chat IDs, passwords, or other secrets to the repository.
 
-## Цель
+## Goal
 
-Текущий GitLab pipeline запускает проверки, автоматически деплоит ветку `dev`, позволяет вручную деплоить ветку `main` в production и отправляет уведомления в Telegram.
+The current GitLab pipeline runs checks, deploys the `dev` branch automatically, allows manual production deploy from the `main` branch, and sends Telegram notifications.
 
 ## Telegram
 
-1. Открой Telegram и найди `@BotFather`.
-2. Отправь команду `/newbot`.
-3. Задай имя и username бота.
-4. BotFather выдаст token. Сохрани его как будущую GitLab variable `TELEGRAM_BOT_TOKEN`.
-5. Создай отдельный чат/группу для уведомлений или выбери личный чат.
-6. Добавь бота в этот чат. Если это группа, дай боту право читать сообщения, если Telegram попросит права.
-7. Отправь любое тестовое сообщение в чат, где находится бот.
-8. Получи `TELEGRAM_CHAT_ID` через Telegram API:
+1. Open Telegram and find `@BotFather`.
+2. Send the `/newbot` command.
+3. Choose a bot name and username.
+4. BotFather will provide a token. Save it as the future GitLab variable `TELEGRAM_BOT_TOKEN`.
+5. Create a separate chat or group for notifications, or choose a personal chat.
+6. Add the bot to that chat. If it is a group, grant message-reading permissions if Telegram asks.
+7. Send any test message in the chat where the bot is present.
+8. Get `TELEGRAM_CHAT_ID` through the Telegram API:
 
-   Открой в браузере URL вида:
+   Open a URL like this in the browser:
 
        https://api.telegram.org/bot<TELEGRAM_BOT_TOKEN>/getUpdates
 
-   В ответе найди объект `chat` и поле `id`. Это значение понадобится как GitLab variable `TELEGRAM_CHAT_ID`.
+   In the response, find the `chat` object and its `id` field. This value is needed as the GitLab variable `TELEGRAM_CHAT_ID`.
 
-9. Если `getUpdates` возвращает пустой список, отправь в чат новое сообщение и обнови URL.
+9. If `getUpdates` returns an empty list, send a new message to the chat and refresh the URL.
 
 ## GitLab
 
-1. Открой GitLab project `antondorovs/antondorovs-site`.
-2. Перейди в `Settings -> CI/CD -> Variables`.
-3. Добавь variable `TELEGRAM_BOT_TOKEN`.
-   Значение: token от BotFather.
-   Рекомендуемые настройки: masked, protected по ситуации.
-4. Добавь variable `TELEGRAM_CHAT_ID`.
-   Значение: id чата из `getUpdates`.
-   Рекомендуемые настройки: masked, protected по ситуации.
-5. Не добавляй Telegram token или chat id в `.gitlab-ci.yml`, README или любые tracked-файлы.
+1. Open the GitLab project `antondorovs/antondorovs-site`.
+2. Go to `Settings -> CI/CD -> Variables`.
+3. Add the `TELEGRAM_BOT_TOKEN` variable.
+   Value: the token from BotFather.
+   Recommended settings: masked, protected when appropriate.
+4. Add the `TELEGRAM_CHAT_ID` variable.
+   Value: the chat ID from `getUpdates`.
+   Recommended settings: masked, protected when appropriate.
+5. Do not add the Telegram token or chat ID to `.gitlab-ci.yml`, README, or any tracked files.
 
-## Переменные для deploy
+## Deploy Variables
 
-GitLab pipeline включает `deploy_dev` для ветки `dev` и ручной `deploy_prod` для ветки `main`. Переменные FTP нужно добавить в GitLab CI/CD variables.
+The GitLab pipeline includes `deploy_dev` for the `dev` branch and manual `deploy_prod` for the `main` branch. FTP variables must be added in GitLab CI/CD variables.
 
-Обязательные переменные:
+Required variables:
 
-- `FTP_HOST` — host FTP-сервера.
+- `FTP_HOST` — FTP server host.
 - `FTP_USER` — FTP username.
 - `FTP_PASSWORD` — FTP password.
 
-Опциональная переменная:
+Optional variables:
 
-- `DEV_DEPLOY_PATH` — путь для dev-деплоя. Если переменная не задана, используется `/dev-antondorovs/public_html/`.
-- `PROD_DEPLOY_PATH` — путь для production-деплоя. Если переменная не задана, используется `/public_html/`.
+- `DEV_DEPLOY_PATH` — path for dev deploy. If not set, `/dev-antondorovs/public_html/` is used.
+- `PROD_DEPLOY_PATH` — path for production deploy. If not set, `/public_html/` is used.
 
-Для всех секретов используй GitLab CI/CD variables. Не добавляй FTP-значения в tracked-файлы.
+Use GitLab CI/CD variables for all secrets. Do not add FTP values to tracked files.
 
-## Проверка
+## Verification
 
-После добавления `.gitlab-ci.yml` pipeline должен:
+After `.gitlab-ci.yml` is added, the pipeline should:
 
-- запускаться на push в GitLab;
-- выполнять проверки;
-- деплоить ветку `dev` в dev-окружение после успешных проверок;
-- показывать ручной job `deploy_prod` для ветки `main` после успешных проверок;
-- отправлять Telegram-сообщение при успешном pipeline;
-- отправлять Telegram-сообщение при ошибке pipeline;
-- показывать количество пройденных проверок.
+- start on push to GitLab;
+- run checks;
+- deploy the `dev` branch to the dev environment after successful checks;
+- show a manual `deploy_prod` job for the `main` branch after successful checks;
+- send a Telegram message for successful pipelines;
+- send a Telegram message for failed pipelines;
+- show the number of passed checks.
 
-Если уведомление не пришло, проверь:
+If the notification does not arrive, check:
 
-- что bot token скопирован без пробелов;
-- что chat id правильный;
-- что бот добавлен в нужный чат;
-- что GitLab variables доступны pipeline;
-- что `FTP_HOST`, `FTP_USER` и `FTP_PASSWORD` доступны protected ветке `dev`;
-- что `FTP_HOST`, `FTP_USER` и `FTP_PASSWORD` доступны protected ветке `main`;
-- что pipeline действительно запустился.
+- that the bot token was copied without spaces;
+- that the chat ID is correct;
+- that the bot is added to the target chat;
+- that GitLab variables are available to the pipeline;
+- that `FTP_HOST`, `FTP_USER`, and `FTP_PASSWORD` are available to the protected `dev` branch;
+- that `FTP_HOST`, `FTP_USER`, and `FTP_PASSWORD` are available to the protected `main` branch;
+- that the pipeline actually started.

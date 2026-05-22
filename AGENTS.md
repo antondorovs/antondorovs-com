@@ -1,44 +1,44 @@
 # AGENTS.md
 
-## Описание стека
+## Stack
 
-Сейчас проект является статическим персональным сайтом на HTML, CSS и JavaScript. Основные страницы лежат в корне, стили в `styles/`, изображения в `img/`, иконки в `icons/`, игровые эксперименты в отдельных папках `Game*`.
+This project is currently a static personal website built with HTML, CSS, and JavaScript. Main pages live in the repository root, styles live in `styles/`, images in `img/`, icons in `icons/`, and browser game experiments in separate `Game*` folders.
 
-В будущем возможна миграция на React для фронтенда и Node.js с базой данных для backend-части. Пока не добавляй сборщик, фреймворк или backend без отдельного решения.
+A future migration to React for the frontend and Node.js with a database for the backend is possible. Do not add a build tool, framework, or backend without a separate decision.
 
-## Ключевые команды
+## Key Commands
 
-- Проверить состояние: `git status --short --branch`
-- Найти файлы: `rg --files`
-- Найти текст: `rg "pattern"`
-- Запустить локально без сборки: открыть `index.html` в браузере или поднять статический сервер из корня проекта.
-- Перезапустить локально: остановить текущий статический сервер и запустить его снова.
-- Протестировать сейчас: вручную проверить `index.html`, ссылки на игры, мобильное меню, адаптив и консоль браузера.
-- CI-проверки: GitLab запускает `.gitlab-ci.yml` на ветках `dev` и `main`.
+- Check repository state: `git status --short --branch`
+- List files: `rg --files`
+- Search text: `rg "pattern"`
+- Run locally without a build step: open `index.html` in a browser or start any static server from the repository root.
+- Restart locally: stop the current static server and start it again.
+- Test manually for now: check `index.html`, game links, the mobile menu, responsive layout, and the browser console.
+- CI checks: GitLab runs `.gitlab-ci.yml` on the `dev` and `main` branches.
 
-Команды сборки сейчас нет. Полноценных app/e2e тестов пока нет; текущий GitLab pipeline выполняет smoke checks, HTML validation, dev deploy, ручной prod deploy и Telegram-уведомление.
+There is no build command yet. There are no full app or e2e tests yet. The current GitLab pipeline runs smoke checks, HTML validation, dev deploy, manual production deploy, and a Telegram notification.
 
-## Правила кода
+## Code Rules
 
-- Перед изменениями проверяй `git status --short --branch` и не трогай чужие незавершенные изменения.
-- Перед работой с ветками сверяй GitHub `origin` и GitLab `gitlab`; не пушь в одну площадку надолго без второй.
-- Держи правки маленькими и связанными с задачей.
-- Не ломай существующие игры и их HTML-точки входа.
-- Для текущего сайта используй простой HTML/CSS/JS без новых зависимостей, если задача явно не требует другого.
-- Проверяй мобильную версию, меню, видимость текста и отсутствие горизонтального скролла.
-- Не удаляй архивные или спорные файлы без отдельного решения.
-- Если изменение сложное или затрагивает архитектуру, сначала оформи ExecPlan.
+- Before making changes, run `git status --short --branch` and do not touch someone else's unfinished work.
+- Before branch work, compare GitHub `origin` and GitLab `gitlab`; do not leave one remote updated without the other for long.
+- Keep changes small and tied to the task.
+- Do not break existing games or their HTML entry points.
+- For the current site, use plain HTML/CSS/JS without new dependencies unless the task clearly requires otherwise.
+- Check the mobile version, menu, text visibility, and absence of horizontal scroll.
+- Do not delete archived or disputed files without a separate decision.
+- If a change is complex or architectural, write an ExecPlan first.
 
-## Нюансы
+## Nuances
 
-- Проект пушится в GitHub и GitLab.
-- Основной рабочий поток: изменения в `dev`, push в `origin` и `gitlab`, зеленый GitLab pipeline, merge `dev -> main`, ручной `deploy_prod`, затем выравнивание `dev` с `main`.
-- Если GitLab/GitHub отклоняет push из-за `fetch first`, сначала сравни ветки через `git fetch` и `git log --left-right`; не используй `--force` без отдельного решения.
-- Старый deploy через GitHub Actions отключен переносом workflow в `.github/workflows_disabled/`.
-- Текущий GitLab pipeline выполняет проверки, автоматический dev deploy, ручной prod deploy и Telegram-уведомление.
-- Production deploy запускается вручную на ветке `main`.
-- Java-архив Dino скрыт из GitHub language stats через `.gitattributes`; активная браузерная Dino-игра использует `GameDino/gameDino.js`.
-- Проектная память лежит в `.agent/`: план развития, задачи, решения, карта проекта и правила ExecPlans.
+- The project is pushed to both GitHub and GitLab.
+- Main workflow: make changes on `dev`, push to `origin` and `gitlab`, wait for a green GitLab pipeline, merge `dev -> main`, run manual `deploy_prod`, then align `dev` with `main`.
+- If GitLab or GitHub rejects a push with `fetch first`, compare branches with `git fetch` and `git log --left-right`; do not use `--force` without a separate decision.
+- Old GitHub Actions deploy workflows are disabled by moving them to `.github/workflows_disabled/`.
+- The current GitLab pipeline runs checks, automatic dev deploy, manual production deploy, and Telegram notification.
+- Production deploy is started manually on the `main` branch.
+- The archived Java Dino version is hidden from GitHub language stats through `.gitattributes`; the active browser Dino game uses `GameDino/gameDino.js`.
+- Project memory lives in `.agent/`: roadmap, tasks, decisions, project map, and ExecPlan rules.
 
 # ExecPlans
 

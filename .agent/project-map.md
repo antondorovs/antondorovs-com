@@ -1,37 +1,37 @@
 # Project Map
 
-Карта текущей структуры проекта. Используй её как быстрый ориентир перед изменениями и рефакторингом.
+A quick map of the current project structure. Use it as orientation before changes and refactors.
 
-## Корень
+## Root
 
-- `README.md` — публичная карта проекта: описание, быстрый старт и навигация по документации.
-- `index.html` — главная страница персонального сайта.
-- `script.js` — JavaScript для главной страницы, сейчас в основном мобильное меню.
-- `gameDino.html`, `gameSnake.html`, `gameFB.html`, `gameofLife.html`, `gameSnakeUnlim.html` — HTML-точки входа для игр.
-- `.htaccess` — настройки сервера Apache.
-- `.gitignore` — игнор локальных и сгенерированных файлов.
-- `.gitattributes` — настройки GitHub Linguist; скрывает архивную Java-версию Dino из статистики языков.
-- `.gitlab-ci.yml` — GitLab pipeline для проверок, dev deploy, ручного prod deploy и Telegram-уведомлений.
+- `README.md` — public project map: description, quick start, and documentation navigation.
+- `index.html` — home page of the personal website.
+- `script.js` — JavaScript for the home page, currently mostly the mobile menu.
+- `gameDino.html`, `gameSnake.html`, `gameFB.html`, `gameofLife.html`, `gameSnakeUnlim.html` — HTML entry points for games.
+- `.htaccess` — Apache server settings.
+- `.gitignore` — ignores local and generated files.
+- `.gitattributes` — GitHub Linguist settings; hides the archived Java Dino version from language statistics.
+- `.gitlab-ci.yml` — GitLab pipeline for checks, dev deploy, manual production deploy, and Telegram notifications.
 
-## Стили и ассеты
+## Styles and Assets
 
-- `styles/` — CSS сайта и отдельных игр.
-- `img/` — изображения сайта, favicon и фото.
-- `icons/` — SVG-иконки.
+- `styles/` — CSS for the site and individual games.
+- `img/` — site images, favicon, and photos.
+- `icons/` — SVG icons.
 
-## Игры
+## Games
 
-- `GameDino/` — активная браузерная Dino-игра и ее ассеты. Активный скрипт: `GameDino/gameDino.js`.
-- `GameDino/Downasaur-download/` — архивная Java-версия Dino. Сайт её не использует.
-- `GameSnake/` — файлы Snake.
-- `GameFlappyBird/` — файлы Flappy Bird.
-- `GameOfLife/` — файлы Game of Life.
-- `GameSnakeUnlimited/` — файлы Snake unlimited.
+- `GameDino/` — active browser Dino game and its assets. Active script: `GameDino/gameDino.js`.
+- `GameDino/Downasaur-download/` — archived Java version of Dino. The site does not use it.
+- `GameSnake/` — Snake files.
+- `GameFlappyBird/` — Flappy Bird files.
+- `GameOfLife/` — Game of Life files.
+- `GameSnakeUnlimited/` — Snake Unlimited files.
 
 ## CI/CD
 
-- `.github/workflows/` — папка GitHub Actions. Deploy workflow временно отключены и перенесены из этой папки.
-- `.github/workflows_disabled/` — отключенные экспериментальные workflow и архив старого GitHub Actions deploy.
-- `.agent/gitlab-telegram-setup.md` — ручная инструкция по подготовке Telegram bot и GitLab CI/CD variables.
+- `.github/workflows/` — GitHub Actions folder. Deploy workflows are temporarily disabled and moved out of this folder.
+- `.github/workflows_disabled/` — disabled experimental workflows and the archived old GitHub Actions deploy setup.
+- `.agent/gitlab-telegram-setup.md` — manual setup guide for the Telegram bot and GitLab CI/CD variables.
 
-Текущий рабочий путь CI/CD — GitLab pipeline с проверками, автоматическим dev deploy, ручным prod deploy и Telegram-уведомлениями.
+The current CI/CD path is the GitLab pipeline with checks, automatic dev deploy, manual production deploy, and Telegram notifications.

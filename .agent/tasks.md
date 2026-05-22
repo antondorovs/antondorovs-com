@@ -1,33 +1,34 @@
 # Tasks
 
-Живой список задач проекта. Обновляй его после значимых изменений, чтобы следующий заход начинался не с расследования.
+A living task list for the project. Update it after meaningful changes so the next work session does not start with rediscovery.
 
 ## Done
 
-- Скрыть архивную Java-версию Dino из GitHub language stats через `.gitattributes`.
-- Зафиксировать проектную память в `AGENTS.md` и `.agent/`.
-- Описать ручные шаги Telegram/GitLab для будущего CI/CD.
-- Добавить GitLab CI pipeline с проверками и Telegram-уведомлением без реального деплоя.
-- Почистить HTML validation ошибки в `index.html` и `gameofLife.html`.
-- Добавить `deploy_dev` stage в GitLab CI для dev-окружения.
-- Добавить ручной `deploy_prod` stage в GitLab CI для production.
-- Описать порядок синхронизации веток GitHub/GitLab в `README.md` и `AGENTS.md`.
+- Hide the archived Java Dino version from GitHub language stats through `.gitattributes`.
+- Add project memory in `AGENTS.md` and `.agent/`.
+- Document manual Telegram/GitLab steps for future CI/CD work.
+- Add a GitLab CI pipeline with checks and Telegram notification before real deploy.
+- Fix HTML validation errors in `index.html` and `gameofLife.html`.
+- Add the `deploy_dev` stage in GitLab CI for the dev environment.
+- Add the manual `deploy_prod` stage in GitLab CI for production.
+- Document the GitHub/GitLab branch synchronization workflow in `README.md` and `AGENTS.md`.
+- Translate `AGENTS.md` and `.agent/*.md` from Russian to English to reduce token usage and improve agent readability.
 
 ## Planned
 
-- Поддерживать `README.md` как публичную карту проекта.
-- Заполнить секции `WORK` и `CONTACT` на главной странице.
-- Почистить `styles/main.css`.
-- Улучшить мобильное меню.
-- Добавить SEO и social preview.
-- Оптимизировать изображения.
-- Оформить секцию игр карточками.
-- Добавить базовые проверки качества.
-- Проверить стабильность production deploy после первого ручного запуска.
-- Держать ветки `dev` и `main` синхронными между GitHub и GitLab после каждого merge/release.
+- Keep `README.md` maintained as the public project map.
+- Fill the `WORK` and `CONTACT` sections on the home page.
+- Clean up `styles/main.css`.
+- Improve the mobile menu.
+- Add SEO and social preview metadata.
+- Optimize images.
+- Present the games section as cards.
+- Add basic quality checks.
+- Verify production deploy stability after the first manual run.
+- Keep `dev` and `main` synchronized between GitHub and GitLab after each merge or release.
 
 ## Later
 
-- Рассмотреть миграцию фронтенда на React.
-- Добавить backend на Node.js, если появится задача, требующая серверной логики.
-- Добавить базу данных, если появятся динамические данные.
+- Consider migrating the frontend to React.
+- Add a Node.js backend if a task appears that needs server-side logic.
+- Add a database if dynamic data becomes necessary.
