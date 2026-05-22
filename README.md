@@ -13,7 +13,7 @@
 - Проверить состояние репозитория: `git status --short --branch`
 - Посмотреть файлы проекта: `rg --files`
 - Найти текст по проекту: `rg "pattern"`
-- Запустить локально: открыть `index.html` в браузере или поднять любой статический сервер из корня проекта.
+- Запустить React-приложение локально: `cd apps/web`, затем `npm.cmd install` и `npm.cmd run dev`.
 - Проверить вручную: главную страницу, ссылки на игры, мобильное меню, адаптив и консоль браузера.
 
 Команды сборки сейчас нет. GitLab CI выполняет smoke checks, HTML validation, dev deploy, ручной prod deploy и Telegram-уведомление. Полноценных app/e2e тестов пока нет.
@@ -30,7 +30,7 @@
 
 ## CI/CD
 
-Проект пушится в GitHub и GitLab. Старый деплой через GitHub Actions отключен и сохранен в `.github/workflows_disabled/` как архив настроек.
+Проект пушится в GitHub и GitLab. Старый деплой через GitHub Actions отключен и сохранен в `archive/unused/github-actions-disabled/` как архив настроек.
 
 Текущий GitLab pipeline выполняет проверки, автоматически деплоит ветку `dev` в dev-окружение, позволяет вручную деплоить ветку `main` в production и отправляет Telegram-уведомление.
 
@@ -109,12 +109,16 @@ cd apps/web
 npm.cmd run build
 ```
 
-GitLab CI now also runs React dependency install and production build checks. The `dev` deploy uploads `apps/web/dist/` to the dev stand. Production deploy still uses the legacy static root until the React dev stand is approved.
+GitLab CI runs React dependency install and production build checks. The `dev` deploy uploads `apps/web/dist/` to the dev stand. The manual production deploy also uploads `apps/web/dist/`.
+
+React-used images and game sprites live inside `apps/web/src/assets`, and static deploy files like `favicon.ico` and `.htaccess` live in `apps/web/public`. Old root HTML entry points are kept in `archive/legacy-static`, while unused reference code and old asset variants are kept in `archive/unused` and hidden from GitHub language statistics.
 
 Подтвержденное направление:
 
 - `apps/web` — будущий React-фронтенд с модулями `header`, `footer`, `home-banner`, `about`, `work`, `games`, `auth`, `profile`, `settings`, `theme`, `i18n`.
 - `apps/web/src/games` — React-страницы игр: Dino, Snake, Flappy Bird, Game of Life, Snake Unlimited.
+- `apps/web/src/assets` — изображения и игровые спрайты, которые использует React/Vite приложение.
+- `apps/web/public` — статические файлы React-сборки, сейчас favicon и Apache `.htaccess`.
 - `apps/web/src/modules/analytics` — отдельный модуль метрик Google tag, Yandex.Metrika и Microsoft Clarity.
 - `api` — будущий PHP JSON API для авторизации, профиля, настроек, восстановления пароля и рекордов игр.
 - `database/migrations` — SQL-миграции для MySQL 5.7.

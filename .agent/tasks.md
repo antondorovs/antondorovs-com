@@ -21,16 +21,24 @@ A living task list for the project. Update it after meaningful changes so the ne
 - Add React routes/modules for Dino, Snake, Game of Life, Flappy Bird, and Snake Unlimited.
 - Add a separate React analytics module for Google tag, Yandex.Metrika, and Microsoft Clarity.
 - Switch GitLab `deploy_dev` to upload the React build from `apps/web/dist/`.
+- Move React-used images and game sprites into `apps/web/src/assets`.
+- Move unused archived Dino Java and Snake sample files into `archive/unused` and hide that archive from GitHub language stats.
+- Tune the React intro alignment and section divider spacing/color against the current production screenshots.
+- Move legacy root HTML entry points into `archive/legacy-static`.
+- Move legacy static support files (`script.js`, `styles`, `icons`, and old `Game*` folders) into `archive/legacy-static/support`.
+- Move unused legacy image/icon variants and old game asset folders into `archive/unused/legacy-assets`.
+- Move disabled GitHub Actions workflows into `archive/unused/github-actions-disabled`.
+- Move Apache `.htaccess` into `apps/web/public` so the React build deploy includes it.
+- Switch the manual production deploy job to publish the React build from `apps/web/dist`.
 
 ## Planned
 
 - Keep `README.md` maintained as the public project map.
 - Verify the React app on the GitLab dev stand after push.
-- Keep production deploy on the legacy static root until the dev React stand is approved.
+- Verify the React production switch after the manual `deploy_prod` job is intentionally run from `main`.
 - Add the PHP API skeleton and MySQL migration files.
 - Apply SQL migrations to `cg75134_antondorovsdev` before production.
 - Fill the `WORK` and `CONTACT` sections on the home page.
-- Clean up `styles/main.css`.
 - Improve the mobile menu.
 - Add SEO and social preview metadata.
 - Optimize images.

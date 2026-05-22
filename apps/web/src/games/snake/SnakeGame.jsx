@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
-import groundImage from '../../../../../GameSnake/img/1562688808.png';
-import foodImage from '../../../../../GameSnake/img/1562688805.png';
+import groundImage from '../../assets/games/snake/ground.png';
+import foodImage from '../../assets/games/snake/food.png';
 import './SnakeGame.css';
 
 const BOX = 32;

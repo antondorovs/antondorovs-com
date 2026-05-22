@@ -25,6 +25,8 @@ The v1 architecture intentionally uses the current Timeweb virtual hosting inste
 - [x] (2026-05-22 20:25Z) Ported game entry points into React hash routes under `apps/web/src/games`: Dino, Snake, Game of Life, Flappy Bird, and Snake Unlimited.
 - [x] (2026-05-22 20:25Z) Added a separate React analytics module for Google tag, Yandex.Metrika, and Microsoft Clarity.
 - [x] (2026-05-22 20:25Z) Switched GitLab `deploy_dev` to upload `apps/web/dist/` while keeping production deploy on the legacy static root.
+- [x] (2026-05-22 21:05Z) Moved React-used images and game sprites into `apps/web/src/assets`, archived unused reference code under `archive/unused`, and tuned React visual parity against production screenshots.
+- [x] (2026-05-22 21:25Z) Moved legacy root HTML entry points and support files into `archive/legacy-static`, moved unused legacy assets and disabled GitHub Actions into `archive/unused`, moved Apache `.htaccess` into `apps/web/public`, and switched manual production deploy to upload `apps/web/dist/`.
 - [ ] Add PHP API, SQL migrations, authentication, profile, password reset, and score persistence.
 
 ## Surprises & Discoveries
@@ -37,6 +39,9 @@ The v1 architecture intentionally uses the current Timeweb virtual hosting inste
 
 - Observation: The project can safely use separate dev and production databases without extra database hosting.
   Evidence: The Timeweb panel showed database usage as 4 databases out of an unlimited quota, and the user created `cg75134_antondorovsdev` and `cg75134_antondorovs`.
+
+- Observation: The React app is now the intended deploy artifact for both dev and manual production deploy.
+  Evidence: Legacy root HTML entry points were moved to `archive/legacy-static`, and both deploy jobs mirror `apps/web/dist/`.
 
 ## Decision Log
 
@@ -74,7 +79,7 @@ The architecture is now aligned with the real hosting environment and the user's
 
 Milestone 2 has started: `apps/web` now contains a Vite React app with a modular home page. It builds successfully with `npm.cmd run build`. The next outcome is to improve the scaffold toward deploy readiness and then migrate games into React routes/modules.
 
-CI now verifies the React app with `npm ci --prefix apps/web` and `npm run build --prefix apps/web`. The current FTP deploy still serves the legacy static site and explicitly excludes `apps/`, so adding the React scaffold does not publish source files or switch production behavior early.
+CI now verifies the React app with `npm ci --prefix apps/web` and `npm run build --prefix apps/web`. The dev deploy and manual production deploy both publish the built React files from `apps/web/dist/`.
 
 Milestone 4 is complete for current game parity. Dino, Snake, and Game of Life are implemented as React game components. Flappy Bird and Snake Unlimited are React routes that preserve the current legacy state because their original JavaScript files contain no game logic yet.
 
@@ -82,11 +87,10 @@ Milestone 4 is complete for current game parity. Dino, Snake, and Game of Life a
 
 Current repository shape:
 
-- `index.html` is the static home page.
-- `script.js` contains simple JavaScript for the mobile menu.
-- `styles/main.css` contains the main site styles.
-- `gameDino.html`, `gameSnake.html`, `gameFB.html`, `gameofLife.html`, and `gameSnakeUnlim.html` are current game entry points.
-- `GameDino/`, `GameSnake/`, `GameFlappyBird/`, `GameOfLife/`, and `GameSnakeUnlimited/` contain game scripts and assets.
+- `apps/web/src/assets/` contains React-owned copies of the images and sprites used by the Vite app.
+- `apps/web/public/` contains static React build assets such as the favicon and Apache `.htaccess`.
+- `archive/legacy-static/` contains the old root HTML entry points and their support files.
+- `archive/unused/` contains reference files and unused legacy assets that are not used by the React app and are hidden from GitHub language statistics.
 - `.gitlab-ci.yml` currently validates root HTML files and deploys the static site by FTP.
 - `.agent/` contains project memory and this architecture plan.
 
@@ -241,7 +245,7 @@ Recommended v1 structure:
       gameofLife.html
       gameSnakeUnlim.html
 
-Move files into `legacy-static/` only after React routes and deployment are ready. Until then, keep legacy files in place.
+The old root HTML entry points have been moved to `archive/legacy-static/` after React routes were created and deploy jobs were aligned to `apps/web/dist/`.
 
 ## Frontend Architecture
 
@@ -486,7 +490,7 @@ Milestone 6 is authentication and profile. Add sign-up, sign-in, sign-out, sessi
 
 Milestone 7 is game scores. Add score endpoints and connect games to score submission.
 
-Milestone 8 is CI/deploy alignment. React build checks may run early. `deploy_dev` now uploads `apps/web/dist/` to the dev stand. Production deploy must keep serving the legacy static site until the dev React stand is verified and a separate production switch decision is made.
+Milestone 8 is CI/deploy alignment. `deploy_dev` now uploads `apps/web/dist/` to the dev stand, and manual `deploy_prod` uploads `apps/web/dist/` to production.
 
 ## Concrete Steps
 
@@ -559,7 +563,7 @@ Expected result: each route renders a React page, browser console has no errors 
 
 Documentation changes are safe to repeat. SQL migrations must be tracked as files and applied once per database. Before production migrations, export a production backup through phpMyAdmin.
 
-Do not delete legacy static files until React routes and Timeweb deploy are proven.
+Do not delete archived legacy static files until the React production switch is verified and the archive is no longer useful.
 
 ## Artifacts and Notes
 

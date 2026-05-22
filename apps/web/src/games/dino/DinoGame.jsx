@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
-import cactusImage from '../../../../../GameDino/data/cactus1.png';
-import cloudImage from '../../../../../GameDino/data/cloud.PNG';
-import dinoRunOne from '../../../../../GameDino/data/main-character1.png';
-import dinoRunTwo from '../../../../../GameDino/data/main-character2.png';
-import dinoJump from '../../../../../GameDino/data/main-character3.png';
-import landOne from '../../../../../GameDino/data/land1.png';
-import landTwo from '../../../../../GameDino/data/land2.png';
-import landThree from '../../../../../GameDino/data/land3.png';
+import cactusImage from '../../assets/games/dino/cactus1.png';
+import cloudImage from '../../assets/games/dino/cloud.PNG';
+import dinoRunOne from '../../assets/games/dino/main-character1.png';
+import dinoRunTwo from '../../assets/games/dino/main-character2.png';
+import dinoJump from '../../assets/games/dino/main-character3.png';
+import landOne from '../../assets/games/dino/land1.png';
+import landTwo from '../../assets/games/dino/land2.png';
+import landThree from '../../assets/games/dino/land3.png';
 import './DinoGame.css';
 
 const groundImages = [landOne, landTwo, landThree];

@@ -11,7 +11,7 @@ Project decision log. Record not only what was decided, but why, so future work 
   Rationale: It is the entry file for agents, not a full project encyclopedia. Detailed rules for large tasks live in `.agent/PLANS.md`.
 
 - Decision: Do not delete `GameDino/Downasaur-download` immediately.
-  Rationale: The folder is not used by the site, but it is safer for now to hide Java from language statistics through `.gitattributes` and make deletion a separate decision after verification.
+  Rationale: Superseded on 2026-05-22. The folder was later moved into `archive/unused` when the React app became the active project structure.
 
 - Decision: Do not refactor the site structure together with documentation.
   Rationale: The current goal is to make the project easier to understand and safer to change. Moving files could affect links, games, and deploy.
@@ -26,7 +26,7 @@ Project decision log. Record not only what was decided, but why, so future work 
   Rationale: The GitLab pipeline and Telegram notification link should be stabilized first. Deploy stages are safer to add after notification and basic checks are confirmed.
 
 - Decision: Temporarily disable GitHub Actions deploy by moving workflows to `.github/workflows_disabled/`.
-  Rationale: The old GitHub Actions deploy is unstable, but it is useful as setup history and as a source of parameters for future GitLab deploy.
+  Rationale: Superseded on 2026-05-22. The old GitHub Actions deploy is unstable, but it is useful as setup history; disabled workflows now live in `archive/unused/github-actions-disabled/`.
 
 - Decision: Replace top-level `workflow` in `.gitlab-ci.yml` with job-level `rules`.
   Rationale: GitLab rejected the first pipeline with `jobs project config should implement the script:, run:, or trigger: keyword`, effectively reading `workflow` as a job. Job-level `rules` preserve the branch restrictions for `dev`, `main`, and manual web pipelines without the disputed top-level block.
@@ -66,5 +66,5 @@ Project decision log. Record not only what was decided, but why, so future work 
 - Decision: Use separate Timeweb databases for development and production.
   Rationale: `cg75134_antondorovsdev` can be used for migration tests and development without risking production data in `cg75134_antondorovs`.
 
-- Decision: Deploy the React build to the dev stand before changing production.
-  Rationale: The user wants to test the React migration on dev first. GitLab `deploy_dev` now uploads `apps/web/dist/`, while production deploy keeps the legacy static root until the dev stand is approved.
+- Decision: Deploy the React build from `apps/web/dist` for both dev and manual production deploys.
+  Rationale: The legacy root HTML entry points were moved into `archive/legacy-static`, so both deploy jobs must publish the Vite production build.

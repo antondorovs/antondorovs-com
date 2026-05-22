@@ -5,28 +5,21 @@ A quick map of the current project structure. Use it as orientation before chang
 ## Root
 
 - `README.md` — public project map: description, quick start, and documentation navigation.
-- `index.html` — home page of the personal website.
-- `script.js` — JavaScript for the home page, currently mostly the mobile menu.
-- `gameDino.html`, `gameSnake.html`, `gameFB.html`, `gameofLife.html`, `gameSnakeUnlim.html` — HTML entry points for games.
-- `.htaccess` — Apache server settings.
 - `.gitignore` — ignores local and generated files.
-- `.gitattributes` — GitHub Linguist settings; hides the archived Java Dino version from language statistics.
+- `.gitattributes` — GitHub Linguist settings; hides archived unused files from language statistics.
 - `.gitlab-ci.yml` — GitLab pipeline for checks, dev deploy, manual production deploy, and Telegram notifications.
 
 ## Styles and Assets
 
-- `styles/` — CSS for the site and individual games.
-- `img/` — site images, favicon, and photos.
-- `icons/` — SVG icons.
+- `apps/web/src/assets/` - React-owned images and game sprites used by the Vite app.
+- `apps/web/public/` - static files copied directly into the React build, currently the favicon and Apache `.htaccess`.
+- `archive/legacy-static/` - archived root HTML entry points and their old support files from the previous static site.
+- `archive/unused/` - files kept for reference but not used by the legacy site or React app, including old image/icon variants and legacy game assets; hidden from GitHub language statistics.
 
 ## Games
 
-- `GameDino/` — active browser Dino game and its assets. Active script: `GameDino/gameDino.js`.
-- `GameDino/Downasaur-download/` — archived Java version of Dino. The site does not use it.
-- `GameSnake/` — Snake files.
-- `GameFlappyBird/` — Flappy Bird files.
-- `GameOfLife/` — Game of Life files.
-- `GameSnakeUnlimited/` — Snake Unlimited files.
+- `apps/web/src/games/` - active React game routes/modules for Dino, Snake, Flappy Bird, Game of Life, and Snake Unlimited.
+- `archive/legacy-static/support/Game*/` - archived legacy game scripts.
 
 ## React App
 
@@ -42,8 +35,7 @@ A quick map of the current project structure. Use it as orientation before chang
 
 ## CI/CD
 
-- `.github/workflows/` — GitHub Actions folder. Deploy workflows are temporarily disabled and moved out of this folder.
-- `.github/workflows_disabled/` — disabled experimental workflows and the archived old GitHub Actions deploy setup.
+- `archive/unused/github-actions-disabled/` - disabled experimental workflows and the archived old GitHub Actions deploy setup.
 - `.agent/gitlab-telegram-setup.md` — manual setup guide for the Telegram bot and GitLab CI/CD variables.
 
-The current CI/CD path is the GitLab pipeline with checks, automatic dev deploy, manual production deploy, and Telegram notifications.
+The current CI/CD path is the GitLab pipeline with React build checks, automatic dev deploy from `apps/web/dist/`, manual production deploy from `apps/web/dist/`, and Telegram notifications.
