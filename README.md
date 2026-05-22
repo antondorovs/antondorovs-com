@@ -66,8 +66,19 @@
 Проверка, что все синхронно:
 
 ```powershell
+Проверить из корня проекта:
+git status --short --branch
+
+Сверить GitHub и GitLab напрямую:
 git ls-remote --heads origin main dev
 git ls-remote --heads gitlab main dev
+
+Проверить локальные ветки:
+git rev-parse dev
+git rev-parse main
+
+Сравнить, есть ли различия между dev и main
+git rev-list --left-right --count dev...main
 ```
 
 Идеальное состояние для начала новой задачи: `origin/dev`, `origin/main`, `gitlab/dev` и `gitlab/main` указывают на один и тот же commit SHA либо `dev` содержит только осознанные новые рабочие коммиты поверх `main`.
