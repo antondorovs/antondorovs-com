@@ -28,6 +28,18 @@ A quick map of the current project structure. Use it as orientation before chang
 - `GameOfLife/` — Game of Life files.
 - `GameSnakeUnlimited/` — Snake Unlimited files.
 
+## React App
+
+- `apps/web/` - Vite React frontend scaffold.
+- `apps/web/src/modules/` - first modular home page sections: header, banner, intro, summary, games, about, work, contact, and footer.
+- `apps/web/src/modules/analytics/` - analytics loader for Google tag, Yandex.Metrika, and Microsoft Clarity.
+- `apps/web/src/games/` - React game routes/modules for Dino, Snake, Flappy Bird, Game of Life, and Snake Unlimited.
+- `apps/web/src/shared/styles/` - reset, design tokens, and global styles for the React app.
+
+## Future App Architecture
+
+- `.agent/react-php-mysql-app-architecture-plan.md` - living ExecPlan for the future React frontend, PHP JSON API, MySQL database, authentication, settings, i18n, profile, and game score architecture.
+
 ## CI/CD
 
 - `.github/workflows/` — GitHub Actions folder. Deploy workflows are temporarily disabled and moved out of this folder.

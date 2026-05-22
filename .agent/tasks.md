@@ -13,10 +13,22 @@ A living task list for the project. Update it after meaningful changes so the ne
 - Add the manual `deploy_prod` stage in GitLab CI for production.
 - Document the GitHub/GitLab branch synchronization workflow in `README.md` and `AGENTS.md`.
 - Translate `AGENTS.md` and `.agent/*.md` from Russian to English to reduce token usage and improve agent readability.
+- Draft the future React/PHP/MySQL application architecture plan in `.agent/react-php-mysql-app-architecture-plan.md`.
+- Confirm v1 stack decisions: React JavaScript with Vite, PHP JSON API with PDO, MySQL 5.7 on Timeweb, separate dev/prod databases, SQL migrations through phpMyAdmin, and Timeweb SMTP mail.
+- Create the React/Vite frontend scaffold in `apps/web`.
+- Port the current home page content into initial React modules.
+- Add React `npm ci` and production build checks to GitLab CI without switching deploy to React.
+- Add React routes/modules for Dino, Snake, Game of Life, Flappy Bird, and Snake Unlimited.
+- Add a separate React analytics module for Google tag, Yandex.Metrika, and Microsoft Clarity.
+- Switch GitLab `deploy_dev` to upload the React build from `apps/web/dist/`.
 
 ## Planned
 
 - Keep `README.md` maintained as the public project map.
+- Verify the React app on the GitLab dev stand after push.
+- Keep production deploy on the legacy static root until the dev React stand is approved.
+- Add the PHP API skeleton and MySQL migration files.
+- Apply SQL migrations to `cg75134_antondorovsdev` before production.
 - Fill the `WORK` and `CONTACT` sections on the home page.
 - Clean up `styles/main.css`.
 - Improve the mobile menu.
@@ -29,6 +41,6 @@ A living task list for the project. Update it after meaningful changes so the ne
 
 ## Later
 
-- Consider migrating the frontend to React.
-- Add a Node.js backend if a task appears that needs server-side logic.
-- Add a database if dynamic data becomes necessary.
+- Add authentication, profile editing, hard account deletion, Timeweb SMTP password reset, and game score persistence.
+- Update GitLab CI/CD for React build and PHP/static deploy after local behavior is stable.
+- Consider Node.js/PostgreSQL only as a future migration if the project outgrows the current Timeweb hosting.

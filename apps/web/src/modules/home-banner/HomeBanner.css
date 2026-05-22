@@ -1,0 +1,47 @@
+.home-banner {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.home-banner__text {
+  font-family: var(--font-display);
+  font-size: 50px;
+  line-height: 1.2;
+  color: #eee;
+}
+
+@media (max-width: 768px) {
+  .home-banner {
+    min-height: 220px;
+  }
+
+  .home-banner__text {
+    font-size: 34px;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .home-banner {
+    min-height: 180px;
+  }
+
+  .home-banner__text {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 385px) {
+  .home-banner {
+    min-height: 200px;
+  }
+
+  .home-banner__text {
+    font-size: 30px;
+  }
+}

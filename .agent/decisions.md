@@ -53,3 +53,18 @@ Project decision log. Record not only what was decided, but why, so future work 
 
 - Decision: Keep agent-facing project documentation in English.
   Rationale: English usually tokenizes more compactly than Russian Cyrillic for the model and is easier for coding agents to consume. User-facing docs may remain Russian unless a separate task asks to translate them.
+
+- Decision: Document the future React/PHP/MySQL application architecture before adding app tooling.
+  Rationale: The migration introduces authentication, relational data, profile editing, themes, interface languages, and game score persistence. Planning the module layout, data model, and deployment assumptions first reduces the risk of starting with a painful structure.
+
+- Decision: Use `.agent/react-php-mysql-app-architecture-plan.md` as the living architecture and migration ExecPlan.
+  Rationale: The requested change is architectural and complex. A self-contained ExecPlan gives future contributors a single source of truth and keeps implementation milestones, validation, and deployment rules visible.
+
+- Decision: Target React JavaScript, PHP JSON API, and MySQL 5.7 for v1 instead of Node.js and PostgreSQL.
+  Rationale: The current Timeweb virtual hosting supports PHP/MySQL and already has MySQL databases. A Node.js API would require VDS or cloud hosting, which is unnecessary cost for a small personal project.
+
+- Decision: Use separate Timeweb databases for development and production.
+  Rationale: `cg75134_antondorovsdev` can be used for migration tests and development without risking production data in `cg75134_antondorovs`.
+
+- Decision: Deploy the React build to the dev stand before changing production.
+  Rationale: The user wants to test the React migration on dev first. GitLab `deploy_dev` now uploads `apps/web/dist/`, while production deploy keeps the legacy static root until the dev stand is approved.

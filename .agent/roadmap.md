@@ -18,6 +18,10 @@ The project is currently a static personal website for Anton Dorovskikh with a h
 
 ## Future Path
 
-After the current static site is stable, consider migrating the frontend to React. A Node.js backend and database should appear only for a concrete need, such as an admin panel, dynamic projects, statistics, authentication, or data storage.
+The confirmed v1 application path is a migration from the static site to a React frontend with JavaScript and Vite, plus a plain PHP JSON API and MySQL 5.7 on the current Timeweb hosting.
+
+The future application direction is captured in `.agent/react-php-mysql-app-architecture-plan.md`. The target app keeps the portfolio and games, adds a modular React frontend, a PHP API, MySQL persistence, authentication, user profile management, theme selection, interface language selection, and saved game records.
+
+Development and production databases are separate: `cg75134_antondorovsdev` for dev and `cg75134_antondorovs` for production. SQL migrations are applied to dev first, then to production only after dev verification and a production export through phpMyAdmin.
 
 CI/CD has moved to GitLab: the pipeline runs checks, deploys `dev` automatically, supports manual production deploy from `main`, and sends Telegram notifications. Future CI/CD work should focus on stability, clearer deploy reporting, and broader quality checks.

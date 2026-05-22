@@ -61,6 +61,34 @@ ci_checks:
         fi
       done
 
+      total=$((total + 1))
+      echo "Install React app dependencies"
+      npm ci --prefix apps/web > react-install.log 2>&1
+      install_result=$?
+
+      if [ "$install_result" -ne 0 ]; then
+        echo "FAIL React dependency install"
+        cat react-install.log
+        failed=$((failed + 1))
+      else
+        echo "PASS React dependency install"
+        passed=$((passed + 1))
+      fi
+
+      total=$((total + 1))
+      echo "Build React app"
+      npm run build --prefix apps/web > react-build.log 2>&1
+      build_result=$?
+
+      if [ "$build_result" -ne 0 ]; then
+        echo "FAIL React build"
+        cat react-build.log
+        failed=$((failed + 1))
+      else
+        echo "PASS React build"
+        passed=$((passed + 1))
+      fi
+
       {
         echo "CHECKS_TOTAL=$total"
         echo "CHECKS_PASSED=$passed"
@@ -79,6 +107,9 @@ ci_checks:
     paths:
       - ci-checks.env
       - html-validate-*.log
+      - react-install.log
+      - react-build.log
+      - apps/web/dist/
     expire_in: 1 week
 
 deploy_dev:
@@ -107,18 +138,7 @@ deploy_dev:
       set ftp:passive-mode true
       set ssl:verify-certificate no
       mirror -R --verbose \
-        --exclude .git/ \
-        --exclude .github/ \
-        --exclude .agent/ \
-        --exclude .gitlab-ci.yml \
-        --exclude .gitattributes \
-        --exclude .gitignore \
-        --exclude AGENTS.md \
-        --exclude README.md \
-        --exclude ci-checks.env \
-        --exclude deploy-status.env \
-        --exclude html-validate-.*\\.log \
-        ./ ${deploy_target}
+        apps/web/dist/ ${deploy_target}
       bye
       "
       deploy_result=$?
@@ -172,6 +192,7 @@ deploy_prod:
         --exclude .gitlab-ci.yml \
         --exclude .gitattributes \
         --exclude .gitignore \
+        --exclude apps/ \
         --exclude AGENTS.md \
         --exclude README.md \
         --exclude ci-checks.env \
