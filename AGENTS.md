@@ -2,7 +2,7 @@
 
 ## Stack
 
-This project is now migrating to a React/Vite frontend in `apps/web`. The previous static HTML/CSS/JS site and old browser game entry points are archived under `archive/legacy-static`; unused image/code references are archived under `archive/unused`.
+This project is now migrating to a React/Vite frontend in `apps/web`. The old static HTML/CSS/JS site and unused reference files were removed after the React routes and assets were moved into the active app structure.
 
 The confirmed v1 application direction is React with JavaScript and Vite for the frontend, a plain PHP JSON API with PDO for the backend, and MySQL 5.7 on the current Timeweb hosting. Do not add a build tool, framework, backend, or database migration without a separate decision.
 
@@ -24,10 +24,10 @@ The legacy static site has no build command. The React app builds with `npm.cmd 
 - Before making changes, run `git status --short --branch` and do not touch someone else's unfinished work.
 - Before branch work, compare GitHub `origin` and GitLab `gitlab`; do not leave one remote updated without the other for long.
 - Keep changes small and tied to the task.
-- Do not break existing React game routes or archived legacy game entry points.
+- Do not break existing React game routes.
 - For the current site, use plain HTML/CSS/JS without new dependencies unless the task clearly requires otherwise.
 - Check the mobile version, menu, text visibility, and absence of horizontal scroll.
-- Do not delete archived or disputed files without a separate decision.
+- Do not delete disputed files without a separate decision.
 - If a change is complex or architectural, write an ExecPlan first.
 - The v1 app architecture lives in `.agent/react-php-mysql-app-architecture-plan.md`.
 
@@ -36,11 +36,8 @@ The legacy static site has no build command. The React app builds with `npm.cmd 
 - The project is pushed to both GitHub and GitLab.
 - Main workflow: make changes on `dev`, push to `origin` and `gitlab`, wait for a green GitLab pipeline, merge `dev -> main`, run manual `deploy_prod`, then align `dev` with `main`.
 - If GitLab or GitHub rejects a push with `fetch first`, compare branches with `git fetch` and `git log --left-right`; do not use `--force` without a separate decision.
-- Old GitHub Actions deploy workflows are disabled and archived in `archive/unused/github-actions-disabled/`.
 - The current GitLab pipeline runs React build checks, automatic dev deploy, manual production deploy, and Telegram notification.
 - Production deploy is started manually on the `main` branch.
-- Unused reference files live in `archive/unused` and are hidden from GitHub language stats through `.gitattributes`; legacy game scripts remain for reference while React game routes are active.
-- Old root HTML entry points live in `archive/legacy-static`.
 - React-used images and game sprites live in `apps/web/src/assets`.
 - React static public files, including `favicon.ico` and Apache `.htaccess`, live in `apps/web/public`.
 - Project memory lives in `.agent/`: roadmap, tasks, decisions, project map, and ExecPlan rules.

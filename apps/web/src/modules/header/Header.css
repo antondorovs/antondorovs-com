@@ -1,17 +1,17 @@
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   z-index: 20;
   width: 100%;
   background: rgba(26, 26, 26, 0.96);
-  border-bottom: 1px solid var(--color-border);
 }
 
 .site-header__bar {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  min-height: 50px;
+  min-height: var(--site-header-height);
 }
 
 .site-header__brand {

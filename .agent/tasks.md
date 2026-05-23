@@ -4,7 +4,7 @@ A living task list for the project. Update it after meaningful changes so the ne
 
 ## Done
 
-- Hide the archived Java Dino version from GitHub language stats through `.gitattributes`.
+- Retire the archived Java Dino version from the active repository tree.
 - Add project memory in `AGENTS.md` and `.agent/`.
 - Document manual Telegram/GitLab steps for future CI/CD work.
 - Add a GitLab CI pipeline with checks and Telegram notification before real deploy.
@@ -22,14 +22,18 @@ A living task list for the project. Update it after meaningful changes so the ne
 - Add a separate React analytics module for Google tag, Yandex.Metrika, and Microsoft Clarity.
 - Switch GitLab `deploy_dev` to upload the React build from `apps/web/dist/`.
 - Move React-used images and game sprites into `apps/web/src/assets`.
-- Move unused archived Dino Java and Snake sample files into `archive/unused` and hide that archive from GitHub language stats.
+- Remove unused archived Dino Java and Snake sample files.
 - Tune the React intro alignment and section divider spacing/color against the current production screenshots.
-- Move legacy root HTML entry points into `archive/legacy-static`.
-- Move legacy static support files (`script.js`, `styles`, `icons`, and old `Game*` folders) into `archive/legacy-static/support`.
-- Move unused legacy image/icon variants and old game asset folders into `archive/unused/legacy-assets`.
-- Move disabled GitHub Actions workflows into `archive/unused/github-actions-disabled`.
+- Remove legacy root HTML entry points.
+- Remove legacy static support files (`script.js`, `styles`, and old `Game*` folders).
+- Remove unused legacy image variants and old game asset folders.
+- Remove disabled GitHub Actions workflows after switching deploy ownership to GitLab.
 - Move Apache `.htaccess` into `apps/web/public` so the React build deploy includes it.
 - Switch the manual production deploy job to publish the React build from `apps/web/dist`.
+- Remove the legacy archive folders after confirming the React app no longer references them.
+- Remove `.gitattributes` after deleting the archive rules it existed for.
+- Remove obsolete Java ignore rules from `.gitignore`.
+- Move surviving SVG icon files into `apps/web/src/assets/icons`.
 
 ## Planned
 

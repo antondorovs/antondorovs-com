@@ -25,8 +25,8 @@ The v1 architecture intentionally uses the current Timeweb virtual hosting inste
 - [x] (2026-05-22 20:25Z) Ported game entry points into React hash routes under `apps/web/src/games`: Dino, Snake, Game of Life, Flappy Bird, and Snake Unlimited.
 - [x] (2026-05-22 20:25Z) Added a separate React analytics module for Google tag, Yandex.Metrika, and Microsoft Clarity.
 - [x] (2026-05-22 20:25Z) Switched GitLab `deploy_dev` to upload `apps/web/dist/` while keeping production deploy on the legacy static root.
-- [x] (2026-05-22 21:05Z) Moved React-used images and game sprites into `apps/web/src/assets`, archived unused reference code under `archive/unused`, and tuned React visual parity against production screenshots.
-- [x] (2026-05-22 21:25Z) Moved legacy root HTML entry points and support files into `archive/legacy-static`, moved unused legacy assets and disabled GitHub Actions into `archive/unused`, moved Apache `.htaccess` into `apps/web/public`, and switched manual production deploy to upload `apps/web/dist/`.
+- [x] (2026-05-22 21:05Z) Moved React-used images and game sprites into `apps/web/src/assets` and tuned React visual parity against production screenshots.
+- [x] (2026-05-22 21:25Z) Retired legacy root HTML entry points and support files, moved Apache `.htaccess` into `apps/web/public`, and switched manual production deploy to upload `apps/web/dist/`.
 - [ ] Add PHP API, SQL migrations, authentication, profile, password reset, and score persistence.
 
 ## Surprises & Discoveries
@@ -41,7 +41,7 @@ The v1 architecture intentionally uses the current Timeweb virtual hosting inste
   Evidence: The Timeweb panel showed database usage as 4 databases out of an unlimited quota, and the user created `cg75134_antondorovsdev` and `cg75134_antondorovs`.
 
 - Observation: The React app is now the intended deploy artifact for both dev and manual production deploy.
-  Evidence: Legacy root HTML entry points were moved to `archive/legacy-static`, and both deploy jobs mirror `apps/web/dist/`.
+  Evidence: Legacy root HTML entry points were retired, and both deploy jobs mirror `apps/web/dist/`.
 
 ## Decision Log
 
@@ -88,9 +88,8 @@ Milestone 4 is complete for current game parity. Dino, Snake, and Game of Life a
 Current repository shape:
 
 - `apps/web/src/assets/` contains React-owned copies of the images and sprites used by the Vite app.
+- `apps/web/src/assets/icons/` contains SVG icon source files for the active site.
 - `apps/web/public/` contains static React build assets such as the favicon and Apache `.htaccess`.
-- `archive/legacy-static/` contains the old root HTML entry points and their support files.
-- `archive/unused/` contains reference files and unused legacy assets that are not used by the React app and are hidden from GitHub language statistics.
 - `.gitlab-ci.yml` currently validates root HTML files and deploys the static site by FTP.
 - `.agent/` contains project memory and this architecture plan.
 
@@ -235,17 +234,7 @@ Recommended v1 structure:
         001_initial_schema.sql
       seeds/
         001_games.sql
-    legacy-static/
-      index.html
-      styles/
-      script.js
-      gameDino.html
-      gameSnake.html
-      gameFB.html
-      gameofLife.html
-      gameSnakeUnlim.html
-
-The old root HTML entry points have been moved to `archive/legacy-static/` after React routes were created and deploy jobs were aligned to `apps/web/dist/`.
+The old root HTML entry points were removed after React routes were created and deploy jobs were aligned to `apps/web/dist/`.
 
 ## Frontend Architecture
 
@@ -563,7 +552,7 @@ Expected result: each route renders a React page, browser console has no errors 
 
 Documentation changes are safe to repeat. SQL migrations must be tracked as files and applied once per database. Before production migrations, export a production backup through phpMyAdmin.
 
-Do not delete archived legacy static files until the React production switch is verified and the archive is no longer useful.
+The legacy static archive has been removed; keep future cleanup focused on files that are not referenced by the React app.
 
 ## Artifacts and Notes
 

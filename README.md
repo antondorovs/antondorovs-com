@@ -1,6 +1,6 @@
 # Anton Dorovskikh Site
 
-Персональный сайт Anton Dorovskikh с главной страницей, социальными ссылками и набором браузерных игр.
+Персональный сайт Anton Dorovskikh с главной страницей, интро, опытом работы, социальными ссылками и набором браузерных игр.
 
 ## Стек
 
@@ -16,7 +16,45 @@
 - Запустить React-приложение локально: `cd apps/web`, затем `npm.cmd install` и `npm.cmd run dev`.
 - Проверить вручную: главную страницу, ссылки на игры, мобильное меню, адаптив и консоль браузера.
 
-Команды сборки сейчас нет. GitLab CI выполняет smoke checks, HTML validation, dev deploy, ручной prod deploy и Telegram-уведомление. Полноценных app/e2e тестов пока нет.
+## Локальная проверка перед деплоем
+
+Для обычной локальной проверки запусти React/Vite dev server:
+
+```powershell
+cd C:\Users\think\Documents\GITcode\antondorovs-site\apps\web
+npm.cmd install
+npm.cmd run dev
+```
+
+Открой приложение в браузере:
+
+```text
+http://127.0.0.1:5173/
+```
+
+Перед деплоем проверь production-сборку и preview:
+
+```powershell
+cd C:\Users\think\Documents\GITcode\antondorovs-site\apps\web
+npm.cmd run build
+npm.cmd run preview
+```
+
+Открой preview в браузере:
+
+```text
+http://127.0.0.1:4173/
+```
+
+Ручной чек-лист перед деплоем:
+
+- Проверить главную страницу.
+- Проверить переходы на игры.
+- Проверить Game of Life: клики по клеткам, зеленые живые клетки, более тусклые мертвые клетки.
+- Проверить мобильную ширину, меню, видимость текста и отсутствие горизонтального скролла страницы.
+- Открыть консоль браузера и убедиться, что нет ошибок.
+
+GitLab CI выполняет React install/build checks, dev deploy, ручной prod deploy и Telegram-уведомление. Полноценных app/e2e тестов пока нет.
 
 ## Документация проекта
 
@@ -30,7 +68,7 @@
 
 ## CI/CD
 
-Проект пушится в GitHub и GitLab. Старый деплой через GitHub Actions отключен и сохранен в `archive/unused/github-actions-disabled/` как архив настроек.
+Проект пушится в GitHub и GitLab. Деплой идет через GitLab CI.
 
 Текущий GitLab pipeline выполняет проверки, автоматически деплоит ветку `dev` в dev-окружение, позволяет вручную деплоить ветку `main` в production и отправляет Telegram-уведомление.
 
@@ -113,7 +151,7 @@ npm.cmd run build
 
 GitLab CI runs React dependency install and production build checks. The `dev` deploy uploads `apps/web/dist/` to the dev stand. The manual production deploy also uploads `apps/web/dist/`.
 
-React-used images and game sprites live inside `apps/web/src/assets`, and static deploy files like `favicon.ico` and `.htaccess` live in `apps/web/public`. Old root HTML entry points are kept in `archive/legacy-static`, while unused reference code and old asset variants are kept in `archive/unused` and hidden from GitHub language statistics.
+React-used images, SVG icons, and game sprites live inside `apps/web/src/assets`, and static deploy files like `favicon.ico` and `.htaccess` live in `apps/web/public`. The old static archive and unused reference files have been removed from the active repository tree.
 
 Подтвержденное направление:
 

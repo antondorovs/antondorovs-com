@@ -9,9 +9,14 @@ export function GameOfLife() {
   const [cycleCounter, setCycleCounter] = useState(0);
   const [status, setStatus] = useState('');
   const intervalRef = useRef(null);
+  const gridRef = useRef(grid);
   const previousStatesRef = useRef([]);
 
   const gridTemplateColumns = useMemo(() => `repeat(${cols}, 20px)`, [cols]);
+
+  useEffect(() => {
+    gridRef.current = grid;
+  }, [grid]);
 
   useEffect(() => () => stopGame(), []);
 
@@ -20,15 +25,19 @@ export function GameOfLife() {
     previousStatesRef.current = [];
     setCycleCounter(0);
     setStatus('');
-    setGrid(createEmptyGrid(rows, cols));
+    const emptyGrid = createEmptyGrid(rows, cols);
+    gridRef.current = emptyGrid;
+    setGrid(emptyGrid);
   };
 
   const toggleCell = (row, col) => {
-    setGrid((currentGrid) =>
-      currentGrid.map((line, rowIndex) =>
+    setGrid((currentGrid) => {
+      const updatedGrid = currentGrid.map((line, rowIndex) =>
         line.map((cell, colIndex) => (rowIndex === row && colIndex === col ? Number(!cell) : cell)),
-      ),
-    );
+      );
+      gridRef.current = updatedGrid;
+      return updatedGrid;
+    });
   };
 
   const clearGrid = () => {
@@ -36,7 +45,9 @@ export function GameOfLife() {
     previousStatesRef.current = [];
     setCycleCounter(0);
     setStatus('');
-    setGrid(createEmptyGrid(rows, cols));
+    const emptyGrid = createEmptyGrid(rows, cols);
+    gridRef.current = emptyGrid;
+    setGrid(emptyGrid);
   };
 
   const randomizeGrid = () => {
@@ -44,34 +55,37 @@ export function GameOfLife() {
     previousStatesRef.current = [];
     setCycleCounter(0);
     setStatus('');
-    setGrid(Array.from({ length: rows }, () => Array.from({ length: cols }, () => Math.round(Math.random()))));
+    const randomGrid = Array.from({ length: rows }, () => Array.from({ length: cols }, () => Math.round(Math.random())));
+    gridRef.current = randomGrid;
+    setGrid(randomGrid);
   };
 
   const startGame = () => {
     stopGame();
     previousStatesRef.current = [];
     setCycleCounter(0);
-      setStatus('');
-      intervalRef.current = window.setInterval(() => {
-      setGrid((currentGrid) => {
-        const state = JSON.stringify(currentGrid);
+    setStatus('');
+    intervalRef.current = window.setInterval(() => {
+      const currentGrid = gridRef.current;
+      const state = JSON.stringify(currentGrid);
 
-        if (previousStatesRef.current.includes(state)) {
-          setStatus('Game over. The game has entered a repeating state.');
-          stopGame();
-          return currentGrid;
-        }
+      if (previousStatesRef.current.includes(state)) {
+        setStatus('Game over. The game has entered a repeating state.');
+        stopGame();
+        return;
+      }
 
-        if (!currentGrid.flat().some(Boolean)) {
-          setStatus('Game over. All cells are dead.');
-          stopGame();
-          return currentGrid;
-        }
+      if (!currentGrid.flat().some(Boolean)) {
+        setStatus('Game over. All cells are dead.');
+        stopGame();
+        return;
+      }
 
-        previousStatesRef.current.push(state);
-        setCycleCounter((current) => current + 1);
-        return nextGeneration(currentGrid);
-      });
+      previousStatesRef.current.push(state);
+      const updatedGrid = nextGeneration(currentGrid);
+      gridRef.current = updatedGrid;
+      setCycleCounter((current) => current + 1);
+      setGrid(updatedGrid);
     }, cycleTime * 1000);
   };
 
@@ -86,15 +100,22 @@ export function GameOfLife() {
     <section className="life-game" aria-label="Game of Life">
       <div className="life-game__description">
         <p>
-          The Game of Life is a cellular automaton devised by mathematician John Conway in 1970. Click cells to toggle
-          them, then start the simulation.
+          The Game of Life is a cellular automaton devised by mathematician John Conway in 1970.
+          It is a zero-player game, meaning that its evolution is determined by its initial state, with no further input.
+          The game consists of a grid of cells, each of which can be in one of two states: alive or dead.
+        </p>
+        <p>
+          The evolution of the game is governed by simple rules:
         </p>
         <ul>
-          <li>Live cells with fewer than two live neighbors die.</li>
-          <li>Live cells with two or three live neighbors survive.</li>
-          <li>Live cells with more than three live neighbors die.</li>
-          <li>Dead cells with exactly three live neighbors become alive.</li>
+          <li>Any live cell with fewer than two live neighbors dies (underpopulation).</li>
+          <li>Any live cell with two or three live neighbors lives on to the next generation.</li>
+          <li>Any live cell with more than three live neighbors dies (overpopulation).</li>
+          <li>Any dead cell with exactly three live neighbors becomes a live cell (reproduction).</li>
         </ul>
+        <p>To interact with the game, click on cells to toggle their state.
+        Experiment with different initial configurations and observe how the patterns evolve over time.
+        </p>
       </div>
 
       <div className="life-game__controls">
