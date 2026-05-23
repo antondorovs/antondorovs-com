@@ -8,4 +8,8 @@
   --color-text: #ddd;
   --color-text-strong: #fff;
   --color-border: rgba(255, 255, 255, 0.18);
+  --color-section-divider: rgba(255, 255, 255, 0.45);
+  --content-width: 1000px;
+  --content-section-padding-block: 42px;
+  --site-header-height: 50px;
 }

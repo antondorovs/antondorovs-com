@@ -9,20 +9,19 @@
 }
 
 .home-banner__text {
-  font-family: var(--font-display);
-  font-size: 50px;
-  line-height: 1.2;
+  padding: 0 20px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.18;
   color: #eee;
+  letter-spacing: 0;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.72);
 }
 
 @media (max-width: 768px) {
   .home-banner {
     min-height: 220px;
-  }
-
-  .home-banner__text {
-    font-size: 34px;
-    padding: 0 20px;
   }
 }
 
@@ -30,17 +29,39 @@
   .home-banner {
     min-height: 180px;
   }
-
-  .home-banner__text {
-    font-size: 28px;
-  }
 }
 
 @media (max-width: 385px) {
   .home-banner {
     min-height: 200px;
   }
+}
 
+@media (min-width: 320px) {
+  .home-banner__text {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 360px) {
+  .home-banner__text {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 480px) {
+  .home-banner__text {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-banner__text {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1280px) {
   .home-banner__text {
     font-size: 30px;
   }
