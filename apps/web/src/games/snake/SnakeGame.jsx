@@ -8,6 +8,7 @@ const BOARD_SIZE = 608;
 
 export function SnakeGame() {
   const canvasRef = useRef(null);
+  const keyDownHandlerRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -22,14 +23,20 @@ export function SnakeGame() {
     let foodPosition = createFood();
     let snake = [{ x: 9 * BOX, y: 10 * BOX }];
 
-    const onKeyDown = (event) => {
-      if ((event.key === 'ArrowLeft' || event.key === 'a') && direction !== 'right') {
+    keyDownHandlerRef.current = (event) => {
+      const key = event.key.toLowerCase();
+
+      if (event.key.startsWith('Arrow')) {
+        event.preventDefault();
+      }
+
+      if ((event.key === 'ArrowLeft' || key === 'a') && direction !== 'right') {
         direction = 'left';
-      } else if ((event.key === 'ArrowUp' || event.key === 'w') && direction !== 'down') {
+      } else if ((event.key === 'ArrowUp' || key === 'w') && direction !== 'down') {
         direction = 'up';
-      } else if ((event.key === 'ArrowRight' || event.key === 'd') && direction !== 'left') {
+      } else if ((event.key === 'ArrowRight' || key === 'd') && direction !== 'left') {
         direction = 'right';
-      } else if ((event.key === 'ArrowDown' || event.key === 's') && direction !== 'up') {
+      } else if ((event.key === 'ArrowDown' || key === 's') && direction !== 'up') {
         direction = 'down';
       }
     };
@@ -75,16 +82,29 @@ export function SnakeGame() {
       snake.unshift(newHead);
     };
 
-    document.addEventListener('keydown', onKeyDown);
     const gameLoop = window.setInterval(drawGame, 100);
 
     return () => {
-      document.removeEventListener('keydown', onKeyDown);
+      keyDownHandlerRef.current = null;
       window.clearInterval(gameLoop);
     };
   }, []);
 
-  return <canvas className="snake-game" ref={canvasRef} width={BOARD_SIZE} height={BOARD_SIZE} aria-label="Snake game board" />;
+  const handleCanvasKeyDown = (event) => {
+    keyDownHandlerRef.current?.(event);
+  };
+
+  return (
+    <canvas
+      className="snake-game"
+      ref={canvasRef}
+      width={BOARD_SIZE}
+      height={BOARD_SIZE}
+      tabIndex={0}
+      aria-label="Snake game board"
+      onKeyDown={handleCanvasKeyDown}
+    />
+  );
 }
 
 function createFood() {

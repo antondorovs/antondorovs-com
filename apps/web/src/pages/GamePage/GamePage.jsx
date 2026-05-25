@@ -22,9 +22,6 @@ export function GamePage({ game }) {
     <>
       <Header />
       <main className="game-page">
-        <a className="game-page__home-link" href="/">
-          Home
-        </a>
         <h1>{game.title}</h1>
         <GameComponent />
       </main>

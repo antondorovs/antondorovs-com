@@ -4,19 +4,47 @@ import './Header.css';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const homeItem = navItems.find((item) => item.label === 'HOME');
+  const desktopNavItems = navItems.filter((item) => item.label !== 'HOME');
 
   const closeMenu = () => setIsOpen(false);
+
+  const handleNavClick = (event, item) => {
+    closeMenu();
+
+    if (!item.scrollToTop) {
+      return;
+    }
+
+    event.preventDefault();
+
+    if (window.location.hash) {
+      const oldURL = window.location.href;
+      window.history.pushState(null, '', `${window.location.pathname}${window.location.search}`);
+      window.dispatchEvent(new HashChangeEvent('hashchange', { oldURL, newURL: window.location.href }));
+    }
+
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  };
 
   return (
     <header className="site-header" id="up">
       <div className="site-header__bar">
-        <a className="site-header__brand" href="#up" onClick={closeMenu}>
-          ANTON
-        </a>
+        {homeItem && (
+          <a
+            className="site-header__home-link"
+            href={homeItem.href}
+            onClick={(event) => handleNavClick(event, homeItem)}
+          >
+            {homeItem.label}
+          </a>
+        )}
 
         <nav className="site-header__nav" aria-label="Primary navigation">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href}>
+          {desktopNavItems.map((item) => (
+            <a key={item.label} href={item.href} onClick={(event) => handleNavClick(event, item)}>
               {item.label}
             </a>
           ))}
@@ -36,7 +64,7 @@ export function Header() {
       {isOpen && (
         <nav className="site-header__mobile-nav" aria-label="Mobile navigation">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} onClick={closeMenu}>
+            <a key={item.label} href={item.href} onClick={(event) => handleNavClick(event, item)}>
               {item.label}
             </a>
           ))}
