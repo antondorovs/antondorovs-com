@@ -21,7 +21,7 @@
 Для обычной локальной проверки запусти React/Vite dev server:
 
 ```powershell
-cd C:\Users\think\Documents\GITcode\antondorovs-site\apps\web
+cd C:\Users\think\Documents\GITcode\antondorovs-com\apps\web
 npm.cmd install
 npm.cmd run dev
 ```
@@ -35,7 +35,7 @@ http://127.0.0.1:5173/
 Перед деплоем проверь production-сборку и preview:
 
 ```powershell
-cd C:\Users\think\Documents\GITcode\antondorovs-site\apps\web
+cd C:\Users\think\Documents\GITcode\antondorovs-com\apps\web
 npm.cmd run build
 npm.cmd run preview
 ```
