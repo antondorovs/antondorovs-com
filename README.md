@@ -61,13 +61,13 @@ GitLab CI выполняет React install/build checks, dev deploy, ручно�
 
 ## CI/CD
 
-Проект пушится в GitHub и GitLab. Деплой идет через GitLab CI.
+Проект пушится в GitHub и GitLab, но деплой идет через GitLab CI. Текущий GitLab pipeline выполняет проверки, автоматически деплоит ветку `dev` в dev-окружение, позволяет вручную деплоить ветку `main` в production и отправляет Telegram-уведомление.
 
-Текущий GitLab pipeline выполняет проверки, автоматически деплоит ветку `dev` в dev-окружение, позволяет вручную деплоить ветку `main` в production и отправляет Telegram-уведомление.
+Правило: production деплоится только из GitLab `main`. GitHub нужен для зеркала и pull requests, но кнопка GitHub `Create pull request` сама по себе production не деплоит.
 
-## Работа с ветками и двумя remotes
+## Работа с ветками, GitLab и GitHub
 
-В проекте есть два удаленных репозитория: `origin` на GitHub и `gitlab` на GitLab. Чтобы GitHub и GitLab не расходились по истории, рабочий порядок такой:
+В проекте есть два удаленных репозитория: `origin` на GitHub и `gitlab` на GitLab. Чтобы GitHub и GitLab не расходились по истории, основной рабочий порядок такой:
 
 1. Перед началом работы обновить обе площадки:
 
@@ -89,35 +89,59 @@ GitLab CI выполняет React install/build checks, dev deploy, ручно�
    git push gitlab dev
    ```
 
-4. Дождаться зеленого GitLab pipeline на `dev`. Он проверяет HTML, делает dev deploy и отправляет Telegram-уведомление.
-5. Для production создать merge request / pull request `dev -> main`. После merge ветка `main` должна уйти в GitHub и GitLab.
-6. После успешного pipeline на `main` вручную запустить `deploy_prod` в GitLab.
-7. После merge `dev -> main` выровнять `dev` обратно с `main` и снова отправить в обе площадки:
+4. Дождаться зеленого GitLab pipeline на `dev`. Он проверяет проект, делает автоматический dev deploy и отправляет Telegram-уведомление.
+5. Для production в GitLab создать Merge Request `dev -> main`:
+
+   - открыть проект в GitLab;
+   - слева выбрать `Merge requests`;
+   - нажать `New merge request`;
+   - `Source branch`: `dev`;
+   - `Target branch`: `main`;
+   - нажать `Compare branches and continue`;
+   - проверить diff, создать MR и нажать `Merge`.
+
+6. После merge открыть GitLab `Build -> Pipelines`, найти свежий pipeline ветки `main`, дождаться зеленого `ci_checks`, затем вручную запустить job `deploy_prod` кнопкой `Play/Run`. Именно этот ручной job заливает `apps/web/dist/` в production.
+7. После merge `dev -> main` выровнять GitHub `main` с GitLab `main`, затем выровнять `dev` обратно с `main`:
 
    ```powershell
-   git checkout dev
    git fetch origin
    git fetch gitlab
-   git merge --ff-only origin/main
+
+   git checkout main
+   git pull --ff-only gitlab main
+   git push origin main
+
+   git checkout dev
+   git merge --ff-only main
    git push origin dev
    git push gitlab dev
    ```
 
+Если GitHub или GitLab отклоняет push с `fetch first`, не использовать `--force`. Сначала выполнить `git fetch origin`, `git fetch gitlab` и посмотреть различия:
+
+```powershell
+git log --oneline --decorate --graph --left-right origin/main...gitlab/main
+git log --oneline --decorate --graph --left-right main...origin/main
+git log --oneline --decorate --graph --left-right main...gitlab/main
+```
+
+Иногда GitHub и GitLab могут создать разные merge-коммиты с одинаковым содержимым. Это проверяется так:
+
+```powershell
+git diff --stat origin/main..gitlab/main
+git diff --name-status origin/main..gitlab/main
+```
+
+Если diff пустой, файлы одинаковые, но SHA разные. Чтобы снова сделать одинаковые SHA без `--force`, сделай новый обычный коммит или merge-коммит поверх актуальной ветки, затем отправь один и тот же итоговый commit в `main` и `dev` на обе площадки.
+
 Проверка, что все синхронно:
 
 ```powershell
-Проверить из корня проекта:
 git status --short --branch
-
-Сверить GitHub и GitLab напрямую:
 git ls-remote --heads origin main dev
 git ls-remote --heads gitlab main dev
-
-Проверить локальные ветки:
 git rev-parse dev
 git rev-parse main
-
-Сравнить, есть ли различия между dev и main
 git rev-list --left-right --count dev...main
 ```
 
