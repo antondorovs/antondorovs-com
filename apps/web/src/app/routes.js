@@ -1,8 +1,11 @@
 export const navItems = [
+  { label: 'HOME', href: '#up', scrollToTop: true },
   { label: 'GAMES', href: '#games' },
   { label: 'ABOUT', href: '#about' },
   { label: 'WORK', href: '#work' },
   { label: 'CONTACT', href: '#contact' },
+  { label: 'SIGN IN', href: '#up', scrollToTop: true },
+  { label: 'THEME', href: '#up', scrollToTop: true },
 ];
 
 export const gameRoutes = [

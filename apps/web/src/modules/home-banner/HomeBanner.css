@@ -1,5 +1,5 @@
 .home-banner {
-  min-height: 300px;
+  min-height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,27 +19,12 @@
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.72);
 }
 
-@media (max-width: 768px) {
-  .home-banner {
-    min-height: 220px;
-  }
-}
-
-@media (max-width: 576px) {
-  .home-banner {
-    min-height: 180px;
-  }
-}
-
-@media (max-width: 385px) {
-  .home-banner {
-    min-height: 200px;
-  }
-}
-
 @media (min-width: 320px) {
   .home-banner__text {
     font-size: 16px;
+  }
+  .home-banner {
+    min-height: 160px;
   }
 }
 
@@ -47,22 +32,40 @@
   .home-banner__text {
     font-size: 18px;
   }
+  .home-banner {
+    min-height: 180px;
+  }
 }
 
 @media (min-width: 480px) {
   .home-banner__text {
     font-size: 20px;
   }
+  .home-banner {
+    min-height: 220px;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-banner__text {
+    font-size: 22px;
+  }
+  .home-banner {
+    min-height: 260px;
+  }
 }
 
 @media (min-width: 1024px) {
   .home-banner__text {
-    font-size: 28px;
+    font-size: 24px;
+  }
+  .home-banner {
+    min-height: 300px;
   }
 }
 
 @media (min-width: 1280px) {
   .home-banner__text {
-    font-size: 30px;
+    font-size: 26px;
   }
 }

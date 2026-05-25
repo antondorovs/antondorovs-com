@@ -1,11 +1,11 @@
 .intro-section {
   --intro-padding-inline: 14px;
   --intro-columns: 252px;
-  --intro-social-row-height: 52px;
+  --intro-social-row-height: 56px;
   --intro-column-gap: 0;
   --intro-row-gap: 0;
-  --intro-photo-gap: 0px;
-  --profile-photo-size: 80px;
+  --intro-photo-gap: 3px;
+  --profile-photo-size: 76px;
   --profile-photo-half-size: calc(var(--profile-photo-size) / 2);
   --profile-photo-border-size: 2px;
   --intro-name-font-size: 18px;
@@ -73,21 +73,18 @@
     --intro-columns: 292px;
     --intro-social-row-height: 60px;
     --intro-photo-gap: 10px;
-    --profile-photo-size: 88px;
+    --profile-photo-size: 84px;
     --profile-photo-border-size: 2px;
     --intro-name-font-size: 20px;
-  }
-  .intro-section__name p {
-    margin-top: 2px;
   }
 }
 
 @media (min-width: 360px) {
   .intro-section {
     --intro-columns: 332px;
-    --intro-social-row-height: 68px;
+    --intro-social-row-height: 64px;
     --intro-photo-gap: 12px;
-    --profile-photo-size: 96px;
+    --profile-photo-size: 94px;
     --profile-photo-border-size: 3px;
     --intro-name-font-size: 22px;
   }
@@ -100,24 +97,24 @@
 @media (min-width: 480px) {
   .intro-section {
     --intro-padding-inline: 32px;
-    --intro-columns: 448px;
-    --intro-social-row-height: 87px;
-    --intro-photo-gap: 14px;
-    --profile-photo-size: 108px;
+    --intro-columns: 360px;
+    --intro-social-row-height: 68px;
+    --intro-photo-gap: 12px;
+    --profile-photo-size: 102px;
     --intro-name-font-size: 24px;
   }
 }
 
 @media (min-width: 768px) {
   .intro-section {
-    --intro-padding-inline: 18px;
-    --intro-columns: 348px 348px;
-    --intro-social-row-height: 48px;
-    --intro-photo-gap: 0px;
+    --intro-padding-inline: 0px;
+    --intro-columns: 360px 360px;
+    --intro-social-row-height: 54px;
+    --intro-photo-gap: 12px;
     --intro-column-gap: 18px;
     --intro-row-gap: 0;
     --profile-photo-size: 108px;
-    --intro-name-font-size: 25px;
+    --intro-name-font-size: 26px;
 
     justify-content: center;
     grid-template-rows: var(--profile-photo-half-size);
@@ -131,19 +128,19 @@
 @media (min-width: 1024px) {
   .intro-section {
     --intro-columns: 440px 440px;
-    --intro-social-row-height: 63px;
-    --profile-photo-size: 130px;
+    --profile-photo-size: 122px;
     --profile-photo-border-size: 4px;
     --intro-name-font-size: 28px;
+  }
+    .intro-section__name p {
+    margin-top: 4px;
   }
 }
 
 @media (min-width: 1280px) {
   .intro-section {
     --intro-columns: 500px 500px;
-    --intro-social-row-height: 70px;
-    --profile-photo-size: 140px;
-    --profile-photo-border-size: 5px;
+    --profile-photo-size: 130px;
     --intro-name-font-size: 30px;
   }
 }

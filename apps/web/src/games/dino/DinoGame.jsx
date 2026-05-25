@@ -20,17 +20,17 @@ export function DinoGame() {
   const [isJumping, setIsJumping] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
 
-  useEffect(() => {
-    const onKeyDown = (event) => {
-      if ((event.key === ' ' || event.key === 'ArrowUp') && !isJumping && !isGameOver) {
-        event.preventDefault();
-        setIsJumping(true);
-      }
-    };
+  const handleStageKeyDown = (event) => {
+    if (event.key !== ' ' && event.key !== 'ArrowUp') {
+      return;
+    }
 
-    document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
-  }, [isGameOver, isJumping]);
+    event.preventDefault();
+
+    if (!isJumping && !isGameOver) {
+      setIsJumping(true);
+    }
+  };
 
   useEffect(() => {
     if (isGameOver) {
@@ -91,7 +91,11 @@ export function DinoGame() {
           </button>
         </div>
       )}
-      <div className={`dino-game__stage ${isGameOver ? 'dino-game__stage--paused' : ''}`}>
+      <div
+        className={`dino-game__stage ${isGameOver ? 'dino-game__stage--paused' : ''}`}
+        tabIndex={0}
+        onKeyDown={handleStageKeyDown}
+      >
         <div
           ref={groundRef}
           className="dino-game__ground"

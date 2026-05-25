@@ -8,6 +8,12 @@ export function App() {
   const hash = useHashRoute();
   const game = getGameByRoute(hash);
 
+  useEffect(() => {
+    if (game) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
+  }, [game]);
+
   return (
     <>
       <AnalyticsScripts />
