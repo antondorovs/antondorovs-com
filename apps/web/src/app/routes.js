@@ -5,7 +5,6 @@ export const navItems = [
   { label: 'WORK', href: '#work' },
   { label: 'CONTACT', href: '#contact' },
   { label: 'SIGN IN', href: '#up', scrollToTop: true },
-  { label: 'THEME', href: '#up', scrollToTop: true },
 ];
 
 export const gameRoutes = [

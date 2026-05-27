@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Lobster&display=swap');
 
 :root {
+  /* Dark/default theme tokens. These are visible in Dark mode and Auto when the system resolves to dark. */
   --font-body: 'IBM Plex Mono', monospace;
   --font-display: 'Lobster', cursive;
   --color-bg: #1a1a1a;
@@ -9,7 +10,22 @@
   --color-text-strong: #fff;
   --color-border: rgba(255, 255, 255, 0.18);
   --color-section-divider: rgba(255, 255, 255, 0.45);
+  --color-header-bg: rgba(26, 26, 26, 0.96);
   --content-width: 1000px;
   --content-section-padding-block: 42px;
   --site-header-height: 50px;
+  --section-divider-height: 1px;
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  /* Light theme overrides. To tune visible site text in Light mode, edit --color-text here. */
+  --color-bg: #fff;
+  --color-surface: #f5f5f5;
+  --color-text: #333;
+  --color-text-strong: #000;
+  --color-border: rgba(26, 26, 26, 0.24);
+  --color-section-divider: rgba(26, 26, 26, 0.45);
+  --color-header-bg: rgba(221, 221, 221, 0.92);
+  color-scheme: light;
 }

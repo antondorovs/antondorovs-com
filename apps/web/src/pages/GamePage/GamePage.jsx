@@ -1,5 +1,4 @@
 import { Header } from '../../modules/header/Header.jsx';
-import { Footer } from '../../modules/footer/Footer.jsx';
 import { DinoGame } from '../../games/dino/DinoGame.jsx';
 import { SnakeGame } from '../../games/snake/SnakeGame.jsx';
 import { FlappyBirdGame } from '../../games/flappy-bird/FlappyBirdGame.jsx';
@@ -25,7 +24,6 @@ export function GamePage({ game }) {
         <h1>{game.title}</h1>
         <GameComponent />
       </main>
-      <Footer />
     </>
   );
 }

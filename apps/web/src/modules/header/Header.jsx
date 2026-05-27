@@ -1,13 +1,78 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { navItems } from '../../app/routes.js';
+import autoIcon from '../../assets/icons/auto.svg?raw';
+import closeIcon from '../../assets/icons/close.svg?raw';
+import darkIcon from '../../assets/icons/dark.svg?raw';
+import lightIcon from '../../assets/icons/light.svg?raw';
+import navigationIcon from '../../assets/icons/navigation.svg?raw';
+import { SvgIcon } from '../../shared/icons/SvgIcon.jsx';
+import { useThemeMode } from '../../shared/theme/useThemeMode.js';
 import './Header.css';
 
+const themeModeIcons = {
+  auto: autoIcon,
+  dark: darkIcon,
+  light: lightIcon,
+};
+
+const themeModes = [
+  { label: 'Auto', value: 'auto', icon: autoIcon },
+  { label: 'Dark', value: 'dark', icon: darkIcon },
+  { label: 'Light', value: 'light', icon: lightIcon },
+];
+
 export function Header() {
+  const desktopThemeMenuRef = useRef(null);
+  const menuButtonRef = useRef(null);
+  const mobileNavRef = useRef(null);
+  const mobileThemeMenuRef = useRef(null);
+  const themeControlRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [isThemeMenuOpen, setIsThemeMenuOpen] = useState(false);
+  const { effectiveTheme, themeMode, selectThemeMode } = useThemeMode();
   const homeItem = navItems.find((item) => item.label === 'HOME');
   const desktopNavItems = navItems.filter((item) => item.label !== 'HOME');
 
-  const closeMenu = () => setIsOpen(false);
+  const closeMenu = () => {
+    setIsOpen(false);
+    setIsThemeMenuOpen(false);
+  };
+
+  useEffect(() => {
+    if (!isThemeMenuOpen && !isOpen) {
+      return undefined;
+    }
+
+    const handleDocumentPointerDown = (event) => {
+      const target = event.target;
+
+      if (
+        desktopThemeMenuRef.current?.contains(target) ||
+        menuButtonRef.current?.contains(target) ||
+        mobileNavRef.current?.contains(target) ||
+        mobileThemeMenuRef.current?.contains(target) ||
+        themeControlRef.current?.contains(target)
+      ) {
+        return;
+      }
+
+      closeMenu();
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener('pointerdown', handleDocumentPointerDown);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('pointerdown', handleDocumentPointerDown);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, isThemeMenuOpen]);
 
   const handleNavClick = (event, item) => {
     closeMenu();
@@ -27,6 +92,21 @@ export function Header() {
     window.requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  };
+
+  const handleThemeButtonClick = () => {
+    setIsOpen(false);
+    setIsThemeMenuOpen((current) => !current);
+  };
+
+  const handleMenuButtonClick = () => {
+    setIsThemeMenuOpen(false);
+    setIsOpen((current) => !current);
+  };
+
+  const handleThemeModeSelect = (mode) => {
+    selectThemeMode(mode);
+    setIsThemeMenuOpen(false);
   };
 
   return (
@@ -50,19 +130,47 @@ export function Header() {
           ))}
         </nav>
 
+        <div className="site-header__theme-control" ref={themeControlRef}>
+          <ThemeModeButton
+            effectiveTheme={effectiveTheme}
+            isOpen={isThemeMenuOpen}
+            themeMode={themeMode}
+            onClick={handleThemeButtonClick}
+          />
+
+          {isThemeMenuOpen && (
+            <ThemeModeMenu
+              className="site-header__theme-menu--desktop"
+              currentMode={themeMode}
+              menuRef={desktopThemeMenuRef}
+              onSelect={handleThemeModeSelect}
+            />
+          )}
+        </div>
+
         <button
+          ref={menuButtonRef}
           className="site-header__menu-button"
           type="button"
           aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={isOpen}
-          onClick={() => setIsOpen((current) => !current)}
+          onClick={handleMenuButtonClick}
         >
-          {isOpen ? <CloseIcon /> : <MenuIcon />}
+          <SvgIcon className="site-header__icon" markup={isOpen ? closeIcon : navigationIcon} />
         </button>
       </div>
 
+      {isThemeMenuOpen && (
+        <ThemeModeMenu
+          className="site-header__theme-menu--mobile"
+          currentMode={themeMode}
+          menuRef={mobileThemeMenuRef}
+          onSelect={handleThemeModeSelect}
+        />
+      )}
+
       {isOpen && (
-        <nav className="site-header__mobile-nav" aria-label="Mobile navigation">
+        <nav className="site-header__mobile-nav" ref={mobileNavRef} aria-label="Mobile navigation">
           {navItems.map((item) => (
             <a key={item.label} href={item.href} onClick={(event) => handleNavClick(event, item)}>
               {item.label}
@@ -74,20 +182,50 @@ export function Header() {
   );
 }
 
-function MenuIcon() {
+function ThemeModeButton({ effectiveTheme, isOpen, themeMode, onClick }) {
+  const label = themeMode.toUpperCase();
+
   return (
-    <svg width="30" height="30" viewBox="0 0 52 52" aria-hidden="true">
-      <path d="M50 12.5H2a2 2 0 0 1 0-4h48a2 2 0 0 1 0 4Z" />
-      <path d="M50 28H2a2 2 0 0 1 0-4h48a2 2 0 0 1 0 4Z" />
-      <path d="M50 43.5H2a2 2 0 0 1 0-4h48a2 2 0 0 1 0 4Z" />
-    </svg>
+    <button
+      className="site-header__theme-button"
+      type="button"
+      aria-label={`Change color mode. Selected mode: ${label}. Active theme: ${effectiveTheme}.`}
+      aria-expanded={isOpen}
+      aria-haspopup="menu"
+      onClick={onClick}
+    >
+      <SvgIcon className="site-header__icon" markup={themeModeIcons[themeMode]} />
+    </button>
   );
 }
 
-function CloseIcon() {
+function ThemeModeMenu({ className = '', currentMode, menuRef, onSelect }) {
   return (
-    <svg width="30" height="30" viewBox="0 0 512 512" aria-hidden="true">
-      <path d="M443.6 387.1 312.4 255.4l131.5-130c5.4-5.4 5.4-14.2 0-19.6l-37.4-37.6a13.7 13.7 0 0 0-19.6 0L256 197.8 124.9 68.3a13.7 13.7 0 0 0-19.6 0L68 105.9c-5.4 5.4-5.4 14.2 0 19.6l131.5 130L68.4 387.1a13.7 13.7 0 0 0 0 19.6l37.4 37.6a13.7 13.7 0 0 0 19.6 0L256 313.1l130.7 131.1a13.7 13.7 0 0 0 19.6 0l37.4-37.6a13.7 13.7 0 0 0-.1-19.5Z" />
-    </svg>
+    <div ref={menuRef} className={`site-header__theme-menu ${className}`.trim()} role="menu" aria-label="Theme mode">
+      <div className="site-header__theme-menu-heading">
+        <p className="site-header__theme-menu-title">Theme mode</p>
+      </div>
+
+      <div className="site-header__theme-options">
+        {themeModes.map((mode) => {
+          const isActive = mode.value === currentMode;
+
+          return (
+            <button
+              key={mode.value}
+              className={`site-header__theme-option${isActive ? ' site-header__theme-option--active' : ''}`}
+              type="button"
+              role="menuitemradio"
+              aria-checked={isActive}
+              aria-current={isActive ? 'true' : undefined}
+              onClick={() => onSelect(mode.value)}
+            >
+              <SvgIcon className="site-header__theme-option-icon" markup={mode.icon} />
+              <span>{mode.label}</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
   );
 }

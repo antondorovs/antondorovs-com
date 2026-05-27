@@ -1,0 +1,25 @@
+.site-footer {
+  min-height: 80px;
+  border-top: var(--section-divider-height) solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.site-footer__env-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.site-footer__env-links a {
+  min-width: 120px;
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--section-divider-height) solid currentColor;
+  font-size: 12px;
+  font-weight: 600;
+}

@@ -14,13 +14,11 @@
 .social-links__icon {
   width: 26px;
   height: 26px;
-  fill: var(--color-text);
-  transition: fill 160ms ease, transform 160ms ease;
+  transition: color 160ms ease, transform 160ms ease;
 }
 
 .social-links a:hover .social-links__icon,
 .social-links a:focus-visible .social-links__icon {
-  fill: var(--color-text-strong);
   transform: translateY(-6px) scale(1.02);
 }
 
@@ -38,7 +36,6 @@
   }
 }
 
-
 @media (min-width: 480px) {
   .social-links__icon {
     width: 38px;
@@ -48,10 +45,11 @@
 
 @media (min-width: 768px) {
   .social-links__icon {
-  width: 40px;
-  height: 40px;
+    width: 40px;
+    height: 40px;
   }
-    .social-links {
+
+  .social-links {
     padding-bottom: var(--profile-photo-border-size);
   }
 }
