@@ -6,7 +6,7 @@ import xIcon from '../../assets/icons/x.svg?raw';
 import { SvgIcon } from '../../shared/icons/SvgIcon.jsx';
 import './SocialLinks.css';
 
-const socialLinks = [
+export const socialLinks = [
   {
     label: 'Telegram profile',
     href: 'https://www.t.me/antondorovs',
@@ -34,9 +34,9 @@ const socialLinks = [
   },
 ];
 
-export function SocialLinks() {
+export function SocialLinks({ ariaLabel = 'Social links', className = '' }) {
   return (
-    <div className="social-links">
+    <div className={`social-links ${className}`.trim()} aria-label={ariaLabel}>
       {socialLinks.map((link) => (
         <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
           <SvgIcon className="social-links__icon" markup={link.icon} />

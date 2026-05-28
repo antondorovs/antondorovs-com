@@ -21,7 +21,7 @@ const themeModes = [
   { label: 'Light', value: 'light', icon: lightIcon },
 ];
 
-export function Header() {
+export function Header({ variant = 'default' }) {
   const desktopThemeMenuRef = useRef(null);
   const menuButtonRef = useRef(null);
   const mobileNavRef = useRef(null);
@@ -30,8 +30,10 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isThemeMenuOpen, setIsThemeMenuOpen] = useState(false);
   const { effectiveTheme, themeMode, selectThemeMode } = useThemeMode();
+  const isSimple = variant === 'simple';
   const homeItem = navItems.find((item) => item.label === 'HOME');
   const desktopNavItems = navItems.filter((item) => item.label !== 'HOME');
+  const mobileNavItems = navItems.filter((item) => item.label !== 'HOME');
 
   const closeMenu = () => {
     setIsOpen(false);
@@ -77,21 +79,42 @@ export function Header() {
   const handleNavClick = (event, item) => {
     closeMenu();
 
-    if (!item.scrollToTop) {
+    if (!item.href.startsWith('#') || item.href.startsWith('#/')) {
       return;
     }
 
     event.preventDefault();
+    const targetId = item.href.slice(1);
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const behavior = prefersReducedMotion ? 'auto' : 'smooth';
 
-    if (window.location.hash) {
+    if (item.scrollToTop || targetId === 'up') {
       const oldURL = window.location.href;
       window.history.pushState(null, '', `${window.location.pathname}${window.location.search}`);
       window.dispatchEvent(new HashChangeEvent('hashchange', { oldURL, newURL: window.location.href }));
+
+      window.requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, behavior });
+      });
+
+      return;
     }
 
-    window.requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    const targetElement = document.getElementById(targetId);
+
+    if (!targetElement) {
+      return;
+    }
+
+    const oldURL = window.location.href;
+    const newURL = `${window.location.pathname}${window.location.search}${item.href}`;
+
+    if (window.location.href !== new URL(newURL, window.location.origin).href) {
+      window.history.pushState(null, '', newURL);
+      window.dispatchEvent(new HashChangeEvent('hashchange', { oldURL, newURL: window.location.href }));
+    }
+
+    targetElement.scrollIntoView({ behavior, block: 'start' });
   };
 
   const handleThemeButtonClick = () => {
@@ -110,7 +133,7 @@ export function Header() {
   };
 
   return (
-    <header className="site-header" id="up">
+    <header className={`site-header${isSimple ? ' site-header--simple' : ''}`} id="up">
       <div className="site-header__bar">
         {homeItem && (
           <a
@@ -122,13 +145,15 @@ export function Header() {
           </a>
         )}
 
-        <nav className="site-header__nav" aria-label="Primary navigation">
-          {desktopNavItems.map((item) => (
-            <a key={item.label} href={item.href} onClick={(event) => handleNavClick(event, item)}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        {!isSimple && (
+          <nav className="site-header__nav" aria-label="Primary navigation">
+            {desktopNavItems.map((item) => (
+              <a key={item.label} href={item.href} onClick={(event) => handleNavClick(event, item)}>
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        )}
 
         <div className="site-header__theme-control" ref={themeControlRef}>
           <ThemeModeButton
@@ -148,16 +173,18 @@ export function Header() {
           )}
         </div>
 
-        <button
-          ref={menuButtonRef}
-          className="site-header__menu-button"
-          type="button"
-          aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          aria-expanded={isOpen}
-          onClick={handleMenuButtonClick}
-        >
-          <SvgIcon className="site-header__icon" markup={isOpen ? closeIcon : navigationIcon} />
-        </button>
+        {!isSimple && (
+          <button
+            ref={menuButtonRef}
+            className="site-header__menu-button"
+            type="button"
+            aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isOpen}
+            onClick={handleMenuButtonClick}
+          >
+            <SvgIcon className="site-header__icon" markup={isOpen ? closeIcon : navigationIcon} />
+          </button>
+        )}
       </div>
 
       {isThemeMenuOpen && (
@@ -169,9 +196,9 @@ export function Header() {
         />
       )}
 
-      {isOpen && (
+      {!isSimple && isOpen && (
         <nav className="site-header__mobile-nav" ref={mobileNavRef} aria-label="Mobile navigation">
-          {navItems.map((item) => (
+          {mobileNavItems.map((item) => (
             <a key={item.label} href={item.href} onClick={(event) => handleNavClick(event, item)}>
               {item.label}
             </a>

@@ -1,5 +1,5 @@
 .social-links {
-  height: var(--intro-social-row-height);
+  height: var(--intro-social-row-height, 56px);
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   align-items: end;

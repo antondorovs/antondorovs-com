@@ -15,6 +15,11 @@
   --content-section-padding-block: 42px;
   --site-header-height: 50px;
   --section-divider-height: 1px;
+  --ui-radius: 8px;
+  --ui-control-min-height: 36px;
+  --ui-control-padding: 6px 12px;
+  --motion-duration: 500ms;
+  --motion-easing: ease;
   color-scheme: dark;
 }
 

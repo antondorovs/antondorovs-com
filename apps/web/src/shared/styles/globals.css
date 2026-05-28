@@ -7,6 +7,17 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   text-align: center;
+  transition:
+    background-color var(--motion-duration) var(--motion-easing),
+    color var(--motion-duration) var(--motion-easing);
+}
+
+*,
+*::before,
+*::after {
+  transition-duration: var(--motion-duration);
+  transition-timing-function: var(--motion-easing);
+  transition-property: background-color, border-color, color;
 }
 
 a {
@@ -60,6 +71,19 @@ main {
 .visually-hidden-counter {
   position: absolute;
   left: -9999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 1ms;
+    scroll-behavior: auto;
+  }
 }
 
   @media (min-width: 320px) {

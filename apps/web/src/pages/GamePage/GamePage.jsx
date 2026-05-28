@@ -19,7 +19,7 @@ export function GamePage({ game }) {
 
   return (
     <>
-      <Header />
+      <Header variant="simple" />
       <main className="game-page">
         <h1>{game.title}</h1>
         <GameComponent />

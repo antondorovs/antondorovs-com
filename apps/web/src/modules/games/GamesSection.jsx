@@ -8,7 +8,8 @@ export function GamesSection() {
       <div className="games-section__list">
         {games.map((game) => (
           <a className="games-section__link" key={game.href} href={game.href}>
-            {game.title}
+            <span className="games-section__media" aria-hidden="true" />
+            <span className="games-section__title">{game.title}</span>
           </a>
         ))}
       </div>

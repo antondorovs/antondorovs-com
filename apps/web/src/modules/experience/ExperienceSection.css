@@ -1,0 +1,154 @@
+.experience-section__content {
+  width: min(100%, var(--content-width));
+  display: grid;
+  gap: 30px;
+  text-align: left;
+}
+
+.experience-section__group {
+  display: grid;
+  gap: 16px;
+}
+
+.experience-section__group h3 {
+  margin: 0;
+  text-align: center;
+}
+
+.experience-section__timeline,
+.experience-section__skills,
+.experience-section__cv-links {
+  display: grid;
+  gap: 12px;
+}
+
+.experience-section__job,
+.experience-section__skill-group,
+.experience-section__cv-links a {
+  border: var(--section-divider-height) solid var(--color-border);
+  border-radius: var(--ui-radius);
+  background: transparent;
+}
+
+.experience-section__job {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+}
+
+.experience-section__job-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.experience-section__job-main h4,
+.experience-section__job-main p,
+.experience-section__job-main span,
+.experience-section__description,
+.experience-section__stack,
+.experience-section__plain-list,
+.experience-section__skill-group h4,
+.experience-section__skill-group p {
+  margin: 0;
+}
+
+.experience-section__job-main h4,
+.experience-section__group h3,
+.experience-section__skill-group h4 {
+  color: var(--color-text-strong);
+}
+
+.experience-section__job-main span {
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.experience-section__cv-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.experience-section__description,
+.experience-section__stack {
+  overflow-wrap: anywhere;
+}
+
+.experience-section__description a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.experience-section__stack {
+  display: grid;
+  gap: 4px;
+}
+
+.experience-section__stack strong {
+  color: var(--color-text-strong);
+}
+
+.experience-section__cv-links a {
+  min-height: var(--ui-control-min-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ui-control-padding);
+  border: var(--section-divider-height) solid currentColor;
+  border-radius: var(--ui-radius);
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.experience-section__cv-links a {
+  min-width: 180px;
+  flex: 1 1 180px;
+}
+
+.experience-section__plain-list {
+  display: grid;
+  gap: 8px;
+  padding-left: 20px;
+}
+
+.experience-section__plain-list li {
+  overflow-wrap: anywhere;
+}
+
+.experience-section__skills {
+  align-items: stretch;
+}
+
+.experience-section__skill-group {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  padding: 14px;
+}
+
+.experience-section__skill-group p {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 479px) {
+  .experience-section__job {
+    padding: 14px;
+  }
+
+  .experience-section__job-main {
+    display: grid;
+    gap: 6px;
+  }
+
+  .experience-section__job-main span {
+    text-align: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .experience-section__skills {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
