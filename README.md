@@ -85,8 +85,8 @@ GitLab CI выполняет React install/build checks, dev deploy, ручно�
    ```powershell
    git add -A
    git commit -m "Update"
-   git push origin dev
    git push gitlab dev
+   git push origin dev
    ```
 
 4. Дождаться зеленого GitLab pipeline на `dev`. Он проверяет проект, делает автоматический dev deploy и отправляет Telegram-уведомление.
