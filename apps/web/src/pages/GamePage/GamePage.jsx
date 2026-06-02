@@ -4,6 +4,7 @@ import { SnakeGame } from '../../games/snake/SnakeGame.jsx';
 import { FlappyBirdGame } from '../../games/flappy-bird/FlappyBirdGame.jsx';
 import { GameOfLife } from '../../games/game-of-life/GameOfLife.jsx';
 import { SnakeUnlimitedGame } from '../../games/snake-unlimited/SnakeUnlimitedGame.jsx';
+import { useSiteCopy } from '../../shared/i18n/LanguageProvider.jsx';
 import './GamePage.css';
 
 const gameComponents = {
@@ -16,12 +17,13 @@ const gameComponents = {
 
 export function GamePage({ game }) {
   const GameComponent = gameComponents[game.key];
+  const copy = useSiteCopy();
 
   return (
     <>
-      <Header variant="simple" />
+      <Header centerLinkKey="games" variant="simple" />
       <main className="game-page">
-        <h1>{game.title}</h1>
+        <h1>{copy.games.titles[game.key] ?? game.title}</h1>
         <GameComponent />
       </main>
     </>

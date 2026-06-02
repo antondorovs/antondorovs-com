@@ -1,15 +1,14 @@
 export const navItems = [
-  { label: 'HOME', href: '#up', scrollToTop: true },
-  { label: 'ABOUT', href: '#about' },
-  { label: 'EXPERIENCE', href: '#experience' },
-  { label: 'GAMES', href: '#games' },
-  { label: 'CONTACTS', href: '#contacts' },
-  { label: 'SIGN IN', href: '#up', scrollToTop: true },
+  { key: 'home', href: '#up', scrollToTop: true },
+  { key: 'about', href: '#about' },
+  { key: 'experience', href: '#experience' },
+  { key: 'games', href: '#games' },
+  { key: 'contacts', href: '#contacts' },
+  { key: 'signIn', href: '#up', scrollToTop: true },
 ];
 
 export const privacyPolicyRoute = {
   key: 'privacy-policy',
-  title: 'Privacy Policy & Legal Notice',
   route: '#/privacy-policy',
 };
 

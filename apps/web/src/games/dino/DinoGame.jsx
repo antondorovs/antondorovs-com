@@ -7,6 +7,7 @@ import dinoJump from '../../assets/games/dino/main-character3.png';
 import landOne from '../../assets/games/dino/land1.png';
 import landTwo from '../../assets/games/dino/land2.png';
 import landThree from '../../assets/games/dino/land3.png';
+import { useSiteCopy } from '../../shared/i18n/LanguageProvider.jsx';
 import './DinoGame.css';
 
 const groundImages = [landOne, landTwo, landThree];
@@ -19,6 +20,7 @@ export function DinoGame() {
   const [score, setScore] = useState(0);
   const [isJumping, setIsJumping] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
+  const copy = useSiteCopy();
 
   const handleStageKeyDown = (event) => {
     if (event.key !== ' ' && event.key !== 'ArrowUp') {
@@ -81,13 +83,13 @@ export function DinoGame() {
   };
 
   return (
-    <section className="dino-game" aria-label="Dino game">
-      <div className="dino-game__score">Score: {score}</div>
+    <section className="dino-game" aria-label={copy.games.dino.ariaLabel}>
+      <div className="dino-game__score">{copy.games.dino.score(score)}</div>
       {isGameOver && (
         <div className="dino-game__status">
-          <p>Game over. Your score is {score}.</p>
+          <p>{copy.games.dino.gameOver(score)}</p>
           <button type="button" onClick={restartGame}>
-            Restart
+            {copy.games.dino.restart}
           </button>
         </div>
       )}

@@ -1,17 +1,19 @@
 import profilePhoto from '../../assets/site/AntonDorovs.png';
+import { useSiteCopy } from '../../shared/i18n/LanguageProvider.jsx';
+import { renderRichText } from '../../shared/i18n/renderRichText.jsx';
 import { SocialLinks } from './SocialLinks.jsx';
 import './IntroSection.css';
 
 export function IntroSection() {
+  const copy = useSiteCopy();
+
   return (
-    <section className="intro-section" aria-label="Profile introduction">
+    <section className="intro-section" aria-label={copy.intro.ariaLabel}>
       <div className="intro-section__identity">
-        <img className="intro-section__photo" src={profilePhoto} alt="Anton Dorovskikh" />
+        <img className="intro-section__photo" src={profilePhoto} alt={copy.intro.photoAlt} />
         <div className="intro-section__name">
-          <h1>Anton Dorovskikh</h1>
-          <p>
-            follow me <strong>@antondorovs</strong>
-          </p>
+          <h1>{copy.intro.name}</h1>
+          <p>{renderRichText(copy.intro.follow)}</p>
         </div>
       </div>
       <SocialLinks />

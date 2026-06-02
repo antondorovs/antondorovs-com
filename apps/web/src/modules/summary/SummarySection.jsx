@@ -1,17 +1,18 @@
+import { useSiteCopy } from '../../shared/i18n/LanguageProvider.jsx';
 import './SummarySection.css';
 
 export function SummarySection() {
+  const copy = useSiteCopy();
+
   return (
-    <section className="content-section summary-section" aria-label="Professional summary">
+    <section className="content-section summary-section" aria-label={copy.summary.ariaLabel}>
       <p>
-        Full Stack QA Engineer focused on software quality across frontend, backend, web, and mobile applications.
-        <br />
-        I work with manual and automated testing, covering end-to-end, UI, API, integration, regression, and system testing.
-        <br />
-        My toolkit includes JavaScript, TypeScript, Playwright, Postman, Swagger, SQL, Kafka, Kubernetes, Elasticsearch,
-        DevTools, CI/CD, and BrowserStack.
-        <br />
-        This website contains my projects, experiments, and technical journey.
+        {copy.summary.lines.map((line, index) => (
+          <span key={line}>
+            {line}
+            {index < copy.summary.lines.length - 1 && <br />}
+          </span>
+        ))}
       </p>
     </section>
   );

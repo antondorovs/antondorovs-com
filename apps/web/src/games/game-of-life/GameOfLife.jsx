@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useSiteCopy } from '../../shared/i18n/LanguageProvider.jsx';
 import './GameOfLife.css';
 
 export function GameOfLife() {
@@ -8,6 +9,7 @@ export function GameOfLife() {
   const [grid, setGrid] = useState(() => createEmptyGrid(10, 10));
   const [cycleCounter, setCycleCounter] = useState(0);
   const [status, setStatus] = useState('');
+  const copy = useSiteCopy();
   const intervalRef = useRef(null);
   const gridRef = useRef(grid);
   const previousStatesRef = useRef([]);
@@ -70,13 +72,13 @@ export function GameOfLife() {
       const state = JSON.stringify(currentGrid);
 
       if (previousStatesRef.current.includes(state)) {
-        setStatus('Game over. The game has entered a repeating state.');
+        setStatus('repeatingState');
         stopGame();
         return;
       }
 
       if (!currentGrid.flat().some(Boolean)) {
-        setStatus('Game over. All cells are dead.');
+        setStatus('allCellsDead');
         stopGame();
         return;
       }
@@ -97,38 +99,30 @@ export function GameOfLife() {
   };
 
   return (
-    <section className="life-game" aria-label="Game of Life">
+    <section className="life-game" aria-label={copy.games.life.ariaLabel}>
       <div className="life-game__description">
-        <p>
-          The Game of Life is a cellular automaton devised by mathematician John Conway in 1970.
-          It is a zero-player game, meaning that its evolution is determined by its initial state, with no further input.
-          The game consists of a grid of cells, each of which can be in one of two states: alive or dead.
-        </p>
-        <p>
-          The evolution of the game is governed by simple rules:
-        </p>
+        {copy.games.life.description.map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
         <ul>
-          <li>Any live cell with fewer than two live neighbors dies (underpopulation).</li>
-          <li>Any live cell with two or three live neighbors lives on to the next generation.</li>
-          <li>Any live cell with more than three live neighbors dies (overpopulation).</li>
-          <li>Any dead cell with exactly three live neighbors becomes a live cell (reproduction).</li>
+          {copy.games.life.rules.map((rule) => (
+            <li key={rule}>{rule}</li>
+          ))}
         </ul>
-        <p>To interact with the game, click on cells to toggle their state.
-        Experiment with different initial configurations and observe how the patterns evolve over time.
-        </p>
+        <p>{copy.games.life.interaction}</p>
       </div>
 
       <div className="life-game__controls">
         <label>
-          Rows
+          {copy.games.life.controls.rows}
           <input type="number" min="1" value={rows} onChange={(event) => setRows(Number(event.target.value))} />
         </label>
         <label>
-          Columns
+          {copy.games.life.controls.columns}
           <input type="number" min="1" value={cols} onChange={(event) => setCols(Number(event.target.value))} />
         </label>
         <label>
-          Cycle Time (s)
+          {copy.games.life.controls.cycleTime}
           <input
             type="number"
             min="0.1"
@@ -141,21 +135,21 @@ export function GameOfLife() {
 
       <div className="life-game__actions">
         <button type="button" onClick={applyChanges}>
-          Apply
+          {copy.games.life.actions.apply}
         </button>
         <button type="button" onClick={randomizeGrid}>
-          Random
+          {copy.games.life.actions.random}
         </button>
         <button type="button" onClick={startGame}>
-          Start
+          {copy.games.life.actions.start}
         </button>
         <button type="button" onClick={clearGrid}>
-          Clear
+          {copy.games.life.actions.clear}
         </button>
       </div>
 
-      <span className="life-game__counter">Cycle: {cycleCounter}</span>
-      {status && <p className="life-game__status">{status}</p>}
+      <span className="life-game__counter">{copy.games.life.counter(cycleCounter)}</span>
+      {status && <p className="life-game__status">{copy.games.life[status]}</p>}
 
       <div className="life-game__grid" style={{ gridTemplateColumns }}>
         {grid.map((row, rowIndex) =>
@@ -164,7 +158,7 @@ export function GameOfLife() {
               className={`life-game__cell ${cell ? 'life-game__cell--alive' : 'life-game__cell--dead'}`}
               key={`${rowIndex}-${colIndex}`}
               type="button"
-              aria-label={`Toggle cell ${rowIndex + 1}, ${colIndex + 1}`}
+              aria-label={copy.games.life.toggleCell({ row: rowIndex + 1, col: colIndex + 1 })}
               onClick={() => toggleCell(rowIndex, colIndex)}
             />
           )),

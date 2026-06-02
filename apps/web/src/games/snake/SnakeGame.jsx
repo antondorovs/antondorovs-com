@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import groundImage from '../../assets/games/snake/ground.png';
 import foodImage from '../../assets/games/snake/food.png';
+import { useSiteCopy } from '../../shared/i18n/LanguageProvider.jsx';
 import './SnakeGame.css';
 
 const BOX = 32;
@@ -9,6 +10,7 @@ const BOARD_SIZE = 608;
 export function SnakeGame() {
   const canvasRef = useRef(null);
   const keyDownHandlerRef = useRef(null);
+  const copy = useSiteCopy();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -101,7 +103,7 @@ export function SnakeGame() {
       width={BOARD_SIZE}
       height={BOARD_SIZE}
       tabIndex={0}
-      aria-label="Snake game board"
+      aria-label={copy.games.snakeBoardLabel}
       onKeyDown={handleCanvasKeyDown}
     />
   );

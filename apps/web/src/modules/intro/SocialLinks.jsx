@@ -4,41 +4,51 @@ import linkedinIcon from '../../assets/icons/linkedin.svg?raw';
 import telegramIcon from '../../assets/icons/telegram.svg?raw';
 import xIcon from '../../assets/icons/x.svg?raw';
 import { SvgIcon } from '../../shared/icons/SvgIcon.jsx';
+import { useSiteCopy } from '../../shared/i18n/LanguageProvider.jsx';
 import './SocialLinks.css';
 
 export const socialLinks = [
   {
-    label: 'Telegram profile',
+    key: 'telegram',
     href: 'https://www.t.me/antondorovs',
     icon: telegramIcon,
   },
   {
-    label: 'LinkedIn profile',
+    key: 'linkedin',
     href: 'https://www.linkedin.com/in/antondorovs',
     icon: linkedinIcon,
   },
   {
-    label: 'X profile',
+    key: 'x',
     href: 'https://x.com/antondorovs',
     icon: xIcon,
   },
   {
-    label: 'GitHub profile',
+    key: 'github',
     href: 'https://github.com/antondorovs',
     icon: githubIcon,
   },
   {
-    label: 'GitLab profile',
+    key: 'gitlab',
     href: 'https://gitlab.com/antondorovs',
     icon: gitlabIcon,
   },
 ];
 
-export function SocialLinks({ ariaLabel = 'Social links', className = '' }) {
+export function SocialLinks({ ariaLabel, className = '' }) {
+  const copy = useSiteCopy();
+  const resolvedAriaLabel = ariaLabel ?? copy.intro.socialAriaLabel;
+
   return (
-    <div className={`social-links ${className}`.trim()} aria-label={ariaLabel}>
+    <div className={`social-links ${className}`.trim()} aria-label={resolvedAriaLabel}>
       {socialLinks.map((link) => (
-        <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
+        <a
+          key={link.href}
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={copy.intro.socialLabels[link.key]}
+        >
           <SvgIcon className="social-links__icon" markup={link.icon} />
         </a>
       ))}
