@@ -145,6 +145,17 @@ git rev-parse main
 git rev-list --left-right --count dev...main
 ```
 
+## Расширения экрана
+
+280–319
+320-359
+360-479
+480-767
+768-1023
+1024-1279
+1280+
+
+
 ## План будущего React/PHP/MySQL приложения
 
 
