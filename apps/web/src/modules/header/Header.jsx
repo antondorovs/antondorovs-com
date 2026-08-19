@@ -27,7 +27,21 @@ const CENTER_COLLISION_GAP = 8;
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
-const isSameStyle = (current, next) =>
+const getContentRightEdge = () => {
+  const viewportWidth = document.documentElement.clientWidth;
+  const rootStyles = window.getComputedStyle(document.documentElement);
+  const configuredContentWidth = Number.parseFloat(rootStyles.getPropertyValue('--content-width')) || 1000;
+  const contentSection = document.querySelector('.content-section');
+  const contentGutter = contentSection
+    ? Number.parseFloat(window.getComputedStyle(contentSection).paddingRight) || 16
+    : 16;
+  const availableContentWidth = Math.max(0, viewportWidth - contentGutter * 2);
+  const renderedContentWidth = Math.min(configuredContentWidth, availableContentWidth);
+
+  return (viewportWidth + renderedContentWidth) / 2;
+};
+
+const isSameStyle = (current = {}, next = {}) =>
   current['--site-header-menu-left'] === next['--site-header-menu-left'] &&
   current['--site-header-menu-top'] === next['--site-header-menu-top'] &&
   current['--site-header-center-left'] === next['--site-header-center-left'];
@@ -40,33 +54,45 @@ const getMenuPlacement = ({ buttonElement, headerElement, menuElement, useViewpo
   const menuRect = menuElement.getBoundingClientRect();
   const menuWidth = menuRect.width || Number.parseFloat(window.getComputedStyle(menuElement).width) || 0;
   const halfMenuWidth = menuWidth / 2;
+  const viewportWidth = document.documentElement.clientWidth;
   const minCenter = VIEWPORT_GUTTER + halfMenuWidth;
-  const maxCenter = Math.max(minCenter, window.innerWidth - VIEWPORT_GUTTER - halfMenuWidth);
+  const maxCenter = Math.max(minCenter, viewportWidth - VIEWPORT_GUTTER - halfMenuWidth);
   const buttonRect = buttonElement?.getBoundingClientRect();
   const headerRect = headerElement?.getBoundingClientRect();
   const desiredCenter = useViewportCenter
-    ? window.innerWidth / 2
-    : (buttonRect?.left ?? 0) + (buttonRect?.width ?? 0) / 2;
-  const top = useViewportCenter ? headerRect?.bottom : buttonRect?.bottom;
+    ? viewportWidth / 2
+    : getContentRightEdge() - halfMenuWidth;
+  const fallbackTop = buttonRect?.bottom ?? 0;
 
   return {
-    '--site-header-menu-left': `${Math.round(clamp(desiredCenter, minCenter, maxCenter))}px`,
-    '--site-header-menu-top': `${Math.round(top ?? headerRect?.bottom ?? 0)}px`,
+    '--site-header-menu-left': `${clamp(desiredCenter, minCenter, maxCenter)}px`,
+    '--site-header-menu-top': `${Math.round(headerRect?.bottom ?? fallbackTop)}px`,
   };
 };
 
-const getCenterPlacement = ({ centerElement, controlsElement }) => {
+const getCenterPlacement = ({ centerElement, controlsElement, signInElement, useViewportCenter }) => {
   if (!centerElement) {
     return {};
   }
 
+  if (useViewportCenter) {
+    return {
+      '--site-header-center-left': '50vw',
+    };
+  }
+
   const centerRect = centerElement.getBoundingClientRect();
   const controlsRect = controlsElement?.getBoundingClientRect();
+  const signInRect = signInElement?.getBoundingClientRect();
   const halfCenterWidth = centerRect.width / 2;
   const minCenter = VIEWPORT_GUTTER + halfCenterWidth;
+  const controlsLeft = Math.min(
+    controlsRect?.left ?? window.innerWidth,
+    signInRect?.left ?? window.innerWidth,
+  );
   const maxCenter = Math.max(
     minCenter,
-    (controlsRect?.left ?? window.innerWidth) - CENTER_COLLISION_GAP - halfCenterWidth,
+    controlsLeft - CENTER_COLLISION_GAP - halfCenterWidth,
   );
 
   return {
@@ -78,6 +104,7 @@ export function Header({ centerLinkKey, variant = 'default' }) {
   const centerRef = useRef(null);
   const controlsRef = useRef(null);
   const desktopLanguageMenuRef = useRef(null);
+  const desktopSignInMenuRef = useRef(null);
   const desktopThemeMenuRef = useRef(null);
   const headerRef = useRef(null);
   const languageButtonRef = useRef(null);
@@ -85,15 +112,20 @@ export function Header({ centerLinkKey, variant = 'default' }) {
   const menuButtonRef = useRef(null);
   const mobileLanguageMenuRef = useRef(null);
   const mobileNavRef = useRef(null);
+  const mobileSignInMenuRef = useRef(null);
   const mobileThemeMenuRef = useRef(null);
+  const signInButtonRef = useRef(null);
+  const signInControlRef = useRef(null);
   const themeButtonRef = useRef(null);
   const themeControlRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
+  const [isSignInMenuOpen, setIsSignInMenuOpen] = useState(false);
   const [isThemeMenuOpen, setIsThemeMenuOpen] = useState(false);
   const [centerPlacement, setCenterPlacement] = useState({});
   const [menuPlacement, setMenuPlacement] = useState({
     language: {},
+    signIn: {},
     theme: {},
   });
   const { effectiveTheme, themeMode, selectThemeMode } = useThemeMode();
@@ -116,6 +148,14 @@ export function Header({ centerLinkKey, variant = 'default' }) {
           useViewportCenter: isMobile,
         })
       : {};
+    const nextSignInPlacement = isSignInMenuOpen
+      ? getMenuPlacement({
+          buttonElement: signInButtonRef.current,
+          headerElement: headerRef.current,
+          menuElement: isMobile ? mobileSignInMenuRef.current : desktopSignInMenuRef.current,
+          useViewportCenter: isMobile,
+        })
+      : {};
     const nextThemePlacement = isThemeMenuOpen
       ? getMenuPlacement({
           buttonElement: themeButtonRef.current,
@@ -127,24 +167,32 @@ export function Header({ centerLinkKey, variant = 'default' }) {
     const nextCenterPlacement = getCenterPlacement({
       centerElement: centerRef.current,
       controlsElement: controlsRef.current,
+      signInElement: signInControlRef.current,
+      useViewportCenter: isMobile,
     });
 
     setMenuPlacement((current) => {
-      if (isSameStyle(current.language, nextLanguagePlacement) && isSameStyle(current.theme, nextThemePlacement)) {
+      if (
+        isSameStyle(current.language, nextLanguagePlacement) &&
+        isSameStyle(current.signIn, nextSignInPlacement) &&
+        isSameStyle(current.theme, nextThemePlacement)
+      ) {
         return current;
       }
 
       return {
         language: nextLanguagePlacement,
+        signIn: nextSignInPlacement,
         theme: nextThemePlacement,
       };
     });
     setCenterPlacement((current) => (isSameStyle(current, nextCenterPlacement) ? current : nextCenterPlacement));
-  }, [isLanguageMenuOpen, isThemeMenuOpen]);
+  }, [isLanguageMenuOpen, isSignInMenuOpen, isThemeMenuOpen]);
 
   const closeMenu = () => {
     setIsOpen(false);
     setIsLanguageMenuOpen(false);
+    setIsSignInMenuOpen(false);
     setIsThemeMenuOpen(false);
   };
 
@@ -167,7 +215,7 @@ export function Header({ centerLinkKey, variant = 'default' }) {
   }, [updateHeaderLayout]);
 
   useEffect(() => {
-    if (!isLanguageMenuOpen && !isThemeMenuOpen && !isOpen) {
+    if (!isLanguageMenuOpen && !isSignInMenuOpen && !isThemeMenuOpen && !isOpen) {
       return undefined;
     }
 
@@ -176,12 +224,15 @@ export function Header({ centerLinkKey, variant = 'default' }) {
 
       if (
         desktopLanguageMenuRef.current?.contains(target) ||
+        desktopSignInMenuRef.current?.contains(target) ||
         desktopThemeMenuRef.current?.contains(target) ||
         languageControlRef.current?.contains(target) ||
         menuButtonRef.current?.contains(target) ||
         mobileLanguageMenuRef.current?.contains(target) ||
         mobileNavRef.current?.contains(target) ||
+        mobileSignInMenuRef.current?.contains(target) ||
         mobileThemeMenuRef.current?.contains(target) ||
+        signInControlRef.current?.contains(target) ||
         themeControlRef.current?.contains(target)
       ) {
         return;
@@ -203,7 +254,7 @@ export function Header({ centerLinkKey, variant = 'default' }) {
       document.removeEventListener('pointerdown', handleDocumentPointerDown);
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isLanguageMenuOpen, isOpen, isThemeMenuOpen]);
+  }, [isLanguageMenuOpen, isOpen, isSignInMenuOpen, isThemeMenuOpen]);
 
   const handleNavClick = (event, item) => {
     closeMenu();
@@ -232,17 +283,12 @@ export function Header({ centerLinkKey, variant = 'default' }) {
     const targetElement = document.getElementById(targetId);
 
     if (!targetElement) {
+      document.documentElement.dataset.routeTransition = 'pending';
       const oldURL = window.location.href;
       const newURL = `${window.location.pathname}${window.location.search}${item.href}`;
 
       window.history.pushState(null, '', newURL);
       window.dispatchEvent(new HashChangeEvent('hashchange', { oldURL, newURL: window.location.href }));
-
-      window.requestAnimationFrame(() => {
-        window.requestAnimationFrame(() => {
-          document.getElementById(targetId)?.scrollIntoView({ behavior, block: 'start' });
-        });
-      });
 
       return;
     }
@@ -260,18 +306,28 @@ export function Header({ centerLinkKey, variant = 'default' }) {
 
   const handleLanguageButtonClick = () => {
     setIsOpen(false);
+    setIsSignInMenuOpen(false);
     setIsThemeMenuOpen(false);
     setIsLanguageMenuOpen((current) => !current);
+  };
+
+  const handleSignInButtonClick = () => {
+    setIsOpen(false);
+    setIsLanguageMenuOpen(false);
+    setIsThemeMenuOpen(false);
+    setIsSignInMenuOpen((current) => !current);
   };
 
   const handleThemeButtonClick = () => {
     setIsOpen(false);
     setIsLanguageMenuOpen(false);
+    setIsSignInMenuOpen(false);
     setIsThemeMenuOpen((current) => !current);
   };
 
   const handleMenuButtonClick = () => {
     setIsLanguageMenuOpen(false);
+    setIsSignInMenuOpen(false);
     setIsThemeMenuOpen(false);
     setIsOpen((current) => !current);
   };
@@ -336,16 +392,54 @@ export function Header({ centerLinkKey, variant = 'default' }) {
           )}
         </div>
 
-        <div className="site-header__controls" ref={controlsRef}>
-          {actionItem && (
-            <a
-              className="site-header__action-link"
-              href={actionItem.href}
-              onClick={(event) => handleNavClick(event, actionItem)}
+        {actionItem && (
+          <div className="site-header__sign-in-control" ref={signInControlRef}>
+            <button
+              className="site-header__action-button"
+              ref={signInButtonRef}
+              type="button"
+              aria-label={copy.header.signIn.buttonLabel}
+              aria-expanded={isSignInMenuOpen}
+              aria-haspopup="dialog"
+              onClick={handleSignInButtonClick}
             >
               {copy.nav[actionItem.key]}
-            </a>
-          )}
+            </button>
+
+            {isSignInMenuOpen && (
+              <SignInMenu
+                className="site-header__sign-in-menu--desktop"
+                copy={copy.header.signIn}
+                menuRef={desktopSignInMenuRef}
+                style={menuPlacement.signIn}
+              />
+            )}
+          </div>
+        )}
+
+        <div className="site-header__controls" ref={controlsRef}>
+
+          <div className="site-header__theme-control" ref={themeControlRef}>
+            <ThemeModeButton
+              buttonRef={themeButtonRef}
+              copy={copy.header.theme}
+              effectiveTheme={effectiveTheme}
+              isOpen={isThemeMenuOpen}
+              themeMode={themeMode}
+              onClick={handleThemeButtonClick}
+            />
+
+            {isThemeMenuOpen && (
+              <ThemeModeMenu
+                className="site-header__theme-menu--desktop"
+                copy={copy.header.theme}
+                currentMode={themeMode}
+                menuRef={desktopThemeMenuRef}
+                onSelect={handleThemeModeSelect}
+                style={menuPlacement.theme}
+              />
+            )}
+          </div>
 
           <div className="site-header__language-control" ref={languageControlRef}>
             <LanguageButton
@@ -366,28 +460,6 @@ export function Header({ centerLinkKey, variant = 'default' }) {
                 menuRef={desktopLanguageMenuRef}
                 onSelect={handleLanguageSelect}
                 style={menuPlacement.language}
-              />
-            )}
-          </div>
-
-          <div className="site-header__theme-control" ref={themeControlRef}>
-            <ThemeModeButton
-              buttonRef={themeButtonRef}
-              copy={copy.header.theme}
-              effectiveTheme={effectiveTheme}
-              isOpen={isThemeMenuOpen}
-              themeMode={themeMode}
-              onClick={handleThemeButtonClick}
-            />
-
-            {isThemeMenuOpen && (
-              <ThemeModeMenu
-                className="site-header__theme-menu--desktop"
-                copy={copy.header.theme}
-                currentMode={themeMode}
-                menuRef={desktopThemeMenuRef}
-                onSelect={handleThemeModeSelect}
-                style={menuPlacement.theme}
               />
             )}
           </div>
@@ -414,6 +486,15 @@ export function Header({ centerLinkKey, variant = 'default' }) {
           menuRef={mobileThemeMenuRef}
           onSelect={handleThemeModeSelect}
           style={menuPlacement.theme}
+        />
+      )}
+
+      {isSignInMenuOpen && (
+        <SignInMenu
+          className="site-header__sign-in-menu--mobile"
+          copy={copy.header.signIn}
+          menuRef={mobileSignInMenuRef}
+          style={menuPlacement.signIn}
         />
       )}
 
@@ -537,6 +618,23 @@ function ThemeModeMenu({ className = '', copy, currentMode, menuRef, onSelect, s
           );
         })}
       </div>
+    </div>
+  );
+}
+
+function SignInMenu({ className = '', copy, menuRef, style }) {
+  return (
+    <div
+      ref={menuRef}
+      className={`site-header__sign-in-menu ${className}`.trim()}
+      role="dialog"
+      aria-label={copy.menuLabel}
+      style={style}
+    >
+      <div className="site-header__menu-heading">
+        <p className="site-header__menu-title">{copy.menuTitle}</p>
+      </div>
+      <p className="site-header__sign-in-message">{copy.message}</p>
     </div>
   );
 }

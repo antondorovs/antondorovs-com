@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { getSiteVisitCounts } from './visitCounter.js';
 
 const GOOGLE_TAG_ID = 'G-8J0412F442';
 const YANDEX_COUNTER_ID = 109237594;
@@ -9,6 +10,7 @@ export function AnalyticsScripts() {
     injectGoogleTag();
     injectYandexMetrika();
     injectMicrosoftClarity();
+    void getSiteVisitCounts();
   }, []);
 
   return (

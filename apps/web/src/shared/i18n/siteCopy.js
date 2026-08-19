@@ -24,7 +24,7 @@ export const siteCopy = {
         menuLabel: 'Theme mode',
         menuTitle: 'Theme mode',
         modes: {
-          auto: 'Auto',
+          auto: 'System',
           dark: 'Dark',
           light: 'Light',
         },
@@ -33,6 +33,12 @@ export const siteCopy = {
         buttonLabel: ({ selectedLanguage }) => `Change language. Selected language: ${selectedLanguage}.`,
         menuLabel: 'Language',
         menuTitle: 'Language',
+      },
+      signIn: {
+        buttonLabel: 'Open sign-in information',
+        menuLabel: 'Sign-in information',
+        menuTitle: 'Sign in',
+        message: 'This feature is currently under development.',
       },
     },
     homeBanner: {
@@ -87,50 +93,36 @@ export const siteCopy = {
       techStack: 'Tech stack',
       work: [
         {
-          role: 'Manual QA Engineer',
+          role: 'Full Stack QA Engineer',
           company: 'UNI digital logistics',
           period: 'Aug 2024 - Present',
           description: [
-            'Seller platform ',
+            'Development of the seller platform ',
             { type: 'link', text: 'unitrade-global.com', href: 'https://unitrade-global.com/' },
-            ' for parcel and returns management.',
+            ' from scratch for parcel management.',
           ],
           stack:
-            'REST API, DevTools, Postman, Swagger, SQL, Kafka, Rider, Kubernetes, Lens, Charles Proxy, MongoDB, Kibana, Elasticsearch, BrowserStack, Figma, Sketch, Azure, Yandex Wiki, Scrum, Kanban.',
-        },
-        {
-          role: 'Full Stack QA Engineer',
-          company: 'Ultimate Software DOO',
-          period: 'May 2023 - Aug 2024',
-          description: [
-            'Applications ',
-            { type: 'link', text: 'ultie.org', href: 'https://ultie.org/' },
-            ' and ',
-            { type: 'link', text: 'ultisport.ru', href: 'https://ultisport.ru/' },
-            ' for sports event management.',
-          ],
-          stack:
-            'REST API, DevTools, Postman, Swagger, PostgreSQL, PgAdmin, JS, Playwright, WebStorm, CI/CD, GitLab CI, Jenkins, Kibana, Elastic, BrowserStack, Figma, Jira, Confluence, TestRail, Kanban.',
+            'JS, Playwright, WebStorm, CI/CD, GitLab CI, Jenkins, REST API, DevTools, Postman, Swagger, SQL, Kafka, Rider, Kubernetes, Lens, Charles Proxy, MongoDB, Kibana, Elasticsearch, BrowserStack, Figma, Sketch, Azure, Yandex Wiki, Scrum, Kanban.',
         },
         {
           role: 'Manual QA Engineer',
           company: 'Workme LTD - VTB',
-          period: 'Oct 2021 - May 2023',
+          period: 'May 2022 - Aug 2024',
           description: [
             'Cash Logistics project by ',
             { type: 'link', text: 'workme.io', href: 'https://workme.io/' },
-            ' for VTB Bank, focused on automating cash collection logistics and ATM service forecasting.',
+            ' for VTB Bank. The system was created to automate cash collection logistics and predict ATM service needs.',
           ],
           stack:
-            'REST API, DevTools, Postman, Swagger, PostgreSQL, OpenShift, Apache Kafka, Kubernetes, Docker, MongoDB, Redis, CI/CD, GitHub Actions, Jenkins, Kibana, Elastic, Jira, Confluence, TestRail, Scrum.',
+            'REST API, DevTools, Postman, Swagger, PostgreSQL, OpenShift, Apache Kafka, Kubernetes, Docker, MongoDB, Redis, CI/CD, GitHub Actions, Jenkins, Kibana, Elasticsearch, Jira, Confluence, TestRail, Scrum.',
         },
       ],
       education: [
-        '2023 - 2024 | Automation QA Engineer | Quality Academy.',
-        '2023 - 2023 | Full Stack Developer JavaScript | Elbrus Bootcamp.',
+        '2024 - 2025 | Automation QA Engineer | Quality Academy.',
+        '2023 - 2024 | Full Stack JavaScript Developer | Elbrus Bootcamp.',
         '2021 - 2022 | Manual QA Engineer | Quality Academy.',
         '2020 - present | English courses | SkyEng, Duolingo, LinguaTrip.',
-        '2008 - 2015 | Bauman Moscow State Technical University | Faculty of Radio Engineering | Design and Production Technology of Radio Electronic Devices.',
+        '2008 - 2015 | Bauman Moscow State Technical University | Faculty of Radio Engineering | Design and Production Technology of Radio Electronic Devices | GPA: 4.05.',
       ],
       skillGroups: [
         {
@@ -282,6 +274,7 @@ export const siteCopy = {
       title: 'CONTACTS',
       message: 'For any questions, you can contact me by email or through the social links below.',
       socialAriaLabel: 'Footer contact social links',
+      visitCounterAriaLabel: 'Site visit counter',
       notice: {
         site: 'Personal non-commercial site.',
         privacyPrefix: 'Read the ',
@@ -334,13 +327,15 @@ export const siteCopy = {
           paragraphs: [
             'The site uses Google Analytics, Yandex Metrica, and Microsoft Clarity to understand traffic, performance, errors, and visitor interaction patterns. These services may process technical data such as page URLs, approximate location derived from network data, browser and device information, session data, cookies or similar identifiers, clicks, scrolls, and other interaction data.',
             'Analytics data is used to improve site quality, usability, stability, and content. The site owner does not use analytics data to identify a specific visitor by name, sell personal profiles, or provide paid targeted advertising services.',
+            'The site also maintains an internal visit counter. It stores only aggregate monthly totals and does not store IP addresses, names, email addresses, browser details, or individual visit histories for this counter.',
             'Google, Yandex, and Microsoft process data according to their own terms, privacy policies, and technical settings. Visitors can use browser privacy settings, content blockers, cookie controls, or provider opt-out tools where available.',
           ],
         },
         {
           title: 'Cookies And Local Storage',
           paragraphs: [
-            'The website may use browser storage for interface preferences. For example, the selected theme mode is saved in localStorage so the site can remember the visitor preference between sessions.',
+            'The website may use browser storage for interface preferences. The selected theme mode and language are saved in localStorage so the site can remember these preferences between sessions.',
+            'The internal aggregate counter may increase on every full page load, including reloads. It does not attempt to identify or deduplicate individual visitors.',
             'Third-party analytics tools may use cookies or similar technologies. The exact behavior can depend on the visitor browser, region, privacy settings, and the current configuration of those providers.',
           ],
         },
@@ -399,7 +394,7 @@ export const siteCopy = {
         menuLabel: 'Выбор темы',
         menuTitle: 'Выбор темы',
         modes: {
-          auto: 'Авто',
+          auto: 'Системная',
           dark: 'Темная',
           light: 'Светлая',
         },
@@ -408,6 +403,12 @@ export const siteCopy = {
         buttonLabel: ({ selectedLanguage }) => `Изменить язык. Выбранный язык: ${selectedLanguage}.`,
         menuLabel: 'Язык',
         menuTitle: 'Язык',
+      },
+      signIn: {
+        buttonLabel: 'Открыть информацию о входе',
+        menuLabel: 'Информация о входе',
+        menuTitle: 'Вход',
+        message: 'Эта функция сейчас находится в разработке.',
       },
     },
     homeBanner: {
@@ -462,50 +463,36 @@ export const siteCopy = {
       techStack: 'Технологический стек',
       work: [
         {
-          role: 'Manual QA Engineer',
+          role: 'Full Stack QA Engineer',
           company: 'UNI digital logistics',
           period: 'Авг 2024 - настоящее время',
           description: [
-            'Seller platform ',
+            'Разработка с нуля кабинета сейлера ',
             { type: 'link', text: 'unitrade-global.com', href: 'https://unitrade-global.com/' },
-            ' для управления посылками и возвратами.',
+            ' для управления посылками.',
           ],
           stack:
-            'REST API, DevTools, Postman, Swagger, SQL, Kafka, Rider, Kubernetes, Lens, Charles Proxy, MongoDB, Kibana, Elasticsearch, BrowserStack, Figma, Sketch, Azure, Yandex Wiki, Scrum, Kanban.',
-        },
-        {
-          role: 'Full Stack QA Engineer',
-          company: 'Ultimate Software DOO',
-          period: 'Май 2023 - Авг 2024',
-          description: [
-            'Приложения ',
-            { type: 'link', text: 'ultie.org', href: 'https://ultie.org/' },
-            ' и ',
-            { type: 'link', text: 'ultisport.ru', href: 'https://ultisport.ru/' },
-            ' для управления спортивными мероприятиями.',
-          ],
-          stack:
-            'REST API, DevTools, Postman, Swagger, PostgreSQL, PgAdmin, JS, Playwright, WebStorm, CI/CD, GitLab CI, Jenkins, Kibana, Elastic, BrowserStack, Figma, Jira, Confluence, TestRail, Kanban.',
+            'JS, Playwright, WebStorm, CI/CD, GitLab CI, Jenkins, REST API, DevTools, Postman, Swagger, SQL, Kafka, Rider, Kubernetes, Lens, Charles Proxy, MongoDB, Kibana, Elasticsearch, BrowserStack, Figma, Sketch, Azure, Яндекс Вики, Scrum, Kanban.',
         },
         {
           role: 'Manual QA Engineer',
           company: 'Workme LTD - VTB',
-          period: 'Окт 2021 - Май 2023',
+          period: 'Май 2022 - Авг 2024',
           description: [
             'Проект Cash Logistics от ',
             { type: 'link', text: 'workme.io', href: 'https://workme.io/' },
-            ' для банка ВТБ, посвященный автоматизации логистики инкассации и прогнозированию обслуживания банкоматов.',
+            ' для банка ВТБ для автоматизации логистики инкассации и прогнозирования обслуживания банкоматов.',
           ],
           stack:
-            'REST API, DevTools, Postman, Swagger, PostgreSQL, OpenShift, Apache Kafka, Kubernetes, Docker, MongoDB, Redis, CI/CD, GitHub Actions, Jenkins, Kibana, Elastic, Jira, Confluence, TestRail, Scrum.',
+            'REST API, DevTools, Postman, Swagger, PostgreSQL, OpenShift, Apache Kafka, Kubernetes, Docker, MongoDB, Redis, CI/CD, GitHub Actions, Jenkins, Kibana, Elasticsearch, Jira, Confluence, TestRail, Scrum.',
         },
       ],
       education: [
-        '2023 - 2024 | Automation QA Engineer | Quality Academy.',
-        '2023 - 2023 | Full Stack Developer JavaScript | Elbrus Bootcamp.',
+        '2024 - 2025 | Automation QA Engineer | Quality Academy.',
+        '2023 - 2024 | Full Stack JavaScript Developer | Elbrus Bootcamp.',
         '2021 - 2022 | Manual QA Engineer | Quality Academy.',
         '2020 - настоящее время | Курсы английского | SkyEng, Duolingo, LinguaTrip.',
-        '2008 - 2015 | МГТУ им. Н. Э. Баумана | Факультет радиотехники | Проектирование и технология производства радиоэлектронных средств.',
+        '2008 - 2015 | МГТУ им. Н. Э. Баумана | Радиотехнический факультет | Проектирование и технологии производства радиоэлектронных средств | Средний балл: 4.05.',
       ],
       skillGroups: [
         {
@@ -657,6 +644,7 @@ export const siteCopy = {
       title: 'КОНТАКТЫ',
       message: 'По любым вопросам можно связаться со мной по email или через социальные сети.',
       socialAriaLabel: 'Социальные ссылки в контактах',
+      visitCounterAriaLabel: 'Счетчик посещений сайта',
       notice: {
         site: 'Личный некоммерческий сайт.',
         privacyPrefix: 'Подробнее: ',
@@ -709,13 +697,15 @@ export const siteCopy = {
           paragraphs: [
             'Сайт использует Google Analytics, Yandex Metrica и Microsoft Clarity, чтобы понимать трафик, производительность, ошибки и паттерны взаимодействия посетителей. Эти сервисы могут обрабатывать технические данные, такие как URL страниц, примерное местоположение на основе сетевых данных, информацию о браузере и устройстве, данные сессий, cookies или похожие идентификаторы, клики, прокрутку и другие данные взаимодействия.',
             'Данные аналитики используются для улучшения качества, удобства, стабильности и контента сайта. Владелец сайта не использует аналитические данные для идентификации конкретного посетителя по имени, продажи персональных профилей или предоставления платной таргетированной рекламы.',
+            'Сайт также ведет внутренний счетчик посещений. Для него сохраняются только суммарные значения по месяцам, без IP-адресов, имен, email-адресов, данных браузера или истории отдельных посещений.',
             'Google, Yandex и Microsoft обрабатывают данные согласно собственным условиям, политикам конфиденциальности и техническим настройкам. Посетители могут использовать настройки приватности браузера, блокировщики контента, управление cookies или инструменты отказа от провайдеров, если они доступны.',
           ],
         },
         {
           title: 'Cookies и localStorage',
           paragraphs: [
-            'Сайт может использовать браузерное хранилище для интерфейсных предпочтений. Например, выбранный режим темы сохраняется в localStorage, чтобы сайт помнил предпочтение посетителя между сессиями.',
+            'Сайт может использовать браузерное хранилище для интерфейсных предпочтений. Выбранные тема и язык сохраняются в localStorage, чтобы сайт помнил эти настройки между сессиями.',
+            'Внутренний агрегированный счетчик может увеличиваться при каждой полной загрузке страницы, включая перезагрузки. Он не пытается идентифицировать или исключать повторные посещения одного пользователя.',
             'Сторонние аналитические инструменты могут использовать cookies или похожие технологии. Точное поведение зависит от браузера посетителя, региона, настроек приватности и текущей конфигурации этих провайдеров.',
           ],
         },

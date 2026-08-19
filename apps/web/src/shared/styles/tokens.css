@@ -18,7 +18,7 @@
   --ui-radius: 8px;
   --ui-control-min-height: 36px;
   --ui-control-padding: 6px 12px;
-  --motion-duration: 500ms;
+  --motion-duration: 300ms;
   --motion-easing: ease;
   color-scheme: dark;
 }

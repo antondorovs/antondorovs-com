@@ -1,6 +1,6 @@
 import { privacyPolicyRoute } from '../../app/routes.js';
 import { useSiteCopy } from '../../shared/i18n/LanguageProvider.jsx';
-import { SocialLinks } from '../intro/SocialLinks.jsx';
+import { VisitCounter } from './VisitCounter.jsx';
 import './Footer.css';
 
 const environmentLinks = [
@@ -20,18 +20,7 @@ export function Footer() {
   const copy = useSiteCopy();
 
   return (
-    <footer className="site-footer" id="contacts">
-      <section className="site-footer__contacts" aria-labelledby="site-footer-contacts-title">
-        <h2 id="site-footer-contacts-title">{copy.footer.title}</h2>
-        <p className="site-footer__contact-message">
-          {copy.footer.message}
-        </p>
-        <a className="site-footer__email" href="mailto:antondorovs@gmail.com">
-          antondorovs@gmail.com
-        </a>
-        <SocialLinks ariaLabel={copy.footer.socialAriaLabel} className="site-footer__social-links" />
-      </section>
-
+    <footer className="site-footer">
       <p className="site-footer__notice">
         <span>{copy.footer.notice.site}</span>
         <span>
@@ -40,6 +29,8 @@ export function Footer() {
           {copy.footer.notice.privacySuffix}
         </span>
       </p>
+
+      <VisitCounter />
 
       <div className="site-footer__environments">
         <p className="site-footer__env-title">{copy.footer.environmentsTitle}</p>

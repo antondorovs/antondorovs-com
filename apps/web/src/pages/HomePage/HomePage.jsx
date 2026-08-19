@@ -5,21 +5,25 @@ import { SummarySection } from '../../modules/summary/SummarySection.jsx';
 import { AboutSection } from '../../modules/about/AboutSection.jsx';
 import { ExperienceSection } from '../../modules/experience/ExperienceSection.jsx';
 import { GamesSection } from '../../modules/games/GamesSection.jsx';
+import { ContactSection } from '../../modules/contact/ContactSection.jsx';
 import { Footer } from '../../modules/footer/Footer.jsx';
 
 export function HomePage() {
   return (
     <>
       <Header />
-      <main>
-        <HomeBanner />
-        <IntroSection />
-        <SummarySection />
-        <AboutSection />
-        <ExperienceSection />
-        <GamesSection />
-      </main>
-      <Footer />
+      <div className="site-page-content">
+        <main>
+          <HomeBanner />
+          <IntroSection />
+          <SummarySection />
+          <AboutSection />
+          <ExperienceSection />
+          <ContactSection />
+          <GamesSection />
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }

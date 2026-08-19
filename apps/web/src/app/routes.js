@@ -2,8 +2,8 @@ export const navItems = [
   { key: 'home', href: '#up', scrollToTop: true },
   { key: 'about', href: '#about' },
   { key: 'experience', href: '#experience' },
-  { key: 'games', href: '#games' },
   { key: 'contacts', href: '#contacts' },
+  { key: 'games', href: '#games' },
   { key: 'signIn', href: '#up', scrollToTop: true },
 ];
 

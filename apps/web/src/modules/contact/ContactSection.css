@@ -1,0 +1,32 @@
+.contact-section {
+  gap: 18px;
+}
+
+.contact-section h2,
+.contact-section__message {
+  margin: 0;
+}
+
+.contact-section__message {
+  width: min(100%, 620px);
+  line-height: 1.5;
+}
+
+.contact-section__email {
+  min-height: var(--ui-control-min-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ui-control-padding);
+  border: var(--section-divider-height) solid currentColor;
+  border-radius: var(--ui-radius);
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.contact-section__social-links {
+  --intro-social-row-height: auto;
+
+  width: min(100%, 360px);
+  align-items: center;
+}
