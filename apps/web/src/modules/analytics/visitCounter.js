@@ -1,7 +1,11 @@
 export const emptyVisitCounts = Object.freeze({
-  allTime: 0,
-  halfYear: 0,
+  day: 0,
+  week: 0,
   month: 0,
+  threeMonths: 0,
+  halfYear: 0,
+  year: 0,
+  allTime: 0,
 });
 
 let visitCountsRequest;
@@ -20,7 +24,7 @@ export function getSiteVisitCounts() {
 
 async function requestVisitCounts() {
   try {
-    const response = await fetch('/api/visits.php', {
+    const response = await fetch('/api/site-info.php', {
       method: 'POST',
       cache: 'no-store',
       credentials: 'same-origin',
@@ -41,9 +45,13 @@ async function requestVisitCounts() {
 
 function normalizeCounts(value) {
   return {
-    allTime: normalizeCount(value?.allTime),
-    halfYear: normalizeCount(value?.halfYear),
+    day: normalizeCount(value?.day),
+    week: normalizeCount(value?.week),
     month: normalizeCount(value?.month),
+    threeMonths: normalizeCount(value?.threeMonths),
+    halfYear: normalizeCount(value?.halfYear),
+    year: normalizeCount(value?.year),
+    allTime: normalizeCount(value?.allTime),
   };
 }
 
