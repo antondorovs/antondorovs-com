@@ -274,7 +274,18 @@ export const siteCopy = {
       title: 'CONTACTS',
       message: 'For any questions, you can contact me by email or through the social links below.',
       socialAriaLabel: 'Footer contact social links',
-      visitCounterAriaLabel: 'Site visit counter',
+      visitCounter: {
+        ariaLabel: 'Site page-load counter',
+        labels: {
+          day: 'Today',
+          week: '7 days',
+          month: '30 days',
+          threeMonths: '3 months',
+          halfYear: '6 months',
+          year: '1 year',
+          allTime: 'All time',
+        },
+      },
       notice: {
         site: 'Personal non-commercial site.',
         privacyPrefix: 'Read the ',
@@ -290,7 +301,7 @@ export const siteCopy = {
     },
     privacy: {
       title: 'Privacy Policy & Legal Notice',
-      lastUpdated: 'Last updated: May 28, 2026',
+      lastUpdated: 'Last updated: August 20, 2026',
       sections: [
         {
           title: 'Non-Commercial Purpose',
@@ -327,7 +338,7 @@ export const siteCopy = {
           paragraphs: [
             'The site uses Google Analytics, Yandex Metrica, and Microsoft Clarity to understand traffic, performance, errors, and visitor interaction patterns. These services may process technical data such as page URLs, approximate location derived from network data, browser and device information, session data, cookies or similar identifiers, clicks, scrolls, and other interaction data.',
             'Analytics data is used to improve site quality, usability, stability, and content. The site owner does not use analytics data to identify a specific visitor by name, sell personal profiles, or provide paid targeted advertising services.',
-            'The site also maintains an internal visit counter. It stores only aggregate monthly totals and does not store IP addresses, names, email addresses, browser details, or individual visit histories for this counter.',
+            'The site also maintains an internal page-load counter. It stores aggregate UTC daily totals for the most recent 365 days and a separate all-time total. It does not store IP addresses, names, email addresses, browser details, cookies, device identifiers, or individual visit histories for this counter.',
             'Google, Yandex, and Microsoft process data according to their own terms, privacy policies, and technical settings. Visitors can use browser privacy settings, content blockers, cookie controls, or provider opt-out tools where available.',
           ],
         },
@@ -335,7 +346,7 @@ export const siteCopy = {
           title: 'Cookies And Local Storage',
           paragraphs: [
             'The website may use browser storage for interface preferences. The selected theme mode and language are saved in localStorage so the site can remember these preferences between sessions.',
-            'The internal aggregate counter may increase on every full page load, including reloads. It does not attempt to identify or deduplicate individual visitors.',
+            'The internal aggregate counter may increase on every full page load, including reloads. Its displayed periods are rolling windows ending on the current UTC date rather than calendar weeks, months, or years. It does not attempt to identify or deduplicate individual visitors.',
             'Third-party analytics tools may use cookies or similar technologies. The exact behavior can depend on the visitor browser, region, privacy settings, and the current configuration of those providers.',
           ],
         },
@@ -644,7 +655,18 @@ export const siteCopy = {
       title: 'КОНТАКТЫ',
       message: 'По любым вопросам можно связаться со мной по email или через социальные сети.',
       socialAriaLabel: 'Социальные ссылки в контактах',
-      visitCounterAriaLabel: 'Счетчик посещений сайта',
+      visitCounter: {
+        ariaLabel: 'Счетчик загрузок страниц сайта',
+        labels: {
+          day: 'Сегодня',
+          week: '7 дней',
+          month: '30 дней',
+          threeMonths: '3 месяца',
+          halfYear: '6 месяцев',
+          year: '1 год',
+          allTime: 'Все время',
+        },
+      },
       notice: {
         site: 'Личный некоммерческий сайт.',
         privacyPrefix: 'Подробнее: ',
@@ -660,7 +682,7 @@ export const siteCopy = {
     },
     privacy: {
       title: 'Конфиденциальность и правовая информация',
-      lastUpdated: 'Последнее обновление: 28 мая 2026',
+      lastUpdated: 'Последнее обновление: 20 августа 2026',
       sections: [
         {
           title: 'Некоммерческая цель',
@@ -697,7 +719,7 @@ export const siteCopy = {
           paragraphs: [
             'Сайт использует Google Analytics, Yandex Metrica и Microsoft Clarity, чтобы понимать трафик, производительность, ошибки и паттерны взаимодействия посетителей. Эти сервисы могут обрабатывать технические данные, такие как URL страниц, примерное местоположение на основе сетевых данных, информацию о браузере и устройстве, данные сессий, cookies или похожие идентификаторы, клики, прокрутку и другие данные взаимодействия.',
             'Данные аналитики используются для улучшения качества, удобства, стабильности и контента сайта. Владелец сайта не использует аналитические данные для идентификации конкретного посетителя по имени, продажи персональных профилей или предоставления платной таргетированной рекламы.',
-            'Сайт также ведет внутренний счетчик посещений. Для него сохраняются только суммарные значения по месяцам, без IP-адресов, имен, email-адресов, данных браузера или истории отдельных посещений.',
+            'Сайт также ведет внутренний счетчик загрузок страниц. Для него сохраняются суммарные значения по дням UTC за последние 365 дней и отдельное значение за все время. Счетчик не хранит IP-адреса, имена, email-адреса, данные браузера, cookies, идентификаторы устройств или историю отдельных посещений.',
             'Google, Yandex и Microsoft обрабатывают данные согласно собственным условиям, политикам конфиденциальности и техническим настройкам. Посетители могут использовать настройки приватности браузера, блокировщики контента, управление cookies или инструменты отказа от провайдеров, если они доступны.',
           ],
         },
@@ -705,7 +727,7 @@ export const siteCopy = {
           title: 'Cookies и localStorage',
           paragraphs: [
             'Сайт может использовать браузерное хранилище для интерфейсных предпочтений. Выбранные тема и язык сохраняются в localStorage, чтобы сайт помнил эти настройки между сессиями.',
-            'Внутренний агрегированный счетчик может увеличиваться при каждой полной загрузке страницы, включая перезагрузки. Он не пытается идентифицировать или исключать повторные посещения одного пользователя.',
+            'Внутренний агрегированный счетчик может увеличиваться при каждой полной загрузке страницы, включая перезагрузки. Отображаемые периоды являются скользящими интервалами до текущей даты UTC, а не календарными неделями, месяцами или годами. Счетчик не пытается идентифицировать или исключать повторные посещения одного пользователя.',
             'Сторонние аналитические инструменты могут использовать cookies или похожие технологии. Точное поведение зависит от браузера посетителя, региона, настроек приватности и текущей конфигурации этих провайдеров.',
           ],
         },
