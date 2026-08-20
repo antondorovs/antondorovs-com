@@ -118,7 +118,7 @@ deploy_dev:
       set ssl:verify-certificate no
       mirror -R --delete --verbose \
         apps/web/dist/assets/ ${deploy_target%/}/assets/
-      mirror -R --verbose \
+      mirror -R --verbose --transfer-all \
         apps/web/dist/ ${deploy_target}
       bye
       "
@@ -168,7 +168,7 @@ deploy_prod:
       set ssl:verify-certificate no
       mirror -R --delete --verbose \
         apps/web/dist/assets/ ${deploy_target%/}/assets/
-      mirror -R --verbose \
+      mirror -R --verbose --transfer-all \
         apps/web/dist/ ${deploy_target}
       bye
       "
