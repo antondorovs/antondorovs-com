@@ -1,17 +1,17 @@
 .experience-section__content {
   width: min(100%, var(--content-width));
   display: grid;
-  gap: 30px;
+  gap: 0;
   text-align: left;
 }
 
 .experience-section__group {
   display: grid;
-  gap: 16px;
+  gap: 0;
 }
 
 .experience-section__group h3 {
-  margin: 0;
+  margin: 42px 0;
   text-align: center;
 }
 

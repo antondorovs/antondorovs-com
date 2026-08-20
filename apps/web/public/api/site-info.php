@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+const COUNTER_STORAGE_PREFIX = "<?php http_response_code(404); exit; ?>\n";
+
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store, max-age=0');
 
@@ -12,20 +14,19 @@ if (!in_array($method, ['GET', 'POST'], true)) {
     respond(['error' => 'Method not allowed.'], 405);
 }
 
-$dataDirectory = dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . '.antondorovs-data';
-$dataFile = $dataDirectory . DIRECTORY_SEPARATOR . 'visits.json';
+$handle = openCounterStorage([
+    dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . '.antondorovs-data',
+    __DIR__ . DIRECTORY_SEPARATOR . '.antondorovs-data',
+]);
 
-if (!is_dir($dataDirectory) && !@mkdir($dataDirectory, 0750, true) && !is_dir($dataDirectory)) {
-    respond(['error' => 'Counter storage is unavailable.'], 500);
-}
-
-$handle = @fopen($dataFile, 'c+');
-
-if ($handle === false || !flock($handle, LOCK_EX)) {
+if ($handle === null) {
     respond(['error' => 'Counter storage is unavailable.'], 500);
 }
 
 $storedValue = stream_get_contents($handle);
+$storedValue = is_string($storedValue) && strncmp($storedValue, COUNTER_STORAGE_PREFIX, strlen(COUNTER_STORAGE_PREFIX)) === 0
+    ? substr($storedValue, strlen(COUNTER_STORAGE_PREFIX))
+    : $storedValue;
 $storedData = is_string($storedValue) && $storedValue !== '' ? json_decode($storedValue, true) : null;
 $storedData = is_array($storedData) ? $storedData : [];
 
@@ -64,7 +65,7 @@ if ($method === 'POST') {
     rewind($handle);
     ftruncate($handle, 0);
 
-    if (fwrite($handle, $encodedData) === false || !fflush($handle)) {
+    if (fwrite($handle, COUNTER_STORAGE_PREFIX . $encodedData) === false || !fflush($handle)) {
         respond(['error' => 'Counter storage is unavailable.'], 500);
     }
 }
@@ -94,6 +95,55 @@ function sumRecentDays(array $days, DateTimeImmutable $today, int $numberOfDays)
     }
 
     return $total;
+}
+
+function openCounterStorage(array $dataDirectories)
+{
+    foreach ($dataDirectories as $dataDirectory) {
+        if (!is_dir($dataDirectory) && !@mkdir($dataDirectory, 0750, true) && !is_dir($dataDirectory)) {
+            continue;
+        }
+
+        protectCounterStorage($dataDirectory);
+
+        $dataFile = $dataDirectory . DIRECTORY_SEPARATOR . 'visits.php';
+        $legacyDataFile = $dataDirectory . DIRECTORY_SEPARATOR . 'visits.json';
+        $handle = @fopen($dataFile, 'c+');
+
+        if ($handle !== false && flock($handle, LOCK_EX)) {
+            $fileDetails = fstat($handle);
+
+            if (is_array($fileDetails) && (int) ($fileDetails['size'] ?? 0) === 0) {
+                $legacyValue = is_readable($legacyDataFile) ? @file_get_contents($legacyDataFile) : false;
+                $initialValue = is_string($legacyValue) && json_decode($legacyValue, true) !== null ? $legacyValue : '{}';
+
+                if (fwrite($handle, COUNTER_STORAGE_PREFIX . $initialValue) === false || !fflush($handle)) {
+                    flock($handle, LOCK_UN);
+                    fclose($handle);
+                    continue;
+                }
+
+                rewind($handle);
+            }
+
+            return $handle;
+        }
+
+        if ($handle !== false) {
+            fclose($handle);
+        }
+    }
+
+    return null;
+}
+
+function protectCounterStorage(string $dataDirectory): void
+{
+    $accessFile = $dataDirectory . DIRECTORY_SEPARATOR . '.htaccess';
+
+    if (!file_exists($accessFile)) {
+        @file_put_contents($accessFile, "Require all denied\nDeny from all\n", LOCK_EX);
+    }
 }
 
 function respond(array $payload, int $status = 200): never

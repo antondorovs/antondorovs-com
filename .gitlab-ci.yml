@@ -32,6 +32,8 @@ ci_checks:
       check_file "apps/web/src/app/App.jsx"
       check_file "apps/web/src/pages/HomePage/HomePage.jsx"
       check_file "apps/web/src/modules/analytics/AnalyticsScripts.jsx"
+      check_file "apps/web/public/api/site-info.php"
+      check_file "apps/web/public/api/.antondorovs-data/.htaccess"
       check_file "apps/web/src/games/dino/DinoGame.jsx"
       check_file "apps/web/src/games/snake/SnakeGame.jsx"
       check_file "apps/web/src/games/game-of-life/GameOfLife.jsx"
@@ -62,6 +64,8 @@ ci_checks:
       else
         echo "PASS React build"
         passed=$((passed + 1))
+        check_file "apps/web/dist/api/site-info.php"
+        check_file "apps/web/dist/api/.antondorovs-data/.htaccess"
       fi
 
       {

@@ -275,6 +275,7 @@ export const siteCopy = {
       message: 'For any questions, you can contact me by email or through the social links below.',
       socialAriaLabel: 'Footer contact social links',
       visitCounter: {
+        title: 'Counter',
         ariaLabel: 'Site page-load counter',
         labels: {
           day: 'Today',
@@ -292,7 +293,7 @@ export const siteCopy = {
         privacyLink: 'Privacy Policy & Legal Notice',
         privacySuffix: ' for details.',
       },
-      environmentsTitle: 'ENVIRONMENTS',
+      environmentsTitle: 'Environments',
       environmentsAriaLabel: 'Environment links',
       environments: {
         production: 'Production',
@@ -656,6 +657,7 @@ export const siteCopy = {
       message: 'По любым вопросам можно связаться со мной по email или через социальные сети.',
       socialAriaLabel: 'Социальные ссылки в контактах',
       visitCounter: {
+        title: 'Счетчик',
         ariaLabel: 'Счетчик загрузок страниц сайта',
         labels: {
           day: 'Сегодня',
@@ -673,7 +675,7 @@ export const siteCopy = {
         privacyLink: 'Конфиденциальность и правовая информация',
         privacySuffix: '.',
       },
-      environmentsTitle: 'ENVIRONMENTS',
+      environmentsTitle: 'Environments',
       environmentsAriaLabel: 'Environment links',
       environments: {
         production: 'Production',

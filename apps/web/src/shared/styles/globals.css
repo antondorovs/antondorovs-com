@@ -68,7 +68,11 @@ main {
 }
 
 .content-section h2 {
-  margin-bottom: 18px;
+  margin: 0;
+}
+
+#about {
+  gap: 42px;
 }
 
 .visually-hidden-counter {

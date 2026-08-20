@@ -6,7 +6,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 42px 18px 22px;
+  gap: 42px;
+  padding: 42px 18px;
   text-align: center;
 }
 
@@ -27,7 +28,6 @@
   display: grid;
   gap: 8px;
   justify-items: center;
-  margin-top: 36px;
 }
 
 .site-footer__env-title {
@@ -54,12 +54,23 @@
   border-radius: var(--ui-radius);
 }
 
-.site-footer__visit-counter {
+.site-footer__counter-block {
   width: min(100%, 1000px);
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+}
+
+.site-footer__counter-title {
+  margin: 0;
+  color: var(--color-text-strong);
+}
+
+.site-footer__visit-counter {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 24px;
   padding: 10px;
   border: var(--section-divider-height) solid var(--color-border);
   border-radius: var(--ui-radius);

@@ -1,9 +1,12 @@
+.games-section {
+  gap: 42px;
+}
+
 .games-section__list {
   width: min(100%, var(--content-width));
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 12px;
-  margin-top: 18px;
 }
 
 .games-section__link {

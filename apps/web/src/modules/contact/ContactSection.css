@@ -1,8 +1,8 @@
 .contact-section {
-  gap: 18px;
+  gap: 42px;
 }
 
-.contact-section h2,
+.content-section.contact-section h2,
 .contact-section__message {
   margin: 0;
 }
@@ -24,9 +24,16 @@
   text-align: center;
 }
 
-.contact-section__social-links {
-  --intro-social-row-height: auto;
-
+.social-links.contact-section__social-links {
   width: min(100%, 360px);
+  height: auto;
   align-items: center;
+  padding-bottom: 0;
+}
+
+.contact-section__social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
 }
