@@ -112,6 +112,8 @@ deploy_dev:
       lftp -u "$FTP_USER","$FTP_PASSWORD" "ftp://$FTP_HOST" -e "
       set ftp:passive-mode true
       set ssl:verify-certificate no
+      mirror -R --delete --verbose \
+        apps/web/dist/assets/ ${deploy_target%/}/assets/
       mirror -R --verbose \
         apps/web/dist/ ${deploy_target}
       bye
@@ -160,6 +162,8 @@ deploy_prod:
       lftp -u "$FTP_USER","$FTP_PASSWORD" "ftp://$FTP_HOST" -e "
       set ftp:passive-mode true
       set ssl:verify-certificate no
+      mirror -R --delete --verbose \
+        apps/web/dist/assets/ ${deploy_target%/}/assets/
       mirror -R --verbose \
         apps/web/dist/ ${deploy_target}
       bye
