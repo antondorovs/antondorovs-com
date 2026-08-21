@@ -1,0 +1,5 @@
+.about-section__copy {
+  width: 100%;
+  display: grid;
+  gap: 18px;
+}

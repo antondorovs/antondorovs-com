@@ -2,8 +2,6 @@ export const emptyVisitCounts = Object.freeze({
   day: 0,
   week: 0,
   month: 0,
-  threeMonths: 0,
-  halfYear: 0,
   year: 0,
   allTime: 0,
 });
@@ -48,8 +46,6 @@ function normalizeCounts(value) {
     day: normalizeCount(value?.day),
     week: normalizeCount(value?.week),
     month: normalizeCount(value?.month),
-    threeMonths: normalizeCount(value?.threeMonths),
-    halfYear: normalizeCount(value?.halfYear),
     year: normalizeCount(value?.year),
     allTime: normalizeCount(value?.allTime),
   };

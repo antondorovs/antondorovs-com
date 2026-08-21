@@ -42,7 +42,7 @@ export const siteCopy = {
       },
     },
     homeBanner: {
-      greeting: "Hi, I'm Anton",
+      greeting: "Hi there! I'm Anton",
       role: 'Full Stack QA Engineer',
     },
     intro: {
@@ -62,20 +62,19 @@ export const siteCopy = {
     summary: {
       ariaLabel: 'Professional summary',
       lines: [
-        'Full Stack QA Engineer focused on software quality across frontend, backend, web, and mobile applications.',
-        'I work with manual and automated testing, covering end-to-end, UI, API, integration, regression, and system testing.',
-        'My toolkit includes JavaScript, TypeScript, Playwright, Postman, Swagger, SQL, Kafka, Kubernetes, Elasticsearch, DevTools, CI/CD, and BrowserStack.',
-        'This website contains my projects, experiments, and technical journey.',
+        'Welcome to my personal portfolio website. Here you can find my CV, information about my work experience, education and completed courses, and my contact details.',
+        'I am a Full Stack QA Engineer. I specialize in manual and automated testing of frontend, backend, web, and mobile applications. I have experience in API and UI testing, as well as in end-to-end, system, integration, and regression testing.',
+        'I hope you enjoy the site. You can also play browser games that I create in my free time as part of my technical experiments.',
       ],
     },
     about: {
       title: 'ABOUT ME',
       lines: [
-        'I have an engineering background and graduated from Bauman Moscow State Technical University with a degree in radio engineering.',
-        'Before moving into IT, I worked in several engineering fields including unmanned aircraft systems and industrial equipment.',
-        'I continuously develop my skills in test automation and programming and enjoy exploring modern technologies and tools.',
-        'I am also involved in onboarding and mentoring new team members.',
-        'Outside of work, I am passionate about freediving, hiking, sailing, travel, and outdoor activities.',
+        'I have an engineering background. I graduated from Bauman Moscow State Technical University with a degree focused on the design and programming of electronic devices.',
+        'Before moving into IT, I worked in several engineering fields, including unmanned aircraft systems and industrial equipment.',
+        'Now I work in QA and continue to develop my skills in test automation and programming. I am interested not only in finding bugs but also in understanding how the entire system works, from the user interface and API to integrations and infrastructure. I believe testing should not be done just as a formality but should genuinely improve product quality and usability.',
+        'I train and mentor new QA specialists. I have good communication skills, strong motivation, a responsible approach, and management experience.',
+        'In my free time, I enjoy active hobbies such as freediving, hiking, sailing, and calisthenics. I also love travelling and visiting different countries.',
       ],
     },
     experience: {
@@ -87,8 +86,8 @@ export const siteCopy = {
         skills: 'Skills & Tools',
       },
       cvLinks: {
-        en: 'Open CV PDF in English',
-        ru: 'Open CV PDF in Russian',
+        en: 'Open CV in English (PDF)',
+        ru: 'Open CV in Russian (PDF)',
       },
       techStack: 'Tech stack',
       work: [
@@ -99,19 +98,19 @@ export const siteCopy = {
           description: [
             'Development of the seller platform ',
             { type: 'link', text: 'unitrade-global.com', href: 'https://unitrade-global.com/' },
-            ' from scratch for parcel management.',
+            ' for parcel management.',
           ],
           stack:
-            'JS, Playwright, WebStorm, CI/CD, GitLab CI, Jenkins, REST API, DevTools, Postman, Swagger, SQL, Kafka, Rider, Kubernetes, Lens, Charles Proxy, MongoDB, Kibana, Elasticsearch, BrowserStack, Figma, Sketch, Azure, Yandex Wiki, Scrum, Kanban.',
+            'JavaScript, TypeScript, Playwright, REST API, Postman, Swagger, DevTools, PostgreSQL, SQL, Kafka, Kubernetes, Kibana, Elasticsearch, Charles Proxy, MongoDB, CI/CD, GitLab CI, BrowserStack, Figma, Sketch, Azure, Yandex Wiki, Scrum, Kanban.',
         },
         {
           role: 'Manual QA Engineer',
           company: 'Workme LTD - VTB',
           period: 'May 2022 - Aug 2024',
           description: [
-            'Cash Logistics project by ',
+            "VTB Bank's Cash Logistics project by ",
             { type: 'link', text: 'workme.io', href: 'https://workme.io/' },
-            ' for VTB Bank. The system was created to automate cash collection logistics and predict ATM service needs.',
+            ' for automating cash collection logistics and forecasting ATM servicing.',
           ],
           stack:
             'REST API, DevTools, Postman, Swagger, PostgreSQL, OpenShift, Apache Kafka, Kubernetes, Docker, MongoDB, Redis, CI/CD, GitHub Actions, Jenkins, Kibana, Elasticsearch, Jira, Confluence, TestRail, Scrum.',
@@ -275,14 +274,12 @@ export const siteCopy = {
       message: 'For any questions, you can contact me by email or through the social links below.',
       socialAriaLabel: 'Footer contact social links',
       visitCounter: {
-        title: 'Counter',
+        title: 'Site Visit Counter',
         ariaLabel: 'Site page-load counter',
         labels: {
           day: 'Today',
-          week: '7 days',
-          month: '30 days',
-          threeMonths: '3 months',
-          halfYear: '6 months',
+          week: '1 week',
+          month: '1 month',
           year: '1 year',
           allTime: 'All time',
         },
@@ -424,7 +421,7 @@ export const siteCopy = {
       },
     },
     homeBanner: {
-      greeting: "Hi, I'm Anton",
+      greeting: 'Привет! Я Антон',
       role: 'Full Stack QA Engineer',
     },
     intro: {
@@ -444,33 +441,32 @@ export const siteCopy = {
     summary: {
       ariaLabel: 'Профессиональное резюме',
       lines: [
-        'Full Stack QA Engineer. Специализируюсь на качестве frontend, backend, web и mobile приложений.',
-        'Работаю с ручным и автоматизированным тестированием: end-to-end, UI, API, интеграционным, регрессионным и системным.',
-        'В работе использую JavaScript, TypeScript, Playwright, Postman, Swagger, SQL, Kafka, Kubernetes, Elasticsearch, DevTools, CI/CD и BrowserStack.',
-        'На этом сайте — мои проекты, эксперименты и заметки о техническом пути.',
+        'Добро пожаловать на мой личный сайт-портфолио! Здесь вы найдёте моё резюме, информацию об опыте работы, образовании, пройденных курсах и мои контакты.',
+        'Я Full Stack QA Engineer. Специализируюсь на ручном и автоматизированном тестировании frontend, backend, веб- и мобильных приложений. Имею опыт тестирования API и UI, а также опыт проведения end-to-end, системного, интеграционного и регрессионного тестирования.',
+        'Надеюсь, вам понравится этот сайт. Ещё здесь можно поиграть в веб-игры, которые я создаю в свободное время в рамках технических экспериментов.',
       ],
     },
     about: {
       title: 'ОБО МНЕ',
       lines: [
-        'У меня инженерное образование: я окончил МГТУ имени Н. Э. Баумана по направлению радиотехники.',
-        'До перехода в IT я работал в нескольких инженерных областях, включая беспилотные авиационные системы и промышленное оборудование.',
-        'Я постоянно развиваю навыки в автоматизации тестирования и программировании, а также люблю изучать современные технологии и инструменты.',
-        'Еще я участвую в онбординге и менторстве новых участников команды.',
-        'Вне работы мне интересны фридайвинг, хайкинг, парусный спорт, путешествия и активный отдых.',
+        'У меня инженерное образование. Я окончил МГТУ им. Н. Э. Баумана по специальности, связанной с проектированием и программированием электронных устройств.',
+        'До перехода в IT я работал в нескольких инженерных направлениях, в том числе с беспилотными авиационными системами и промышленным оборудованием.',
+        'Сейчас я работаю в QA и развиваюсь в автоматизации тестирования и программировании. Мне интересно не просто находить баги, а разбираться в работе системы целиком: от интерфейса и API до интеграций и инфраструктуры. Мне близка идея тестировать не для галочки, а действительно повышать качество и удобство продукта.',
+        'Занимаюсь обучением и менторством новых QA-специалистов. Обладаю хорошими навыками коммуникации, высокой мотивацией и ответственностью, а также имею управленческий опыт.',
+        'В свободное время увлекаюсь активным отдыхом: фридайвингом, хайкингом, яхтингом и калистеникой, а также люблю путешествовать и посещать различные страны.',
       ],
     },
     experience: {
       title: 'ОПЫТ',
       groups: {
-        cv: 'CV',
+        cv: 'Резюме',
         work: 'Опыт работы',
         education: 'Образование и курсы',
         skills: 'Навыки и инструменты',
       },
       cvLinks: {
-        en: 'Открыть CV PDF на английском',
-        ru: 'Открыть CV PDF на русском',
+        en: 'Открыть резюме на английском (PDF)',
+        ru: 'Открыть резюме на русском (PDF)',
       },
       techStack: 'Технологический стек',
       work: [
@@ -479,21 +475,21 @@ export const siteCopy = {
           company: 'UNI digital logistics',
           period: 'Авг 2024 - настоящее время',
           description: [
-            'Разработка с нуля кабинета сейлера ',
+            'Разработка кабинета сейлера ',
             { type: 'link', text: 'unitrade-global.com', href: 'https://unitrade-global.com/' },
             ' для управления посылками.',
           ],
           stack:
-            'JS, Playwright, WebStorm, CI/CD, GitLab CI, Jenkins, REST API, DevTools, Postman, Swagger, SQL, Kafka, Rider, Kubernetes, Lens, Charles Proxy, MongoDB, Kibana, Elasticsearch, BrowserStack, Figma, Sketch, Azure, Яндекс Вики, Scrum, Kanban.',
+            'JavaScript, TypeScript, Playwright, REST API, Postman, Swagger, DevTools, PostgreSQL, SQL, Kafka, Kubernetes, Kibana, Elasticsearch, Charles Proxy, MongoDB, CI/CD, GitLab CI, BrowserStack, Figma, Sketch, Azure, Yandex Wiki, Scrum, Kanban.',
         },
         {
           role: 'Manual QA Engineer',
           company: 'Workme LTD - VTB',
           period: 'Май 2022 - Авг 2024',
           description: [
-            'Проект Cash Logistics от ',
+            'Проект банка ВТБ Cash Logistics от компании ',
             { type: 'link', text: 'workme.io', href: 'https://workme.io/' },
-            ' для банка ВТБ для автоматизации логистики инкассации и прогнозирования обслуживания банкоматов.',
+            ' для автоматизации логистики инкассации и прогнозирования обслуживания банкоматов.',
           ],
           stack:
             'REST API, DevTools, Postman, Swagger, PostgreSQL, OpenShift, Apache Kafka, Kubernetes, Docker, MongoDB, Redis, CI/CD, GitHub Actions, Jenkins, Kibana, Elasticsearch, Jira, Confluence, TestRail, Scrum.',
@@ -657,14 +653,12 @@ export const siteCopy = {
       message: 'По любым вопросам можно связаться со мной по email или через социальные сети.',
       socialAriaLabel: 'Социальные ссылки в контактах',
       visitCounter: {
-        title: 'Счетчик',
+        title: 'Счетчик посещения сайта',
         ariaLabel: 'Счетчик загрузок страниц сайта',
         labels: {
           day: 'Сегодня',
-          week: '7 дней',
-          month: '30 дней',
-          threeMonths: '3 месяца',
-          halfYear: '6 месяцев',
+          week: '1 неделя',
+          month: '1 месяц',
           year: '1 год',
           allTime: 'Все время',
         },
@@ -675,7 +669,7 @@ export const siteCopy = {
         privacyLink: 'Конфиденциальность и правовая информация',
         privacySuffix: '.',
       },
-      environmentsTitle: 'Environments',
+      environmentsTitle: 'Окружения',
       environmentsAriaLabel: 'Environment links',
       environments: {
         production: 'Production',

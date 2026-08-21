@@ -74,8 +74,6 @@ $response = [
     'day' => sumRecentDays($days, $today, 1),
     'week' => sumRecentDays($days, $today, 7),
     'month' => sumRecentDays($days, $today, 30),
-    'threeMonths' => sumRecentDays($days, $today, 90),
-    'halfYear' => sumRecentDays($days, $today, 180),
     'year' => sumRecentDays($days, $today, 365),
     'allTime' => $total,
 ];

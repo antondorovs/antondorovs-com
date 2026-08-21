@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useLanguage } from '../../shared/i18n/LanguageProvider.jsx';
 import { emptyVisitCounts, getSiteVisitCounts } from '../analytics/visitCounter.js';
 
-const visitPeriods = ['day', 'week', 'month', 'threeMonths', 'halfYear', 'year', 'allTime'];
+const visitPeriods = ['day', 'week', 'month', 'year', 'allTime'];
 
 export function VisitCounter() {
   const { contentLanguageTag, copy } = useLanguage();

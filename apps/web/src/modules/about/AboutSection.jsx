@@ -1,19 +1,17 @@
 import { useSiteCopy } from '../../shared/i18n/LanguageProvider.jsx';
+import './AboutSection.css';
 
 export function AboutSection() {
   const copy = useSiteCopy();
 
   return (
-    <section className="content-section" id="about">
+    <section className="content-section about-section" id="about">
       <h2>{copy.about.title}</h2>
-      <p>
-        {copy.about.lines.map((line, index) => (
-          <span key={line}>
-            {line}
-            {index < copy.about.lines.length - 1 && <br />}
-          </span>
+      <div className="about-section__copy">
+        {copy.about.lines.map((line) => (
+          <p key={line}>{line}</p>
         ))}
-      </p>
+      </div>
     </section>
   );
 }
