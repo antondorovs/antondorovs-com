@@ -4,7 +4,7 @@ export const ptTranslation = {
     primaryNavLabel: 'Navegação principal', mobileNavLabel: 'Navegação móvel', menuButton: { open: 'Abrir menu de navegação', close: 'Fechar menu de navegação' },
     theme: { buttonLabel: ({ selectedMode, effectiveTheme }) => `Alterar tema. Modo selecionado: ${selectedMode}. Tema ativo: ${effectiveTheme}.`, menuLabel: 'Tema', menuTitle: 'Tema', modes: { auto: 'Sistema', dark: 'Escuro', light: 'Claro' } },
     language: { buttonLabel: ({ selectedLanguage }) => `Alterar idioma. Idioma selecionado: ${selectedLanguage}.`, menuLabel: 'Idioma', menuTitle: 'Idioma' },
-    signIn: { buttonLabel: 'Abrir informações de acesso', menuLabel: 'Informações de acesso', menuTitle: 'Acesso', message: 'Esta função está em desenvolvimento.' },
+    signIn: { buttonLabel: 'Abrir informações de acesso', menuLabel: 'Informações de acesso', menuTitle: 'Acesso', message: 'Esta função está em desenvolvimento' },
   },
   homeBanner: { greeting: 'Olá a todos!' },
   intro: { ariaLabel: 'Breve apresentação', socialAriaLabel: 'Links das redes sociais', socialLabels: { telegram: 'Perfil no Telegram', linkedin: 'Perfil no LinkedIn', x: 'Perfil no X', github: 'Perfil no GitHub', gitlab: 'Perfil no GitLab' } },

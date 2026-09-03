@@ -28,7 +28,7 @@ export const frCopy = {
       buttonLabel: 'Ouvrir les informations de connexion',
       menuLabel: 'Informations de connexion',
       menuTitle: 'Connexion',
-      message: 'Cette fonctionnalité est actuellement en cours de développement.',
+      message: 'Cette fonctionnalité est actuellement en cours de développement',
     },
   },
   homeBanner: { greeting: 'Bonjour à tous !' },

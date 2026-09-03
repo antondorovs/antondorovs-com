@@ -5,7 +5,7 @@ export const jaTranslation = {
     menuButton: { open: 'ナビゲーションメニューを開く', close: 'ナビゲーションメニューを閉じる' },
     theme: { buttonLabel: ({ selectedMode, effectiveTheme }) => `テーマを変更。選択中のモード：${selectedMode}。現在のテーマ：${effectiveTheme}。`, menuLabel: 'テーマ', menuTitle: 'テーマ', modes: { auto: 'システム設定', dark: 'ダーク', light: 'ライト' } },
     language: { buttonLabel: ({ selectedLanguage }) => `言語を変更。選択中の言語：${selectedLanguage}。`, menuLabel: '言語', menuTitle: '言語' },
-    signIn: { buttonLabel: 'ログインに関する情報を開く', menuLabel: 'ログイン情報', menuTitle: 'ログイン', message: 'この機能は現在開発中です。' },
+    signIn: { buttonLabel: 'ログインに関する情報を開く', menuLabel: 'ログイン情報', menuTitle: 'ログイン', message: 'この機能は現在開発中です' },
   },
   homeBanner: { greeting: '皆さん、こんにちは！' },
   intro: { ariaLabel: 'プロフィール紹介', socialAriaLabel: 'ソーシャルリンク', socialLabels: { telegram: 'Telegramのプロフィール', linkedin: 'LinkedInのプロフィール', x: 'Xのプロフィール', github: 'GitHubのプロフィール', gitlab: 'GitLabのプロフィール' } },

@@ -4,7 +4,7 @@ export const koTranslation = {
     primaryNavLabel: '기본 탐색', mobileNavLabel: '모바일 탐색', menuButton: { open: '탐색 메뉴 열기', close: '탐색 메뉴 닫기' },
     theme: { buttonLabel: ({ selectedMode, effectiveTheme }) => `테마 변경. 선택한 모드: ${selectedMode}. 적용된 테마: ${effectiveTheme}.`, menuLabel: '테마', menuTitle: '테마', modes: { auto: '시스템', dark: '다크', light: '라이트' } },
     language: { buttonLabel: ({ selectedLanguage }) => `언어 변경. 선택한 언어: ${selectedLanguage}.`, menuLabel: '언어', menuTitle: '언어' },
-    signIn: { buttonLabel: '로그인 안내 열기', menuLabel: '로그인 안내', menuTitle: '로그인', message: '현재 개발 중인 기능입니다.' },
+    signIn: { buttonLabel: '로그인 안내 열기', menuLabel: '로그인 안내', menuTitle: '로그인', message: '현재 개발 중인 기능입니다' },
   },
   homeBanner: { greeting: '여러분, 안녕하세요!' },
   intro: { ariaLabel: '프로필 소개', socialAriaLabel: '소셜 링크', socialLabels: { telegram: 'Telegram 프로필', linkedin: 'LinkedIn 프로필', x: 'X 프로필', github: 'GitHub 프로필', gitlab: 'GitLab 프로필' } },

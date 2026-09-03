@@ -59,7 +59,7 @@ export const siteCopy = {
         buttonLabel: 'Open sign-in information',
         menuLabel: 'Sign-in information',
         menuTitle: 'Sign in',
-        message: 'This feature is currently under development.',
+        message: 'This feature is currently under development',
       },
     },
     homeBanner: {
@@ -437,7 +437,7 @@ export const siteCopy = {
         buttonLabel: 'Открыть информацию о входе',
         menuLabel: 'Информация о входе',
         menuTitle: 'Вход',
-        message: 'Эта функция сейчас находится в разработке.',
+        message: 'Эта функция сейчас находится в разработке',
       },
     },
     homeBanner: {

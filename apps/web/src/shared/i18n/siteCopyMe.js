@@ -37,7 +37,7 @@ export const meCopy = {
       buttonLabel: 'Otvori informacije o prijavljivanju',
       menuLabel: 'Informacije o prijavljivanju',
       menuTitle: 'Prijavljivanje',
-      message: 'Ova funkcija je trenutno u razvoju.',
+      message: 'Ova funkcija je trenutno u razvoju',
     },
   },
   homeBanner: {

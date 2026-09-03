@@ -109,6 +109,14 @@ test('new translations cover all localizable fields instead of falling back to E
   }
 });
 
+test('sign-in messages omit trailing full stops in every language', () => {
+  for (const { id } of languageOptions) {
+    const message = siteCopy[id].header.signIn.message;
+    assert.ok(message.trim().length > 0, id);
+    assert.doesNotMatch(message, /[.。।]\s*$/u, id);
+  }
+});
+
 test('dynamic translated labels include their values', () => {
   for (const { id } of languageOptions) {
     const copy = siteCopy[id];

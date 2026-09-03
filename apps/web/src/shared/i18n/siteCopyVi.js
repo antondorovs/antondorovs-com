@@ -4,7 +4,7 @@ export const viTranslation = {
     primaryNavLabel: 'Điều hướng chính', mobileNavLabel: 'Điều hướng trên di động', menuButton: { open: 'Mở menu điều hướng', close: 'Đóng menu điều hướng' },
     theme: { buttonLabel: ({ selectedMode, effectiveTheme }) => `Đổi giao diện. Chế độ đã chọn: ${selectedMode}. Giao diện hiện tại: ${effectiveTheme}.`, menuLabel: 'Giao diện', menuTitle: 'Giao diện', modes: { auto: 'Hệ thống', dark: 'Tối', light: 'Sáng' } },
     language: { buttonLabel: ({ selectedLanguage }) => `Đổi ngôn ngữ. Ngôn ngữ đã chọn: ${selectedLanguage}.`, menuLabel: 'Ngôn ngữ', menuTitle: 'Ngôn ngữ' },
-    signIn: { buttonLabel: 'Mở thông tin đăng nhập', menuLabel: 'Thông tin đăng nhập', menuTitle: 'Đăng nhập', message: 'Tính năng này đang được phát triển.' },
+    signIn: { buttonLabel: 'Mở thông tin đăng nhập', menuLabel: 'Thông tin đăng nhập', menuTitle: 'Đăng nhập', message: 'Tính năng này đang được phát triển' },
   },
   homeBanner: { greeting: 'Xin chào mọi người!' },
   intro: { ariaLabel: 'Giới thiệu cá nhân', socialAriaLabel: 'Liên kết mạng xã hội', socialLabels: { telegram: 'Hồ sơ Telegram', linkedin: 'Hồ sơ LinkedIn', x: 'Hồ sơ X', github: 'Hồ sơ GitHub', gitlab: 'Hồ sơ GitLab' } },

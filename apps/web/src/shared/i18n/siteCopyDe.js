@@ -28,7 +28,7 @@ export const deCopy = {
       buttonLabel: 'Informationen zur Anmeldung öffnen',
       menuLabel: 'Informationen zur Anmeldung',
       menuTitle: 'Anmeldung',
-      message: 'Diese Funktion befindet sich derzeit in Entwicklung.',
+      message: 'Diese Funktion befindet sich derzeit in Entwicklung',
     },
   },
   homeBanner: { greeting: 'Hallo zusammen!' },

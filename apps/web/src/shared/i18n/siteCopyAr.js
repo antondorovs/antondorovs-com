@@ -28,7 +28,7 @@ export const arCopy = {
       buttonLabel: 'فتح معلومات تسجيل الدخول',
       menuLabel: 'معلومات تسجيل الدخول',
       menuTitle: 'تسجيل الدخول',
-      message: 'هذه الميزة قيد التطوير حاليًا.',
+      message: 'هذه الميزة قيد التطوير حاليًا',
     },
   },
   homeBanner: { greeting: 'مرحبًا بالجميع!' },

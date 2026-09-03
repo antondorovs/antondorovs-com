@@ -4,7 +4,7 @@ export const hiTranslation = {
     primaryNavLabel: 'मुख्य नेविगेशन', mobileNavLabel: 'मोबाइल नेविगेशन', menuButton: { open: 'नेविगेशन मेन्यू खोलें', close: 'नेविगेशन मेन्यू बंद करें' },
     theme: { buttonLabel: ({ selectedMode, effectiveTheme }) => `थीम बदलें। चुना गया मोड: ${selectedMode}। सक्रिय थीम: ${effectiveTheme}।`, menuLabel: 'थीम', menuTitle: 'थीम', modes: { auto: 'सिस्टम', dark: 'डार्क', light: 'लाइट' } },
     language: { buttonLabel: ({ selectedLanguage }) => `भाषा बदलें। चुनी गई भाषा: ${selectedLanguage}।`, menuLabel: 'भाषा', menuTitle: 'भाषा' },
-    signIn: { buttonLabel: 'लॉगिन की जानकारी खोलें', menuLabel: 'लॉगिन की जानकारी', menuTitle: 'लॉगिन', message: 'इस सुविधा पर अभी काम चल रहा है।' },
+    signIn: { buttonLabel: 'लॉगिन की जानकारी खोलें', menuLabel: 'लॉगिन की जानकारी', menuTitle: 'लॉगिन', message: 'इस सुविधा पर अभी काम चल रहा है' },
   },
   homeBanner: { greeting: 'सभी को नमस्ते!' },
   intro: { ariaLabel: 'व्यक्तिगत परिचय', socialAriaLabel: 'सोशल मीडिया लिंक', socialLabels: { telegram: 'Telegram प्रोफ़ाइल', linkedin: 'LinkedIn प्रोफ़ाइल', x: 'X प्रोफ़ाइल', github: 'GitHub प्रोफ़ाइल', gitlab: 'GitLab प्रोफ़ाइल' } },

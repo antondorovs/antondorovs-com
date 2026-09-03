@@ -28,7 +28,7 @@ export const esCopy = {
       buttonLabel: 'Abrir información de inicio de sesión',
       menuLabel: 'Información de inicio de sesión',
       menuTitle: 'Inicio de sesión',
-      message: 'Esta función se encuentra actualmente en desarrollo.',
+      message: 'Esta función se encuentra actualmente en desarrollo',
     },
   },
   homeBanner: { greeting: '¡Hola a todos!' },

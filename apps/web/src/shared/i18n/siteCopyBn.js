@@ -4,7 +4,7 @@ export const bnTranslation = {
     primaryNavLabel: 'প্রধান নেভিগেশন', mobileNavLabel: 'মোবাইল নেভিগেশন', menuButton: { open: 'নেভিগেশন মেনু খুলুন', close: 'নেভিগেশন মেনু বন্ধ করুন' },
     theme: { buttonLabel: ({ selectedMode, effectiveTheme }) => `থিম বদলান। নির্বাচিত মোড: ${selectedMode}। সক্রিয় থিম: ${effectiveTheme}।`, menuLabel: 'থিম', menuTitle: 'থিম', modes: { auto: 'সিস্টেম', dark: 'ডার্ক', light: 'লাইট' } },
     language: { buttonLabel: ({ selectedLanguage }) => `ভাষা বদলান। নির্বাচিত ভাষা: ${selectedLanguage}।`, menuLabel: 'ভাষা', menuTitle: 'ভাষা' },
-    signIn: { buttonLabel: 'লগইন সংক্রান্ত তথ্য খুলুন', menuLabel: 'লগইন সংক্রান্ত তথ্য', menuTitle: 'লগইন', message: 'এই সুবিধাটি বর্তমানে তৈরি করা হচ্ছে।' },
+    signIn: { buttonLabel: 'লগইন সংক্রান্ত তথ্য খুলুন', menuLabel: 'লগইন সংক্রান্ত তথ্য', menuTitle: 'লগইন', message: 'এই সুবিধাটি বর্তমানে তৈরি করা হচ্ছে' },
   },
   homeBanner: { greeting: 'সবাইকে শুভেচ্ছা!' },
   intro: { ariaLabel: 'ব্যক্তিগত পরিচয়', socialAriaLabel: 'সামাজিক যোগাযোগমাধ্যমের লিংক', socialLabels: { telegram: 'Telegram প্রোফাইল', linkedin: 'LinkedIn প্রোফাইল', x: 'X প্রোফাইল', github: 'GitHub প্রোফাইল', gitlab: 'GitLab প্রোফাইল' } },

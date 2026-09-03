@@ -28,7 +28,7 @@ export const zhCopy = {
       buttonLabel: '打开登录信息',
       menuLabel: '登录信息',
       menuTitle: '登录',
-      message: '此功能目前正在开发中。',
+      message: '此功能目前正在开发中',
     },
   },
   homeBanner: { greeting: '大家好！' },

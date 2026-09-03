@@ -11,6 +11,8 @@
   --color-border: rgba(255, 255, 255, 0.18);
   --color-section-divider: rgba(255, 255, 255, 0.45);
   --color-header-bg: rgba(26, 26, 26, 0.96);
+  --color-scrollbar-thumb: rgba(255, 255, 255, 0.4);
+  --color-scrollbar-thumb-hover: rgba(255, 255, 255, 0.65);
   --browser-scrollbar-width: 0px;
   --content-max-width: 992px;
   --content-width: calc(var(--content-max-width) - var(--browser-scrollbar-width));
@@ -34,5 +36,7 @@
   --color-border: rgba(26, 26, 26, 0.24);
   --color-section-divider: rgba(26, 26, 26, 0.45);
   --color-header-bg: rgba(221, 221, 221, 0.92);
+  --color-scrollbar-thumb: rgba(0, 0, 0, 0.48);
+  --color-scrollbar-thumb-hover: rgba(0, 0, 0, 0.65);
   color-scheme: light;
 }

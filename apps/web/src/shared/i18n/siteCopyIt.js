@@ -8,7 +8,7 @@ export const itTranslation = {
       menuLabel: 'Tema', menuTitle: 'Tema', modes: { auto: 'Sistema', dark: 'Scuro', light: 'Chiaro' },
     },
     language: { buttonLabel: ({ selectedLanguage }) => `Cambia lingua. Lingua selezionata: ${selectedLanguage}.`, menuLabel: 'Lingua', menuTitle: 'Lingua' },
-    signIn: { buttonLabel: 'Apri le informazioni di accesso', menuLabel: 'Informazioni di accesso', menuTitle: 'Accesso', message: 'Questa funzione è attualmente in sviluppo.' },
+    signIn: { buttonLabel: 'Apri le informazioni di accesso', menuLabel: 'Informazioni di accesso', menuTitle: 'Accesso', message: 'Questa funzione è attualmente in sviluppo' },
   },
   homeBanner: { greeting: 'Ciao a tutti!' },
   intro: { ariaLabel: 'Breve presentazione', socialAriaLabel: 'Link ai social network', socialLabels: { telegram: 'Profilo Telegram', linkedin: 'Profilo LinkedIn', x: 'Profilo X', github: 'Profilo GitHub', gitlab: 'Profilo GitLab' } },

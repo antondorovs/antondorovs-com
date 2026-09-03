@@ -352,7 +352,7 @@ export function Header({ centerLinkKey, variant = 'default' }) {
               href={homeItem.href}
               onClick={(event) => handleNavClick(event, homeItem)}
             >
-              {copy.nav[homeItem.key]}
+              <HeaderLabel text={copy.nav[homeItem.key]} />
             </a>
           )}
         </div>
@@ -361,7 +361,7 @@ export function Header({ centerLinkKey, variant = 'default' }) {
           <nav className="site-header__nav" aria-label={copy.header.primaryNavLabel}>
             {desktopNavItems.map((item) => (
               <a key={item.key} href={item.href} onClick={(event) => handleNavClick(event, item)}>
-                {copy.nav[item.key]}
+                <HeaderLabel text={copy.nav[item.key]} />
               </a>
             ))}
           </nav>
@@ -387,7 +387,7 @@ export function Header({ centerLinkKey, variant = 'default' }) {
               href={centerItem.href}
               onClick={(event) => handleNavClick(event, centerItem)}
             >
-              {copy.nav[centerItem.key]}
+              <HeaderLabel text={copy.nav[centerItem.key]} />
             </a>
           )}
         </div>
@@ -403,7 +403,7 @@ export function Header({ centerLinkKey, variant = 'default' }) {
               aria-haspopup="dialog"
               onClick={handleSignInButtonClick}
             >
-              {copy.nav[actionItem.key]}
+              <HeaderLabel text={copy.nav[actionItem.key]} />
             </button>
 
             {isSignInMenuOpen && (
@@ -502,12 +502,20 @@ export function Header({ centerLinkKey, variant = 'default' }) {
         <nav className="site-header__mobile-nav" ref={mobileNavRef} aria-label={copy.header.mobileNavLabel}>
           {mobileNavItems.map((item) => (
             <a key={item.key} href={item.href} onClick={(event) => handleNavClick(event, item)}>
-              {copy.nav[item.key]}
+              <HeaderLabel text={copy.nav[item.key]} />
             </a>
           ))}
         </nav>
       )}
     </header>
+  );
+}
+
+function HeaderLabel({ text, lang, dir }) {
+  return (
+    <span className="site-header__label" data-label={text} lang={lang} dir={dir}>
+      <span className="site-header__label-text">{text}</span>
+    </span>
   );
 }
 
@@ -524,7 +532,7 @@ function LanguageButton({ buttonRef, copy, isOpen, language, languageOptions, on
       aria-haspopup="menu"
       onClick={onClick}
     >
-      {currentLanguage.code}
+      <HeaderLabel text={currentLanguage.code} />
     </button>
   );
 }
@@ -558,7 +566,7 @@ function LanguageMenu({ className = '', copy, currentLanguage, languageOptions, 
             >
               <span className="site-header__language-code">{languageOption.code}</span>
               <span> - </span>
-              <span lang={languageOption.htmlLang} dir={languageOption.direction}>{languageOption.nativeName}</span>
+              <HeaderLabel text={languageOption.nativeName} lang={languageOption.htmlLang} dir={languageOption.direction} />
             </button>
           );
         })}
@@ -613,7 +621,7 @@ function ThemeModeMenu({ className = '', copy, currentMode, menuRef, onSelect, s
               onClick={() => onSelect(mode.value)}
             >
               <SvgIcon className="site-header__theme-option-icon" markup={mode.icon} />
-              <span>{copy.modes[mode.value]}</span>
+              <HeaderLabel text={copy.modes[mode.value]} />
             </button>
           );
         })}
