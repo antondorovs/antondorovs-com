@@ -12,7 +12,7 @@ export function HomePage() {
   return (
     <>
       <Header />
-      <div className="site-page-content">
+      <div className="site-page-content" dir="ltr">
         <main>
           <HomeBanner />
           <IntroSection />

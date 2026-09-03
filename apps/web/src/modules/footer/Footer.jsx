@@ -22,8 +22,8 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <p className="site-footer__notice">
-        <span>{copy.footer.notice.site}</span>
-        <span>
+        <span dir="auto">{copy.footer.notice.site}</span>
+        <span dir="auto">
           {copy.footer.notice.privacyPrefix}
           <a href={privacyPolicyRoute.route}>{copy.footer.notice.privacyLink}</a>
           {copy.footer.notice.privacySuffix}

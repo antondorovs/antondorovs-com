@@ -24,7 +24,7 @@ export function ExperienceSection() {
         <ExperienceGroup title={copy.experience.groups.cv}>
           <div className="experience-section__cv-links">
             {cvLinks.map((link) => (
-              <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
+              <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" dir="auto">
                 {copy.experience.cvLinks[link.key]}
               </a>
             ))}
@@ -40,10 +40,10 @@ export function ExperienceSection() {
                     <h4>{job.role}</h4>
                     <p>{job.company}</p>
                   </div>
-                  <span>{job.period}</span>
+                  <span dir="auto">{job.period}</span>
                 </div>
 
-                <p className="experience-section__description">{renderRichText(job.description)}</p>
+                <p className="experience-section__description" dir="auto">{renderRichText(job.description)}</p>
                 <p className="experience-section__stack">
                   <strong>{copy.experience.techStack}</strong>
                   <span>{job.stack}</span>
@@ -56,7 +56,7 @@ export function ExperienceSection() {
         <ExperienceGroup title={copy.experience.groups.education}>
           <ul className="experience-section__plain-list">
             {copy.experience.education.map((item) => (
-              <li key={item}>{item}</li>
+              <li key={item}><bdi>{item}</bdi></li>
             ))}
           </ul>
         </ExperienceGroup>

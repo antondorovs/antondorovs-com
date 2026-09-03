@@ -8,7 +8,7 @@ export const srCopy = {
     experience: 'Искуство',
     games: 'Игре',
     contacts: 'Контакти',
-    signIn: 'Пријави се',
+    signIn: 'Пријава',
   },
   header: {
     primaryNavLabel: 'Главна навигација',

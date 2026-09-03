@@ -9,7 +9,7 @@ export function AboutSection() {
       <h2>{copy.about.title}</h2>
       <div className="about-section__copy">
         {copy.about.lines.map((line) => (
-          <p key={line}>{line}</p>
+          <p key={line} dir="auto">{line}</p>
         ))}
       </div>
     </section>

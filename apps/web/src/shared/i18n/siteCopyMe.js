@@ -8,7 +8,7 @@ export const meCopy = {
     experience: 'Iskustvo',
     games: 'Igre',
     contacts: 'Kontakti',
-    signIn: 'Prijavi se',
+    signIn: 'Prijava',
   },
   header: {
     primaryNavLabel: 'Glavna navigacija',

@@ -7,6 +7,7 @@ import lightIcon from '../../assets/icons/light.svg?raw';
 import navigationIcon from '../../assets/icons/navigation.svg?raw';
 import { SvgIcon } from '../../shared/icons/SvgIcon.jsx';
 import { useLanguage, useSiteCopy } from '../../shared/i18n/LanguageProvider.jsx';
+import { getLanguageOption } from '../../shared/i18n/languages.js';
 import { useThemeMode } from '../../shared/theme/useThemeMode.js';
 import './Header.css';
 
@@ -24,21 +25,14 @@ const themeModes = [
 
 const VIEWPORT_GUTTER = 8;
 const CENTER_COLLISION_GAP = 8;
+const MENU_LAYOUT_BREAKPOINT = 1024;
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
-const getContentRightEdge = () => {
-  const viewportWidth = document.documentElement.clientWidth;
-  const rootStyles = window.getComputedStyle(document.documentElement);
-  const configuredContentWidth = Number.parseFloat(rootStyles.getPropertyValue('--content-width')) || 1000;
-  const contentSection = document.querySelector('.content-section');
-  const contentGutter = contentSection
-    ? Number.parseFloat(window.getComputedStyle(contentSection).paddingRight) || 16
-    : 16;
-  const availableContentWidth = Math.max(0, viewportWidth - contentGutter * 2);
-  const renderedContentWidth = Math.min(configuredContentWidth, availableContentWidth);
+const syncViewportMetrics = () => {
+  const scrollbarWidth = Math.max(0, window.innerWidth - document.documentElement.clientWidth);
 
-  return (viewportWidth + renderedContentWidth) / 2;
+  document.documentElement.style.setProperty('--browser-scrollbar-width', `${scrollbarWidth}px`);
 };
 
 const isSameStyle = (current = {}, next = {}) =>
@@ -54,14 +48,18 @@ const getMenuPlacement = ({ buttonElement, headerElement, menuElement, useViewpo
   const menuRect = menuElement.getBoundingClientRect();
   const menuWidth = menuRect.width || Number.parseFloat(window.getComputedStyle(menuElement).width) || 0;
   const halfMenuWidth = menuWidth / 2;
-  const viewportWidth = document.documentElement.clientWidth;
-  const minCenter = VIEWPORT_GUTTER + halfMenuWidth;
-  const maxCenter = Math.max(minCenter, viewportWidth - VIEWPORT_GUTTER - halfMenuWidth);
+  const browserViewportWidth = window.innerWidth;
+  const visibleViewportWidth = document.documentElement.clientWidth;
+  const minCenter = halfMenuWidth;
+  const maxCenter = Math.max(minCenter, visibleViewportWidth - halfMenuWidth);
   const buttonRect = buttonElement?.getBoundingClientRect();
   const headerRect = headerElement?.getBoundingClientRect();
+  const desktopRightEdge = browserViewportWidth <= MENU_LAYOUT_BREAKPOINT
+    ? visibleViewportWidth
+    : visibleViewportWidth - (browserViewportWidth - MENU_LAYOUT_BREAKPOINT) / 2;
   const desiredCenter = useViewportCenter
-    ? viewportWidth / 2
-    : getContentRightEdge() - halfMenuWidth;
+    ? visibleViewportWidth / 2
+    : desktopRightEdge - halfMenuWidth;
   const fallbackTop = buttonRect?.bottom ?? 0;
 
   return {
@@ -139,6 +137,8 @@ export function Header({ centerLinkKey, variant = 'default' }) {
   const mobileNavItems = navItems.filter((item) => !['home', 'signIn'].includes(item.key));
 
   const updateHeaderLayout = useCallback(() => {
+    syncViewportMetrics();
+
     const isMobile = window.matchMedia('(max-width: 767px)').matches;
     const nextLanguagePlacement = isLanguageMenuOpen
       ? getMenuPlacement({
@@ -512,7 +512,7 @@ export function Header({ centerLinkKey, variant = 'default' }) {
 }
 
 function LanguageButton({ buttonRef, copy, isOpen, language, languageOptions, onClick }) {
-  const currentLanguage = languageOptions.find((option) => option.id === language) ?? languageOptions[0];
+  const currentLanguage = languageOptions.find((option) => option.id === language) ?? getLanguageOption(language);
 
   return (
     <button
@@ -558,7 +558,7 @@ function LanguageMenu({ className = '', copy, currentLanguage, languageOptions, 
             >
               <span className="site-header__language-code">{languageOption.code}</span>
               <span> - </span>
-              <span>{languageOption.nativeName}</span>
+              <span lang={languageOption.htmlLang} dir={languageOption.direction}>{languageOption.nativeName}</span>
             </button>
           );
         })}

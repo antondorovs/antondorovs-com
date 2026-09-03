@@ -58,8 +58,9 @@ export function LanguageProvider({ children }) {
 
   useEffect(() => {
     document.documentElement.lang = contentLanguageOption.htmlLang;
+    document.documentElement.dir = contentLanguageOption.direction;
     document.title = copy.meta.title;
-  }, [contentLanguageOption.htmlLang, copy.meta.title]);
+  }, [contentLanguageOption.direction, contentLanguageOption.htmlLang, copy.meta.title]);
 
   useEffect(() => {
     if (!hasStoredLanguage.current) {

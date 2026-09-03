@@ -1,0 +1,75 @@
+export const itTranslation = {
+  nav: { home: 'Home', about: 'Chi sono', experience: 'Esperienza', games: 'Giochi', contacts: 'Contatti', signIn: 'Accedi' },
+  header: {
+    primaryNavLabel: 'Navigazione principale', mobileNavLabel: 'Navigazione mobile',
+    menuButton: { open: 'Apri il menu di navigazione', close: 'Chiudi il menu di navigazione' },
+    theme: {
+      buttonLabel: ({ selectedMode, effectiveTheme }) => `Cambia tema. Modalità selezionata: ${selectedMode}. Tema attivo: ${effectiveTheme}.`,
+      menuLabel: 'Tema', menuTitle: 'Tema', modes: { auto: 'Sistema', dark: 'Scuro', light: 'Chiaro' },
+    },
+    language: { buttonLabel: ({ selectedLanguage }) => `Cambia lingua. Lingua selezionata: ${selectedLanguage}.`, menuLabel: 'Lingua', menuTitle: 'Lingua' },
+    signIn: { buttonLabel: 'Apri le informazioni di accesso', menuLabel: 'Informazioni di accesso', menuTitle: 'Accesso', message: 'Questa funzione è attualmente in sviluppo.' },
+  },
+  homeBanner: { greeting: 'Ciao a tutti!' },
+  intro: { ariaLabel: 'Breve presentazione', socialAriaLabel: 'Link ai social network', socialLabels: { telegram: 'Profilo Telegram', linkedin: 'Profilo LinkedIn', x: 'Profilo X', github: 'Profilo GitHub', gitlab: 'Profilo GitLab' } },
+  summary: { ariaLabel: 'Profilo professionale', lines: [
+    'Benvenuti nel mio sito portfolio personale.',
+    'Sono un Full Stack QA Engineer specializzato nel testing manuale e automatizzato di applicazioni frontend, backend, web e mobile. Qui trovate il mio CV, informazioni sulla mia esperienza lavorativa, formazione e corsi completati, oltre ai miei contatti.',
+    'Potete anche giocare ai giochi per browser che creo nel tempo libero come parte dei miei esperimenti tecnici. Spero che il sito vi piaccia.',
+  ] },
+  about: { title: 'Chi sono', lines: [
+    'Ho una formazione universitaria tecnica. Presso l’Università tecnica statale Bauman di Mosca ho studiato progettazione e programmazione di dispositivi elettronici.',
+    'Prima di passare all’IT ho lavorato in diversi settori ingegneristici, tra cui sistemi aerei senza pilota e impianti industriali. In alcuni progetti ho coordinato il lavoro del team e assunto responsabilità tecniche e organizzative.',
+    'Oggi lavoro come QA Engineer e continuo a sviluppare le mie competenze nell’automazione dei test e nella programmazione. Mi interessa non solo trovare errori, ma comprendere l’intero sistema: dall’interfaccia e dalle API alle integrazioni e all’infrastruttura. Credo che i test debbano migliorare davvero la qualità e l’usabilità di un prodotto, non essere una semplice formalità.',
+    'Formo e affianco nuovi professionisti QA. Tra i miei punti di forza ci sono buone capacità comunicative, forte motivazione e senso di responsabilità.',
+    'Nel tempo libero pratico attività come apnea, escursionismo, vela e calisthenics. Mi piace anche viaggiare e scoprire altri paesi.',
+  ] },
+  experience: {
+    title: 'Esperienza', groups: { cv: 'Curriculum', work: 'Esperienza lavorativa', education: 'Formazione e corsi', skills: 'Competenze e strumenti' },
+    cvLinks: { en: 'Apri il CV in inglese (PDF)', ru: 'Apri il CV in russo (PDF)' }, techStack: 'Tecnologie utilizzate',
+    work: [
+      { period: 'Ago. 2024 - presente', before: 'Sviluppo della piattaforma per venditori ', after: ' per la gestione dei pacchi.' },
+      { period: 'Mag. 2022 - ago. 2024', before: 'Progetto di logistica del contante per VTB Bank di ', after: ' per automatizzare la logistica del contante e prevedere la manutenzione degli sportelli bancomat.' },
+    ],
+    education: [
+      '2024 - 2025 | Automation QA Engineer | Quality Academy.',
+      '2023 - 2024 | Full Stack JavaScript Developer | Elbrus Bootcamp.',
+      '2021 - 2022 | Manual QA Engineer | Quality Academy.',
+      '2020 - presente | Corsi di inglese | SkyEng, Duolingo, LinguaTrip.',
+      '2008 - 2015 | Università tecnica statale Bauman di Mosca | Facoltà di radioingegneria | Progettazione e tecnologia di produzione di dispositivi radioelettronici | Media: 4,05.',
+    ],
+    skillTitles: ['Testing', 'Automazione e IDE', 'API e dati', 'Infrastruttura e log', 'Mobile e compatibilità tra browser', 'Prodotto e processi'],
+  },
+  games: {
+    sectionTitle: 'Giochi', placeholder: 'Questa sezione è in sviluppo...', snakeBoardLabel: 'Area di gioco di Snake', snakeUnlimitedBoardLabel: 'Area di gioco di Snake unlimited',
+    dino: { ariaLabel: 'Gioco Dino', score: (score) => `Punteggio: ${score}`, gameOver: (score) => `Partita terminata. Punteggio: ${score}.`, restart: 'Ricomincia' },
+    life: {
+      ariaLabel: 'Game of Life',
+      description: ['Game of Life è un automa cellulare ideato dal matematico John Conway nel 1970. È un gioco senza giocatori: la sua evoluzione dipende interamente dallo stato iniziale. Si svolge su una griglia di celle, ognuna viva o morta.', 'L’evoluzione segue semplici regole:'],
+      rules: ['Una cella viva con meno di due vicini vivi muore per isolamento.', 'Una cella viva con due o tre vicini vivi sopravvive alla generazione successiva.', 'Una cella viva con più di tre vicini vivi muore per sovrappopolazione.', 'Una cella morta con esattamente tre vicini vivi diventa viva.'],
+      interaction: 'Fate clic sulle celle per cambiarne lo stato. Provate diverse configurazioni iniziali e osservate come si evolvono nel tempo.',
+      controls: { rows: 'Righe', columns: 'Colonne', cycleTime: 'Durata del ciclo (s)' }, actions: { apply: 'Applica', random: 'Casuale', start: 'Avvia', clear: 'Cancella' },
+      counter: (cycleCounter) => `Ciclo: ${cycleCounter}`, repeatingState: 'Partita terminata. È stato raggiunto uno stato ripetitivo.', allCellsDead: 'Partita terminata. Tutte le celle sono morte.', toggleCell: ({ row, col }) => `Cambia lo stato della cella ${row}, ${col}`,
+    },
+  },
+  footer: {
+    title: 'Contatti', message: 'Per qualsiasi domanda, potete contattarmi via e-mail o sui social network.', socialAriaLabel: 'Link social nella sezione contatti',
+    visitCounter: { title: 'Contatore delle visite', ariaLabel: 'Contatore delle visualizzazioni', labels: { day: 'Oggi', week: '1 settimana', month: '1 mese', year: '1 anno', allTime: 'Totale' } },
+    notice: { site: 'Sito personale non commerciale.', privacyPrefix: 'Per saperne di più: ', privacyLink: 'Informativa sulla privacy e note legali', privacySuffix: '.' },
+    environmentsTitle: 'Ambienti', environmentsAriaLabel: 'Link agli ambienti',
+  },
+  privacy: {
+    title: 'Informativa sulla privacy e note legali', lastUpdated: 'Ultimo aggiornamento: 20 agosto 2026', sections: [
+      { title: 'Finalità non commerciali', paragraphs: ['Questo sito personale è creato e gestito per finalità educative, di portfolio, intrattenimento e comunicazione personale. Non è un negozio online, marketplace, servizio a pagamento, servizio di gioco d’azzardo o finanziario, né una piattaforma di consulenza professionale legale, medica o finanziaria.', 'Il sito non mira a ricavare entrate dirette dai visitatori, vendere i loro dati o far pagare l’accesso a giochi, articoli, pagine o esperimenti pubblicati qui.'] },
+      { title: 'Uso personale ed educativo', paragraphs: ['Il sito è un progetto personale di apprendimento e portfolio. Codice, esperimenti di interfaccia, giochi e contenuti pubblici possono illustrare competenze di sviluppo frontend, QA, testing, automazione, design e ingegneria.', 'Esempi, meccaniche di gioco, schermate, riferimenti e nomi sono utilizzati solo per spiegare, apprendere, testare o dimostrare idee generali di sviluppo web.'] },
+      { title: 'Nessun servizio a pagamento o vendita', paragraphs: ['Il sito non elabora pagamenti, non raccoglie dati di fatturazione, non vende abbonamenti e non offre prodotti digitali a pagamento. Eventuali funzionalità commerciali future richiederanno l’aggiornamento di questa informativa prima della pubblicazione.'] },
+      { title: 'Dati dei visitatori, degli account e di contatto', paragraphs: ['Il sito include o può includere registrazione e accesso. I dati di registrazione possono comprendere nome, nome utente, e-mail e password. Non vengono richiesti intenzionalmente dati di pagamento, documenti d’identità o dati personali sensibili.', 'Il sito non invia spam, newsletter di marketing o pubblicità non pertinente agli utenti registrati. L’e-mail serve solo per comunicazioni sull’account, assistenza al recupero della password, risposte dirette o avvisi tecnici necessari.', 'I visitatori non dovrebbero riutilizzare password di altri siti, applicazioni, e-mail, banche, social network o sistemi di lavoro. Il gestore non risponde di danni derivanti dalla successiva divulgazione, individuazione, sottrazione o compromissione di una password riutilizzata.', 'Il recupero automatico della password potrebbe non essere sempre disponibile. Se necessario, scrivete a antondorovs@gmail.com fornendo informazioni sufficienti per identificare l’account.', 'I visitatori possono anche contattarmi tramite link esterni, social network, servizi di messaggistica o programmi di posta. Il servizio esterno scelto tratta i dati secondo i propri termini e la propria informativa.'] },
+      { title: 'Analisi e servizi di terzi', paragraphs: ['Il sito utilizza Google Analytics, Yandex Metrica e Microsoft Clarity per comprendere traffico, prestazioni, errori e interazioni. Possono essere trattati URL delle pagine, posizione approssimativa derivata dalla rete, dati del browser e del dispositivo, sessioni, cookie o identificatori simili, clic, scorrimenti e altre interazioni.', 'I dati analitici servono a migliorare qualità, usabilità, stabilità e contenuti. Il gestore non li usa per identificare nominalmente singoli visitatori, vendere profili personali o offrire pubblicità mirata a pagamento.', 'Un contatore interno conserva totali giornalieri aggregati in UTC degli ultimi 365 giorni e un totale separato complessivo. Non conserva indirizzi IP, nomi, e-mail, dati del browser, cookie, identificatori dei dispositivi o cronologie individuali.', 'Google, Yandex e Microsoft trattano i dati secondo i propri termini, informative e impostazioni tecniche. I visitatori possono usare, ove disponibili, impostazioni di privacy del browser, blocchi dei contenuti, controlli dei cookie o strumenti di rinuncia dei fornitori.'] },
+      { title: 'Cookie e localStorage', paragraphs: ['Il sito può usare la memoria del browser per le preferenze dell’interfaccia. Tema e lingua selezionati vengono conservati in localStorage tra le sessioni.', 'Il contatore interno può aumentare a ogni caricamento completo, inclusi gli aggiornamenti. I periodi visualizzati sono intervalli mobili che terminano alla data UTC corrente, non settimane, mesi o anni di calendario. Il contatore non identifica visitatori unici e non esclude visite ripetute.', 'Gli strumenti analitici esterni possono usare cookie o tecnologie simili. Il comportamento dipende da browser, regione, impostazioni di privacy e configurazione corrente dei fornitori.'] },
+      { title: 'Progetti di gioco e diritti di terzi', paragraphs: ['I giochi per browser sono progetti educativi personali ispirati a meccaniche diffuse e concetti arcade noti. Non sono versioni ufficiali, porting autorizzati, remake commerciali o sostituti dei giochi originali.', 'Il sito non rivendica la proprietà di personaggi, marchi, nomi di giochi, concetti, suoni, stili visivi o materiali originali altrui. Il materiale che possa violare diritti legittimi sarà esaminato e rimosso o sostituito in seguito a una richiesta ragionevole.'] },
+      { title: 'Marchi, nomi e diritto d’autore', paragraphs: ['Marchi, nomi di aziende, prodotti e servizi, loghi e opere protette restano di proprietà dei rispettivi titolari. La loro presenza non implica approvazione, sponsorizzazione, collaborazione o affiliazione, salvo indicazione esplicita.', 'Testi originali, codice, layout e materiali personali sono pubblicati per portfolio e presentazione educativa. Non dovrebbero essere copiati in prodotti commerciali senza autorizzazione.'] },
+      { title: 'Link esterni', paragraphs: ['Il sito può rimandare a siti esterni, social network, repository, servizi di messaggistica, strumenti di sviluppo, fornitori di analisi o ambienti di progetto. Tali siti sono controllati dai rispettivi gestori e possono raccogliere dati secondo le proprie politiche.', 'Il gestore non risponde dei contenuti esterni, delle pratiche di privacy esterne o della disponibilità dei servizi di terzi.'] },
+      { title: 'Contatto', paragraphs: ['Per domande sul sito, sulla privacy, sulle note legali, sulla rimozione di contenuti o sui diritti, usate i contatti pubblici della pagina iniziale. Fornite un contesto sufficiente per identificare la pagina, il materiale o il problema.'] },
+    ],
+  },
+};

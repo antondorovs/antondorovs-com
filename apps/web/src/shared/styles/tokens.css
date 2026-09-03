@@ -11,7 +11,9 @@
   --color-border: rgba(255, 255, 255, 0.18);
   --color-section-divider: rgba(255, 255, 255, 0.45);
   --color-header-bg: rgba(26, 26, 26, 0.96);
-  --content-width: 1000px;
+  --browser-scrollbar-width: 0px;
+  --content-max-width: 992px;
+  --content-width: calc(var(--content-max-width) - var(--browser-scrollbar-width));
   --content-section-padding-block: 42px;
   --site-header-height: 50px;
   --section-divider-height: 1px;

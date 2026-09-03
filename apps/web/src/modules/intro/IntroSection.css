@@ -21,6 +21,7 @@
   overflow: visible;
   padding: 0 var(--intro-padding-inline);
   box-sizing: border-box;
+  direction: ltr;
 }
 
 .intro-section__identity {

@@ -7,7 +7,7 @@ export function HomeBanner() {
 
   return (
     <section className="home-banner" style={{ backgroundImage: `url(${wallImage})` }}>
-      <p className="home-banner__text">
+      <p className="home-banner__text" dir="auto">
         {copy.homeBanner.greeting}
       </p>
     </section>

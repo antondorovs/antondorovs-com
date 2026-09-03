@@ -8,7 +8,7 @@ export function SummarySection() {
     <section className="content-section summary-section" aria-label={copy.summary.ariaLabel}>
       <div className="summary-section__copy">
         {copy.summary.lines.map((line) => (
-          <p key={line}>{line}</p>
+          <p key={line} dir="auto">{line}</p>
         ))}
       </div>
     </section>

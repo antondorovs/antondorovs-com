@@ -8,7 +8,7 @@ export function ContactSection() {
   return (
     <section className="content-section contact-section" id="contacts" aria-labelledby="contacts-title">
       <h2 id="contacts-title">{copy.footer.title}</h2>
-      <p className="contact-section__message">{copy.footer.message}</p>
+      <p className="contact-section__message" dir="auto">{copy.footer.message}</p>
       <a className="contact-section__email" href="mailto:antondorovs@gmail.com">
         antondorovs@gmail.com
       </a>

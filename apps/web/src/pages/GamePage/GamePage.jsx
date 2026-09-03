@@ -22,7 +22,7 @@ export function GamePage({ game }) {
   return (
     <>
       <Header centerLinkKey="games" variant="simple" />
-      <main className="game-page">
+      <main className="game-page" dir="ltr">
         <h1>{copy.games.titles[game.key] ?? game.title}</h1>
         <GameComponent />
       </main>
