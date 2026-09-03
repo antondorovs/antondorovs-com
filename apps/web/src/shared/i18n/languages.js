@@ -28,7 +28,7 @@ export function detectBrowserLanguage() {
   return resolveBrowserLanguage(browserLanguage);
 }
 
-function resolveBrowserLanguage(browserLanguage) {
+export function resolveBrowserLanguage(browserLanguage) {
   if (!browserLanguage) {
     return DEFAULT_LANGUAGE;
   }
@@ -40,7 +40,7 @@ function resolveBrowserLanguage(browserLanguage) {
   }
 
   if (normalizedLanguage.startsWith('sr')) {
-    return 'sr';
+    return normalizedLanguage.includes('latn') ? 'me' : 'sr';
   }
 
   if (normalizedLanguage.startsWith('cnr') || normalizedLanguage.startsWith('me')) {

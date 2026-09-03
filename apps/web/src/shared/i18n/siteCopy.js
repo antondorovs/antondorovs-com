@@ -8,7 +8,7 @@ export const siteCopy = {
     },
     nav: {
       home: 'Home',
-      about: 'About Me',
+      about: 'About me',
       experience: 'Experience',
       games: 'Games',
       contacts: 'Contacts',
