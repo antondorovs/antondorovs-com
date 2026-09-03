@@ -60,7 +60,8 @@ export const meCopy = {
   summary: {
     ariaLabel: 'Profesionalni rezime',
     lines: [
-      'Drago mi je što ste na mom ličnom sajtu. Ja sam full-stack QA inženjer specijalizovan za ručno i automatizovano testiranje frontend, backend, veb i mobilnih aplikacija. Ovdje možete pronaći moj CV, informacije o radnom iskustvu, obrazovanju, završenim kursevima i moje kontakt podatke.',
+      'Drago mi je što ste na mom ličnom sajtu.',
+      'Ja sam Full Stack QA inženjer specijalizovan za ručno i automatizovano testiranje frontend, backend, veb i mobilnih aplikacija. Ovdje možete pronaći moj CV, informacije o radnom iskustvu, obrazovanju, završenim kursevima i moje kontakt podatke.',
       'Ovdje možete i da igrate veb-igre koje pravim u slobodno vrijeme u okviru tehničkih eksperimenata. Nadam se da će vam se sajt dopasti.',
     ],
   },

@@ -64,7 +64,8 @@ export const siteCopy = {
     summary: {
       ariaLabel: 'Professional summary',
       lines: [
-        'Welcome to my personal portfolio site. I am a full-stack QA engineer specializing in manual and automated testing of frontend, backend, web, and mobile applications. Here you can find my CV, information about my work experience, education, completed courses, and my contact details.',
+        'Welcome to my personal portfolio site.',
+        'I am a Full Stack QA Engineer specializing in manual and automated testing of frontend, backend, web, and mobile applications. Here you can find my CV, information about my work experience, education, completed courses, and my contact details.',
         'You can also play browser games that I create in my free time as part of my technical experiments. I hope you enjoy the site.',
       ],
     },
@@ -441,7 +442,8 @@ export const siteCopy = {
     summary: {
       ariaLabel: 'Профессиональное резюме',
       lines: [
-        'Рад приветствовать вас на моём личном сайте. Я full-stack QA-инженер и специализируюсь на ручном и автоматизированном тестировании frontend, backend, веб- и мобильных приложений. Здесь вы найдёте моё резюме, информацию об опыте работы, образовании, пройденных курсах и мои контакты.',
+        'Рад приветствовать вас на моём личном сайте.',
+        'Я Full Stack QA Engineer и специализируюсь на ручном и автоматизированном тестировании frontend, backend, веб- и мобильных приложений. Здесь вы найдёте моё резюме, информацию об опыте работы, образовании, пройденных курсах и мои контакты.',
         'Ещё здесь можно поиграть в веб-игры, которые я создаю в свободное время в рамках технических экспериментов. Надеюсь, вам понравится этот сайт.',
       ],
     },
