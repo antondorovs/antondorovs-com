@@ -4,6 +4,8 @@ export const DEFAULT_LANGUAGE = 'en';
 export const languageOptions = [
   { id: 'en', code: 'EN', nativeName: 'English', htmlLang: 'en' },
   { id: 'ru', code: 'RU', nativeName: 'Русский', htmlLang: 'ru' },
+  { id: 'sr', code: 'SR', nativeName: 'Српски', htmlLang: 'sr-Cyrl' },
+  { id: 'me', code: 'ME', nativeName: 'Crnogorski', htmlLang: 'cnr-Latn' },
 ];
 
 export const languageIds = languageOptions.map((language) => language.id);
@@ -35,6 +37,14 @@ function resolveBrowserLanguage(browserLanguage) {
 
   if (normalizedLanguage.startsWith('ru')) {
     return 'ru';
+  }
+
+  if (normalizedLanguage.startsWith('sr')) {
+    return 'sr';
+  }
+
+  if (normalizedLanguage.startsWith('cnr') || normalizedLanguage.startsWith('me')) {
+    return 'me';
   }
 
   return DEFAULT_LANGUAGE;

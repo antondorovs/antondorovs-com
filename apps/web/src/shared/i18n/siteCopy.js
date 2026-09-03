@@ -1,15 +1,18 @@
+import { meCopy } from './siteCopyMe.js';
+import { srCopy } from './siteCopySr.js';
+
 export const siteCopy = {
   en: {
     meta: {
       title: 'Anton Dorovskikh',
     },
     nav: {
-      home: 'HOME',
-      about: 'ABOUT',
-      experience: 'EXPERIENCE',
-      games: 'GAMES',
-      contacts: 'CONTACTS',
-      signIn: 'SIGN IN',
+      home: 'Home',
+      about: 'About Me',
+      experience: 'Experience',
+      games: 'Games',
+      contacts: 'Contacts',
+      signIn: 'Sign in',
     },
     header: {
       primaryNavLabel: 'Primary navigation',
@@ -42,8 +45,7 @@ export const siteCopy = {
       },
     },
     homeBanner: {
-      greeting: "Hi there! I'm Anton",
-      role: 'Full Stack QA Engineer',
+      greeting: 'Hello everyone!',
     },
     intro: {
       ariaLabel: 'Profile introduction',
@@ -62,23 +64,22 @@ export const siteCopy = {
     summary: {
       ariaLabel: 'Professional summary',
       lines: [
-        'Welcome to my personal portfolio website. Here you can find my CV, information about my work experience, education and completed courses, and my contact details.',
-        'I am a Full Stack QA Engineer. I specialize in manual and automated testing of frontend, backend, web, and mobile applications. I have experience in API and UI testing, as well as in end-to-end, system, integration, and regression testing.',
-        'I hope you enjoy the site. You can also play browser games that I create in my free time as part of my technical experiments.',
+        'Welcome to my personal portfolio site. I am a full-stack QA engineer specializing in manual and automated testing of frontend, backend, web, and mobile applications. Here you can find my CV, information about my work experience, education, completed courses, and my contact details.',
+        'You can also play browser games that I create in my free time as part of my technical experiments. I hope you enjoy the site.',
       ],
     },
     about: {
-      title: 'ABOUT ME',
+      title: 'About me',
       lines: [
         'I have an engineering background. I graduated from Bauman Moscow State Technical University with a degree focused on the design and programming of electronic devices.',
-        'Before moving into IT, I worked in several engineering fields, including unmanned aircraft systems and industrial equipment.',
-        'Now I work in QA and continue to develop my skills in test automation and programming. I am interested not only in finding bugs but also in understanding how the entire system works, from the user interface and API to integrations and infrastructure. I believe testing should not be done just as a formality but should genuinely improve product quality and usability.',
-        'I train and mentor new QA specialists. I have good communication skills, strong motivation, a responsible approach, and management experience.',
+        'Before moving into IT, I worked in several engineering fields, including unmanned aircraft systems and industrial equipment. In some projects, I also coordinated team efforts and was responsible for technical and organizational tasks.',
+        'I currently work as a QA engineer and continue to develop my skills in test automation and programming. I am interested not only in finding bugs but also in understanding how the entire system works, from the user interface and API to integrations and infrastructure. I believe testing should not be done just as a formality but should genuinely improve product quality and usability.',
+        'I train and mentor new QA specialists. I have good communication skills, strong motivation, and a responsible approach.',
         'In my free time, I enjoy active hobbies such as freediving, hiking, sailing, and calisthenics. I also love travelling and visiting different countries.',
       ],
     },
     experience: {
-      title: 'EXPERIENCE',
+      title: 'Experience',
       groups: {
         cv: 'CV',
         work: 'Work Experience',
@@ -221,7 +222,7 @@ export const siteCopy = {
       ],
     },
     games: {
-      sectionTitle: 'GAMES',
+      sectionTitle: 'Games',
       titles: {
         dino: 'Dino',
         snake: 'Snake',
@@ -270,7 +271,7 @@ export const siteCopy = {
       },
     },
     footer: {
-      title: 'CONTACTS',
+      title: 'Contacts',
       message: 'For any questions, you can contact me by email or through the social links below.',
       socialAriaLabel: 'Footer contact social links',
       visitCounter: {
@@ -383,12 +384,12 @@ export const siteCopy = {
       title: 'Anton Dorovskikh',
     },
     nav: {
-      home: 'ГЛАВНАЯ',
-      about: 'ОБО МНЕ',
-      experience: 'ОПЫТ',
-      games: 'ИГРЫ',
-      contacts: 'КОНТАКТЫ',
-      signIn: 'ВОЙТИ',
+      home: 'Главная',
+      about: 'Обо мне',
+      experience: 'Опыт',
+      games: 'Игры',
+      contacts: 'Контакты',
+      signIn: 'Войти',
     },
     header: {
       primaryNavLabel: 'Основная навигация',
@@ -421,8 +422,7 @@ export const siteCopy = {
       },
     },
     homeBanner: {
-      greeting: 'Привет! Я Антон',
-      role: 'Full Stack QA Engineer',
+      greeting: 'Всем привет!',
     },
     intro: {
       ariaLabel: 'Краткое представление профиля',
@@ -441,23 +441,22 @@ export const siteCopy = {
     summary: {
       ariaLabel: 'Профессиональное резюме',
       lines: [
-        'Добро пожаловать на мой личный сайт-портфолио! Здесь вы найдёте моё резюме, информацию об опыте работы, образовании, пройденных курсах и мои контакты.',
-        'Я Full Stack QA Engineer. Специализируюсь на ручном и автоматизированном тестировании frontend, backend, веб- и мобильных приложений. Имею опыт тестирования API и UI, а также опыт проведения end-to-end, системного, интеграционного и регрессионного тестирования.',
-        'Надеюсь, вам понравится этот сайт. Ещё здесь можно поиграть в веб-игры, которые я создаю в свободное время в рамках технических экспериментов.',
+        'Рад приветствовать вас на моём личном сайте. Я full-stack QA-инженер и специализируюсь на ручном и автоматизированном тестировании frontend, backend, веб- и мобильных приложений. Здесь вы найдёте моё резюме, информацию об опыте работы, образовании, пройденных курсах и мои контакты.',
+        'Ещё здесь можно поиграть в веб-игры, которые я создаю в свободное время в рамках технических экспериментов. Надеюсь, вам понравится этот сайт.',
       ],
     },
     about: {
-      title: 'ОБО МНЕ',
+      title: 'Обо мне',
       lines: [
         'У меня инженерное образование. Я окончил МГТУ им. Н. Э. Баумана по специальности, связанной с проектированием и программированием электронных устройств.',
-        'До перехода в IT я работал в нескольких инженерных направлениях, в том числе с беспилотными авиационными системами и промышленным оборудованием.',
-        'Сейчас я работаю в QA и развиваюсь в автоматизации тестирования и программировании. Мне интересно не просто находить баги, а разбираться в работе системы целиком: от интерфейса и API до интеграций и инфраструктуры. Мне близка идея тестировать не для галочки, а действительно повышать качество и удобство продукта.',
-        'Занимаюсь обучением и менторством новых QA-специалистов. Обладаю хорошими навыками коммуникации, высокой мотивацией и ответственностью, а также имею управленческий опыт.',
+        'До перехода в IT я работал в нескольких инженерных направлениях, в том числе с беспилотными авиационными системами и промышленным оборудованием. В некоторых проектах я также координировал работу команды и отвечал за технические и организационные задачи.',
+        'Сейчас я работаю QA-инженером и развиваюсь в автоматизации тестирования и программировании. Мне интересно не просто находить баги, а разбираться в работе системы целиком: от интерфейса и API до интеграций и инфраструктуры. Мне близка идея тестировать не для галочки, а действительно повышать качество и удобство продукта.',
+        'Занимаюсь обучением и менторством новых QA-специалистов. Обладаю хорошими навыками коммуникации, высокой мотивацией и ответственным подходом к работе.',
         'В свободное время увлекаюсь активным отдыхом: фридайвингом, хайкингом, яхтингом и калистеникой, а также люблю путешествовать и посещать различные страны.',
       ],
     },
     experience: {
-      title: 'ОПЫТ',
+      title: 'Опыт',
       groups: {
         cv: 'Резюме',
         work: 'Опыт работы',
@@ -600,7 +599,7 @@ export const siteCopy = {
       ],
     },
     games: {
-      sectionTitle: 'ИГРЫ',
+      sectionTitle: 'Игры',
       titles: {
         dino: 'Dino',
         snake: 'Snake',
@@ -649,7 +648,7 @@ export const siteCopy = {
       },
     },
     footer: {
-      title: 'КОНТАКТЫ',
+      title: 'Контакты',
       message: 'По любым вопросам можно связаться со мной по email или через социальные сети.',
       socialAriaLabel: 'Социальные ссылки в контактах',
       visitCounter: {
@@ -757,4 +756,6 @@ export const siteCopy = {
       ],
     },
   },
+  sr: srCopy,
+  me: meCopy,
 };
