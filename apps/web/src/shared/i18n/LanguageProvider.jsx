@@ -1,59 +1,40 @@
 import { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  DEFAULT_LANGUAGE,
-  LANGUAGE_STORAGE_KEY,
-  detectBrowserLanguage,
   getLanguageOption,
   isLanguageId,
   languageOptions,
 } from './languages.js';
-import { siteCopy } from './siteCopy.js';
+import { loadSiteCopy } from './loadSiteCopy.js';
+import { persistLanguage } from './languagePreference.js';
 
 const LanguageContext = createContext(null);
 
-function getStoredLanguage() {
-  if (typeof window === 'undefined') {
-    return null;
-  }
-
-  try {
-    const storedLanguage = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
-    return isLanguageId(storedLanguage) ? storedLanguage : null;
-  } catch {
-    return null;
-  }
-}
-
-function getInitialLanguage() {
-  return getStoredLanguage() ?? detectBrowserLanguage();
-}
-
-function getContentLanguage(language) {
-  return siteCopy[language] ? language : DEFAULT_LANGUAGE;
-}
-
-function persistLanguage(language) {
-  try {
-    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
-  } catch {
-    // A blocked storage write should not prevent language switching in the current session.
-  }
-}
-
-export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState(getInitialLanguage);
-  const hasStoredLanguage = useRef(getStoredLanguage() !== null);
-  const contentLanguage = getContentLanguage(language);
+export function LanguageProvider({ children, initialLanguage, initialCopy }) {
+  const [{ language, copy }, setLoadedLanguage] = useState({ language: initialLanguage, copy: initialCopy });
+  const [pendingLanguage, setPendingLanguage] = useState(null);
+  const [failedLanguage, setFailedLanguage] = useState(null);
+  const requestId = useRef(0);
+  const contentLanguage = language;
   const contentLanguageOption = getLanguageOption(contentLanguage);
-  const copy = siteCopy[contentLanguage] ?? siteCopy[DEFAULT_LANGUAGE];
 
-  const selectLanguage = (nextLanguage) => {
+  const selectLanguage = async (nextLanguage) => {
     if (!isLanguageId(nextLanguage)) {
       return;
     }
 
-    hasStoredLanguage.current = true;
-    setLanguage(nextLanguage);
+    const currentRequest = ++requestId.current;
+    setFailedLanguage(null);
+    setPendingLanguage(nextLanguage);
+    try {
+      const loaded = await loadSiteCopy(nextLanguage);
+      if (currentRequest !== requestId.current) return;
+      setLoadedLanguage(loaded);
+      persistLanguage(loaded.language);
+    } catch {
+      if (currentRequest === requestId.current) setFailedLanguage(nextLanguage);
+    } finally {
+      if (currentRequest === requestId.current) setPendingLanguage(null);
+    }
   };
 
   useEffect(() => {
@@ -62,13 +43,7 @@ export function LanguageProvider({ children }) {
     document.title = copy.meta.title;
   }, [contentLanguageOption.direction, contentLanguageOption.htmlLang, copy.meta.title]);
 
-  useEffect(() => {
-    if (!hasStoredLanguage.current) {
-      return;
-    }
-
-    persistLanguage(language);
-  }, [language]);
+  useEffect(() => () => { requestId.current += 1; }, []);
 
   const value = useMemo(
     () => ({
@@ -78,11 +53,23 @@ export function LanguageProvider({ children }) {
       copy,
       languageOptions,
       selectLanguage,
+      pendingLanguage,
     }),
-    [contentLanguage, contentLanguageOption.htmlLang, copy, language],
+    [contentLanguage, contentLanguageOption.htmlLang, copy, language, pendingLanguage],
   );
 
-  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+      {failedLanguage && (
+        <div className="load-feedback" role="alert" dir="ltr">
+          <span>⚠ Could not load: {getLanguageOption(failedLanguage).nativeName}</span>
+          <button type="button" onClick={() => selectLanguage(failedLanguage)} aria-label="Retry language download">↻</button>
+          <button type="button" onClick={() => setFailedLanguage(null)} aria-label="Dismiss">×</button>
+        </div>
+      )}
+    </LanguageContext.Provider>
+  );
 }
 
 export function useLanguage() {

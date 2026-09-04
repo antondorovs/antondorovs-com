@@ -1,4 +1,4 @@
-import wallImage from '../../assets/site/wall_quality.PNG';
+import wallImage from '../../assets/site/wall_quality.webp';
 import { useSiteCopy } from '../../shared/i18n/LanguageProvider.jsx';
 import './HomeBanner.css';
 

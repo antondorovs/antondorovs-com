@@ -4,13 +4,14 @@ const mergeCopy = (base, override) => {
   }
 
   return Object.fromEntries(
-    Object.keys(base).map((key) => [key, mergeCopy(base[key], override[key])]),
+    Object.keys({ ...base, ...override }).map((key) => [key, mergeCopy(base?.[key], override[key])]),
   );
 };
 
 export function createLocalizedCopy(base, translation) {
+  const { work: translatedWork, skillTitles, ...translatedExperience } = translation.experience;
   const work = base.experience.work.map((job, index) => {
-    const translatedJob = translation.experience.work[index];
+    const translatedJob = translatedWork[index];
 
     return {
       ...job,
@@ -20,13 +21,13 @@ export function createLocalizedCopy(base, translation) {
   });
   const skillGroups = base.experience.skillGroups.map((group, index) => ({
     ...group,
-    title: translation.experience.skillTitles[index],
+    title: skillTitles[index],
   }));
 
   return mergeCopy(base, {
     ...translation,
     experience: {
-      ...translation.experience,
+      ...translatedExperience,
       work,
       skillGroups,
     },

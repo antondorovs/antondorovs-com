@@ -1,3 +1,5 @@
+import { additionalLanguages } from './additionalLanguages.js';
+
 export const LANGUAGE_STORAGE_KEY = 'anton-language';
 export const DEFAULT_LANGUAGE = 'en';
 
@@ -9,21 +11,22 @@ export const languageOptions = [
   { id: 'en', code: 'EN', nativeName: 'English', htmlLang: 'en', direction: 'ltr' },
   { id: 'es', code: 'ES', nativeName: 'Español', htmlLang: 'es', direction: 'ltr' },
   { id: 'fr', code: 'FR', nativeName: 'Français', htmlLang: 'fr', direction: 'ltr' },
-  { id: 'he', code: 'HE', nativeName: 'עברית', htmlLang: 'he', direction: 'rtl' },
+  { id: 'he', code: 'IL', nativeName: 'עברית', htmlLang: 'he', direction: 'rtl' },
   { id: 'hi', code: 'HI', nativeName: 'हिन्दी', htmlLang: 'hi', direction: 'ltr' },
   { id: 'it', code: 'IT', nativeName: 'Italiano', htmlLang: 'it', direction: 'ltr' },
-  { id: 'ja', code: 'JA', nativeName: '日本語', htmlLang: 'ja', direction: 'ltr' },
-  { id: 'ko', code: 'KO', nativeName: '한국어', htmlLang: 'ko', direction: 'ltr' },
+  { id: 'ja', code: 'JP', nativeName: '日本語', htmlLang: 'ja', direction: 'ltr' },
+  { id: 'ko', code: 'KR', nativeName: '한국어', htmlLang: 'ko', direction: 'ltr' },
   { id: 'kk', code: 'KZ', nativeName: 'Қазақша', htmlLang: 'kk', direction: 'ltr' },
   { id: 'me', code: 'ME', nativeName: 'Crnogorski', htmlLang: 'cnr-Latn', direction: 'ltr' },
   { id: 'pl', code: 'PL', nativeName: 'Polski', htmlLang: 'pl', direction: 'ltr' },
   { id: 'pt', code: 'PT', nativeName: 'Português', htmlLang: 'pt', direction: 'ltr' },
   { id: 'ru', code: 'RU', nativeName: 'Русский', htmlLang: 'ru', direction: 'ltr' },
-  { id: 'sr', code: 'SR', nativeName: 'Српски', htmlLang: 'sr-Cyrl', direction: 'ltr' },
+  { id: 'sr', code: 'RS', nativeName: 'Српски', htmlLang: 'sr-Cyrl', direction: 'ltr' },
   { id: 'tr', code: 'TR', nativeName: 'Türkçe', htmlLang: 'tr', direction: 'ltr' },
-  { id: 'uk', code: 'UK', nativeName: 'Українська', htmlLang: 'uk', direction: 'ltr' },
-  { id: 'vi', code: 'VI', nativeName: 'Tiếng Việt', htmlLang: 'vi', direction: 'ltr' },
-];
+  { id: 'uk', code: 'UA', nativeName: 'Українська', htmlLang: 'uk', direction: 'ltr' },
+  { id: 'vi', code: 'VN', nativeName: 'Tiếng Việt', htmlLang: 'vi', direction: 'ltr' },
+  ...additionalLanguages,
+].sort((a, b) => a.code < b.code ? -1 : a.code > b.code ? 1 : 0);
 
 export const languageIds = languageOptions.map((language) => language.id);
 
@@ -64,6 +67,10 @@ export function resolveBrowserLanguage(browserLanguage) {
 
   if (primaryLanguage === 'iw') {
     return 'he';
+  }
+
+  if (primaryLanguage === 'no') {
+    return 'nb';
   }
 
   return isLanguageId(primaryLanguage) ? primaryLanguage : DEFAULT_LANGUAGE;

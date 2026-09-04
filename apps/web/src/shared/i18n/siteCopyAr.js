@@ -195,7 +195,7 @@ export const arCopy = {
     },
     notice: {
       site: 'موقع شخصي غير تجاري.',
-      privacyPrefix: 'لمزيد من المعلومات، راجع ',
+      privacyPrefix: 'لمزيد من المعلومات:',
       privacyLink: 'إشعار الخصوصية والإشعار القانوني',
       privacySuffix: '.',
     },

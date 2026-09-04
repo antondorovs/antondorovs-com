@@ -38,7 +38,7 @@ export const jaTranslation = {
   footer: {
     title: '連絡先', message: 'ご質問があれば、メールまたはソーシャルメディアでお気軽にご連絡ください。', socialAriaLabel: '連絡先のソーシャルリンク',
     visitCounter: { title: 'アクセスカウンター', ariaLabel: 'ページ閲覧数', labels: { day: '今日', week: '1週間', month: '1か月', year: '1年', allTime: '累計' } },
-    notice: { site: '非営利の個人サイトです。', privacyPrefix: '詳しくは', privacyLink: 'プライバシーと法的事項', privacySuffix: 'をご覧ください。' }, environmentsTitle: '環境', environmentsAriaLabel: '環境へのリンク',
+    notice: { site: '非営利の個人サイトです。', privacyPrefix: '詳細情報：', privacyLink: 'プライバシーと法的事項', privacySuffix: '。' }, environmentsTitle: '環境', environmentsAriaLabel: '環境へのリンク',
   },
   privacy: {
     title: 'プライバシーと法的事項', lastUpdated: '最終更新：2026年8月20日', sections: [

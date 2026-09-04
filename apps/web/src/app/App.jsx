@@ -1,16 +1,27 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { HomePage } from '../pages/HomePage/HomePage.jsx';
-import { GamePage } from '../pages/GamePage/GamePage.jsx';
-import { PrivacyPolicyPage } from '../pages/PrivacyPolicyPage/PrivacyPolicyPage.jsx';
+import { LoadingIndicator, LoadErrorBoundary } from '../shared/ui/DeferredContent.jsx';
 import { AnalyticsScripts } from '../modules/analytics/AnalyticsScripts.jsx';
 import { getGameByRoute, isPrivacyPolicyRoute } from './routes.js';
 
 const ROUTE_TRANSITION_DURATION_MS = 300;
+const GamePage = lazy(() => import('../pages/GamePage/GamePage.jsx').then((m) => ({ default: m.GamePage })));
+const PrivacyPolicyPage = lazy(() => import('../pages/PrivacyPolicyPage/PrivacyPolicyPage.jsx').then((m) => ({ default: m.PrivacyPolicyPage })));
 
 export function App() {
   const hash = useHashRoute();
   const game = getGameByRoute(hash);
   const isPrivacyPolicy = isPrivacyPolicyRoute(hash);
+  const initialAnchorAligned = useRef(false);
+
+  useLayoutEffect(() => {
+    if (initialAnchorAligned.current) return;
+    initialAnchorAligned.current = true;
+    // The dictionary may arrive after the browser's initial hash-scroll attempt.
+    if (!game && !isPrivacyPolicy && hash.startsWith('#') && !hash.startsWith('#/')) {
+      document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: 'auto', block: 'start' });
+    }
+  }, [game, hash, isPrivacyPolicy]);
 
   useEffect(() => {
     if (game || isPrivacyPolicy) {
@@ -60,7 +71,11 @@ export function App() {
   return (
     <>
       <AnalyticsScripts />
-      {isPrivacyPolicy ? <PrivacyPolicyPage /> : game ? <GamePage game={game} /> : <HomePage />}
+      <LoadErrorBoundary key={game?.key ?? (isPrivacyPolicy ? 'privacy' : 'home')}>
+        <Suspense fallback={<LoadingIndicator />}>
+          {isPrivacyPolicy ? <PrivacyPolicyPage /> : game ? <GamePage game={game} /> : <HomePage />}
+        </Suspense>
+      </LoadErrorBoundary>
     </>
   );
 }

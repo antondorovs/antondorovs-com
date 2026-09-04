@@ -4,9 +4,9 @@
   --site-header-icon-size: 26px;
   --site-header-gap: 12px;
   --site-header-padding-inline: max(16px, calc((100% - var(--content-width)) / 2));
-  --site-header-language-menu-width: 240px;
+  --site-header-language-menu-width: 260px;
   --site-header-sign-in-menu-width: 280px;
-  --site-header-theme-menu-width: 240px;
+  --site-header-theme-menu-width: 260px;
   --site-header-center-left: 50vw;
   --site-header-menu-left: 50vw;
   --site-header-menu-top: var(--site-header-height);
@@ -427,9 +427,7 @@
     --site-header-icon-size: 24px;
     --site-header-gap: 8px;
     --site-header-padding-inline: 8px;
-    --site-header-language-menu-width: 264px;
     --site-header-sign-in-menu-width: 280px;
-    --site-header-theme-menu-width: 220px;
   }
 
   .site-header__bar {

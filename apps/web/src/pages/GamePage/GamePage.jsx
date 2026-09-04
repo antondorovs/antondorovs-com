@@ -1,18 +1,15 @@
 import { Header } from '../../modules/header/Header.jsx';
-import { DinoGame } from '../../games/dino/DinoGame.jsx';
-import { SnakeGame } from '../../games/snake/SnakeGame.jsx';
-import { FlappyBirdGame } from '../../games/flappy-bird/FlappyBirdGame.jsx';
-import { GameOfLife } from '../../games/game-of-life/GameOfLife.jsx';
-import { SnakeUnlimitedGame } from '../../games/snake-unlimited/SnakeUnlimitedGame.jsx';
+import { lazy, Suspense } from 'react';
+import { LoadingIndicator, LoadErrorBoundary } from '../../shared/ui/DeferredContent.jsx';
 import { useSiteCopy } from '../../shared/i18n/LanguageProvider.jsx';
 import './GamePage.css';
 
 const gameComponents = {
-  dino: DinoGame,
-  snake: SnakeGame,
-  'flappy-bird': FlappyBirdGame,
-  'game-of-life': GameOfLife,
-  'snake-unlimited': SnakeUnlimitedGame,
+  dino: lazy(() => import('../../games/dino/DinoGame.jsx').then((m) => ({ default: m.DinoGame }))),
+  snake: lazy(() => import('../../games/snake/SnakeGame.jsx').then((m) => ({ default: m.SnakeGame }))),
+  'flappy-bird': lazy(() => import('../../games/flappy-bird/FlappyBirdGame.jsx').then((m) => ({ default: m.FlappyBirdGame }))),
+  'game-of-life': lazy(() => import('../../games/game-of-life/GameOfLife.jsx').then((m) => ({ default: m.GameOfLife }))),
+  'snake-unlimited': lazy(() => import('../../games/snake-unlimited/SnakeUnlimitedGame.jsx').then((m) => ({ default: m.SnakeUnlimitedGame }))),
 };
 
 export function GamePage({ game }) {
@@ -24,7 +21,11 @@ export function GamePage({ game }) {
       <Header centerLinkKey="games" variant="simple" />
       <main className="game-page" dir="ltr">
         <h1>{copy.games.titles[game.key] ?? game.title}</h1>
-        <GameComponent />
+        <LoadErrorBoundary key={game.key}>
+          <Suspense fallback={<LoadingIndicator />}>
+            <GameComponent />
+          </Suspense>
+        </LoadErrorBoundary>
       </main>
     </>
   );

@@ -23,8 +23,8 @@ export function Footer() {
     <footer className="site-footer">
       <p className="site-footer__notice">
         <span dir="auto">{copy.footer.notice.site}</span>
+        <span dir="auto">{copy.footer.notice.privacyPrefix.trim()}</span>
         <span dir="auto">
-          {copy.footer.notice.privacyPrefix}
           <a href={privacyPolicyRoute.route}>{copy.footer.notice.privacyLink}</a>
           {copy.footer.notice.privacySuffix}
         </span>

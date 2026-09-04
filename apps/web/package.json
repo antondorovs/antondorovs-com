@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
-    "test:i18n": "node --test src/shared/i18n/i18n.test.js",
+    "test:i18n": "node --test src/shared/i18n/*.test.js",
+    "test:bundle": "node scripts/check-bundle.mjs",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
