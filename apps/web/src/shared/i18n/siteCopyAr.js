@@ -122,7 +122,7 @@ export const arCopy = {
       {
         title: 'الأتمتة وبيئات التطوير',
         items: [
-          'JavaScript', 'TypeScript', 'Playwright', 'HTML', 'CSS', 'WebStorm', 'VS Code',
+          'JavaScript', 'TypeScript', 'Playwright', 'Python', 'Pytest', 'HTML', 'CSS', 'WebStorm', 'PyCharm', 'VS Code',
           'CI/CD', 'GitHub Actions', 'GitLab CI', 'Jenkins',
         ],
       },

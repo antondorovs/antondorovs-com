@@ -122,7 +122,7 @@ export const frCopy = {
       {
         title: 'Automatisation et IDE',
         items: [
-          'JavaScript', 'TypeScript', 'Playwright', 'HTML', 'CSS', 'WebStorm', 'VS Code',
+          'JavaScript', 'TypeScript', 'Playwright', 'Python', 'Pytest', 'HTML', 'CSS', 'WebStorm', 'PyCharm', 'VS Code',
           'CI/CD', 'GitHub Actions', 'GitLab CI', 'Jenkins',
         ],
       },
