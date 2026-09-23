@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Zaɓuɓɓukan keɓaɓɓen ku",
+    "description": "Ƙididdiga na musamman-browser da nazari ana kunna su ta tsohuwa. Kuna iya kashe duk bin diddigin zaɓi ko zaɓi sabis ɗaya. Ana ƙidaya lodin shafi koyaushe ba tare da mai gano mai bincike ba.",
+    "reject": "Rage duka",
+    "accept": "Karɓa duka",
+    "close": "Rufe ba tare da canje-canje ba",
+    "rejectHelp": "Ana ci gaba da ƙidayar lodin shafi ba tare da mai gano mai bincike ba.\nZa a kashe maƙallan mai bincike na musamman da duk sabis na nazari.",
+    "settings": "Saitunan sirri",
+    "policy": "Manufar keɓantawa",
+    "customize": "Keɓance",
+    "optionsTitle": "Zaɓi abin da zai tsaya aiki",
+    "save": "Ajiye zaɓi",
+    "options": {
+      "uniqueCounter": "Na'urar bincike ta musamman (kuki na ɓangare na farko)",
+      "yandexWebvisor": "Yandex Webvisor (rikodin hulɗa)",
+      "microsoftClarity": "Microsoft Clarity (rikodin hulɗa)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "An adana saituna.",
+    "saveError": "An kasa ajiye saituna. Saitunan da suka gabata suna ci gaba da aiki."
+  },
+  "counters": {
+    "pageViews": "lodin shafi",
+    "uniqueBrowsers": "Na musamman browser"
+  },
+  "notice": {
+    "lastUpdated": "Ƙarshe na ƙarshe: 23 Satumba 2026",
+    "heading": "Ziyarci kirga, kukis, da nazari",
+    "paragraphs": [
+      "Gidan yanar gizon yana ƙididdige kowane nauyin cikakken shafi, gami da sake lodi, ba tare da ƙirƙirar mai gano mai bincike ba. Haɗa jimillar lodin shafi na yau da kullun na kwanakin 365 UTC na ƙarshe kuma ana adana jimlar kowane lokaci akan sabar rukunin yanar gizon. Masu ba da sabis na iya sarrafa adiresoshin IP daban da rajistan ayyukan fasaha don sadar da amintaccen rukunin yanar gizon.",
+      "An kunna madaidaicin-binciken mai bincike ta tsohuwa. A ziyarar farko, rukunin yanar gizon yana saita kuki na farko, Secure, HttpOnly browser mai suna advs_visitor har zuwa kwanaki 395. Ya ƙunshi kimar bazuwar; uwar garken tana adana zantan sa na SHA-256 da kwanan nan na ziyarar UTC har zuwa kwanaki 395 bayan waccan ziyarar. Ƙididdiga suna rufe bayanan martaba, ba mutane ba. Kuna iya kashe wannan ma'aunin a cikin saitunan Sirri akan wannan shafin. Lokacin da aka kashe, ma'aunin yana tsayawa kuma rukunin yanar gizon yana buƙatar share kuki na mai binciken da adana hash; jimlar duk lokaci ya rage. Idan sharewa ta gaza, ana sake gwada buƙatar a kan lodin shafi na gaba yayin da na'urar ke tsayawa a kashe.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor, da Microsoft Clarity suma suna ɗauka ta tsohuwa, kafin yin zaɓi. Waɗannan masu ba da sabis na iya karɓar URLs na shafi, bayanan burauza da na'urar, wurin da aka kusanta, dannawa, gungurawa, bayanin zaman, kukis, da masu gano makamancin haka. Webvisor da Clarity na iya sake kunna hulɗar shafi. Za su iya sarrafa bayanai a wajen ƙasar ku bisa ga manufofinsu. Kuna iya kashe kowane sabis a cikin saitunan Sirri ko amfani da Karɓar duk don kashe kowane sabis na zaɓi.",
+      "Maballin saitin sirri yana kan wannan shafin. Keɓance yana buɗe maɓalli guda ɗaya yana nuna zaɓinku na yanzu; Ajiye zaɓi ya shafi canje-canje. Yarda da duk yana ba da damar kowane sabis. Maɓallin × yana rufe panel kawai ba tare da canza zaɓin ku ba. An adana zaɓinku da kwanan watan a cikin localStorage da kuma a cikin kuki na zaɓi na ɓangare na farko na advs_privacy_choice har zuwa kwanaki 395. Wannan kuki na zaɓi ya ƙunshi saituna da tambarin lokaci, ba mai gano baƙo ba. Ana amfani da canji ne kawai idan ana iya adana shi a akalla ɗaya daga cikin waɗannan wuraren; in ba haka ba saitunan da suka gabata suna aiki. Ba tare da ajiyayyun zaɓi ba, ana kunna duk sabis na zaɓi. Ana kuma adana jigo da zaɓin harshe a gida lokacin da aka zaɓa. Kashe ƙididdiga yana hana lodawa gaba bayan an sake loda shafin; bayanan da aka riga aka aika zuwa mai bada sun kasance ƙarƙashin ƙa'idodin riƙewa, kuma kukis ɗin masu ba da sabis na iya kasancewa har sai an cire su a cikin burauzar ku. Don tambayoyin sirri ko buƙatun bayanai, yi amfani da hanyoyin haɗin yanar gizo.",
+      "Ana amfani da fonts na rukunin yanar gizon daga wannan rukunin maimakon neman daga Google. Wasannin na yanzu ba sa adana bayanan wasan sirri tsakanin ziyara. Idan an ƙara ajiyar rikodin, za a bayyana ma'ajiyar sa da ka'idojin bugawa kafin a kunna shi."
+    ]
+  }
+}

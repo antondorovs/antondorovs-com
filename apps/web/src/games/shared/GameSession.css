@@ -1,0 +1,313 @@
+.game-session {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  min-height: 0;
+  color: var(--color-text);
+}
+
+.game-session__toolbar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex: none;
+  min-height: 84px;
+}
+
+.game-page .game-session__title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  margin: 0;
+}
+
+.game-session__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.game-session button:not(.life-game__cell) {
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--ui-radius);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.game-session button.game-session__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 11px;
+  border: 0;
+  background: transparent;
+  flex: none;
+}
+
+.game-session__icon .svg-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.game-session button.game-session__icon:hover:not(:disabled) {
+  background: var(--color-surface);
+}
+
+.game-session button:disabled {
+  opacity: .3;
+  cursor: default;
+}
+
+.game-session button:focus-visible,
+.game-session canvas:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+.game-session__content {
+  position: relative;
+  min-height: 0;
+  flex: 1;
+  outline: none;
+}
+
+.game-session__game {
+  height: 100%;
+  overflow: hidden;
+}
+
+.game-session__hud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 20px;
+  padding: 7px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--ui-radius);
+  background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+  font-size: .75rem;
+}
+
+.game-session__overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: start center;
+  grid-template-rows: minmax(0, 1fr);
+  padding: 16px;
+  background: color-mix(in srgb, var(--color-bg) 35%, transparent);
+  z-index: 1;
+}
+
+.game-session__card {
+  width: min(460px, 100%);
+  max-height: 100%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 28px;
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--ui-radius) * 2);
+  background: var(--color-bg);
+  box-shadow: 0 12px 48px #0003;
+  text-align: justify;
+  line-height: 1.6;
+  font-size: .9rem;
+}
+
+.game-session__card h2 {
+  margin: 0 0 12px;
+  color: var(--color-text-strong);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+#game-panel-description {
+  text-align: center;
+}
+
+.game-session__description-line {
+  display: block;
+}
+
+.game-session__instructions {
+  margin: 20px 0;
+  padding: 16px 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.game-session__instructions h3 {
+  margin: 0 0 6px;
+  font-size: .8rem;
+}
+
+.game-session__instructions p + p {
+  margin-top: 4px;
+}
+
+.game-session__message {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.game-session__result {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.game-session__record {
+  margin-top: 6px;
+}
+
+.game-session button.game-session__primary {
+  width: 100%;
+  color: var(--color-bg);
+  background: var(--color-text);
+  font-weight: 600;
+}
+
+.game-session__card-actions {
+  display: grid;
+  gap: 8px;
+}
+
+.game-session__card-actions > button {
+  width: 100%;
+}
+
+.game-session__card[data-state="over"] {
+  width: min(380px, 100%);
+  text-align: center;
+}
+
+.game-session__card[data-state="over"] .game-session__card-actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.game-session__start-hint {
+  margin-top: 12px;
+}
+
+.game-session__error {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  max-width: min(100%, 400px);
+  z-index: 3;
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--ui-radius);
+  background: var(--color-surface);
+  font-size: .85rem;
+}
+
+.game-session--game-of-life .game-session__game {
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 8px;
+}
+
+/* Fullscreen belongs to the game alone, never to the page or its header. */
+.game-session:fullscreen {
+  width: 100%;
+  height: 100dvh;
+  max-width: none;
+  margin: 0;
+  padding: max(8px, env(safe-area-inset-top)) max(8px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
+  background: var(--color-bg);
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.game-session:fullscreen::backdrop {
+  background: var(--color-bg);
+}
+
+.game-session:fullscreen .game-session__toolbar {
+  position: absolute;
+  top: max(12px, env(safe-area-inset-top));
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+}
+
+.game-session:fullscreen .game-session__actions {
+  border-radius: var(--ui-radius);
+  background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+}
+
+.game-session:fullscreen .game-session__title,
+.game-session:fullscreen .snake-directions,
+.game-session:fullscreen .life-game__help,
+.game-session:fullscreen .life-game__controls,
+.game-session:fullscreen .life-game__actions {
+  display: none;
+}
+
+.game-session:fullscreen .snake-layout {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  gap: 0;
+}
+
+.game-session:fullscreen .snake-game {
+  width: min(100cqw, 100cqh);
+}
+
+.game-session:fullscreen .dino-game__stage {
+  width: 100%;
+  height: clamp(180px, 45dvh, 420px);
+}
+
+.game-session:fullscreen .life-game {
+  min-height: 100%;
+  align-content: center;
+}
+
+/* Reserve space for the two fullscreen controls while the card is open. */
+.game-session:fullscreen .game-session__overlay {
+  padding-top: 108px;
+}
+
+@media (max-width: 480px), (max-height: 500px) {
+  .game-session__overlay {
+    padding: 8px;
+  }
+
+  .game-session__card {
+    padding: 20px;
+    font-size: .8rem;
+  }
+
+  .game-session__card h2 {
+    font-size: 1.3rem;
+  }
+
+  .game-session__instructions {
+    margin: 14px 0;
+    padding: 12px 0;
+  }
+
+  .game-session__hud {
+    padding: 5px 8px;
+    gap: 4px 10px;
+    font-size: .65rem;
+  }
+}

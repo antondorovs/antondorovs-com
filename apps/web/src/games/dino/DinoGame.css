@@ -1,134 +1,142 @@
 .dino-game {
-  display: grid;
-  justify-items: center;
-  gap: 16px;
-}
-
-.dino-game__score {
-  font-size: 1.25rem;
+  --dino-world-duration: 3s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding-top: 8px;
 }
 
 .dino-game__status {
-  display: grid;
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
-}
-
-.dino-game__status button {
-  min-height: 38px;
-  padding: 0 18px;
-  color: var(--color-bg);
-  background: var(--color-text);
-  border: 0;
-  cursor: pointer;
 }
 
 .dino-game__stage {
   width: min(800px, 100%);
-  height: 150px;
-  margin: auto;
+  height: 180px;
+  flex-shrink: 0;
   overflow: hidden;
   background: #f7f7f7;
   position: relative;
+  touch-action: none;
+  user-select: none;
 }
 
 .dino-game__stage--paused * {
-  animation-play-state: paused;
+  animation-play-state: paused !important;
 }
 
 .dino-game__dino {
   width: 40px;
   height: 43px;
-  position: relative;
-  top: 45px;
+  position: absolute;
+  bottom: 14px;
   left: 20px;
   background-image: var(--dino-run-one);
   background-size: 40px 43px;
-  animation: dino-run 0.25s infinite;
+  animation: dino-run .25s infinite;
+  z-index: 2;
 }
 
 .dino-game__dino--jump {
-  animation: dino-jump 0.7s linear;
+  animation: dino-jump .7s linear;
+  background-image: var(--dino-jump);
 }
 
 .dino-game__cactus {
   width: 23px;
   height: 46px;
-  position: relative;
-  top: 0;
-  left: 680px;
-  background-size: 23px 46px;
-  animation: cactus-move 3s infinite linear;
+  position: absolute;
+  bottom: 14px;
+  left: 100%;
+  background-size: contain;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  animation: cactus-move var(--dino-world-duration) 1 linear forwards;
+  z-index: 1;
+}
+
+.dino-game__cactus--cluster {
+  width: 49px;
+  height: 33px;
 }
 
 .dino-game__ground {
-  width: 71px;
-  height: 29px;
-  position: relative;
-  top: 121px;
+  position: absolute;
+  bottom: 0;
   left: 0;
-  background-size: 71px 29px;
-  animation: ground-move 3s infinite linear;
+  width: calc(200% + 160px);
+  height: 29px;
+  display: grid;
+  grid-template-columns: repeat(24, minmax(0, 1fr));
+  animation: ground-move var(--dino-world-duration) infinite linear;
+}
+
+.dino-game__ground-segment {
+  height: 29px;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 29px;
 }
 
 .dino-game__cloud {
   width: 48px;
   height: 26px;
-  position: relative;
-  top: 0;
-  left: 0;
+  position: absolute;
+  top: 15px;
+  left: 100%;
   background-size: 48px 26px;
   animation: cactus-move 10s infinite linear;
 }
 
 @keyframes cactus-move {
-  0% {
+  from {
     left: 100%;
   }
-
-  100% {
-    left: -12px;
+  to {
+    left: -80px;
   }
 }
 
 @keyframes ground-move {
-  0% {
-    left: 100%;
+  from {
+    transform: translateX(0);
   }
-
-  100% {
-    left: -12px;
+  to {
+    transform: translateX(-50%);
   }
 }
 
 @keyframes dino-run {
-  0% {
+  0%, 100% {
     background-image: var(--dino-run-one);
   }
-
   50% {
     background-image: var(--dino-run-two);
-  }
-
-  100% {
-    background-image: var(--dino-run-one);
   }
 }
 
 @keyframes dino-jump {
-  0% {
-    top: 45px;
-    background-image: var(--dino-jump);
+  0%, 100% {
+    transform: translateY(0);
   }
-
-  20%,
-  70% {
-    top: -80px;
-    background-image: var(--dino-jump);
+  30%, 60% {
+    transform: translateY(-90px);
   }
+}
 
-  100% {
-    top: 45px;
-    background-image: var(--dino-jump);
+@media (max-height: 450px) {
+  .dino-game {
+    gap: 4px;
+    padding-top: 4px;
+  }
+  .dino-game__stage {
+    height: 150px;
   }
 }

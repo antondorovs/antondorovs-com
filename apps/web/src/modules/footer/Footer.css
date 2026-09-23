@@ -55,9 +55,9 @@
 }
 
 .site-footer__counter-block {
-  width: min(100%, 1000px);
+  width: min(100%, var(--content-width));
   display: grid;
-  gap: 8px;
+  gap: 42px;
   justify-items: center;
 }
 
@@ -65,6 +65,8 @@
   margin: 0;
   color: var(--color-text-strong);
 }
+
+.site-footer__counter-group { width: 100%; display: grid; gap: 8px; }
 
 .site-footer__visit-counter {
   width: 100%;

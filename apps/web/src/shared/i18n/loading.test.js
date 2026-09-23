@@ -55,6 +55,9 @@ test('language preference uses explicit choice, then primary browser language, t
     Object.defineProperty(globalThis, 'navigator', { configurable: true, value: { language: 'ru-RU', languages: ['ru-RU', 'en'] } });
     assert.equal(getPreferredLanguage(), 'ru');
     assert.equal(saved.size, 0, 'automatic detection must not persist a preference');
+    saved.set(LANGUAGE_STORAGE_KEY, 'jv');
+    assert.equal(getPreferredLanguage(), 'id');
+    assert.equal(saved.get(LANGUAGE_STORAGE_KEY), 'id', 'replace the retired Javanese preference');
     persistLanguage('de');
     assert.equal(getPreferredLanguage(), 'de');
     saved.set(LANGUAGE_STORAGE_KEY, 'invalid');

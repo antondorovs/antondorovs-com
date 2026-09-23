@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Uw privacykeuzes",
+    "description": "Het tellen en analyseren van unieke browsers is standaard ingeschakeld. U kunt alle optionele tracking uitschakelen of afzonderlijke services kiezen. Het laden van pagina's wordt altijd geteld zonder browser-ID.",
+    "reject": "Alles afwijzen",
+    "accept": "Accepteer alles",
+    "close": "Sluiten zonder wijzigingen",
+    "rejectHelp": "Het laden van pagina's blijft geteld zonder browser-ID.\nDe unieke browserteller en alle analyseservices worden uitgeschakeld.",
+    "settings": "Privacy-instellingen",
+    "policy": "Privacybeleid",
+    "customize": "Pas aan",
+    "optionsTitle": "Kies wat ingeschakeld blijft",
+    "save": "Selectie opslaan",
+    "options": {
+      "uniqueCounter": "Unieke browserteller (first-party cookie)",
+      "yandexWebvisor": "Yandex Webvisor (interactie-opname)",
+      "microsoftClarity": "Microsoft Clarity (interactie-opname)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Instellingen opgeslagen.",
+    "saveError": "Kan instellingen niet opslaan. Eerdere instellingen blijven actief."
+  },
+  "counters": {
+    "pageViews": "Pagina wordt geladen",
+    "uniqueBrowsers": "Unieke browser"
+  },
+  "notice": {
+    "lastUpdated": "Laatst bijgewerkt: 23 september 2026",
+    "heading": "Bezoektellingen, cookies en analyses",
+    "paragraphs": [
+      "De site telt elke volledige paginalading, inclusief herlaadbeurten, zonder een browser-ID aan te maken. De totale dagelijkse totalen voor het laden van pagina's voor de afgelopen 365 UTC-dagen en een totaaltotaal ooit worden opgeslagen op de siteserver. Hostingproviders kunnen IP-adressen en technische toegangslogboeken afzonderlijk verwerken om de site te leveren en te beveiligen.",
+      "De unieke-browserteller is standaard ingeschakeld. Bij het eerste bezoek plaatst de site een first-party, Secure, HttpOnly browsercookie genaamd advs_visitor voor maximaal 395 dagen. Het bevat een willekeurige waarde; de server bewaart de SHA-256-hash en de meest recente UTC-bezoekdatum tot 395 dagen na dat bezoek. Tellingen hebben betrekking op browserprofielen, niet op mensen. U kunt deze teller uitschakelen in de Privacy-instellingen op deze pagina. Wanneer uitgeschakeld, stopt de teller en vraagt ​​de site om verwijdering van de cookie en opgeslagen hash van deze browser; het aggregaat aller tijden blijft bestaan. Als het verwijderen mislukt, wordt het verzoek opnieuw geprobeerd als de pagina later wordt geladen, terwijl de teller uitgeschakeld blijft.",
+      "Ook Google Analytics, Yandex Metrica, Yandex Webvisor en Microsoft Clarity worden standaard geladen, voordat je een keuze maakt. Deze providers kunnen pagina-URL's, browser- en apparaatgegevens, geschatte locatie, klikken, scrollen, sessie-informatie, cookies en soortgelijke identificatiegegevens ontvangen. Webvisor en Clarity kunnen pagina-interacties opnieuw afspelen. Zij kunnen gegevens buiten uw land verwerken volgens hun eigen beleid. U kunt elke service uitschakelen in de Privacy-instellingen of Alles weigeren gebruiken om elke optionele service uit te schakelen.",
+      "De knop Privacy-instellingen bevindt zich op deze pagina. Aanpassen opent individuele schakelaars die uw huidige selectie tonen; Selectie opslaan past wijzigingen toe. Accepteer alles maakt elke service mogelijk. Met de knop × sluit u het paneel alleen zonder uw selectie te wijzigen. Uw selectie en de datum ervan worden maximaal 395 dagen opgeslagen in de localStorage en in de first-party advs_privacy_choice voorkeurscookie. Deze voorkeurscookie bevat instellingen en een tijdstempel, geen bezoekersidentificatie. Een wijziging wordt alleen toegepast als deze op ten minste één van deze plaatsen kan worden opgeslagen; anders blijven de voorgaande instellingen actief. Als er geen opgeslagen selectie is, zijn alle optionele services ingeschakeld. Thema- en taalvoorkeuren worden bij selectie ook lokaal opgeslagen. Het uitschakelen van analyses voorkomt toekomstig laden nadat de pagina opnieuw is geladen; gegevens die al naar een provider zijn verzonden, blijven onderworpen aan de bewaarregels ervan, en bestaande providercookies kunnen blijven totdat ze in uw browser worden verwijderd. Voor privacyvragen of gegevensverzoeken kunt u de contactlinks op de site gebruiken.",
+      "Sitelettertypen worden via deze site weergegeven en niet bij Google opgevraagd. De huidige spellen slaan geen persoonlijke spelgegevens op tussen bezoeken. Als het opslaan van records wordt toegevoegd, worden de opslag- en publicatieregels beschreven voordat dit wordt ingeschakeld."
+    ]
+  }
+}

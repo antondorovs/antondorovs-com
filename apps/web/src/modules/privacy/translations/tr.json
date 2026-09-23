@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Gizlilik tercihleriniz",
+    "description": "Benzersiz tarayıcı sayımı ve analizleri varsayılan olarak etkindir. İsteğe bağlı tüm izlemeyi kapatabilir veya bireysel hizmetleri seçebilirsiniz. Sayfa yüklemeleri her zaman tarayıcı tanımlayıcısı olmadan sayılır.",
+    "reject": "Tümünü reddet",
+    "accept": "Tümünü kabul et",
+    "close": "Değişiklik yapmadan kapat",
+    "rejectHelp": "Sayfa yüklemeleri, tarayıcı tanımlayıcısı olmadan sayılmaya devam eder.\nBenzersiz tarayıcı sayacı ve tüm analiz hizmetleri devre dışı bırakılacak.",
+    "settings": "Gizlilik ayarları",
+    "policy": "Gizlilik politikası",
+    "customize": "Özelleştir",
+    "optionsTitle": "Nelerin etkin kalacağını seçin",
+    "save": "Seçimi kaydet",
+    "options": {
+      "uniqueCounter": "Benzersiz tarayıcı sayacı (birinci taraf çerezi)",
+      "yandexWebvisor": "Yandex Webvisor (etkileşim kaydı)",
+      "microsoftClarity": "Microsoft Clarity (etkileşim kaydı)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Ayarlar kaydedildi.",
+    "saveError": "Ayarlar kaydedilemedi. Önceki ayarlar etkin kalır."
+  },
+  "counters": {
+    "pageViews": "Sayfa yüklemeleri",
+    "uniqueBrowsers": "Benzersiz tarayıcı"
+  },
+  "notice": {
+    "lastUpdated": "Son güncelleme: 23 Eylül 2026",
+    "heading": "Ziyaret sayıları, çerezler ve analizler",
+    "paragraphs": [
+      "Site, bir tarayıcı tanımlayıcısı oluşturmadan, yeniden yüklemeler de dahil olmak üzere her tam sayfa yüklemesini sayar. Son 365 UTC günü için günlük sayfa yükleme toplamları ve tüm zamanların toplamı site sunucusunda saklanır. Barındırma sağlayıcıları, siteyi sunmak ve güvenliğini sağlamak için IP adreslerini ve teknik erişim günlüklerini ayrı ayrı işleyebilir.",
+      "Benzersiz tarayıcı sayacı varsayılan olarak etkindir. İlk ziyarette site, 395 güne kadar advs_visitor adında birinci taraf, Güvenli, HttpOnly tarayıcı çerezi ayarlar. Rastgele bir değer içerir; sunucu, SHA-256 karma değerini ve en son UTC ziyaret tarihini, bu ziyaretten sonraki 395 güne kadar saklar. Sayımlar kişileri değil, tarayıcı profillerini kapsar. Bu sayacı bu sayfadaki Gizlilik ayarlarından devre dışı bırakabilirsiniz. Devre dışı bırakıldığında sayaç durur ve site, bu tarayıcının çerezinin ve saklanan karmanın silinmesini ister; tüm zamanların toplamı kalır. Silme işlemi başarısız olursa, sayaç devre dışı kalırken istek daha sonraki bir sayfa yüklemesinde yeniden denenir.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor ve Microsoft Clarity de siz seçim yapmadan önce varsayılan olarak yüklenir. Bu sağlayıcılar sayfa URL'lerini, tarayıcı ve cihaz ayrıntılarını, yaklaşık konumu, tıklamaları, kaydırmayı, oturum bilgilerini, çerezleri ve benzeri tanımlayıcıları alabilir. Webvisor ve Clarity sayfa etkileşimlerini tekrar oynatabilir. Ülkeniz dışındaki verileri kendi politikalarına göre işleyebilirler. Her hizmeti Gizlilik ayarlarından kapatabilir veya tüm isteğe bağlı hizmetleri kapatmak için Tümünü reddet seçeneğini kullanabilirsiniz.",
+      "Gizlilik ayarları düğmesi bu sayfadadır. Özelleştir geçerli seçiminizi gösteren ayrı ayrı anahtarları açar; Seçimi kaydet, değişiklikleri uygular. Tümünü kabul et her hizmeti etkinleştirir. × düğmesi seçiminizi değiştirmeden yalnızca paneli kapatır. Seçiminiz ve tarihi, localStorage'ya ve birinci taraf advs_privacy_choice tercih çerezine 395 güne kadar kaydedilir. Bu tercih çerezi, ziyaretçi tanımlayıcıyı değil, ayarları ve zaman damgasını içerir. Bir değişiklik yalnızca bu yerlerden en az birine kaydedilebiliyorsa uygulanır; aksi takdirde önceki ayarlar etkin kalır. Kaydedilmiş bir seçim olmadığında tüm isteğe bağlı hizmetler etkinleştirilir. Tema ve dil tercihleri ​​de seçildiğinde yerel olarak saklanır. Analitiklerin devre dışı bırakılması, sayfa yeniden yüklendikten sonra gelecekte yükleme yapılmasını önler; Bir sağlayıcıya halihazırda gönderilmiş olan veriler, sağlayıcının saklama kurallarına tabi olmaya devam eder ve mevcut sağlayıcı çerezleri, tarayıcınızdan kaldırılana kadar kalabilir. Gizlilik soruları veya veri talepleri için sitedeki iletişim bağlantılarını kullanın.",
+      "Site yazı tipleri Google'dan talep edilmek yerine bu siteden sunulmaktadır. Mevcut oyunlar, ziyaretler arasında kişisel oyun kayıtlarını kaydetmemektedir. Kayıt kaydetme eklenirse, etkinleştirilmeden önce saklama ve yayınlama kuralları açıklanacaktır."
+    ]
+  }
+}

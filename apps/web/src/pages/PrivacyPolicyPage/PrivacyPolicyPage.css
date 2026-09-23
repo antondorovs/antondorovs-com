@@ -9,7 +9,7 @@
   margin: 0 auto;
   display: grid;
   gap: 24px;
-  text-align: left;
+  text-align: start;
   font-size: var(--content-text-font-size);
   line-height: 1.6;
 }
@@ -41,6 +41,24 @@
 
 .privacy-policy-page__section p {
   overflow-wrap: anywhere;
+  text-align: justify;
+}
+
+.privacy-policy-page__settings {
+  justify-self: start;
+  min-height: var(--ui-control-min-height);
+  padding: var(--ui-control-padding);
+  border: var(--section-divider-height) solid currentColor;
+  border-radius: var(--ui-radius);
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.privacy-policy-page__settings:hover,
+.privacy-policy-page__settings:focus-visible {
+  color: var(--color-text-strong);
+  font-weight: 700;
 }
 
 @media (max-width: 359px) {

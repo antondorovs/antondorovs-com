@@ -3,6 +3,10 @@ import { LANGUAGE_STORAGE_KEY, detectBrowserLanguage, isLanguageId } from './lan
 export function getPreferredLanguage() {
   try {
     const stored = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    if (stored === 'jv') {
+      window.localStorage.setItem(LANGUAGE_STORAGE_KEY, 'id');
+      return 'id';
+    }
     if (isLanguageId(stored)) return stored;
   } catch {
     // Storage restrictions must not prevent browser-language detection.

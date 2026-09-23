@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Dine personvernvalg",
+    "description": "Unik nettlesertelling og analyse er aktivert som standard. Du kan slå av all valgfri sporing eller velge individuelle tjenester. Sideinnlastinger telles alltid uten nettleseridentifikator.",
+    "reject": "Avslå alle",
+    "accept": "Godta alle",
+    "close": "Lukk uten endringer",
+    "rejectHelp": "Sideinnlastinger forblir talt uten nettleseridentifikator.\nDen unike nettlesertelleren og alle analysetjenester vil bli deaktivert.",
+    "settings": "Personverninnstillinger",
+    "policy": "Personvernerklæring",
+    "customize": "Tilpass",
+    "optionsTitle": "Velg hva som forblir aktivert",
+    "save": "Lagre utvalget",
+    "options": {
+      "uniqueCounter": "Unik nettleserteller (førsteparts informasjonskapsel)",
+      "yandexWebvisor": "Yandex Webvisor (interaksjonsopptak)",
+      "microsoftClarity": "Microsoft Clarity (interaksjonsopptak)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Innstillinger lagret.",
+    "saveError": "Kunne ikke lagre innstillinger. Tidligere innstillinger forblir aktive."
+  },
+  "counters": {
+    "pageViews": "Siden lastes inn",
+    "uniqueBrowsers": "Unik nettleser"
+  },
+  "notice": {
+    "lastUpdated": "Sist oppdatert: 23. september 2026",
+    "heading": "Antall besøk, informasjonskapsler og analyser",
+    "paragraphs": [
+      "Nettstedet teller hver helsideinnlasting, inkludert omlastinger, uten å opprette en nettleseridentifikator. Samlede daglige sideinnlastingstotaler for de siste 365 UTC-dagene og en totalsum hele tiden lagres på nettstedets server. Hostingleverandører kan behandle IP-adresser og tekniske tilgangslogger separat for å levere og sikre nettstedet.",
+      "Den unike nettlesertelleren er aktivert som standard. Ved det første besøket setter nettstedet en førsteparts, sikker, HttpOnly nettleserinformasjonskapsel kalt advs_visitor i opptil 395 dager. Den inneholder en tilfeldig verdi; serveren lagrer sin SHA-256-hash og siste UTC-besøksdato i opptil 395 dager etter det besøket. Teller dekker nettleserprofiler, ikke personer. Du kan deaktivere denne telleren i personverninnstillingene på denne siden. Når den er deaktivert, stopper telleren og nettstedet ber om sletting av denne nettleserens informasjonskapsel og lagrede hash; tidenes aggregat gjenstår. Hvis slettingen mislykkes, prøves forespørselen på nytt ved en senere sideinnlasting mens telleren forblir deaktivert.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor og Microsoft Clarity lastes også inn som standard før du tar et valg. Disse leverandørene kan motta side-URLer, nettleser- og enhetsdetaljer, omtrentlig plassering, klikk, rulling, øktinformasjon, informasjonskapsler og lignende identifikatorer. Webvisor og Clarity kan spille sideinteraksjoner på nytt. De kan behandle data utenfor landet ditt i henhold til deres egne retningslinjer. Du kan slå av hver tjeneste i personverninnstillingene eller bruke Avvis alle for å slå av alle valgfrie tjenester.",
+      "Knappen for personverninnstillinger er på denne siden. Tilpass åpner individuelle brytere som viser gjeldende valg; Lagre valg gjelder endringer. Godta alle muliggjør hver tjeneste. ×-knappen lukker bare panelet uten å endre valget ditt. Ditt valg og datoen lagres i localStorage og i førsteparts advs_privacy_choice-preferanseinformasjonskapselen i opptil 395 dager. Denne preferanseinformasjonskapselen inneholder innstillinger og et tidsstempel, ikke en besøkendesidentifikator. En endring brukes bare hvis den kan lagres på minst ett av disse stedene; ellers forblir de forrige innstillingene aktive. Uten noe lagret valg er alle valgfrie tjenester aktivert. Tema- og språkpreferanser lagres også lokalt når de velges. Deaktivering av analyse forhindrer fremtidig lasting etter at siden er lastet inn på nytt. data som allerede er sendt til en leverandør forblir underlagt oppbevaringsreglene, og eksisterende leverandørinformasjonskapsler kan forbli til de fjernes i nettleseren din. For personvernspørsmål eller dataforespørsler, bruk kontaktlenkene på nettstedet.",
+      "Nettstedfonter serveres fra dette nettstedet i stedet for forespurt fra Google. De gjeldende spillene lagrer ikke personlige spillrekorder mellom besøkene. Hvis postlagring legges til, vil lagrings- og publiseringsreglene bli beskrevet før den aktiveres."
+    ]
+  }
+}

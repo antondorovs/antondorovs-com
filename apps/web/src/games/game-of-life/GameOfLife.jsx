@@ -1,34 +1,81 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useSiteCopy } from '../../shared/i18n/LanguageProvider.jsx';
+import { useLanguage, useSiteCopy } from '../../shared/i18n/LanguageProvider.jsx';
 import './GameOfLife.css';
+import { useGamePlay, useGameSession } from '../shared/GameSession.jsx';
+
+const fieldSizes = [10, 15, 20, 42];
+const patterns = {
+  glider: {
+    width: 3, height: 3,
+    cells: [[0, 1], [1, 2], [2, 0], [2, 1], [2, 2]],
+  },
+  spaceship: {
+    width: 5, height: 4,
+    cells: [[0, 1], [0, 4], [1, 0], [2, 0], [2, 4], [3, 0], [3, 1], [3, 2], [3, 3]],
+  },
+  pulsar: {
+    width: 13, height: 13,
+    cells: [
+      [0, 2], [0, 3], [0, 4], [0, 8], [0, 9], [0, 10],
+      [2, 0], [2, 5], [2, 7], [2, 12], [3, 0], [3, 5], [3, 7], [3, 12], [4, 0], [4, 5], [4, 7], [4, 12],
+      [5, 2], [5, 3], [5, 4], [5, 8], [5, 9], [5, 10],
+      [7, 2], [7, 3], [7, 4], [7, 8], [7, 9], [7, 10],
+      [8, 0], [8, 5], [8, 7], [8, 12], [9, 0], [9, 5], [9, 7], [9, 12], [10, 0], [10, 5], [10, 7], [10, 12],
+      [12, 2], [12, 3], [12, 4], [12, 8], [12, 9], [12, 10],
+    ],
+  },
+  gliderGun: {
+    width: 36, height: 9,
+    cells: [
+      [4, 0], [4, 1], [5, 0], [5, 1],
+      [4, 10], [5, 10], [6, 10], [3, 11], [7, 11], [2, 12], [8, 12], [2, 13], [8, 13], [5, 14],
+      [3, 15], [7, 15], [4, 16], [5, 16], [6, 16], [5, 17],
+      [2, 20], [3, 20], [4, 20], [2, 21], [3, 21], [4, 21], [1, 22], [5, 22],
+      [0, 24], [1, 24], [5, 24], [6, 24],
+      [2, 34], [3, 34], [2, 35], [3, 35],
+    ],
+  },
+};
 
 export function GameOfLife() {
-  const [rows, setRows] = useState(10);
-  const [cols, setCols] = useState(10);
-  const [cycleTime, setCycleTime] = useState(1);
-  const [grid, setGrid] = useState(() => createEmptyGrid(10, 10));
+  const [fieldSize, setFieldSize] = useState(20);
+  const [cycleTime, setCycleTime] = useState(0.5);
+  const [grid, setGrid] = useState(() => createEmptyGrid(20, 20));
   const [cycleCounter, setCycleCounter] = useState(0);
   const [status, setStatus] = useState('');
+  const [simulationStarted, setSimulationStarted] = useState(false);
+  const [selectedPattern, setSelectedPattern] = useState('');
+  const { running, fullscreen } = useGameSession();
+  const { contentLanguage } = useLanguage();
   const copy = useSiteCopy();
+  const patternCopy = contentLanguage === 'ru' ? {
+    summary: 'Описание и правила', intro: 'Попробуйте готовые комбинации, которые движутся или повторяются бесконечно:',
+    select: 'Выбрать комбинацию', placeholder: 'Выберите комбинацию',
+    names: { glider: 'Глайдер', spaceship: 'Лёгкий космический корабль', pulsar: 'Пульсар', gliderGun: 'Планерное ружьё Госпера' },
+  } : {
+    summary: 'Description and rules', intro: 'Try a ready-made pattern that moves or repeats indefinitely:',
+    select: 'Choose a pattern', placeholder: 'Select a pattern',
+    names: { glider: 'Glider', spaceship: 'Lightweight spaceship', pulsar: 'Pulsar', gliderGun: 'Gosper glider gun' },
+  };
   const intervalRef = useRef(null);
   const gridRef = useRef(grid);
-  const previousStatesRef = useRef([]);
+  const initialGridRef = useRef(grid);
 
-  const gridTemplateColumns = useMemo(() => `repeat(${cols}, 20px)`, [cols]);
+  const gridTemplateColumns = useMemo(() => `repeat(${fieldSize}, 20px)`, [fieldSize]);
 
   useEffect(() => {
     gridRef.current = grid;
   }, [grid]);
 
-  useEffect(() => () => stopGame(), []);
-
-  const applyChanges = () => {
+  const changeFieldSize = (nextSize) => {
     stopGame();
-    previousStatesRef.current = [];
+    setSelectedPattern('');
     setCycleCounter(0);
     setStatus('');
-    const emptyGrid = createEmptyGrid(rows, cols);
+    setFieldSize(nextSize);
+    const emptyGrid = createEmptyGrid(nextSize, nextSize);
     gridRef.current = emptyGrid;
+    initialGridRef.current = emptyGrid;
     setGrid(emptyGrid);
   };
 
@@ -44,54 +91,84 @@ export function GameOfLife() {
 
   const clearGrid = () => {
     stopGame();
-    previousStatesRef.current = [];
+    setSelectedPattern('');
     setCycleCounter(0);
     setStatus('');
-    const emptyGrid = createEmptyGrid(rows, cols);
+    const emptyGrid = createEmptyGrid(fieldSize, fieldSize);
     gridRef.current = emptyGrid;
+    initialGridRef.current = emptyGrid;
     setGrid(emptyGrid);
   };
 
   const randomizeGrid = () => {
     stopGame();
-    previousStatesRef.current = [];
+    setSelectedPattern('');
     setCycleCounter(0);
     setStatus('');
-    const randomGrid = Array.from({ length: rows }, () => Array.from({ length: cols }, () => Math.round(Math.random())));
+    const randomGrid = Array.from({ length: fieldSize }, () => Array.from({ length: fieldSize }, () => Math.round(Math.random())));
     gridRef.current = randomGrid;
     setGrid(randomGrid);
   };
 
-  const startGame = () => {
+  const applyPattern = (patternKey) => {
+    const pattern = patterns[patternKey];
+    if (!pattern) return;
     stopGame();
-    previousStatesRef.current = [];
     setCycleCounter(0);
     setStatus('');
+    const requiredSize = Math.max(pattern.width, pattern.height) + 2;
+    const nextSize = fieldSizes.find((size) => size >= requiredSize) ?? 42;
+    const nextGrid = createEmptyGrid(nextSize, nextSize);
+    const rowOffset = Math.floor((nextSize - pattern.height) / 2);
+    const colOffset = Math.floor((nextSize - pattern.width) / 2);
+    pattern.cells.forEach(([row, col]) => { nextGrid[row + rowOffset][col + colOffset] = 1; });
+    setFieldSize(nextSize);
+    setSelectedPattern(patternKey);
+    gridRef.current = nextGrid;
+    initialGridRef.current = nextGrid;
+    setGrid(nextGrid);
+  };
+
+  const startGame = () => {
+    initialGridRef.current = gridRef.current.map((row) => [...row]);
+    setCycleCounter(0);
+    setStatus('');
+    setSimulationStarted(true);
+  };
+  useGamePlay(() => {
+    if (status) {
+      const initialGrid = initialGridRef.current.map((row) => [...row]);
+      gridRef.current = initialGrid;
+      setGrid(initialGrid);
+      startGame();
+    } else if (fullscreen && !simulationStarted) {
+      startGame();
+    }
+  }, Boolean(status), cycleCounter, clearGrid);
+
+  useEffect(() => {
+    if (!running || !simulationStarted) return undefined;
     intervalRef.current = window.setInterval(() => {
       const currentGrid = gridRef.current;
-      const state = JSON.stringify(currentGrid);
-
-      if (previousStatesRef.current.includes(state)) {
-        setStatus('repeatingState');
-        stopGame();
-        return;
-      }
-
       if (!currentGrid.flat().some(Boolean)) {
         setStatus('allCellsDead');
         stopGame();
         return;
       }
 
-      previousStatesRef.current.push(state);
       const updatedGrid = nextGeneration(currentGrid);
       gridRef.current = updatedGrid;
       setCycleCounter((current) => current + 1);
       setGrid(updatedGrid);
     }, cycleTime * 1000);
-  };
+    return () => {
+      window.clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    };
+  }, [running, simulationStarted, cycleTime]);
 
   const stopGame = () => {
+    setSimulationStarted(false);
     if (intervalRef.current) {
       window.clearInterval(intervalRef.current);
       intervalRef.current = null;
@@ -100,7 +177,13 @@ export function GameOfLife() {
 
   return (
     <section className="life-game" aria-label={copy.games.life.ariaLabel}>
-      <div className="life-game__description">
+      <details className="life-game__help">
+        <summary>
+          <span>{patternCopy.summary}</span>
+          <span aria-hidden="true">ⓘ</span>
+          <span className="life-game__chevron" aria-hidden="true">▶</span>
+        </summary>
+        <div className="life-game__description">
         {copy.games.life.description.map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
         ))}
@@ -110,40 +193,45 @@ export function GameOfLife() {
           ))}
         </ul>
         <p>{copy.games.life.interaction}</p>
-      </div>
+        <div className="life-game__patterns">
+          <p>{patternCopy.intro}</p>
+          <label>
+            {patternCopy.select}
+            <select value={selectedPattern} disabled={simulationStarted} onChange={(event) => applyPattern(event.target.value)}>
+              <option value="" disabled>{patternCopy.placeholder}</option>
+              {Object.entries(patternCopy.names).map(([key, name]) => <option value={key} key={key}>{name}</option>)}
+            </select>
+          </label>
+        </div>
+        </div>
+      </details>
 
       <div className="life-game__controls">
         <label>
-          {copy.games.life.controls.rows}
-          <input type="number" min="1" value={rows} onChange={(event) => setRows(Number(event.target.value))} />
-        </label>
-        <label>
-          {copy.games.life.controls.columns}
-          <input type="number" min="1" value={cols} onChange={(event) => setCols(Number(event.target.value))} />
+          {copy.games.life.controls.rows} × {copy.games.life.controls.columns}
+          <select value={fieldSize} disabled={simulationStarted}
+            onChange={(event) => changeFieldSize(Number(event.target.value))}>
+            {fieldSizes.map((size) => <option value={size} key={size}>{size} × {size}</option>)}
+          </select>
         </label>
         <label>
           {copy.games.life.controls.cycleTime}
-          <input
-            type="number"
-            min="0.1"
-            step="0.1"
-            value={cycleTime}
-            onChange={(event) => setCycleTime(Number(event.target.value))}
-          />
+          <select value={cycleTime} onChange={(event) => setCycleTime(Number(event.target.value))}>
+            {[0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2].map((seconds) => (
+              <option value={seconds} key={seconds}>{seconds}</option>
+            ))}
+          </select>
         </label>
       </div>
 
       <div className="life-game__actions">
-        <button type="button" onClick={applyChanges}>
-          {copy.games.life.actions.apply}
-        </button>
-        <button type="button" onClick={randomizeGrid}>
+        <button type="button" onClick={randomizeGrid} disabled={simulationStarted}>
           {copy.games.life.actions.random}
         </button>
-        <button type="button" onClick={startGame}>
+        <button type="button" onClick={startGame} disabled={simulationStarted}>
           {copy.games.life.actions.start}
         </button>
-        <button type="button" onClick={clearGrid}>
+        <button type="button" onClick={clearGrid} disabled={simulationStarted}>
           {copy.games.life.actions.clear}
         </button>
       </div>
@@ -158,6 +246,7 @@ export function GameOfLife() {
               className={`life-game__cell ${cell ? 'life-game__cell--alive' : 'life-game__cell--dead'}`}
               key={`${rowIndex}-${colIndex}`}
               type="button"
+              disabled={simulationStarted}
               aria-label={copy.games.life.toggleCell({ row: rowIndex + 1, col: colIndex + 1 })}
               onClick={() => toggleCell(rowIndex, colIndex)}
             />

@@ -56,7 +56,7 @@ test('regional and script variants resolve without confusing language codes and 
     'az-AZ': 'az', 'be-BY': 'be', 'bg-BG': 'bg', 'bs-BA': 'bs', 'cs-CZ': 'cs',
     'da-DK': 'da', 'el-GR': 'el', 'et-EE': 'et', 'fa-IR': 'fa', 'fi-FI': 'fi',
     'fil-PH': 'fil', 'ha-NG': 'ha', 'hr-HR': 'hr', 'hu-HU': 'hu', 'hy-AM': 'hy',
-    'is-IS': 'is', 'jv-ID': 'jv', 'ka-GE': 'ka', 'lt-LT': 'lt', 'lv-LV': 'lv',
+    'is-IS': 'is', 'id-ID': 'id', 'ka-GE': 'ka', 'lt-LT': 'lt', 'lv-LV': 'lv',
     'mk-MK': 'mk', 'my-MM': 'my', 'nb-NO': 'nb', 'no-NO': 'nb', 'nl-NL': 'nl',
     'om-ET': 'om', 'ro-RO': 'ro', 'ro-MD': 'ro', 'sk-SK': 'sk', 'sl-SI': 'sl',
     'sq-AL': 'sq', 'sv-SE': 'sv', 'sw-KE': 'sw', 'th-TH': 'th', 'ur-PK': 'ur', 'uz-UZ': 'uz',
@@ -92,7 +92,7 @@ test('requested country-style menu codes preserve language IDs and Georgian copy
     el: 'GR', et: 'EE', sv: 'SE', nb: 'NO', hy: 'AM', ka: 'GE', my: 'MM',
     uk: 'UA', be: 'BY', ja: 'JP', ko: 'KR', cs: 'CZ', da: 'DK', sr: 'RS',
     sl: 'SI', sq: 'AL', bs: 'BA', vi: 'VN', fa: 'IR', he: 'IL',
-    bn: 'BN', hi: 'HI', ur: 'UR', en: 'EN', ar: 'AR', sw: 'SW', ha: 'HA', jv: 'JV', om: 'OM',
+    bn: 'BN', hi: 'HI', ur: 'UR', en: 'EN', ar: 'AR', sw: 'SW', ha: 'HA', id: 'ID', om: 'OM',
   };
   for (const [id, code] of Object.entries(displayCodes)) {
     const option = getLanguageOption(id);

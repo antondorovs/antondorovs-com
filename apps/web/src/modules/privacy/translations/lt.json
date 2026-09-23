@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Jūsų privatumo pasirinkimai",
+    "description": "Unikalios naršyklės skaičiavimas ir analizė įgalinti pagal numatytuosius nustatymus. Galite išjungti visą pasirenkamą stebėjimą arba pasirinkti atskiras paslaugas. Puslapių įkėlimai visada skaičiuojami be naršyklės identifikatoriaus.",
+    "reject": "Atmesti visus",
+    "accept": "Priimti visus",
+    "close": "Uždaryti be pakeitimų",
+    "rejectHelp": "Puslapių įkėlimai lieka skaičiuojami be naršyklės identifikatoriaus.\nUnikalios naršyklės skaitiklis ir visos analizės paslaugos bus išjungtos.",
+    "settings": "Privatumo nustatymai",
+    "policy": "Privatumo politika",
+    "customize": "Tinkinti",
+    "optionsTitle": "Pasirinkite, kas lieka įjungta",
+    "save": "Išsaugoti pasirinkimą",
+    "options": {
+      "uniqueCounter": "Unikalios naršyklės skaitiklis (pirmosios šalies slapukas)",
+      "yandexWebvisor": "„Yandex Webvisor“ (sąveikos įrašymas)",
+      "microsoftClarity": "„Microsoft Clarity“ (sąveikos įrašymas)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Nustatymai išsaugoti.",
+    "saveError": "Nepavyko išsaugoti nustatymų. Ankstesni nustatymai lieka aktyvūs."
+  },
+  "counters": {
+    "pageViews": "Puslapių įkėlimai",
+    "uniqueBrowsers": "Unikali naršyklė"
+  },
+  "notice": {
+    "lastUpdated": "Paskutinį kartą atnaujinta: 2026 m. rugsėjo 23 d",
+    "heading": "Apsilankymų skaičius, slapukai ir analizė",
+    "paragraphs": [
+      "Svetainė skaičiuoja kiekvieną viso puslapio įkėlimą, įskaitant pakartotinius įkėlimus, nesukurdama naršyklės identifikatoriaus. Svetainės serveryje saugomi bendri pastarųjų 365 UTC dienų dienos puslapių įkėlimo bendri rodikliai ir visų laikų bendra suma. Prieglobos paslaugų teikėjai gali atskirai apdoroti IP adresus ir techninės prieigos žurnalus, kad pristatytų ir apsaugotų svetainę.",
+      "Unikalios naršyklės skaitiklis yra įjungtas pagal numatytuosius nustatymus. Pirmojo apsilankymo metu svetainė nustato pirmosios šalies saugų „HttpOnly“ naršyklės slapuką pavadinimu advs_visitor iki 395 dienų. Jame yra atsitiktinė reikšmė; serveris išsaugo savo SHA-256 maišą ir naujausią UTC apsilankymo datą iki 395 dienų po šio apsilankymo. Skaičiai apima naršyklės profilius, o ne žmones. Šį skaitiklį galite išjungti šio puslapio Privatumo nustatymuose. Kai išjungta, skaitiklis sustoja ir svetainė prašo ištrinti šios naršyklės slapuką ir saugomą maišą; išlieka visų laikų visuma. Jei ištrinti nepavyksta, užklausa bandoma pakartotinai įkeliant puslapį, kol skaitiklis lieka išjungtas.",
+      "„Google Analytics“, „Yandex Metrica“, „Yandex Webvisor“ ir „Microsoft Clarity“ taip pat įkeliami pagal numatytuosius nustatymus, prieš jums pasirenkant. Šie teikėjai gali gauti puslapių URL, naršyklės ir įrenginio informaciją, apytikslę vietą, paspaudimus, slinkimą, seanso informaciją, slapukus ir panašius identifikatorius. „Webvisor“ ir „Clarity“ gali pakartoti puslapių sąveiką. Jie gali apdoroti duomenis už jūsų šalies ribų pagal savo politiką. Galite išjungti kiekvieną paslaugą Privatumo nustatymuose arba naudoti Atmesti viską, kad išjungtumėte visas pasirenkamas paslaugas.",
+      "Privatumo nustatymų mygtukas yra šiame puslapyje. Tinkinti atveria atskirus jungiklius, rodančius dabartinį pasirinkimą; Išsaugoti pasirinkimą taikomi pakeitimai. Priimti viską įgalina kiekvieną paslaugą. Mygtukas × tik uždaro skydelį, nepakeitus pasirinkimo. Jūsų pasirinkimas ir jo data išsaugomi localStorage ir pirmosios šalies advs_privacy_choice pirmenybės slapuke iki 395 dienų. Šiame nuostatų slapuke yra nustatymai ir laiko žyma, o ne lankytojo identifikatorius. Pakeitimas taikomas tik tuo atveju, jei jį galima išsaugoti bent vienoje iš šių vietų; kitu atveju ankstesni nustatymai lieka aktyvūs. Neišsaugojus pasirinkimo, įjungiamos visos pasirenkamos paslaugos. Pasirinkus temos ir kalbos nuostatos taip pat išsaugomos vietoje. Analitikos išjungimas apsaugo nuo tolesnio įkėlimo po puslapio įkėlimo iš naujo; duomenims, jau išsiųstiems teikėjui, taikomos jo saugojimo taisyklės, o esami teikėjo slapukai gali likti tol, kol jie bus pašalinti iš jūsų naršyklės. Jei turite klausimų dėl privatumo ar duomenų užklausų, naudokite svetainėje esančias kontaktines nuorodas.",
+      "Svetainės šriftai pateikiami iš šios svetainės, o ne „Google“. Dabartiniai žaidimai neišsaugo asmeninių žaidimų įrašų tarp apsilankymų. Jei įrašo išsaugojimas yra įtrauktas, jo saugojimo ir paskelbimo taisyklės bus aprašytos prieš jį įjungiant."
+    ]
+  }
+}

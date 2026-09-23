@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Maxfiylik tanlovlaringiz",
+    "description": "Noyob brauzerlarni hisoblash va tahlil qilish sukut bo'yicha yoqilgan. Siz barcha ixtiyoriy kuzatuvni o'chirib qo'yishingiz yoki alohida xizmatlarni tanlashingiz mumkin. Sahifani yuklash har doim brauzer identifikatorisiz hisobga olinadi.",
+    "reject": "Hammasini rad eting",
+    "accept": "Hammasini qabul qiling",
+    "close": "O'zgartirishlarsiz yoping",
+    "rejectHelp": "Sahifalar yuklanishi brauzer identifikatorisiz hisobga olinadi.\nNoyob brauzer hisoblagichi va barcha tahlil xizmatlari o‘chirib qo‘yiladi.",
+    "settings": "Maxfiylik sozlamalari",
+    "policy": "Maxfiylik siyosati",
+    "customize": "Moslashtiring",
+    "optionsTitle": "Yoqilgan qoladigan narsani tanlang",
+    "save": "Tanlovni saqlash",
+    "options": {
+      "uniqueCounter": "Noyob brauzer hisoblagichi (birinchi tomon cookie fayli)",
+      "yandexWebvisor": "Yandex Webvisor (o'zaro ta'sirni yozib olish)",
+      "microsoftClarity": "Microsoft Clarity (o'zaro ta'sirni yozib olish)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Sozlamalar saqlandi.",
+    "saveError": "Sozlamalarni saqlab boʻlmadi. Oldingi sozlamalar faol qoladi."
+  },
+  "counters": {
+    "pageViews": "Sahifalar yuklanadi",
+    "uniqueBrowsers": "Noyob brauzer"
+  },
+  "notice": {
+    "lastUpdated": "Oxirgi yangilangan: 2026 yil 23 sentyabr",
+    "heading": "Tashriflar soni, cookie-fayllar va tahlillar",
+    "paragraphs": [
+      "Sayt brauzer identifikatorini yaratmasdan har bir to'liq sahifa yukini, jumladan qayta yuklashni hisoblaydi. Oxirgi 365 UTC kunidagi jami kunlik sahifa yuklanishi va barcha vaqtlar jami sayt serverida saqlanadi. Xosting provayderlari saytni yetkazib berish va himoyalash uchun IP manzillari va texnik kirish jurnallarini alohida qayta ishlashlari mumkin.",
+      "Noyob brauzer hisoblagichi sukut bo'yicha yoqilgan. Birinchi tashrifda sayt 395 kungacha advs_visitor nomli xavfsiz, HttpOnly brauzer cookie-faylini o'rnatadi. U tasodifiy qiymatni o'z ichiga oladi; server SHA-256 xeshini va oxirgi UTC tashrif sanasini ushbu tashrifdan keyin 395 kungacha saqlaydi. Hisoblar odamlarni emas, balki brauzer profillarini qamrab oladi. Siz ushbu hisoblagichni ushbu sahifadagi Maxfiylik sozlamalarida o'chirib qo'yishingiz mumkin. O'chirilganda, hisoblagich to'xtaydi va sayt ushbu brauzer cookie-faylini va saqlangan xeshni o'chirishni so'raydi; hamma vaqt agregati qoladi. Agar o'chirish muvaffaqiyatsiz bo'lsa, hisoblagich o'chirilgan holda so'rov keyingi sahifa yuklanishida qaytadan urinib ko'riladi.",
+      "Tanlov qilishdan oldin Google Analytics, Yandex Metrica, Yandex Webvisor va Microsoft Clarity ham sukut bo'yicha yuklanadi. Ushbu provayderlar sahifaning URL manzillari, brauzer va qurilma tafsilotlari, taxminiy joylashuvi, bosishlar, aylantirish, seans maʼlumotlari, cookie fayllari va shunga oʻxshash identifikatorlarni olishlari mumkin. Webvisor va Clarity sahifa oʻzaro taʼsirini takrorlashi mumkin. Ular mamlakatingizdan tashqarida o'z siyosatlariga muvofiq ma'lumotlarni qayta ishlashlari mumkin. Siz har bir xizmatni Maxfiylik sozlamalarida oʻchirib qoʻyishingiz yoki har bir ixtiyoriy xizmatni oʻchirish uchun “Hammasini rad etish” funksiyasidan foydalanishingiz mumkin.",
+      "Maxfiylik sozlamalari tugmasi ushbu sahifada joylashgan. Moslashtirish joriy tanlovingizni ko'rsatadigan alohida kalitlarni ochadi; Tanlovni saqlash o'zgarishlarni qo'llaydi. Barcha ruxsat etilgan xizmatlarni qabul qiling. × tugmasi faqat sizning tanlovingizni o'zgartirmasdan panelni yopadi. Sizning tanlovingiz va uning sanasi localStorage va birinchi tomon advs_privacy_choice afzal cookie faylida 395 kungacha saqlanadi. Bu afzal cookie-faylda tashrifchi identifikatori emas, balki sozlamalar va vaqt tamg‘asi mavjud. O'zgartirish faqat ushbu joylardan kamida bittasida saqlanishi mumkin bo'lsa qo'llaniladi; aks holda oldingi sozlamalar faol qoladi. Saqlangan tanlovsiz barcha ixtiyoriy xizmatlar yoqiladi. Mavzu va til sozlamalari tanlanganda mahalliy sifatida ham saqlanadi. Tahlilni o'chirib qo'yish sahifani qayta yuklagandan keyin kelajakda yuklashni oldini oladi; provayderga allaqachon yuborilgan ma'lumotlar uning saqlash qoidalariga bo'ysunadi va mavjud provayder cookie-fayllari brauzeringizda o'chirilmaguncha qolishi mumkin. Maxfiylikka oid savollar yoki maʼlumotlar soʻrovlari uchun saytdagi aloqa havolalaridan foydalaning.",
+      "Sayt shriftlari Google'dan so'ralganidan ko'ra, ushbu saytdan taqdim etiladi. Joriy o'yinlar tashriflar orasida shaxsiy o'yin yozuvlarini saqlamaydi. Agar yozuvni saqlash qo'shilsa, uni yoqishdan oldin uni saqlash va nashr qilish qoidalari tasvirlanadi."
+    ]
+  }
+}

@@ -16,7 +16,7 @@ export const additionalLanguages = [
   { id: 'hu', code: 'HU', nativeName: 'Magyar', htmlLang: 'hu', direction: 'ltr' },
   { id: 'hy', code: 'AM', nativeName: 'Հայերեն', htmlLang: 'hy', direction: 'ltr' },
   { id: 'is', code: 'IS', nativeName: 'Íslenska', htmlLang: 'is', direction: 'ltr' },
-  { id: 'jv', code: 'JV', nativeName: 'Basa Jawa', htmlLang: 'jv-Latn', direction: 'ltr' },
+  { id: 'id', code: 'ID', nativeName: 'Bahasa Indonesia', htmlLang: 'id-ID', direction: 'ltr' },
   { id: 'ka', code: 'GE', nativeName: 'ქართული', htmlLang: 'ka', direction: 'ltr' },
   { id: 'lt', code: 'LT', nativeName: 'Lietuvių', htmlLang: 'lt', direction: 'ltr' },
   { id: 'lv', code: 'LV', nativeName: 'Latviešu', htmlLang: 'lv', direction: 'ltr' },

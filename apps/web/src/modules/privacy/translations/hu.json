@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Az Ön adatvédelmi döntései",
+    "description": "Az egyedi böngészők számlálása és elemzése alapértelmezés szerint engedélyezve van. Kikapcsolhatja az összes opcionális követést, vagy kiválaszthat egyes szolgáltatásokat. Az oldalbetöltéseket a rendszer mindig böngészőazonosító nélkül számolja.",
+    "reject": "Az összes elutasítása",
+    "accept": "Elfogadja az összeset",
+    "close": "Bezárás változtatás nélkül",
+    "rejectHelp": "Az oldalbetöltések böngészőazonosító nélkül is számítanak.\nAz egyedi böngésző számlálója és az összes analitikai szolgáltatás le lesz tiltva.",
+    "settings": "Adatvédelmi beállítások",
+    "policy": "Adatvédelmi szabályzat",
+    "customize": "Testreszabás",
+    "optionsTitle": "Válassza ki, hogy mi maradjon engedélyezve",
+    "save": "Mentse a kiválasztást",
+    "options": {
+      "uniqueCounter": "Egyedi böngészőszámláló (belső féltől származó cookie)",
+      "yandexWebvisor": "Yandex Webvisor (interakciók rögzítése)",
+      "microsoftClarity": "Microsoft Clarity (interakciós felvétel)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "A beállítások mentve.",
+    "saveError": "Nem sikerült menteni a beállításokat. A korábbi beállítások aktívak maradnak."
+  },
+  "counters": {
+    "pageViews": "Oldalbetöltések",
+    "uniqueBrowsers": "Egyedi böngésző"
+  },
+  "notice": {
+    "lastUpdated": "Utolsó frissítés: 2026. szeptember 23",
+    "heading": "Látogatásszámlálás, cookie-k és elemzések",
+    "paragraphs": [
+      "A webhely minden teljes oldalbetöltést számol, beleértve az újratöltéseket is, anélkül, hogy böngészőazonosítót hozna létre. A webhelyszerver tárolja az elmúlt 365 UTC-nap összesített napi oldalbetöltési adatait és a mindenkori összesített adatokat. A tárhelyszolgáltatók külön feldolgozhatják az IP-címeket és a technikai hozzáférési naplókat a webhely szállítása és biztonsága érdekében.",
+      "Az egyedi böngésző számlálója alapértelmezés szerint engedélyezve van. Az első látogatás alkalmával a webhely beállít egy első féltől származó, biztonságos, HttpOnly böngésző cookie-t, melynek neve advs_visitor, legfeljebb 395 napig. Véletlenszerű értéket tartalmaz; a szerver a SHA-256 kivonatát és a legutóbbi UTC látogatás dátumát a látogatást követő 395 napig tárolja. A számok a böngészőprofilokra vonatkoznak, nem az emberekre. Ezt a számlálót ezen az oldalon az Adatvédelmi beállításokban kapcsolhatja ki. Ha le van tiltva, a számláló leáll, és a webhely kéri a böngésző cookie-jának és tárolt hashének törlését; a mindenkori aggregátum marad. Ha a törlés sikertelen, a kérést egy későbbi oldalbetöltéskor újra megkísérli, miközben a számláló letiltva marad.",
+      "A Google Analytics, a Yandex Metrica, a Yandex Webvisor és a Microsoft Clarity is alapértelmezés szerint betöltődik, mielőtt választana. Ezek a szolgáltatók kaphatnak oldal URL-eket, böngésző- és eszközadatokat, hozzávetőleges helyet, kattintásokat, görgetést, munkamenet-információkat, cookie-kat és hasonló azonosítókat. A Webvisor és a Clarity visszajátszhatja az oldal interakcióit. Saját szabályzataik szerint dolgozhatnak fel adatokat az Ön országán kívül. Kikapcsolhatja az egyes szolgáltatásokat az Adatvédelmi beállításokban, vagy az Összes elutasítása parancsot az összes opcionális szolgáltatás kikapcsolásához.",
+      "Az Adatvédelmi beállítások gomb ezen az oldalon található. A Testreszabás megnyitja az egyes kapcsolókat, amelyek az aktuális választást mutatják; A kijelölés mentése alkalmazza a változtatásokat. Az összes elfogadása minden szolgáltatást engedélyez. A × gomb csak a panelt zárja be, a választás módosítása nélkül. Kiválasztását és dátumát a rendszer a localStorage-ban és a belső advs_privacy_choice preferenciális cookie-ban tárolja, legfeljebb 395 napig. Ez a preferenciális cookie beállításokat és időbélyeget tartalmaz, nem látogatóazonosítót. A módosítás csak akkor kerül alkalmazásra, ha az ezen helyek legalább egyikén elmenthető; ellenkező esetben az előző beállítások aktívak maradnak. Mentett kiválasztás nélkül az összes opcionális szolgáltatás engedélyezve van. A témát és a nyelvi beállításokat a rendszer helyileg is tárolja, ha kiválasztja. Az elemzés letiltása megakadályozza a jövőbeli betöltést az oldal újratöltése után; a szolgáltatónak már elküldött adatokra továbbra is a megőrzési szabályai vonatkoznak, és a meglévő szolgáltatói cookie-k mindaddig megmaradhatnak, amíg eltávolítják őket a böngészőből. Adatvédelmi kérdések vagy adatigénylések esetén használja az oldalon található kapcsolatfelvételi hivatkozásokat.",
+      "A webhely betűtípusait erről a webhelyről jelenítjük meg, nem pedig a Google-tól. A jelenlegi játékok nem mentik el a személyes játékrekordokat a látogatások között. Ha rekordmentést ad hozzá, a tárolási és közzétételi szabályok leírása az engedélyezés előtt megtörténik."
+    ]
+  }
+}

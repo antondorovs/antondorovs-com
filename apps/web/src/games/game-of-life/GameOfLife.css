@@ -1,7 +1,7 @@
 .life-game {
   display: grid;
   justify-items: center;
-  gap: 20px;
+  gap: 12px;
 }
 
 .life-game__description {
@@ -12,17 +12,74 @@
   line-height: 1.55;
 }
 
+.life-game__help summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  list-style: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.life-game__help summary::-webkit-details-marker {
+  display: none;
+}
+
+.life-game__chevron {
+  display: inline-grid;
+  place-items: center;
+  width: 1.25rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: transform 160ms ease;
+}
+
+.life-game__help[open] .life-game__chevron {
+  transform: rotate(90deg);
+}
+
 .life-game__description ul {
   padding-left: 24px;
 }
 
+.life-game__patterns {
+  display: grid;
+  gap: 8px;
+  padding-top: 4px;
+  border-top: 1px solid var(--color-border);
+}
+
+.life-game__patterns label {
+  display: grid;
+  gap: 6px;
+}
+
+.life-game__patterns select {
+  width: 100%;
+  min-height: 38px;
+  padding: 4px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--ui-radius);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+}
+
 .life-game__controls,
 .life-game__actions {
-  display: flex;
-  flex-wrap: wrap;
+  width: min(420px, 100%);
+  display: grid;
   align-items: center;
-  justify-content: center;
   gap: 12px;
+}
+
+.life-game__controls {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.life-game__actions {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .life-game__controls label {
@@ -31,19 +88,37 @@
   text-align: left;
 }
 
-.life-game__controls input {
-  width: 92px;
+.life-game__controls select {
+  width: 100%;
   min-height: 34px;
   padding: 4px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--ui-radius);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
 }
 
 .life-game__actions button {
+  width: 100%;
   min-height: 38px;
   padding: 0 16px;
   color: var(--color-bg);
   background: var(--color-text);
   border: 0;
   cursor: pointer;
+}
+
+.life-game__actions button:disabled,
+.life-game__controls select:disabled,
+.life-game__patterns select:disabled {
+  cursor: default;
+  opacity: .45;
+}
+
+.game-session button.life-game__cell:disabled {
+  cursor: default;
+  opacity: 1;
 }
 
 .life-game__counter,

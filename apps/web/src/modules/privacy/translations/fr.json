@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Vos choix de confidentialité",
+    "description": "Le comptage et l'analyse des navigateurs uniques sont activés par défaut. Vous pouvez désactiver tous les suivis facultatifs ou choisir des services individuels. Les chargements de pages sont toujours comptés sans identifiant de navigateur.",
+    "reject": "Tout refuser",
+    "accept": "Acceptez tout",
+    "close": "Fermer sans modifications",
+    "rejectHelp": "Les chargements de pages restent comptés sans identifiant de navigateur.\nLe compteur de navigateur unique et tous les services d'analyse seront désactivés.",
+    "settings": "Paramètres de confidentialité",
+    "policy": "Politique de confidentialité",
+    "customize": "Personnaliser",
+    "optionsTitle": "Choisissez ce qui reste activé",
+    "save": "Enregistrer la sélection",
+    "options": {
+      "uniqueCounter": "Compteur de navigateur unique (cookie propriétaire)",
+      "yandexWebvisor": "Yandex Webvisor (enregistrement des interactions)",
+      "microsoftClarity": "Microsoft Clarity (enregistrement des interactions)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Paramètres enregistrés.",
+    "saveError": "Impossible d'enregistrer les paramètres. Les paramètres précédents restent actifs."
+  },
+  "counters": {
+    "pageViews": "Chargements de pages",
+    "uniqueBrowsers": "Navigateur unique"
+  },
+  "notice": {
+    "lastUpdated": "Dernière mise à jour : 23 septembre 2026",
+    "heading": "Nombre de visites, cookies et analyses",
+    "paragraphs": [
+      "Le site compte chaque chargement de page complète, y compris les rechargements, sans créer d'identifiant de navigateur. Les totaux quotidiens agrégés de chargement de page pour les 365 derniers jours UTC et un total historique sont stockés sur le serveur du site. Les fournisseurs d'hébergement peuvent traiter séparément les adresses IP et les journaux d'accès techniques pour fournir et sécuriser le site.",
+      "Le compteur de navigateur unique est activé par défaut. Lors de la première visite, le site définit un cookie de navigateur propriétaire, sécurisé et HttpOnly, nommé advs_visitor, pour une durée maximale de 395 jours. Il contient une valeur aléatoire ; le serveur stocke son hachage SHA-256 et la date de visite UTC la plus récente jusqu'à 395 jours après cette visite. Les décomptes couvrent les profils de navigateur, pas les personnes. Vous pouvez désactiver ce compteur dans les paramètres de confidentialité sur cette page. Lorsqu'il est désactivé, le compteur s'arrête et le site demande la suppression du cookie de ce navigateur et du hachage stocké ; l’agrégat de tous les temps demeure. Si la suppression échoue, la demande est réessayée lors d'un chargement de page ultérieur tandis que le compteur reste désactivé.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor et Microsoft Clarity se chargent également par défaut, avant que vous fassiez un choix. Ces fournisseurs peuvent recevoir les URL des pages, les détails du navigateur et de l'appareil, la localisation approximative, les clics, le défilement, les informations de session, les cookies et les identifiants similaires. Webvisor et Clarity peuvent rejouer les interactions entre les pages. Ils peuvent traiter les données en dehors de votre pays selon leurs propres politiques. Vous pouvez désactiver chaque service dans les paramètres de confidentialité ou utiliser Tout refuser pour désactiver chaque service facultatif.",
+      "Le bouton Paramètres de confidentialité se trouve sur cette page. Personnaliser ouvre des commutateurs individuels affichant votre sélection actuelle ; Enregistrer la sélection applique les modifications. Accepter tout active chaque service. Le bouton × ferme uniquement le panneau sans modifier votre sélection. Votre sélection et sa date sont enregistrées dans localStorage et dans le cookie de préférence propriétaire advs_privacy_choice pendant 395 jours maximum. Ce cookie de préférence contient des paramètres et un horodatage, pas un identifiant de visiteur. Une modification n'est appliquée que si elle peut être enregistrée à au moins un de ces endroits ; sinon, les paramètres précédents restent actifs. Sans sélection enregistrée, tous les services optionnels sont activés. Les préférences de thème et de langue sont également stockées localement une fois sélectionnées. La désactivation des analyses empêche le chargement futur après le rechargement de la page ; les données déjà envoyées à un fournisseur restent soumises à ses règles de conservation, et les cookies du fournisseur existants peuvent rester jusqu'à ce qu'ils soient supprimés de votre navigateur. Pour des questions de confidentialité ou des demandes de données, utilisez les liens de contact sur le site.",
+      "Les polices du site sont fournies à partir de ce site plutôt que demandées à Google. Les jeux actuels ne sauvegardent pas les enregistrements de jeu personnels entre les visites. Si la sauvegarde des enregistrements est ajoutée, ses règles de stockage et de publication seront décrites avant son activation."
+    ]
+  }
+}

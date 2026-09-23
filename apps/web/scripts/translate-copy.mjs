@@ -1,10 +1,10 @@
 // One-off draft importer. Prints a patch; never writes files or runs in the site.
 // Sends only the public English site copy to Google Translate.
-import { siteCopy } from '../src/shared/i18n/siteCopy.js';
+import { enCopy } from '../src/shared/i18n/siteCopyEn.js';
 
 const language = process.argv[2];
 if (!/^[a-z]{2,3}$/.test(language ?? '')) throw new Error('Expected a language code');
-const en = siteCopy.en;
+const en = enCopy;
 const dynamic = {
   'header.theme.buttonLabel': ['({ selectedMode, effectiveTheme })', { selectedMode: 'ZXQ9001ZXQ', effectiveTheme: 'ZXQ9002ZXQ' }],
   'header.language.buttonLabel': ['({ selectedLanguage })', { selectedLanguage: 'ZXQ9003ZXQ' }],

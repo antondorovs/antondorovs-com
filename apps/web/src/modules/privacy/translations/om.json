@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Filannoo iccitii keessanii",
+    "description": "Lakkoofsi addaa-browser fi xiinxalli durtii dandeessifama. Hordoffii filannoo hunda dhaamsuu ykn tajaajiloota dhuunfaa filachuu dandeessa. Fe'iinsi fuula yeroo hunda adda baastuu biraawzari malee lakkaa'ama.",
+    "reject": "Hundaa diduu",
+    "accept": "Hundaa fudhadhu",
+    "close": "Jijjiirama malee cufi",
+    "rejectHelp": "Fe'iinsi fuula adda baastuu biraawzari malee lakkaa'amee hafa.\nLakkaawwiin unique-browser fi tajaajiloonni xiinxala hundi ni cufamu.",
+    "settings": "Sajoo icciitii",
+    "policy": "Imaammata dhuunfaa",
+    "customize": "Akka barbaadetti jijjiiruu",
+    "optionsTitle": "Waan dandeessifamee hafu filadhu",
+    "save": "Filannoo saagi",
+    "options": {
+      "uniqueCounter": "Lakkaawwii addaa-browser (kukii qaama tokkoffaa)",
+      "yandexWebvisor": "Yandex Webvisor (galmee walqunnamtii)",
+      "microsoftClarity": "Microsoft Clarity (galmee walqunnamtii)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Sajoo qusatameera.",
+    "saveError": "Sajoo qusachuu hin dandeenye. Sajoo duraanii socho'aa ta'ee hafa."
+  },
+  "counters": {
+    "pageViews": "Fuula fe'ama",
+    "uniqueBrowsers": "Browser adda ta'e"
+  },
+  "notice": {
+    "lastUpdated": "Yeroo dhumaaf kan fooyya'e: 23 Fulbaana 2026",
+    "heading": "Lakkoofsa daawwannaa, kukii, fi xiinxala",
+    "paragraphs": [
+      "Marsariitichi tokkoon tokkoon fe'iinsa fuula guutuu, irra deebi'anii fe'uu dabalatee, adda baastuu biraawzari osoo hin uumiin lakkaa'a. Waliigala fe'iinsa fuula guyyaa guyyaa guyyoota UTC 365 darbaniif fi waliigala yeroo hunda sarvarii saayitii irratti kuufameera. Dhiyeessitoonni keessummeessitootaa teessoo IP fi galmee qaqqabummaa teeknikaa addaan adeemsisuun marsariiticha geessuu fi eeguu danda’u.",
+      "Lakkaawwiin addaa-browser durtii dandeessifama. Daawwannaa jalqabaa irratti, marsariitichi kukii biraawzari qaama jalqabaa, Secure, HttpOnly maqaa advs_visitor jedhu hanga guyyoota 395f saaga. Gatii tasaa of keessaa qaba; sarvarichi hash isaa SHA-256 fi guyyaa daawwannaa UTC isa dhiyoo daawwannaa sana booda hanga guyyoota 395tti kuufata. Lakkoofsi namoota osoo hin taane piroofaayilii biraawzari uwwisa. Lakkaawwii kana qindaa'inoota Dhuunfaa fuula kana irratti hanqisuu dandeessa. Yeroo hojiirra oolu lakkaawwiin ni dhaabata, marsariitichis kukii biraawzari kanaa fi haashiin kuufame akka haqamu gaafata; walitti qabaan yeroo hundumaa ni hafa. Yoo haquun kufe, gaaffiin fe'iinsa fuula boodaa irratti yeroo lakkaawwiin hin hojjenne ta'ee hafu irra deebi'amee yaala.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor, fi Microsoft Clarity akkasumas durtii fe'amu, osoo filannoo hin godhin dura. Dhiyeessitoonni kun URL fuula, ibsa biraawzarii fi meeshaa, tilmaama bakka, cuqaasuu, garagalchuu, odeeffannoo turtii, kukiiwwanii fi adda baastoota walfakkaatan argachuu danda'u. Webvisor fi Clarity walqunnamtii fuula irra deebi'anii taphachuu danda'u. Akka imaammata mataa isaaniitti biyya keessaniin alatti daataa hojjechuu danda’u. Tokkoon tokkoon tajaajilaa qindaa'inoota Dhuunfaa keessatti cufuu dandeessa ykn tajaajila filannoo hunda dhaamsuuf hunda diduu fayyadamuu dandeessa.",
+      "Qabduun qindaa'inoota Dhuunfaa fuula kana irratti argama. Dhuunfachiisuun jijjiiramoota dhuunfaa filannoo kee ammaa agarsiisu bana; Filannoon qusannaa jijjiirama hojiirra oolcha. Fudhadhu hunda tajaajila hunda dandeessisa. Qabduu × filannoo kee osoo hin jijjiirin qofa qaaqa cufa. Filannoon kee fi guyyaan isaa localStorage fi kukii filannoo qaama jalqabaa advs_privacy_choice keessatti hanga guyyoota 395tti kuufameera. Kukiin filannoo kun qindaa'inoota fi chaappaa yeroo of keessaa qaba malee adda baastuu daawwataa miti. Jijjiiramni tokko yoo xiqqaate iddoowwan kana keessaa tokkotti qusachuu yoo danda’e qofa hojiirra oola; yoo kana hin taane qindaa'inoota duraanii socho'aa ta'anii hafu. Filannoo qusatame tokko malee, tajaajiloonni filannoo hundi ni dandeessifamu. Filannoon mata duree fi afaaniis yeroo filataman naannootti kuufamu. Xiinxala hojii irraa oolchuun erga fuul-barruun irra deebi'ee fe'amee booda gara fuulduraatti akka hin fe'amne dhorka; daataa duraan gara dhiyeessaa tokkootti ergame seera qabachuu isaa jalatti kan hafu yoo ta’u, kukiiwwan dhiyeessaa jiran hanga biraawzari keessan keessatti haqamanitti turuu danda’u. Gaaffii iccitii ykn gaaffii daataaf, hidhaa quunnamtii marsariiticha irratti argamu fayyadamaa.",
+      "Foontiiwwan marsariitii Google irraa gaafataman osoo hin taane marsariitii kana irraa kan tajaajilamanidha. Taphoonni amma jiran galmee tapha dhuunfaa daawwannaa gidduutti hin qusatan. Yoo qusannaan galmee dabalame, seera kuusaa fi maxxansaa isaa osoo hin dandeessifamin ni ibsama."
+    ]
+  }
+}

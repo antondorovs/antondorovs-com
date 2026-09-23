@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Teie privaatsusvalikud",
+    "description": "Ainulaadne brauseri loendus ja analüüs on vaikimisi lubatud. Saate välja lülitada kogu valikulise jälgimise või valida üksikud teenused. Lehtede laadimisi loetakse alati ilma brauseri identifikaatorita.",
+    "reject": "Keeldu kõigest",
+    "accept": "Võta kõik vastu",
+    "close": "Sulgege ilma muudatusteta",
+    "rejectHelp": "Lehtede laadimisi loetakse ilma brauseri identifikaatorita.\nUnikaalse brauseri loendur ja kõik analüüsiteenused keelatakse.",
+    "settings": "Privaatsusseaded",
+    "policy": "Privaatsuspoliitika",
+    "customize": "Kohanda",
+    "optionsTitle": "Valige, mis jääb lubatuks",
+    "save": "Salvesta valik",
+    "options": {
+      "uniqueCounter": "Unikaalse brauseri loendur (esimese osapoole küpsis)",
+      "yandexWebvisor": "Yandex Webvisor (interaktsiooni salvestamine)",
+      "microsoftClarity": "Microsoft Clarity (interaktsiooni salvestamine)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Seaded salvestatud.",
+    "saveError": "Seadeid ei saanud salvestada. Eelmised seaded jäävad aktiivseks."
+  },
+  "counters": {
+    "pageViews": "Lehtede laadimised",
+    "uniqueBrowsers": "Ainulaadne brauser"
+  },
+  "notice": {
+    "lastUpdated": "Viimati värskendatud: 23. september 2026",
+    "heading": "Külastuste arv, küpsised ja analüüs",
+    "paragraphs": [
+      "Sait loendab iga lehe täislaadimist, sealhulgas uuesti laadimisi, ilma brauseri identifikaatorit loomata. Saidiserverisse salvestatakse lehtede koormuse koondnäitajad viimase 365 UTC päeva kohta ja kõigi aegade kogusumma. Hostingi pakkujad võivad saidi edastamiseks ja kaitsmiseks IP-aadresse ja tehnilisi juurdepääsuloge eraldi töödelda.",
+      "Unikaalse brauseri loendur on vaikimisi lubatud. Esimesel külastusel seab sait esimese osapoole turvalise HttpOnly brauseri küpsise nimega advs_visitor kuni 395 päevaks. See sisaldab juhuslikku väärtust; server salvestab oma SHA-256 räsi ja viimase UTC külastuse kuupäeva kuni 395 päeva pärast seda külastust. Loendused hõlmavad brauseri profiile, mitte inimesi. Saate selle loenduri keelata selle lehe privaatsusseadetes. Kui see on keelatud, siis loendur peatub ja sait taotleb selle brauseri küpsise ja salvestatud räsi kustutamist; kõigi aegade agregaat jääb alles. Kui kustutamine ebaõnnestub, proovitakse taotlust lehe hilisemal laadimisel uuesti esitada, samal ajal kui loendur jääb keelatuks.",
+      "Enne valiku tegemist laaditakse vaikimisi ka Google Analytics, Yandex Metrica, Yandex Webvisor ja Microsoft Clarity. Need pakkujad saavad vastu võtta lehtede URL-e, brauseri ja seadme üksikasju, ligikaudset asukohta, klikke, kerimist, seansi teavet, küpsiseid ja sarnaseid identifikaatoreid. Webvisor ja Clarity võivad lehe interaktsioone uuesti esitada. Nad saavad töödelda andmeid väljaspool teie riiki vastavalt oma eeskirjadele. Saate iga teenuse privaatsusseadetes välja lülitada või kõigi valikuliste teenuste väljalülitamiseks kasutada käsku Keeldu kõigest.",
+      "Sellel lehel on nupp Privaatsusseaded. Kohanda avab üksikud lülitid, mis näitavad teie praegust valikut; Salvesta valik rakendab muudatused. Aktsepteeri kõik lubab iga teenuse. Nupp × sulgeb paneeli ainult teie valikut muutmata. Teie valik ja selle kuupäev salvestatakse localStorage ja esimese osapoole eelistusküpsisesse advs_privacy_choice kuni 395 päevaks. See eelistuste küpsis sisaldab seadeid ja ajatemplit, mitte külastaja identifikaatorit. Muudatust rakendatakse ainult siis, kui seda saab salvestada vähemalt ühte nendest kohtadest; vastasel juhul jäävad eelmised seaded aktiivseks. Kui valikut pole salvestatud, on kõik valikulised teenused lubatud. Teema ja keele eelistused salvestatakse valimisel ka lokaalselt. Analüütika keelamine takistab edaspidist laadimist pärast lehe uuesti laadimist; teenusepakkujale juba saadetud andmetele kehtivad tema säilitamisreeglid ja olemasolevad pakkuja küpsised võivad alles jääda, kuni need teie brauseris eemaldatakse. Privaatsusküsimuste või andmetaotluste korral kasutage saidil olevaid kontaktilinke.",
+      "Saidi fonte pakutakse sellelt saidilt, mitte Google'ilt. Praegused mängud ei salvesta isiklikke mängurekordeid külastuste vahel. Kui kirje salvestamine on lisatud, kirjeldatakse selle salvestamise ja avaldamise reegleid enne selle lubamist."
+    ]
+  }
+}

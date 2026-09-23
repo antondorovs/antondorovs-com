@@ -20,7 +20,7 @@ export const gameRoutes = [
   },
   {
     key: 'snake',
-    title: 'Snake',
+    title: 'Snake Unlimited',
     route: '#/games/snake',
   },
   {
@@ -32,11 +32,6 @@ export const gameRoutes = [
     key: 'game-of-life',
     title: 'Game of Life',
     route: '#/games/game-of-life',
-  },
-  {
-    key: 'snake-unlimited',
-    title: 'Snake unlimited',
-    route: '#/games/snake-unlimited',
   },
 ];
 

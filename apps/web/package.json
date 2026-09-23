@@ -7,10 +7,13 @@
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "test:i18n": "node --test src/shared/i18n/*.test.js",
+    "test:games": "node --test src/games/snake/*.test.js src/games/shared/*.test.js",
     "test:bundle": "node scripts/check-bundle.mjs",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/lobster": "^5.3.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
   },

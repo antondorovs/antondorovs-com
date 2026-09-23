@@ -1,5 +1,71 @@
+.snake-layout {
+  height: 100%;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+
+.snake-layout__board {
+  min-height: 0;
+  container-type: size;
+  display: grid;
+  place-items: start center;
+}
+
 .snake-game {
-  width: min(608px, 100%);
+  width: min(608px, 100cqw, 100cqh);
   height: auto;
-  background: #ddd;
+  aspect-ratio: 1;
+  touch-action: none;
+  user-select: none;
+  background: #b4d15b;
+}
+
+.snake-directions {
+  display: grid;
+  grid-template-columns: repeat(3, 48px);
+  grid-template-rows: repeat(2, 44px);
+  gap: 5px;
+  justify-content: center;
+  touch-action: none;
+}
+
+.snake-directions__up {
+  grid-column: 2;
+}
+
+.snake-directions__left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.snake-directions__down {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.snake-directions__right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+@media (min-width: 600px) and (max-height: 550px) {
+  .snake-layout {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: minmax(0, 1fr);
+  }
+  .snake-directions {
+    align-self: center;
+  }
+}
+
+@media (pointer: fine) {
+  .snake-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .snake-directions {
+    display: none;
+  }
 }

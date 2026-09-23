@@ -8,3 +8,9 @@
 .game-page h1 {
   margin-bottom: 24px;
 }
+
+.game-page--playable {
+  padding: 12px 16px;
+  height: calc(100dvh - var(--site-header-height));
+  min-height: 0;
+}

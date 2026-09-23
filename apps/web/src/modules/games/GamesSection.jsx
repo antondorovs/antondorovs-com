@@ -22,7 +22,7 @@ export function GamesSection() {
                 decoding="async"
               />
             </span>
-            <span className="games-section__title">{copy.games.titles[game.key] ?? game.title}</span>
+            <span className="games-section__title">{game.key === 'snake' ? game.title : copy.games.titles[game.key] ?? game.title}</span>
           </a>
         ))}
       </div>

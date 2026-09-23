@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Opțiunile dvs. de confidențialitate",
+    "description": "Numărarea browserului unic și analiza sunt activate în mod implicit. Puteți dezactiva toate urmărirea opțională sau puteți alege servicii individuale. Încărcările paginilor sunt întotdeauna numărate fără un identificator de browser.",
+    "reject": "Refuzați-le pe toate",
+    "accept": "Accepta totul",
+    "close": "Închideți fără modificări",
+    "rejectHelp": "Încărcările paginilor rămân numărate fără un identificator de browser.\nContorul unic de browser și toate serviciile de analiză vor fi dezactivate.",
+    "settings": "Setări de confidențialitate",
+    "policy": "Politica de confidențialitate",
+    "customize": "Personalizați",
+    "optionsTitle": "Alegeți ce rămâne activat",
+    "save": "Salvați selecția",
+    "options": {
+      "uniqueCounter": "Contor unic de browser (cookie-ul primar)",
+      "yandexWebvisor": "Yandex Webvisor (înregistrare interacțiune)",
+      "microsoftClarity": "Microsoft Clarity (înregistrare interacțiune)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Setări salvate.",
+    "saveError": "Nu s-au putut salva setările. Setările anterioare rămân active."
+  },
+  "counters": {
+    "pageViews": "Se încarcă pagina",
+    "uniqueBrowsers": "Browser unic"
+  },
+  "notice": {
+    "lastUpdated": "Ultima actualizare: 23 septembrie 2026",
+    "heading": "Numărări de vizite, cookie-uri și analize",
+    "paragraphs": [
+      "Site-ul contorizează fiecare încărcare completă a paginii, inclusiv reîncărcările, fără a crea un identificator de browser. Totalurile zilnice cumulate de încărcare a paginii pentru ultimele 365 de zile UTC și un total total sunt stocate pe serverul site-ului. Furnizorii de găzduire pot procesa separat adresele IP și jurnalele tehnice de acces pentru a livra și securiza site-ul.",
+      "Contorul de browser unic este activat implicit. La prima vizită, site-ul setează un cookie de browser primar, Secur, HttpOnly, numit advs_visitor, pentru până la 395 de zile. Conține o valoare aleatorie; serverul își stochează hash-ul SHA-256 și cea mai recentă dată de vizită UTC timp de până la 395 de zile după acea vizită. Numărările acoperă profilurile browserului, nu oamenii. Puteți dezactiva acest contor în setările de confidențialitate de pe această pagină. Când este dezactivat, contorul se oprește și site-ul solicită ștergerea cookie-ului acestui browser și a hash-ului stocat; agregatul din toate timpurile rămâne. Dacă ștergerea eșuează, cererea este reîncercată la o încărcare ulterioară a paginii, în timp ce contorul rămâne dezactivat.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor și Microsoft Clarity se încarcă, de asemenea, în mod implicit, înainte de a face o alegere. Acești furnizori pot primi adrese URL ale paginilor, detalii despre browser și dispozitiv, locație aproximativă, clicuri, derulare, informații despre sesiune, cookie-uri și identificatori similari. Webvisor și Clarity pot reda interacțiunile paginii. Ei pot procesa date în afara țării dvs. conform propriilor politici. Puteți dezactiva fiecare serviciu din Setările de confidențialitate sau puteți utiliza Refuzați tot pentru a dezactiva fiecare serviciu opțional.",
+      "Butonul Setări de confidențialitate este pe această pagină. Personalizare deschide comutatoare individuale care arată selecția dvs. curentă; Salvarea selecției aplică modificările. Accept all activează fiecare serviciu. Butonul × închide doar panoul fără a modifica selecția. Selecția dvs. și data acesteia sunt salvate în localStorage și în cookie-ul de preferință advs_privacy_choice de la prima parte timp de până la 395 de zile. Acest cookie de preferință conține setări și un marcaj de timp, nu un identificator de vizitator. O modificare se aplică numai dacă poate fi salvată în cel puțin unul dintre aceste locuri; în caz contrar, setările anterioare rămân active. Fără nicio selecție salvată, toate serviciile opționale sunt activate. Preferințele de temă și limbă sunt, de asemenea, stocate local atunci când sunt selectate. Dezactivarea analizei previne încărcarea viitoare după reîncărcarea paginii; datele deja trimise unui furnizor rămân supuse regulilor sale de reținere, iar modulele cookie existente ale furnizorului pot rămâne până când sunt eliminate din browser. Pentru întrebări de confidențialitate sau solicitări de date, utilizați linkurile de contact de pe site.",
+      "Fonturile site-ului sunt oferite de acest site și nu sunt solicitate de la Google. Jocurile curente nu salvează înregistrările personale ale jocurilor între vizite. Dacă se adaugă salvarea înregistrărilor, regulile de stocare și publicare vor fi descrise înainte de activare."
+    ]
+  }
+}

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Lobster&display=swap');
-
 :root {
   /* Dark/default theme tokens. These are visible in Dark mode and Auto when the system resolves to dark. */
   --font-body: 'IBM Plex Mono', monospace;
@@ -15,7 +13,7 @@
   --color-scrollbar-thumb-hover: rgba(255, 255, 255, 0.65);
   --browser-scrollbar-width: 0px;
   --content-max-width: 992px;
-  --content-width: calc(var(--content-max-width) - var(--browser-scrollbar-width));
+  --content-width: var(--content-max-width);
   --content-section-padding-block: 42px;
   --site-header-height: 50px;
   --section-divider-height: 1px;

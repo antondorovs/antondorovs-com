@@ -6,11 +6,12 @@ import {
 } from './languages.js';
 import { loadSiteCopy } from './loadSiteCopy.js';
 import { persistLanguage } from './languagePreference.js';
+import { loadPrivacyCopy } from '../../modules/privacy/loadPrivacyCopy.js';
 
 const LanguageContext = createContext(null);
 
-export function LanguageProvider({ children, initialLanguage, initialCopy }) {
-  const [{ language, copy }, setLoadedLanguage] = useState({ language: initialLanguage, copy: initialCopy });
+export function LanguageProvider({ children, initialLanguage, initialCopy, initialPrivacyCopy }) {
+  const [{ language, copy, privacyCopy }, setLoadedLanguage] = useState({ language: initialLanguage, copy: initialCopy, privacyCopy: initialPrivacyCopy });
   const [pendingLanguage, setPendingLanguage] = useState(null);
   const [failedLanguage, setFailedLanguage] = useState(null);
   const requestId = useRef(0);
@@ -26,9 +27,12 @@ export function LanguageProvider({ children, initialLanguage, initialCopy }) {
     setFailedLanguage(null);
     setPendingLanguage(nextLanguage);
     try {
-      const loaded = await loadSiteCopy(nextLanguage);
+      const [loaded, loadedPrivacyCopy] = await Promise.all([
+        loadSiteCopy(nextLanguage),
+        loadPrivacyCopy(nextLanguage),
+      ]);
       if (currentRequest !== requestId.current) return;
-      setLoadedLanguage(loaded);
+      setLoadedLanguage({ ...loaded, privacyCopy: loadedPrivacyCopy });
       persistLanguage(loaded.language);
     } catch {
       if (currentRequest === requestId.current) setFailedLanguage(nextLanguage);
@@ -50,12 +54,14 @@ export function LanguageProvider({ children, initialLanguage, initialCopy }) {
       language,
       contentLanguage,
       contentLanguageTag: contentLanguageOption.htmlLang,
+      contentLanguageDirection: contentLanguageOption.direction,
       copy,
+      privacyCopy,
       languageOptions,
       selectLanguage,
       pendingLanguage,
     }),
-    [contentLanguage, contentLanguageOption.htmlLang, copy, language, pendingLanguage],
+    [contentLanguage, contentLanguageOption.direction, contentLanguageOption.htmlLang, copy, privacyCopy, language, pendingLanguage],
   );
 
   return (

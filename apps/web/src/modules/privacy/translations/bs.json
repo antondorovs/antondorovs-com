@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Vaš izbor privatnosti",
+    "description": "Brojanje jedinstvenih pretraživača i analitika su omogućeni prema zadanim postavkama. Možete isključiti sva opcionalna praćenja ili odabrati pojedinačne usluge. Učitavanja stranica se uvijek broje bez identifikatora pretraživača.",
+    "reject": "Odbij sve",
+    "accept": "Prihvati sve",
+    "close": "Zatvorite bez promjena",
+    "rejectHelp": "Učitavanja stranica ostaju brojena bez identifikatora pretraživača.\nBrojač jedinstvenog pretraživača i svi analitički servisi će biti onemogućeni.",
+    "settings": "Postavke privatnosti",
+    "policy": "Politika privatnosti",
+    "customize": "Prilagodi",
+    "optionsTitle": "Odaberite šta ostaje uključeno",
+    "save": "Sačuvaj odabir",
+    "options": {
+      "uniqueCounter": "Brojač jedinstvenog pretraživača (kolačić prve strane)",
+      "yandexWebvisor": "Yandex Webvisor (snimanje interakcije)",
+      "microsoftClarity": "Microsoft Clarity (snimanje interakcije)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Postavke su sačuvane.",
+    "saveError": "Nije moguće sačuvati postavke. Prethodna podešavanja ostaju aktivna."
+  },
+  "counters": {
+    "pageViews": "Stranica se učitava",
+    "uniqueBrowsers": "Jedinstveni pretraživač"
+  },
+  "notice": {
+    "lastUpdated": "Posljednje ažuriranje: 23. septembra 2026",
+    "heading": "Broj posjeta, kolačići i analitika",
+    "paragraphs": [
+      "Stranica broji svako puno učitavanje stranice, uključujući ponovno učitavanje, bez kreiranja identifikatora pretraživača. Zbirni dnevni ukupni učitavanja stranica za posljednjih 365 UTC dana i ukupni ukupni podaci pohranjeni su na serveru web-mjesta. Hosting provajderi mogu odvojeno obraditi IP adrese i dnevnike tehničkog pristupa kako bi isporučili i osigurali stranicu.",
+      "Brojač jedinstvenog pretraživača je podrazumevano omogućen. Prilikom prve posjete, stranica postavlja bezbedni, samo Http kolačić za pretraživač prve strane pod nazivom advs_visitor na najviše 395 dana. Sadrži slučajnu vrijednost; server pohranjuje svoj SHA-256 hash i najnoviji datum UTC posjete do 395 dana nakon te posjete. Brojevi pokrivaju profile pretraživača, a ne ljude. Možete onemogućiti ovaj brojač u postavkama privatnosti na ovoj stranici. Kada je onemogućen, brojač se zaustavlja i stranica zahtijeva brisanje kolačića i pohranjenog hash-a ovog pretraživača; ostaje svevremeni agregat. Ako brisanje ne uspije, zahtjev se ponovo pokušava pri kasnijem učitavanju stranice dok brojač ostaje onemogućen.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor i Microsoft Clarity se također učitavaju prema zadanim postavkama, prije nego što napravite izbor. Ovi provajderi mogu primati URL-ove stranica, detalje o pregledniku i uređaju, približnu lokaciju, klikove, pomicanje, informacije o sesiji, kolačiće i slične identifikatore. Webvisor i Clarity mogu reproducirati interakcije na stranici. Oni mogu obraditi podatke izvan vaše zemlje u skladu sa svojim politikama. Možete isključiti svaku uslugu u postavkama privatnosti ili koristiti Odbij sve da isključite svaku opcionalnu uslugu.",
+      "Dugme Postavke privatnosti se nalazi na ovoj stranici. Prilagodi otvara pojedinačne prekidače koji prikazuju vaš trenutni odabir; Sačuvaj odabir primjenjuje promjene. Prihvati sve omogućava svaku uslugu. Dugme × samo zatvara panel bez promjene vašeg odabira. Vaš izbor i njegov datum se čuvaju u localStorage i u preferencijalnom kolačiću prve strane advs_privacy_choice do 395 dana. Ovaj kolačić preferencije sadrži postavke i vremensku oznaku, a ne identifikator posjetitelja. Promjena se primjenjuje samo ako se može sačuvati na barem jednom od ovih mjesta; u suprotnom prethodne postavke ostaju aktivne. Bez sačuvanog izbora, omogućene su sve opcione usluge. Postavke teme i jezika također se pohranjuju lokalno kada su odabrane. Onemogućavanje analitike sprečava buduće učitavanje nakon ponovnog učitavanja stranice; podaci koji su već poslani provajderu ostaju podložni njegovim pravilima zadržavanja, a postojeći kolačići dobavljača mogu ostati dok se ne uklone u vašem pretraživaču. Za pitanja o privatnosti ili zahtjeve za podacima, koristite veze za kontakt na web stranici.",
+      "Fontovi web stranice se poslužuju sa ove stranice umjesto da se traže od Googlea. Trenutne igre ne spremaju lične zapise igara između posjeta. Ako se doda čuvanje zapisa, njegova pravila skladištenja i objavljivanja će biti opisana prije nego što se omogući."
+    ]
+  }
+}

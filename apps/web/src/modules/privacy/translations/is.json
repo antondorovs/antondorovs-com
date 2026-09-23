@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Persónuverndarval þitt",
+    "description": "Talning og greiningar í einstökum vafra eru sjálfgefið virkjuð. Þú getur slökkt á allri valkvæðri mælingu eða valið einstaka þjónustu. Síðuhleðsla er alltaf talin án vafraauðkennis.",
+    "reject": "Afþakka allt",
+    "accept": "Samþykkja allt",
+    "close": "Loka án breytinga",
+    "rejectHelp": "Síðuhleðsla er áfram talin án vafraauðkennis.\nEinstakur vafrateljari og öll greiningarþjónusta verða óvirk.",
+    "settings": "Persónuverndarstillingar",
+    "policy": "Persónuverndarstefna",
+    "customize": "Sérsníða",
+    "optionsTitle": "Veldu það sem helst virkt",
+    "save": "Vista val",
+    "options": {
+      "uniqueCounter": "Einstakur vafrateljari (fyrsta aðila vafrakaka)",
+      "yandexWebvisor": "Yandex Webvisor (samskiptaupptaka)",
+      "microsoftClarity": "Microsoft Clarity (samskiptaupptaka)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Stillingar vistaðar.",
+    "saveError": "Ekki tókst að vista stillingar. Fyrri stillingar eru áfram virkar."
+  },
+  "counters": {
+    "pageViews": "Síða hleðst",
+    "uniqueBrowsers": "Einstakur vafri"
+  },
+  "notice": {
+    "lastUpdated": "Síðast uppfært: 23. september 2026",
+    "heading": "Heimsóknafjöldi, smákökur og greiningar",
+    "paragraphs": [
+      "Síðan telur hverja heilsíðuhleðslu, þar með talið endurhleðslu, án þess að búa til vafraauðkenni. Samanlagðar daglegar síðuhleðslutölur síðustu 365 UTC daga og heildarupphæð allra tíma eru geymdar á vefþjóninum. Hýsingaraðilar geta unnið sérstaklega úr IP-tölum og tæknilegum aðgangsskrám til að afhenda og tryggja síðuna.",
+      "Einstaka vafrateljarinn er sjálfgefið virkur. Í fyrstu heimsókn setur síðan fyrsta aðila, öruggt, HttpOnly vafrakaka sem heitir advs_visitor í allt að 395 daga. Það inniheldur tilviljunarkennt gildi; þjónninn geymir SHA-256 kjötkássa og nýjustu UTC heimsóknardagsetningu í allt að 395 daga eftir þá heimsókn. Talningar ná yfir vafraprófíla, ekki fólk. Þú getur slökkt á þessum teljara í persónuverndarstillingum á þessari síðu. Þegar slökkt er á honum stoppar teljarinn og vefsíðan biður um eyðingu á vafraköku þessa vafra og geymda kjötkássa; heildartölur allra tíma standa eftir. Ef ekki tekst að eyða er beiðnin endurtekin við síðari síðuhleðslu á meðan teljarinn er óvirkur.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor og Microsoft Clarity hlaðast líka sjálfgefið áður en þú velur. Þessar veitendur geta fengið vefslóðir síðunnar, vafra- og tækiupplýsingar, áætlaða staðsetningu, smelli, skrun, lotuupplýsingar, vafrakökur og svipuð auðkenni. Webvisor og Clarity gætu endurspilað síðusamskipti. Þeir geta unnið úr gögnum utan lands þíns í samræmi við eigin reglur. Þú getur slökkt á hverri þjónustu í persónuverndarstillingum eða notað Hafna öllu til að slökkva á sérhverri valfrjálsu þjónustu.",
+      "Hnappurinn fyrir persónuverndarstillingar er á þessari síðu. Sérsníða opnar einstaka rofa sem sýna núverandi val þitt; Vista val beitir breytingum. Samþykkja allt gerir sérhverja þjónustu kleift. × hnappurinn lokar aðeins spjaldinu án þess að breyta valinu þínu. Val þitt og dagsetning þess eru vistuð í localStorage og í fyrsta aðila advs_privacy_choice valkökunni í allt að 395 daga. Þessi valkaka inniheldur stillingar og tímastimpil, ekki gestaauðkenni. Breytingu er aðeins beitt ef hægt er að vista hana á að minnsta kosti einum af þessum stöðum; annars eru fyrri stillingar virkar. Með ekkert vistað val er öll valfrjáls þjónusta virkjuð. Þema og tungumálastillingar eru einnig geymdar á staðnum þegar þær eru valdar. Slökkt er á greiningum kemur í veg fyrir hleðslu í framtíðinni eftir að síðan hefur verið endurhlaðin; gögn sem þegar hafa verið send til þjónustuveitu eru áfram háð varðveislureglum hennar og núverandi vafrakökur frá þjónustuveitu kunna að vera áfram þar til þær eru fjarlægðar í vafranum þínum. Fyrir spurningar um persónuvernd eða gagnabeiðnir, notaðu tengiliðatenglana á síðunni.",
+      "Síðu leturgerðir eru birtar frá þessari síðu frekar en beðið er um frá Google. Núverandi leikir vista ekki persónuleg leikjaskrá milli heimsókna. Ef færsluvistun er bætt við verður geymslu- og birtingarreglum hennar lýst áður en hún er virkjuð."
+    ]
+  }
+}

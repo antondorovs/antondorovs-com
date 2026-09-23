@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Zgjedhjet tuaja të privatësisë",
+    "description": "Numërimi dhe analitika unike e shfletuesit janë aktivizuar si parazgjedhje. Mund të çaktivizoni të gjithë ndjekjen opsionale ose të zgjidhni shërbime individuale. Ngarkimet e faqeve numërohen gjithmonë pa një identifikues të shfletuesit.",
+    "reject": "Refuzoni të gjitha",
+    "accept": "Prano të gjitha",
+    "close": "Mbylle pa ndryshime",
+    "rejectHelp": "Ngarkimet e faqeve mbeten të numëruara pa një identifikues të shfletuesit.\nNumëruesi i shfletuesit unik dhe të gjitha shërbimet analitike do të çaktivizohen.",
+    "settings": "Cilësimet e privatësisë",
+    "policy": "Politika e privatësisë",
+    "customize": "Personalizoje",
+    "optionsTitle": "Zgjidh atë që mbetet e aktivizuar",
+    "save": "Ruaj përzgjedhjen",
+    "options": {
+      "uniqueCounter": "Numëruesi i shfletuesit unik (cookie e palës së parë)",
+      "yandexWebvisor": "Yandex Webvisor (regjistrimi i ndërveprimit)",
+      "microsoftClarity": "Microsoft Clarity (regjistrimi i ndërveprimit)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Cilësimet u ruajtën.",
+    "saveError": "Cilësimet nuk mund të ruheshin. Cilësimet e mëparshme mbeten aktive."
+  },
+  "counters": {
+    "pageViews": "Ngarkimet e faqeve",
+    "uniqueBrowsers": "Shfletuesi unik"
+  },
+  "notice": {
+    "lastUpdated": "Përditësimi i fundit: 23 shtator 2026",
+    "heading": "Numri i vizitave, kukit dhe analitika",
+    "paragraphs": [
+      "Faqja numëron çdo ngarkim të plotë të faqes, duke përfshirë ringarkimet, pa krijuar një identifikues të shfletuesit. Totali i përgjithshëm i ngarkesës ditore të faqeve për 365 ditët e fundit UTC dhe një total i të gjitha kohërave ruhen në serverin e faqes. Ofruesit e pritjes mund të përpunojnë veçmas adresat IP dhe regjistrat e aksesit teknik për të ofruar dhe siguruar sitin.",
+      "Numëruesi i shfletuesit unik është aktivizuar si parazgjedhje. Në vizitën e parë, sajti vendos një cookie shfletuesi të palës së parë, të sigurt, HttpOnly të quajtur advs_visitor për deri në 395 ditë. Ai përmban një vlerë të rastësishme; serveri ruan hash-in e tij SHA-256 dhe datën më të fundit të vizitës UTC deri në 395 ditë pas asaj vizite. Numrat mbulojnë profilet e shfletuesit, jo njerëzit. Mund ta çaktivizoni këtë numërues te cilësimet e privatësisë në këtë faqe. Kur çaktivizohet, numëruesi ndalon dhe faqja kërkon fshirjen e cookie-t të këtij shfletuesi dhe hash-it të ruajtur; agregati i të gjitha kohërave mbetet. Nëse fshirja dështon, kërkesa riprovohet në një ngarkim të mëvonshëm të faqes ndërsa numëruesi mbetet i çaktivizuar.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor dhe Microsoft Clarity gjithashtu ngarkohen si parazgjedhje, përpara se të bëni një zgjedhje. Këta ofrues mund të marrin URL-të e faqeve, detajet e shfletuesit dhe pajisjes, vendndodhjen e përafërt, klikimet, lëvizjen, informacionin e sesionit, kukit dhe identifikues të ngjashëm. Webvisor dhe Clarity mund të rishikojnë ndërveprimet e faqeve. Ata mund të përpunojnë të dhëna jashtë vendit tuaj sipas politikave të tyre. Mund të çaktivizosh çdo shërbim te cilësimet e privatësisë ose të përdorësh Refuzo të gjitha për të çaktivizuar çdo shërbim opsional.",
+      "Butoni i cilësimeve të privatësisë është në këtë faqe. Personalizo hap çelësat individualë që tregojnë zgjedhjen tuaj aktuale; Ruaj përzgjedhjen zbaton ndryshimet. Prano të gjitha mundëson çdo shërbim. Butoni × mbyll vetëm panelin pa ndryshuar zgjedhjen tuaj. Zgjedhja juaj dhe data e saj ruhen në localStorage dhe në skedarin e preferencës së palës së parë advs_privacy_choice për deri në 395 ditë. Kjo kuki e preferencës përmban cilësime dhe një vulë kohore, jo një identifikues vizitori. Një ndryshim zbatohet vetëm nëse mund të ruhet në të paktën një nga këto vende; përndryshe cilësimet e mëparshme mbeten aktive. Pa asnjë përzgjedhje të ruajtur, të gjitha shërbimet opsionale janë të aktivizuara. Preferencat e temave dhe gjuhës ruhen gjithashtu në nivel lokal kur zgjidhen. Çaktivizimi i analitikës parandalon ngarkimin e ardhshëm pas ringarkimit të faqes; të dhënat e dërguara tashmë te një ofrues mbeten subjekt i rregullave të tij të ruajtjes dhe kukit ekzistues të ofruesit mund të mbeten derisa të hiqen në shfletuesin tuaj. Për pyetje rreth privatësisë ose kërkesa për të dhëna, përdorni lidhjet e kontaktit në sajt.",
+      "Fontet e sajtit shërbehen nga kjo faqe në vend që të kërkohen nga Google. Lojërat aktuale nuk ruajnë rekorde personale të lojërave ndërmjet vizitave. Nëse shtohet ruajtja e të dhënave, rregullat e ruajtjes dhe publikimit të tij do të përshkruhen përpara se të aktivizohet."
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Jūsu privātuma izvēle",
+    "description": "Pēc noklusējuma ir iespējota unikāla pārlūkprogrammas skaitīšana un analīze. Varat izslēgt visu neobligāto izsekošanu vai izvēlēties atsevišķus pakalpojumus. Lapu ielādes vienmēr tiek skaitītas bez pārlūkprogrammas identifikatora.",
+    "reject": "Noraidīt visu",
+    "accept": "Pieņemt visu",
+    "close": "Aizveriet bez izmaiņām",
+    "rejectHelp": "Lapu ielādes tiek skaitītas bez pārlūkprogrammas identifikatora.\nUnikālās pārlūkprogrammas skaitītājs un visi analīzes pakalpojumi tiks atspējoti.",
+    "settings": "Privātuma iestatījumi",
+    "policy": "Privātuma politika",
+    "customize": "Pielāgot",
+    "optionsTitle": "Izvēlieties, kas paliek iespējots",
+    "save": "Saglabāt atlasi",
+    "options": {
+      "uniqueCounter": "Unikālo pārlūkprogrammu skaitītājs (pirmās puses sīkfails)",
+      "yandexWebvisor": "Yandex Webvisor (mijiedarbības ierakstīšana)",
+      "microsoftClarity": "Microsoft Clarity (mijiedarbības ierakstīšana)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Iestatījumi saglabāti.",
+    "saveError": "Nevarēja saglabāt iestatījumus. Iepriekšējie iestatījumi paliek aktīvi."
+  },
+  "counters": {
+    "pageViews": "Lapu ielādes",
+    "uniqueBrowsers": "Unikāls pārlūks"
+  },
+  "notice": {
+    "lastUpdated": "Pēdējo reizi atjaunināts: 2026. gada 23. septembrī",
+    "heading": "Apmeklējumu skaits, sīkfaili un analīze",
+    "paragraphs": [
+      "Vietne uzskaita katru pilnu lapas ielādi, ieskaitot atkārtotas ielādes, neizveidojot pārlūkprogrammas identifikatoru. Vietnes serverī tiek glabāti apkopotie ikdienas lapu ielādes dati par pēdējām 365 UTC dienām un visu laiku kopsumma. Hostinga pakalpojumu sniedzēji var atsevišķi apstrādāt IP adreses un tehniskās piekļuves žurnālus, lai nodrošinātu un aizsargātu vietni.",
+      "Unikālo pārlūkprogrammu skaitītājs ir iespējots pēc noklusējuma. Pirmajā apmeklējumā vietne iestata pirmās puses drošu HttpOnly pārlūkprogrammas sīkfailu ar nosaukumu advs_visitor uz laiku līdz 395 dienām. Tas satur nejaušu vērtību; serveris saglabā savu SHA-256 jaucējkodu un pēdējo UTC apmeklējuma datumu līdz 395 dienām pēc šī apmeklējuma. Skaits attiecas uz pārlūkprogrammu profiliem, nevis cilvēkiem. Šo skaitītāju varat atspējot šīs lapas sadaļā Privātuma iestatījumi. Ja tas ir atspējots, skaitītājs apstājas un vietne pieprasa dzēst šīs pārlūkprogrammas sīkfailu un saglabāto jaucējfailu; visu laiku agregāts paliek. Ja dzēšana neizdodas, pieprasījums tiek atkārtoti mēģināts vēlākā lapas ielādes reizē, kamēr skaitītājs paliek atspējots.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor un Microsoft Clarity arī tiek ielādētas pēc noklusējuma, pirms veicat izvēli. Šie pakalpojumu sniedzēji var saņemt lapu URL, pārlūkprogrammas un ierīces informāciju, aptuveno atrašanās vietu, klikšķus, ritināšanu, sesijas informāciju, sīkfailus un līdzīgus identifikatorus. Webvisor un Clarity var atkārtoti atskaņot lapu mijiedarbību. Viņi var apstrādāt datus ārpus jūsu valsts saskaņā ar savām politikām. Varat izslēgt katru pakalpojumu sadaļā Privātuma iestatījumi vai izmantot Noraidīt visu, lai izslēgtu katru papildu pakalpojumu.",
+      "Privātuma iestatījumu poga atrodas šajā lapā. Pielāgot atver atsevišķus slēdžus, kas parāda jūsu pašreizējo atlasi; Saglabāt atlasi tiek piemērotas izmaiņas. Pieņemt visu iespējo katru pakalpojumu. Poga × aizver tikai paneli, nemainot atlasi. Jūsu atlase un tās datums tiek saglabāti localStorage un pirmās puses preferenču sīkfailā advs_privacy_choice līdz 395 dienām. Šajā preferenču sīkfailā ir ietverti iestatījumi un laikspiedols, nevis apmeklētāja identifikators. Izmaiņas tiek piemērotas tikai tad, ja tās var saglabāt vismaz vienā no šīm vietām; pretējā gadījumā iepriekšējie iestatījumi paliek aktīvi. Ja atlase nav saglabāta, visi papildu pakalpojumi ir iespējoti. Motīvu un valodu preferences tiek saglabātas arī lokāli, kad tās ir atlasītas. Analītikas atspējošana novērš turpmāku ielādi pēc lapas atkārtotas ielādes; uz pakalpojumu sniedzējam jau nosūtītajiem datiem attiecas tā saglabāšanas noteikumi, un esošie nodrošinātāja sīkfaili var saglabāties, līdz tie tiek noņemti jūsu pārlūkprogrammā. Jautājumiem par privātumu vai datu pieprasījumiem izmantojiet vietnē esošās kontaktu saites.",
+      "Vietnes fonti tiek nodrošināti no šīs vietnes, nevis pieprasīti no Google. Pašreizējās spēles nesaglabā personīgos spēļu ierakstus starp apmeklējumiem. Ja ieraksta saglabāšana ir pievienota, pirms tā iespējošanas tiks aprakstītas tās glabāšanas un publicēšanas kārtulas."
+    ]
+  }
+}

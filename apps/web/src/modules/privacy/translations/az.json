@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Məxfilik seçimləriniz",
+    "description": "Unikal brauzer sayma və analitika standart olaraq aktivdir. Siz bütün isteğe bağlı izləməni söndürə və ya fərdi xidmətləri seçə bilərsiniz. Səhifə yükləmələri həmişə brauzer identifikatoru olmadan sayılır.",
+    "reject": "Hamısını rədd edin",
+    "accept": "Hamısını qəbul et",
+    "close": "Dəyişiklik etmədən bağlayın",
+    "rejectHelp": "Səhifə yükləmələri brauzer identifikatoru olmadan hesablanır.\nUnikal brauzer sayğacı və bütün analitik xidmətləri deaktiv ediləcək.",
+    "settings": "Məxfilik parametrləri",
+    "policy": "Məxfilik siyasəti",
+    "customize": "Fərdiləşdirin",
+    "optionsTitle": "Nəyin aktiv qalacağını seçin",
+    "save": "Seçimi yadda saxla",
+    "options": {
+      "uniqueCounter": "Unikal brauzer sayğacı (birinci tərəf kuki)",
+      "yandexWebvisor": "Yandex Webvisor (qarşılıqlı qeyd)",
+      "microsoftClarity": "Microsoft Clarity (qarşılıqlı qeyd)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Parametrlər yadda saxlanıldı.",
+    "saveError": "Parametrləri saxlamaq mümkün olmadı. Əvvəlki parametrlər aktiv olaraq qalır."
+  },
+  "counters": {
+    "pageViews": "Səhifə yüklənir",
+    "uniqueBrowsers": "Unikal brauzer"
+  },
+  "notice": {
+    "lastUpdated": "Son yeniləmə: 23 sentyabr 2026-cı il",
+    "heading": "Saylar, kukilər və analitikləri ziyarət edin",
+    "paragraphs": [
+      "Sayt brauzer identifikatoru yaratmadan hər tam səhifə yükünü, o cümlədən yenidən yükləmələri hesablayır. Son 365 UTC günü üçün məcmu gündəlik səhifə yükləmələri və bütün zamanların cəmi sayt serverində saxlanılır. Hostinq provayderləri saytı çatdırmaq və qorumaq üçün IP ünvanlarını və texniki giriş qeydlərini ayrıca emal edə bilərlər.",
+      "Unikal brauzer sayğacı defolt olaraq aktivdir. İlk ziyarətdə sayt 395 günə qədər advs_visitor adlı birinci tərəf, Təhlükəsiz, HttpOnly brauzer kukisini təyin edir. Təsadüfi bir dəyər ehtiva edir; server SHA-256 hashını və ən son UTC ziyarət tarixini həmin səfərdən sonra 395 günə qədər saxlayır. Saylar insanları deyil, brauzer profillərini əhatə edir. Siz bu səhifədəki Məxfilik ayarlarında bu sayğacı deaktiv edə bilərsiniz. Deaktiv edildikdə, sayğac dayanır və sayt bu brauzerin kukisinin və saxlanmış hashın silinməsini tələb edir; bütün zamanların məcmu qalır. Silinmə uğursuz olarsa, sayğac qeyri-aktiv olaraq qalarkən sorğu sonrakı səhifə yüklənməsində yenidən yoxlanılır.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor və Microsoft Clarity də seçim etməzdən əvvəl standart olaraq yüklənir. Bu provayderlər səhifə URL-lərini, brauzer və cihaz təfərrüatlarını, təxmini yeri, klikləri, sürüşdürmə, sessiya məlumatlarını, kukiləri və oxşar identifikatorları qəbul edə bilər. Webvisor və Clarity səhifə qarşılıqlı əlaqəsini təkrarlaya bilər. Onlar öz siyasətlərinə uyğun olaraq ölkənizdən kənarda məlumatları emal edə bilərlər. Siz hər bir xidməti Məxfilik parametrlərində söndürə və ya hər bir isteğe bağlı xidməti söndürmək üçün Hamısını rədd et istifadə edə bilərsiniz.",
+      "Məxfilik parametrləri düyməsi bu səhifədədir. Fərdiləşdirmə cari seçiminizi göstərən fərdi açarları açır; Seçimi yadda saxla dəyişiklikləri tətbiq edir. Bütün imkanları qəbul edin, hər bir xidmət. × düyməsi seçiminizi dəyişmədən yalnız paneli bağlayır. Seçiminiz və onun tarixi localStorage və birinci tərəf advs_privacy_choice üstünlük kukisində 395 günə qədər saxlanılır. Bu üstünlük kukisi ziyarətçi identifikatorunu deyil, parametrləri və vaxt damğasını ehtiva edir. Dəyişiklik yalnız bu yerlərdən ən azı birində yadda saxlanıla bildikdə tətbiq edilir; əks halda əvvəlki parametrlər aktiv qalır. Yadda saxlanmış seçim olmadan bütün əlavə xidmətlər aktivləşdirilir. Mövzu və dil seçimləri də seçildikdə yerli olaraq saxlanılır. Analitikanın söndürülməsi səhifə yenidən yükləndikdən sonra gələcək yüklənmənin qarşısını alır; provayderə artıq göndərilmiş məlumatlar onun saxlanma qaydalarına tabe olaraq qalır və mövcud provayder kukiləri brauzerinizdə silinənə qədər qala bilər. Məxfilik sualları və ya məlumat sorğuları üçün saytdakı əlaqə bağlantılarından istifadə edin.",
+      "Sayt şriftləri Google-dan tələb olunmur, bu saytdan təqdim olunur. Cari oyunlar səfərlər arasında şəxsi oyun qeydlərini saxlamır. Əgər qeydin saxlanması əlavə olunarsa, onun saxlanması və dərc edilməsi qaydaları işə salınmazdan əvvəl təsvir olunacaq."
+    ]
+  }
+}

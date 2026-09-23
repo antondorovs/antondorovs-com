@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Lựa chọn quyền riêng tư của bạn",
+    "description": "Tính năng đếm và phân tích trình duyệt duy nhất được bật theo mặc định. Bạn có thể tắt tất cả tính năng theo dõi tùy chọn hoặc chọn các dịch vụ riêng lẻ. Số lượt tải trang luôn được tính mà không cần mã định danh trình duyệt.",
+    "reject": "Từ chối tất cả",
+    "accept": "Chấp nhận tất cả",
+    "close": "Đóng mà không thay đổi",
+    "rejectHelp": "Số lượt tải trang vẫn được tính mà không có mã định danh trình duyệt.\nBộ đếm trình duyệt duy nhất và tất cả các dịch vụ phân tích sẽ bị tắt.",
+    "settings": "Cài đặt quyền riêng tư",
+    "policy": "Chính sách bảo mật",
+    "customize": "Tùy chỉnh",
+    "optionsTitle": "Chọn những gì vẫn được bật",
+    "save": "Lưu lựa chọn",
+    "options": {
+      "uniqueCounter": "Bộ đếm trình duyệt duy nhất (cookie của bên thứ nhất)",
+      "yandexWebvisor": "Yandex Webvisor (ghi lại tương tác)",
+      "microsoftClarity": "Microsoft Clarity (ghi lại tương tác)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Đã lưu cài đặt.",
+    "saveError": "Không thể lưu cài đặt. Các cài đặt trước đó vẫn hoạt động."
+  },
+  "counters": {
+    "pageViews": "Tải trang",
+    "uniqueBrowsers": "Trình duyệt độc đáo"
+  },
+  "notice": {
+    "lastUpdated": "Cập nhật lần cuối: ngày 23 tháng 9 năm 2026",
+    "heading": "Số lượt truy cập, cookie và phân tích",
+    "paragraphs": [
+      "Trang web tính từng lần tải toàn bộ trang, bao gồm cả lượt tải lại mà không tạo mã nhận dạng trình duyệt. Tổng số lần tải trang hàng ngày trong 365 ngày UTC qua và tổng số lần tải trang mọi thời điểm được lưu trữ trên máy chủ trang web. Các nhà cung cấp dịch vụ lưu trữ có thể xử lý riêng địa chỉ IP và nhật ký truy cập kỹ thuật để cung cấp và bảo mật trang web.",
+      "Bộ đếm trình duyệt duy nhất được bật theo mặc định. Trong lần truy cập đầu tiên, trang web sẽ đặt cookie trình duyệt HttpOnly, An toàn, của bên thứ nhất có tên advs_visitor trong tối đa 395 ngày. Nó chứa một giá trị ngẫu nhiên; máy chủ lưu trữ hàm băm SHA-256 và ngày truy cập UTC gần đây nhất trong tối đa 395 ngày sau lần truy cập đó. Đếm bao gồm hồ sơ trình duyệt, không phải người. Bạn có thể tắt bộ đếm này trong cài đặt Quyền riêng tư trên trang này. Khi bị tắt, bộ đếm sẽ dừng và trang web yêu cầu xóa cookie và hàm băm được lưu trữ của trình duyệt này; tổng số mọi thời đại vẫn còn. Nếu xóa không thành công, yêu cầu sẽ được thử lại ở lần tải trang sau trong khi bộ đếm vẫn bị tắt.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor và Microsoft Clarity cũng tải theo mặc định trước khi bạn đưa ra lựa chọn. Các nhà cung cấp này có thể nhận URL trang, chi tiết về trình duyệt và thiết bị, vị trí gần đúng, số lần nhấp, thao tác cuộn, thông tin phiên, cookie và các mã nhận dạng tương tự. Webvisor và Clarity có thể phát lại các tương tác trên trang. Họ có thể xử lý dữ liệu bên ngoài quốc gia của bạn theo chính sách riêng của họ. Bạn có thể tắt từng dịch vụ trong cài đặt Quyền riêng tư hoặc sử dụng Từ chối tất cả để tắt mọi dịch vụ tùy chọn.",
+      "Nút cài đặt Quyền riêng tư nằm trên trang này. Tùy chỉnh mở các công tắc riêng lẻ hiển thị lựa chọn hiện tại của bạn; Lưu lựa chọn áp dụng các thay đổi. Chấp nhận tất cả cho phép mọi dịch vụ. Nút × chỉ đóng bảng điều khiển mà không thay đổi lựa chọn của bạn. Lựa chọn của bạn và ngày của lựa chọn đó được lưu trong localStorage và trong cookie tùy chọn advs_privacy_choice của bên thứ nhất trong tối đa 395 ngày. Cookie tùy chọn này chứa các cài đặt và dấu thời gian, không phải mã định danh khách truy cập. Một thay đổi chỉ được áp dụng nếu nó có thể được lưu ở ít nhất một trong những nơi này; nếu không thì các cài đặt trước đó vẫn hoạt động. Nếu không có lựa chọn nào được lưu, tất cả các dịch vụ tùy chọn sẽ được bật. Tùy chọn chủ đề và ngôn ngữ cũng được lưu trữ cục bộ khi được chọn. Việc tắt phân tích sẽ ngăn tải trong tương lai sau khi tải lại trang; dữ liệu đã được gửi đến nhà cung cấp vẫn phải tuân theo các quy tắc lưu giữ của nhà cung cấp đó và cookie của nhà cung cấp hiện tại có thể vẫn còn cho đến khi bị xóa trong trình duyệt của bạn. Đối với các câu hỏi về quyền riêng tư hoặc yêu cầu dữ liệu, hãy sử dụng các liên kết liên hệ trên trang web.",
+      "Phông chữ trang web được cung cấp từ trang web này thay vì được yêu cầu từ Google. Các trò chơi hiện tại không lưu hồ sơ trò chơi cá nhân giữa các lần truy cập. Nếu tính năng lưu bản ghi được thêm vào, các quy tắc lưu trữ và xuất bản bản ghi đó sẽ được mô tả trước khi tính năng này được bật."
+    ]
+  }
+}

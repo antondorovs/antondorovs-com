@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Vaše možnosti ochrany osobných údajov",
+    "description": "Počítanie a analýza jedinečných prehliadačov sú predvolene povolené. Môžete vypnúť všetky voliteľné sledovanie alebo si vybrať jednotlivé služby. Načítania stránky sa vždy počítajú bez identifikátora prehliadača.",
+    "reject": "Odmietnuť všetko",
+    "accept": "Prijmite všetko",
+    "close": "Zavrieť bez zmien",
+    "rejectHelp": "Načítania stránky zostávajú započítané bez identifikátora prehliadača.\nPočítadlo jedinečného prehliadača a všetky analytické služby budú deaktivované.",
+    "settings": "Nastavenia ochrany osobných údajov",
+    "policy": "Zásady ochrany osobných údajov",
+    "customize": "Prispôsobiť",
+    "optionsTitle": "Vyberte, čo zostane povolené",
+    "save": "Uložiť výber",
+    "options": {
+      "uniqueCounter": "Počítadlo jedinečného prehliadača (súbor cookie prvej strany)",
+      "yandexWebvisor": "Yandex Webvisor (záznam interakcie)",
+      "microsoftClarity": "Microsoft Clarity (záznam interakcie)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Nastavenia boli uložené.",
+    "saveError": "Nepodarilo sa uložiť nastavenia. Predchádzajúce nastavenia zostávajú aktívne."
+  },
+  "counters": {
+    "pageViews": "Stránka sa načíta",
+    "uniqueBrowsers": "Jedinečný prehliadač"
+  },
+  "notice": {
+    "lastUpdated": "Posledná aktualizácia: 23. septembra 2026",
+    "heading": "Počty návštev, súbory cookie a analýzy",
+    "paragraphs": [
+      "Stránka počíta každé úplné načítanie stránky vrátane opätovného načítania bez vytvorenia identifikátora prehliadača. Na serveri lokality sú uložené súhrnné denné súčty načítania stránky za posledných 365 dní UTC a celkový súčet. Poskytovatelia hostingu môžu na doručenie a zabezpečenie stránky samostatne spracovávať IP adresy a protokoly technického prístupu.",
+      "Počítadlo jedinečného prehliadača je štandardne povolené. Pri prvej návšteve stránka nastaví zabezpečený súbor cookie prehliadača HttpOnly prvej strany s názvom advs_visitor až na 395 dní. Obsahuje náhodnú hodnotu; server uchováva svoj hash SHA-256 a posledný dátum návštevy UTC až 395 dní po tejto návšteve. Počty pokrývajú profily prehliadačov, nie ľudí. Toto počítadlo môžete vypnúť v nastaveniach ochrany osobných údajov na tejto stránke. Keď je zakázaný, počítadlo sa zastaví a stránka požiada o vymazanie súboru cookie tohto prehliadača a uloženého hashu; celkový agregát zostáva. Ak vymazanie zlyhá, požiadavka sa zopakuje pri neskoršom načítaní stránky, zatiaľ čo počítadlo zostane vypnuté.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor a Microsoft Clarity sa tiež predvolene načítajú predtým, ako sa rozhodnete. Títo poskytovatelia môžu prijímať adresy URL stránok, podrobnosti o prehliadači a zariadení, približnú polohu, kliknutia, posúvanie, informácie o reláciách, súbory cookie a podobné identifikátory. Webvisor a Clarity môžu prehrať interakcie so stránkami. Môžu spracovávať údaje mimo vašej krajiny podľa svojich vlastných zásad. Jednotlivé služby môžete vypnúť v nastaveniach ochrany osobných údajov alebo pomocou možnosti Odmietnuť všetko vypnúť všetky voliteľné služby.",
+      "Na tejto stránke sa nachádza tlačidlo Nastavenia súkromia. Prispôsobiť otvorí jednotlivé prepínače zobrazujúce váš aktuálny výber; Uložiť výber použije zmeny. Prijať všetko umožňuje každú službu. Tlačidlo × iba zatvorí panel bez zmeny vášho výberu. Váš výber a jeho dátum sú uložené v localStorage a v preferenčnom súbore cookie prvej strany advs_privacy_choice až na 395 dní. Tento preferenčný súbor cookie obsahuje nastavenia a časovú pečiatku, nie identifikátor návštevníka. Zmena sa uplatní iba vtedy, ak ju možno uložiť aspoň na jednom z týchto miest; inak predchádzajúce nastavenia zostanú aktívne. Bez uloženia výberu sú povolené všetky voliteľné služby. Predvoľby témy a jazyka sa po výbere uložia aj lokálne. Zakázanie analýzy zabráni budúcemu načítaniu po opätovnom načítaní stránky; údaje, ktoré už boli odoslané poskytovateľovi, zostávajú predmetom jeho pravidiel uchovávania a existujúce súbory cookie poskytovateľa môžu zostať, kým sa neodstránia vo vašom prehliadači. V prípade otázok týkajúcich sa ochrany osobných údajov alebo žiadostí o údaje použite kontaktné odkazy na stránke.",
+      "Písma lokality sa poskytujú z tejto lokality a nie sú požadované od spoločnosti Google. Aktuálne hry neukladajú osobné herné záznamy medzi návštevami. Ak sa pridá ukladanie záznamov, pred jeho povolením budú popísané pravidlá jeho ukladania a publikovania."
+    ]
+  }
+}

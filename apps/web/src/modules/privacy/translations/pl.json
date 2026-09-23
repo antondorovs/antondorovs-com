@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Twoje wybory dotyczące prywatności",
+    "description": "Zliczanie i analiza unikalnych przeglądarek są domyślnie włączone. Możesz wyłączyć wszystkie opcjonalne śledzenie lub wybrać poszczególne usługi. Ładowania stron są zawsze liczone bez identyfikatora przeglądarki.",
+    "reject": "Odrzuć wszystko",
+    "accept": "Zaakceptuj wszystko",
+    "close": "Zamknij bez zmian",
+    "rejectHelp": "Ładowania stron są liczone bez identyfikatora przeglądarki.\nLicznik unikalnych przeglądarek i wszystkie usługi analityczne zostaną wyłączone.",
+    "settings": "Ustawienia prywatności",
+    "policy": "Polityka prywatności",
+    "customize": "Dostosuj",
+    "optionsTitle": "Wybierz, co pozostanie włączone",
+    "save": "Zapisz wybór",
+    "options": {
+      "uniqueCounter": "Unikalny licznik przeglądarki (własny plik cookie)",
+      "yandexWebvisor": "Yandex Webvisor (nagrywanie interakcji)",
+      "microsoftClarity": "Microsoft Clarity (nagrywanie interakcji)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Ustawienia zapisane.",
+    "saveError": "Nie można zapisać ustawień. Poprzednie ustawienia pozostają aktywne."
+  },
+  "counters": {
+    "pageViews": "Strona ładuje się",
+    "uniqueBrowsers": "Unikalna przeglądarka"
+  },
+  "notice": {
+    "lastUpdated": "Ostatnia aktualizacja: 23 września 2026 r",
+    "heading": "Liczba odwiedzin, pliki cookie i statystyki",
+    "paragraphs": [
+      "Witryna zlicza każde pełne załadowanie strony, łącznie z ponownym załadowaniem, bez tworzenia identyfikatora przeglądarki. Na serwerze witryny przechowywane są zbiorcze sumy dziennego obciążenia stron z ostatnich 365 dni czasu UTC oraz suma wszystkich czasów. Dostawcy usług hostingowych mogą oddzielnie przetwarzać adresy IP i logi dostępu technicznego w celu dostarczenia i zabezpieczenia witryny.",
+      "Licznik unikalnej przeglądarki jest domyślnie włączony. Podczas pierwszej wizyty witryna ustawia bezpieczny plik cookie przeglądarki HttpOnly o nazwie advs_visitor na okres do 395 dni. Zawiera losową wartość; serwer przechowuje swój skrót SHA-256 i datę ostatniej wizyty w formacie UTC przez maksymalnie 395 dni po tej wizycie. Liczby obejmują profile przeglądarki, a nie ludzi. Możesz wyłączyć ten licznik w ustawieniach prywatności na tej stronie. Po wyłączeniu licznik zatrzymuje się, a witryna żąda usunięcia pliku cookie tej przeglądarki i zapisanego skrótu; pozostaje łączny wynik wszechczasów. Jeśli usunięcie nie powiedzie się, żądanie zostanie ponowione przy późniejszym załadowaniu strony, a licznik pozostanie wyłączony.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor i Microsoft Clarity również ładują się domyślnie, zanim dokonasz wyboru. Dostawcy ci mogą otrzymywać adresy URL stron, szczegóły przeglądarki i urządzenia, przybliżoną lokalizację, kliknięcia, przewijanie, informacje o sesji, pliki cookie i podobne identyfikatory. Webvisor i Clarity mogą odtwarzać interakcje na stronie. Mogą przetwarzać dane poza Twoim krajem zgodnie z własnymi politykami. Możesz wyłączyć każdą usługę w Ustawieniach prywatności lub użyć opcji Odrzuć wszystko, aby wyłączyć każdą usługę opcjonalną.",
+      "Na tej stronie znajduje się przycisk Ustawienia prywatności. Dostosuj otwiera indywidualne przełączniki pokazujące bieżący wybór; Zapisz wybór powoduje zastosowanie zmian. Zaakceptuj wszystko, włącza każdą usługę. Przycisk × zamyka jedynie panel bez zmiany dokonanego wyboru. Twój wybór i jego data są zapisywane w localStorage i we własnym pliku cookie preferencji advs_privacy_choice przez maksymalnie 395 dni. Ten plik cookie preferencji zawiera ustawienia i znacznik czasu, a nie identyfikator odwiedzającego. Zmiana zostaje zastosowana tylko wtedy, gdy można ją zapisać w co najmniej jednym z tych miejsc; w przeciwnym razie poprzednie ustawienia pozostaną aktywne. W przypadku braku zapisanego wyboru wszystkie usługi opcjonalne są włączone. Preferencje dotyczące motywu i języka są również przechowywane lokalnie, jeśli zostaną wybrane. Wyłączenie analiz zapobiega przyszłemu ładowaniu po ponownym załadowaniu strony; dane już wysłane do dostawcy podlegają jego zasadom przechowywania, a istniejące pliki cookie dostawcy mogą pozostać do czasu usunięcia ich w przeglądarce. W przypadku pytań dotyczących prywatności lub żądań danych skorzystaj z łączy kontaktowych znajdujących się na stronie.",
+      "Czcionki witryny są dostarczane z tej witryny, a nie wymagane od Google. Obecne gry nie zapisują osobistych zapisów gier pomiędzy wizytami. Jeżeli dodane zostanie zapisywanie rekordów, zasady jego przechowywania i publikacji zostaną opisane przed jego włączeniem."
+    ]
+  }
+}

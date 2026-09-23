@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Chaguo zako za faragha",
+    "description": "Kuhesabu na uchanganuzi wa kivinjari cha kipekee huwezeshwa kwa chaguomsingi. Unaweza kuzima ufuatiliaji wote wa hiari au uchague huduma mahususi. Mizigo ya ukurasa huhesabiwa kila wakati bila kitambulisho cha kivinjari.",
+    "reject": "Kataa yote",
+    "accept": "Kubali yote",
+    "close": "Funga bila mabadiliko",
+    "rejectHelp": "Mizigo ya ukurasa inasalia kuhesabiwa bila kitambulisho cha kivinjari.\nKaunta ya kipekee ya kivinjari na huduma zote za uchanganuzi zitazimwa.",
+    "settings": "Mipangilio ya faragha",
+    "policy": "Sera ya faragha",
+    "customize": "Geuza kukufaa",
+    "optionsTitle": "Chagua kinachosalia kimewashwa",
+    "save": "Hifadhi uteuzi",
+    "options": {
+      "uniqueCounter": "Kaunta ya kipekee ya kivinjari (kidakuzi cha mtu wa kwanza)",
+      "yandexWebvisor": "Yandex Webvisor (kurekodi mwingiliano)",
+      "microsoftClarity": "Microsoft Clarity (kurekodi mwingiliano)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Mipangilio imehifadhiwa.",
+    "saveError": "Haikuweza kuhifadhi mipangilio. Mipangilio ya awali inasalia kuwa amilifu."
+  },
+  "counters": {
+    "pageViews": "Mizigo ya ukurasa",
+    "uniqueBrowsers": "Kivinjari cha kipekee"
+  },
+  "notice": {
+    "lastUpdated": "Ilisasishwa mwisho: 23 Septemba 2026",
+    "heading": "Tembelea hesabu, vidakuzi na uchanganuzi",
+    "paragraphs": [
+      "Tovuti huhesabu kila upakiaji kamili wa ukurasa, ikijumuisha upakiaji upya, bila kuunda kitambulisho cha kivinjari. Jumlisha jumla ya upakiaji wa ukurasa wa kila siku kwa siku 365 zilizopita za UTC na jumla ya wakati wote huhifadhiwa kwenye seva ya tovuti. Watoa huduma wanaopangisha wanaweza kuchakata anwani za IP tofauti na kumbukumbu za ufikiaji wa kiufundi ili kutoa na kulinda tovuti.",
+      "Kaunta ya kivinjari cha kipekee imewezeshwa kwa chaguomsingi. Katika ziara ya kwanza, tovuti huweka kidakuzi cha kivinjari cha mtu wa kwanza, Salama, HttpOnly kinachoitwa advs_visitor kwa hadi siku 395. Ina thamani ya nasibu; seva huhifadhi heshi yake ya SHA-256 na tarehe ya hivi majuzi zaidi ya kutembelea UTC kwa hadi siku 395 baada ya ziara hiyo. Huhesabu wasifu wa kivinjari wa jalada, sio watu. Unaweza kuzima kaunta hii katika mipangilio ya Faragha kwenye ukurasa huu. Inapozimwa, kaunta itaacha na tovuti inaomba kufutwa kwa kidakuzi cha kivinjari hiki na heshi iliyohifadhiwa; jumla ya wakati wote inabaki. Ufutaji usipofaulu, ombi litajaribiwa tena kwenye upakiaji wa ukurasa wa baadaye huku kaunta ikisalia kuzimwa.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor, na Microsoft Clarity pia hupakia kwa chaguo-msingi, kabla ya kufanya chaguo. Watoa huduma hawa wanaweza kupokea URL za ukurasa, maelezo ya kivinjari na kifaa, kadirio la mahali, mibofyo, kusogeza, maelezo ya kipindi, vidakuzi na vitambulishi sawa. Webvisor na Uwazi zinaweza kucheza tena mwingiliano wa ukurasa. Wanaweza kuchakata data nje ya nchi yako kulingana na sera zao. Unaweza kuzima kila huduma katika mipangilio ya Faragha au utumie Kataa yote ili kuzima kila huduma ya hiari.",
+      "Kitufe cha mipangilio ya Faragha kiko kwenye ukurasa huu. Kubinafsisha hufungua swichi za kibinafsi zinazoonyesha chaguo lako la sasa; Uteuzi wa kuhifadhi hutumika mabadiliko. Kubali yote huwezesha kila huduma. Kitufe cha × hufunga kidirisha pekee bila kubadilisha chaguo lako. Uchaguzi wako na tarehe yake zimehifadhiwa katika localStorage na katika kidakuzi cha mapendeleo cha advs_privacy_choice cha mtu wa kwanza kwa hadi siku 395. Kidakuzi hiki cha mapendeleo kina mipangilio na muhuri wa muda, si kitambulisho cha mgeni. Mabadiliko yanatumika tu ikiwa yanaweza kuhifadhiwa katika angalau moja ya maeneo haya; vinginevyo mipangilio ya awali itasalia amilifu. Bila uteuzi uliohifadhiwa, huduma zote za hiari zimewashwa. Mapendeleo ya mandhari na lugha pia huhifadhiwa ndani ya nchi yanapochaguliwa. Kuzima uchanganuzi huzuia upakiaji wa siku zijazo baada ya upakiaji upya wa ukurasa; data ambayo tayari imetumwa kwa mtoa huduma inasalia chini ya sheria zake za kuhifadhi, na vidakuzi vilivyopo vya watoa huduma vinaweza kubaki hadi viondolewe kwenye kivinjari chako. Kwa maswali ya faragha au maombi ya data, tumia viungo vya mawasiliano kwenye tovuti.",
+      "Fonti za tovuti zinatolewa kutoka kwa tovuti hii badala ya kuombwa kutoka kwa Google. Michezo ya sasa haihifadhi rekodi za mchezo wa kibinafsi kati ya ziara. Uhifadhi wa rekodi ukiongezwa, sheria zake za uhifadhi na uchapishaji zitaelezwa kabla ya kuwezeshwa."
+    ]
+  }
+}

@@ -15,7 +15,7 @@ import { hrTranslation } from './siteCopyHr.js';
 import { huTranslation } from './siteCopyHu.js';
 import { hyTranslation } from './siteCopyHy.js';
 import { isTranslation } from './siteCopyIs.js';
-import { jvTranslation } from './siteCopyJv.js';
+import { idTranslation } from './siteCopyId.js';
 import { kaTranslation } from './siteCopyKa.js';
 import { ltTranslation } from './siteCopyLt.js';
 import { lvTranslation } from './siteCopyLv.js';
@@ -52,7 +52,7 @@ export const additionalTranslations = Object.fromEntries(Object.entries({
   hu: huTranslation,
   hy: hyTranslation,
   is: isTranslation,
-  jv: jvTranslation,
+  id: idTranslation,
   ka: kaTranslation,
   lt: ltTranslation,
   lv: lvTranslation,

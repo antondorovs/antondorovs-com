@@ -29,7 +29,7 @@ const additionalTranslationLoaders = {
   hu: () => import('./siteCopyHu.js').then((m) => m.huTranslation),
   hy: () => import('./siteCopyHy.js').then((m) => m.hyTranslation),
   is: () => import('./siteCopyIs.js').then((m) => m.isTranslation),
-  jv: () => import('./siteCopyJv.js').then((m) => m.jvTranslation),
+  id: () => import('./siteCopyId.js').then((m) => m.idTranslation),
   ka: () => import('./siteCopyKa.js').then((m) => m.kaTranslation),
   lt: () => import('./siteCopyLt.js').then((m) => m.ltTranslation),
   lv: () => import('./siteCopyLv.js').then((m) => m.lvTranslation),

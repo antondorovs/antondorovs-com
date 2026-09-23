@@ -1,6 +1,7 @@
 import { privacyPolicyRoute } from '../../app/routes.js';
-import { useSiteCopy } from '../../shared/i18n/LanguageProvider.jsx';
+import { useLanguage } from '../../shared/i18n/LanguageProvider.jsx';
 import { VisitCounter } from './VisitCounter.jsx';
+import { withoutFinalStop } from './formatNotice.js';
 import './Footer.css';
 
 const environmentLinks = [
@@ -17,16 +18,15 @@ const environmentLinks = [
 ];
 
 export function Footer() {
-  const copy = useSiteCopy();
+  const { copy } = useLanguage();
 
   return (
     <footer className="site-footer">
       <p className="site-footer__notice">
-        <span dir="auto">{copy.footer.notice.site}</span>
+        <span dir="auto">{withoutFinalStop(copy.footer.notice.site)}</span>
         <span dir="auto">{copy.footer.notice.privacyPrefix.trim()}</span>
         <span dir="auto">
-          <a href={privacyPolicyRoute.route}>{copy.footer.notice.privacyLink}</a>
-          {copy.footer.notice.privacySuffix}
+          <a href={privacyPolicyRoute.route}>{withoutFinalStop(copy.footer.notice.privacyLink)}</a>
         </span>
       </p>
 

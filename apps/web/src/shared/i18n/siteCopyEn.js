@@ -286,10 +286,10 @@ export const enCopy = {
       },
     },
     notice: {
-      site: 'Personal non-commercial site.',
+      site: 'Personal non-commercial site',
       privacyPrefix: 'For more information:',
       privacyLink: 'Privacy Policy & Legal Notice',
-      privacySuffix: '.',
+      privacySuffix: '',
     },
     environmentsTitle: 'Environments',
     environmentsAriaLabel: 'Environment links',

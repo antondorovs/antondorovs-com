@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Suas escolhas de privacidade",
+    "description": "A contagem e análise de navegador exclusivo são habilitadas por padrão. Você pode desativar todos os rastreamentos opcionais ou escolher serviços individuais. Os carregamentos de página são sempre contados sem um identificador de navegador.",
+    "reject": "Recusar tudo",
+    "accept": "Aceitar tudo",
+    "close": "Fechar sem alterações",
+    "rejectHelp": "Os carregamentos de páginas permanecem contados sem um identificador de navegador.\nO contador exclusivo do navegador e todos os serviços analíticos serão desativados.",
+    "settings": "Configurações de privacidade",
+    "policy": "Política de privacidade",
+    "customize": "Personalizar",
+    "optionsTitle": "Escolha o que permanece ativado",
+    "save": "Salvar seleção",
+    "options": {
+      "uniqueCounter": "Contador de navegador exclusivo (cookie primário)",
+      "yandexWebvisor": "Yandex Webvisor (gravação de interação)",
+      "microsoftClarity": "Microsoft Clarity (gravação de interação)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Configurações salvas.",
+    "saveError": "Não foi possível salvar as configurações. As configurações anteriores permanecem ativas."
+  },
+  "counters": {
+    "pageViews": "Carregamento de página",
+    "uniqueBrowsers": "Navegador exclusivo"
+  },
+  "notice": {
+    "lastUpdated": "Última atualização: 23 de setembro de 2026",
+    "heading": "Contagens de visitas, cookies e análises",
+    "paragraphs": [
+      "O site conta cada carregamento completo de página, incluindo recargas, sem criar um identificador de navegador. Os totais diários agregados de carregamento de página dos últimos 365 dias UTC e um total total são armazenados no servidor do site. Os provedores de hospedagem podem processar separadamente endereços IP e logs de acesso técnico para entregar e proteger o site.",
+      "O contador de navegador exclusivo é habilitado por padrão. Na primeira visita, o site define um cookie de navegador HttpOnly seguro e primário chamado advs_visitor por até 395 dias. Contém um valor aleatório; o servidor armazena seu hash SHA-256 e a data de visita UTC mais recente por até 395 dias após essa visita. As contagens abrangem perfis de navegador, não pessoas. Você pode desativar este contador nas configurações de privacidade desta página. Quando desabilitado, o contador para e o site solicita a exclusão do cookie e do hash armazenado deste navegador; o agregado de todos os tempos permanece. Se a exclusão falhar, a solicitação será repetida em um carregamento de página posterior enquanto o contador permanecer desativado.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor e Microsoft Clarity também carregam por padrão, antes de você fazer uma escolha. Esses provedores podem receber URLs de páginas, detalhes do navegador e do dispositivo, localização aproximada, cliques, rolagem, informações de sessão, cookies e identificadores semelhantes. O Webvisor e o Clarity podem reproduzir interações de páginas. Eles podem processar dados fora do seu país de acordo com as suas próprias políticas. Você pode desativar cada serviço nas configurações de privacidade ou usar Recusar tudo para desativar todos os serviços opcionais.",
+      "O botão Configurações de privacidade está nesta página. Personalizar abre opções individuais mostrando sua seleção atual; A seleção Salvar aplica as alterações. Aceitar tudo ativa todos os serviços. O botão × apenas fecha o painel sem alterar sua seleção. Sua seleção e sua data são salvas no localStorage e no cookie de preferência advs_privacy_choice original por até 395 dias. Este cookie de preferência contém configurações e um carimbo de data/hora, não um identificador de visitante. Uma alteração será aplicada somente se puder ser salva em pelo menos um desses locais; caso contrário, as configurações anteriores permanecerão ativas. Sem nenhuma seleção salva, todos os serviços opcionais são ativados. As preferências de tema e idioma também são armazenadas localmente quando selecionadas. Desabilitar a análise evita carregamento futuro após o recarregamento da página; os dados já enviados a um provedor permanecem sujeitos às suas regras de retenção, e os cookies existentes do provedor podem permanecer até serem removidos do seu navegador. Para questões de privacidade ou solicitações de dados, utilize os links de contato no site.",
+      "As fontes do site são veiculadas neste site, e não solicitadas ao Google. Os jogos atuais não salvam registros pessoais de jogos entre visitas. Se o salvamento de registros for adicionado, suas regras de armazenamento e publicação serão descritas antes de ser habilitado."
+    ]
+  }
+}

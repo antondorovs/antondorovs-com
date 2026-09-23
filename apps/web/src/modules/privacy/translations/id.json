@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Pilihan privasi Anda",
+    "description": "Penghitungan dan analitik browser unik diaktifkan secara default. Anda dapat menonaktifkan semua pelacakan opsional atau memilih layanan individual. Pemuatan halaman selalu dihitung tanpa pengenal browser.",
+    "reject": "Tolak semuanya",
+    "accept": "Terima semuanya",
+    "close": "Tutup tanpa perubahan",
+    "rejectHelp": "Pemuatan halaman tetap dihitung tanpa pengenal browser.\nPenghitung browser unik dan semua layanan analitik akan dinonaktifkan.",
+    "settings": "Pengaturan privasi",
+    "policy": "Kebijakan privasi",
+    "customize": "Sesuaikan",
+    "optionsTitle": "Pilih apa yang tetap diaktifkan",
+    "save": "Simpan pilihan",
+    "options": {
+      "uniqueCounter": "Penghitung browser unik (cookie pihak pertama)",
+      "yandexWebvisor": "Yandex Webvisor (rekaman interaksi)",
+      "microsoftClarity": "Microsoft Clarity (rekaman interaksi)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Pengaturan disimpan.",
+    "saveError": "Tidak dapat menyimpan pengaturan. Pengaturan sebelumnya tetap aktif."
+  },
+  "counters": {
+    "pageViews": "Halaman dimuat",
+    "uniqueBrowsers": "Peramban unik"
+  },
+  "notice": {
+    "lastUpdated": "Terakhir diperbarui: 23 September 2026",
+    "heading": "Jumlah kunjungan, cookie, dan analitik",
+    "paragraphs": [
+      "Situs ini menghitung setiap pemuatan halaman penuh, termasuk memuat ulang, tanpa membuat pengenal browser. Total total pemuatan halaman harian selama 365 hari UTC terakhir dan total sepanjang masa disimpan di server situs. Penyedia hosting dapat secara terpisah memproses alamat IP dan log akses teknis untuk mengirimkan dan mengamankan situs.",
+      "Penghitung browser unik diaktifkan secara default. Pada kunjungan pertama, situs menetapkan cookie browser HttpOnly pihak pertama yang aman bernama advs_visitor hingga 395 hari. Ini berisi nilai acak; server menyimpan hash SHA-256 dan tanggal kunjungan UTC terbaru hingga 395 hari setelah kunjungan tersebut. Jumlahnya mencakup profil browser, bukan orang. Anda dapat menonaktifkan penghitung ini di pengaturan Privasi di halaman ini. Jika dinonaktifkan, penghitung berhenti dan situs meminta penghapusan cookie browser ini dan hash yang disimpan; agregat sepanjang masa tetap ada. Jika penghapusan gagal, permintaan akan dicoba lagi pada pemuatan halaman berikutnya sementara penghitung tetap dinonaktifkan.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor, dan Microsoft Clarity juga dimuat secara default, sebelum Anda menentukan pilihan. Penyedia ini dapat menerima URL halaman, detail browser dan perangkat, perkiraan lokasi, klik, pengguliran, informasi sesi, cookie, dan pengidentifikasi serupa. Webvisor dan Clarity dapat memutar ulang interaksi halaman. Mereka dapat memproses data di luar negara Anda sesuai dengan kebijakan mereka sendiri. Anda dapat mematikan setiap layanan di pengaturan Privasi atau menggunakan Tolak semua untuk mematikan setiap layanan opsional.",
+      "Tombol pengaturan Privasi ada di halaman ini. Kustomisasi membuka sakelar individual yang menunjukkan pilihan Anda saat ini; Simpan pilihan menerapkan perubahan. Terima semua mengaktifkan setiap layanan. Tombol × hanya menutup panel tanpa mengubah pilihan Anda. Pilihan Anda dan tanggalnya disimpan di localStorage dan di cookie preferensi advs_privacy_choice pihak pertama hingga 395 hari. Cookie preferensi ini berisi pengaturan dan stempel waktu, bukan pengidentifikasi pengunjung. Perubahan diterapkan hanya jika perubahan dapat disimpan setidaknya di salah satu tempat berikut; jika tidak, pengaturan sebelumnya tetap aktif. Tanpa pilihan tersimpan, semua layanan opsional diaktifkan. Preferensi tema dan bahasa juga disimpan secara lokal saat dipilih. Menonaktifkan analitik mencegah pemuatan di masa mendatang setelah halaman dimuat ulang; data yang sudah dikirim ke penyedia tetap tunduk pada aturan penyimpanannya, dan cookie penyedia yang ada mungkin tetap ada hingga dihapus di browser Anda. Untuk pertanyaan privasi atau permintaan data, gunakan tautan kontak di situs.",
+      "Font situs disajikan dari situs ini dan bukan diminta dari Google. Permainan saat ini tidak menyimpan catatan permainan pribadi di antara kunjungan. Jika penyimpanan rekaman ditambahkan, aturan penyimpanan dan publikasinya akan dijelaskan sebelum diaktifkan."
+    ]
+  }
+}

@@ -17,7 +17,7 @@ const labels = {
   hu: ['Főoldal', 'Belépés', 'Alkalmaz', 'Törlés', 'Indítás', 'Véletlen', 'Sötét', 'Világos'],
   hy: ['Գլխավոր', 'Մուտք', 'Կիրառել', 'Մաքրել', 'Սկսել', 'Պատահական', 'Մուգ', 'Բաց'],
   is: ['Heim', 'Innskráning', 'Virkja', 'Hreinsa', 'Byrja', 'Slembið', 'Dökkt', 'Ljóst'],
-  jv: ['Ngarep', 'Mlebu', 'Trapake', 'Busak', 'Miwiti', 'Acak', 'Peteng', 'Padhang'],
+  id: ['Beranda', 'Masuk', 'Terapkan', 'Bersihkan', 'Mulai', 'Acak', 'Gelap', 'Terang'],
   ka: ['მთავარი', 'შესვლა', 'გამოყენება', 'გასუფთავება', 'დაწყება', 'შემთხვევითი', 'მუქი', 'ღია'],
   lt: ['Pradžia', 'Prisijungti', 'Taikyti', 'Išvalyti', 'Pradėti', 'Atsitiktinai', 'Tamsi', 'Šviesi'],
   lv: ['Sākums', 'Ienākt', 'Lietot', 'Notīrīt', 'Sākt', 'Nejauši', 'Tumšs', 'Gaišs'],

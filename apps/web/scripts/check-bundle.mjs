@@ -24,7 +24,8 @@ for (const { id } of languageOptions) {
     if (imported.includes('/siteCopy')) assert.equal(imported, key, 'A language eagerly imports another language');
   }
 }
-for (const component of ['dino/DinoGame', 'snake/SnakeGame', 'flappy-bird/FlappyBirdGame', 'game-of-life/GameOfLife', 'snake-unlimited/SnakeUnlimitedGame']) {
+const gameComponents = ['dino/DinoGame', 'snake/SnakeGame', 'flappy-bird/FlappyBirdGame', 'game-of-life/GameOfLife'];
+for (const component of gameComponents) {
   const key = `src/games/${component}.jsx`;
   assert.ok(manifest[key]?.isDynamicEntry, `Game is not independently loadable: ${component}`);
   for (const imported of staticGraph(key)) {
@@ -45,4 +46,4 @@ for (const image of ['wall_quality.webp', 'AntonDorovs.webp']) {
 }
 assert.ok(imageBytes < 650_000, `Home images too large: ${imageBytes}`);
 assert.ok(!Object.keys(manifest).some((key) => /assets\/site\/.*\.(png|PNG)$/.test(key)), 'Unoptimized site PNG included');
-console.log(JSON.stringify({ initialJavaScriptBytes: bytes, initialJavaScriptGzipBytes: gzip, homeImageBytes: imageBytes, independentlyLoadedLanguages: languageOptions.length, independentlyLoadedGames: 5 }, null, 2));
+console.log(JSON.stringify({ initialJavaScriptBytes: bytes, initialJavaScriptGzipBytes: gzip, homeImageBytes: imageBytes, independentlyLoadedLanguages: languageOptions.length, independentlyLoadedGames: gameComponents.length }, null, 2));

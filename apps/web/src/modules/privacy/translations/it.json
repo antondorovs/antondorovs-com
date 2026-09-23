@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Le tue scelte sulla privacy",
+    "description": "Il conteggio e l'analisi dei browser unici sono abilitati per impostazione predefinita. Puoi disattivare tutto il tracciamento opzionale o scegliere singoli servizi. I caricamenti delle pagine vengono sempre conteggiati senza un identificatore del browser.",
+    "reject": "Rifiuta tutto",
+    "accept": "Accetta tutto",
+    "close": "Chiudi senza modifiche",
+    "rejectHelp": "I caricamenti delle pagine rimangono conteggiati senza un identificatore del browser.\nIl contatore del browser unico e tutti i servizi di analisi verranno disabilitati.",
+    "settings": "Impostazioni sulla privacy",
+    "policy": "Informativa sulla privacy",
+    "customize": "Personalizza",
+    "optionsTitle": "Scegli cosa rimane abilitato",
+    "save": "Salva la selezione",
+    "options": {
+      "uniqueCounter": "Contatore browser unico (cookie di prima parte)",
+      "yandexWebvisor": "Yandex Webvisor (registrazione delle interazioni)",
+      "microsoftClarity": "Microsoft Clarity (registrazione delle interazioni)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Impostazioni salvate.",
+    "saveError": "Impossibile salvare le impostazioni. Le impostazioni precedenti rimangono attive."
+  },
+  "counters": {
+    "pageViews": "La pagina viene caricata",
+    "uniqueBrowsers": "Browser unico"
+  },
+  "notice": {
+    "lastUpdated": "Ultimo aggiornamento: 23 settembre 2026",
+    "heading": "Conteggi delle visite, cookie e analisi",
+    "paragraphs": [
+      "Il sito conta ogni caricamento completo della pagina, inclusi i ricaricamenti, senza creare un identificatore del browser. I totali giornalieri aggregati di caricamento delle pagine per gli ultimi 365 giorni UTC e il totale assoluto vengono archiviati sul server del sito. I fornitori di hosting possono elaborare separatamente gli indirizzi IP e i registri di accesso tecnico per fornire e proteggere il sito.",
+      "Il contatore del browser unico è abilitato per impostazione predefinita. Alla prima visita, il sito imposta un cookie del browser proprietario, sicuro, HttpOnly denominato advs_visitor per un massimo di 395 giorni. Contiene un valore casuale; il server memorizza l'hash SHA-256 e la data della visita UTC più recente fino a 395 giorni dopo tale visita. I conteggi riguardano i profili del browser, non le persone. Puoi disabilitare questo contatore nelle impostazioni sulla privacy in questa pagina. Quando disabilitato, il contatore si ferma e il sito richiede l'eliminazione del cookie di questo browser e dell'hash memorizzato; rimane l'aggregato di tutti i tempi. Se l'eliminazione fallisce, la richiesta viene ritentata al caricamento successivo della pagina mentre il contatore rimane disabilitato.",
+      "Anche Google Analytics, Yandex Metrica, Yandex Webvisor e Microsoft Clarity vengono caricati per impostazione predefinita, prima di fare una scelta. Questi fornitori possono ricevere URL di pagine, dettagli del browser e del dispositivo, posizione approssimativa, clic, scorrimento, informazioni sulla sessione, cookie e identificatori simili. Webvisor e Clarity potrebbero riprodurre le interazioni della pagina. Possono elaborare i dati al di fuori del tuo Paese in base alle proprie politiche. Puoi disattivare ciascun servizio nelle impostazioni sulla privacy o utilizzare Rifiuta tutto per disattivare ogni servizio opzionale.",
+      "Il pulsante Impostazioni privacy si trova in questa pagina. Personalizza apre i singoli interruttori che mostrano la selezione corrente; La selezione salvata applica le modifiche. Accetta tutto abilita tutti i servizi. Il pulsante × chiude solo il pannello senza modificare la selezione. La tua selezione e la relativa data vengono salvate nel localStorage e nel cookie di preferenza advs_privacy_choice di prima parte per un massimo di 395 giorni. Questo cookie di preferenza contiene impostazioni e un timestamp, non un identificatore del visitatore. Una modifica viene applicata solo se può essere salvata in almeno uno di questi posti; in caso contrario restano attive le impostazioni precedenti. Senza alcuna selezione salvata, tutti i servizi opzionali sono abilitati. Anche le preferenze relative al tema e alla lingua vengono memorizzate localmente quando selezionate. La disabilitazione dell'analisi impedisce il caricamento futuro dopo il ricaricamento della pagina; i dati già inviati a un fornitore rimangono soggetti alle sue regole di conservazione e i cookie del fornitore esistente potrebbero rimanere finché non vengono rimossi nel tuo browser. Per domande sulla privacy o richieste di dati, utilizzare i collegamenti di contatto presenti sul sito.",
+      "I caratteri del sito vengono forniti da questo sito anziché richiesti da Google. I giochi attuali non salvano i record di gioco personali tra una visita e l'altra. Se viene aggiunto il salvataggio dei record, le relative regole di archiviazione e pubblicazione verranno descritte prima che venga abilitato."
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Tus opciones de privacidad",
+    "description": "El recuento y el análisis de navegadores únicos están habilitados de forma predeterminada. Puede desactivar todo el seguimiento opcional o elegir servicios individuales. Las cargas de páginas siempre se cuentan sin un identificador de navegador.",
+    "reject": "Rechazar todo",
+    "accept": "Aceptar todo",
+    "close": "Cerrar sin cambios",
+    "rejectHelp": "Las cargas de páginas siguen contabilizándose sin un identificador de navegador.\nSe desactivarán el contador de navegador único y todos los servicios de análisis.",
+    "settings": "Configuración de privacidad",
+    "policy": "Política de privacidad",
+    "customize": "Personalizar",
+    "optionsTitle": "Elige lo que permanece habilitado",
+    "save": "Guardar selección",
+    "options": {
+      "uniqueCounter": "Contador de navegador único (cookie de origen)",
+      "yandexWebvisor": "Yandex Webvisor (grabación de interacción)",
+      "microsoftClarity": "Microsoft Clarity (grabación de interacción)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Configuraciones guardadas.",
+    "saveError": "No se pudieron guardar los ajustes. La configuración anterior permanece activa."
+  },
+  "counters": {
+    "pageViews": "Cargas de página",
+    "uniqueBrowsers": "Navegador único"
+  },
+  "notice": {
+    "lastUpdated": "Última actualización: 23 de septiembre de 2026",
+    "heading": "Recuento de visitas, cookies y análisis",
+    "paragraphs": [
+      "El sitio cuenta cada carga de página completa, incluidas las recargas, sin crear un identificador de navegador. Los totales diarios agregados de carga de páginas de los últimos 365 días UTC y un total de todos los tiempos se almacenan en el servidor del sitio. Los proveedores de alojamiento pueden procesar por separado direcciones IP y registros de acceso técnico para entregar y proteger el sitio.",
+      "El contador de navegador único está habilitado de forma predeterminada. En la primera visita, el sitio establece una cookie de navegador HttpOnly segura y propia llamada advs_visitor por hasta 395 días. Contiene un valor aleatorio; el servidor almacena su hash SHA-256 y la fecha de visita UTC más reciente durante un máximo de 395 días después de esa visita. Los recuentos cubren los perfiles del navegador, no las personas. Puede desactivar este contador en la configuración de Privacidad de esta página. Cuando está deshabilitado, el contador se detiene y el sitio solicita la eliminación de la cookie de este navegador y del hash almacenado; el agregado de todos los tiempos permanece. Si la eliminación falla, la solicitud se reintenta en una carga de página posterior mientras el contador permanece deshabilitado.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor y Microsoft Clarity también se cargan de forma predeterminada, antes de tomar una decisión. Estos proveedores pueden recibir URL de páginas, detalles del navegador y del dispositivo, ubicación aproximada, clics, desplazamiento, información de sesión, cookies e identificadores similares. Webvisor y Clarity pueden reproducir las interacciones de la página. Pueden procesar datos fuera de su país según sus propias políticas. Puede desactivar cada servicio en la configuración de Privacidad o usar Rechazar todo para desactivar todos los servicios opcionales.",
+      "El botón de configuración de privacidad se encuentra en esta página. Personalizar abre interruptores individuales que muestran su selección actual; Guardar selección aplica los cambios. Aceptar todo habilita todos los servicios. El botón × solo cierra el panel sin cambiar su selección. Su selección y su fecha se guardan en localStorage y en la cookie de preferencia propia advs_privacy_choice por hasta 395 días. Esta cookie de preferencia contiene configuraciones y una marca de tiempo, no un identificador de visitante. Un cambio se aplica sólo si se puede guardar en al menos uno de estos lugares; de lo contrario, la configuración anterior permanece activa. Sin una selección guardada, todos los servicios opcionales están habilitados. Las preferencias de tema e idioma también se almacenan localmente cuando se seleccionan. Deshabilitar el análisis evita la carga futura después de que se recarga la página; Los datos ya enviados a un proveedor permanecen sujetos a sus reglas de retención, y las cookies de proveedores existentes pueden permanecer hasta que se eliminen de su navegador. Para preguntas sobre privacidad o solicitudes de datos, utilice los enlaces de contacto en el sitio.",
+      "Las fuentes del sitio se proporcionan desde este sitio en lugar de solicitarse a Google. Los juegos actuales no guardan registros personales de juegos entre visitas. Si se agrega el guardado de registros, sus reglas de almacenamiento y publicación se describirán antes de habilitarlo."
+    ]
+  }
+}

@@ -3,3 +3,7 @@
   display: grid;
   gap: 18px;
 }
+
+.about-section__copy p {
+  text-align: justify;
+}

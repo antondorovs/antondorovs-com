@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 're
 import { HomePage } from '../pages/HomePage/HomePage.jsx';
 import { LoadingIndicator, LoadErrorBoundary } from '../shared/ui/DeferredContent.jsx';
 import { AnalyticsScripts } from '../modules/analytics/AnalyticsScripts.jsx';
+import { ConsentBanner } from '../modules/privacy/ConsentBanner.jsx';
 import { getGameByRoute, isPrivacyPolicyRoute } from './routes.js';
 
 const ROUTE_TRANSITION_DURATION_MS = 300;
@@ -76,6 +77,7 @@ export function App() {
           {isPrivacyPolicy ? <PrivacyPolicyPage /> : game ? <GamePage game={game} /> : <HomePage />}
         </Suspense>
       </LoadErrorBoundary>
+      <ConsentBanner />
     </>
   );
 }

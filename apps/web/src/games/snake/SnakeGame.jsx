@@ -1,117 +1,100 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import groundImage from '../../assets/games/snake/ground.png';
-import foodImage from '../../assets/games/snake/food.png';
 import { useSiteCopy } from '../../shared/i18n/LanguageProvider.jsx';
+import { useGameKeys, useGamePlay, useGameSession } from '../shared/GameSession.jsx';
+import { createSnake, stepSnake, turnSnake, swipeDirection } from './snakeEngine.js';
 import './SnakeGame.css';
 
+const KEYS = ['arrowleft', 'arrowright', 'arrowup', 'arrowdown', 'a', 'd', 'w', 's'];
+const DIRECTIONS = { arrowleft: 'left', a: 'left', arrowright: 'right', d: 'right', arrowup: 'up', w: 'up', arrowdown: 'down', s: 'down' };
 const BOX = 32;
-const BOARD_SIZE = 608;
 
 export function SnakeGame() {
   const canvasRef = useRef(null);
-  const keyDownHandlerRef = useRef(null);
-  const copy = useSiteCopy();
+  const pointerRef = useRef(null);
+  const imagesRef = useRef({});
+  const [imageVersion, setImageVersion] = useState(0);
+  const [game, setGame] = useState(createSnake);
+  const { running, copy } = useGameSession();
+  const siteCopy = useSiteCopy();
+  const turn = useCallback((direction) => setGame((current) => turnSnake(current, direction)), []);
+  const onKey = useCallback((key) => turn(DIRECTIONS[key]), [turn]);
+  useGameKeys(onKey, KEYS);
+  const resetGame = useCallback(() => setGame(createSnake()), []);
+  useGamePlay((initialKey) => {
+    if (game.over) resetGame();
+    if (KEYS.includes(initialKey)) turn(DIRECTIONS[initialKey]);
+  }, game.over, game.score, resetGame);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const context = canvas.getContext('2d');
     const ground = new Image();
-    const food = new Image();
+    ground.onload = () => setImageVersion((value) => value + 1);
     ground.src = groundImage;
-    food.src = foodImage;
-
-    let score = 0;
-    let direction;
-    let foodPosition = createFood();
-    let snake = [{ x: 9 * BOX, y: 10 * BOX }];
-
-    keyDownHandlerRef.current = (event) => {
-      const key = event.key.toLowerCase();
-
-      if (event.key.startsWith('Arrow')) {
-        event.preventDefault();
-      }
-
-      if ((event.key === 'ArrowLeft' || key === 'a') && direction !== 'right') {
-        direction = 'left';
-      } else if ((event.key === 'ArrowUp' || key === 'w') && direction !== 'down') {
-        direction = 'up';
-      } else if ((event.key === 'ArrowRight' || key === 'd') && direction !== 'left') {
-        direction = 'right';
-      } else if ((event.key === 'ArrowDown' || key === 's') && direction !== 'up') {
-        direction = 'down';
-      }
-    };
-
-    const drawGame = () => {
-      context.drawImage(ground, 0, 0);
-      context.drawImage(food, foodPosition.x, foodPosition.y);
-
-      snake.forEach((part, index) => {
-        context.fillStyle = index === 0 ? 'green' : 'red';
-        context.fillRect(part.x, part.y, BOX, BOX);
-      });
-
-      context.fillStyle = 'white';
-      context.font = '50px Arial';
-      context.fillText(score, BOX * 2.5, BOX * 1.7);
-
-      let snakeX = snake[0].x;
-      let snakeY = snake[0].y;
-
-      if (snakeX === foodPosition.x && snakeY === foodPosition.y) {
-        score += 1;
-        foodPosition = createFood();
-      } else {
-        snake.pop();
-      }
-
-      if (snakeX < BOX || snakeX > BOX * 17 || snakeY < 3 * BOX || snakeY > BOX * 17) {
-        window.clearInterval(gameLoop);
-      }
-
-      if (direction === 'left') snakeX -= BOX;
-      if (direction === 'right') snakeX += BOX;
-      if (direction === 'up') snakeY -= BOX;
-      if (direction === 'down') snakeY += BOX;
-
-      const newHead = { x: snakeX, y: snakeY };
-
-      if (snake.some((part) => part.x === newHead.x && part.y === newHead.y)) {
-        window.clearInterval(gameLoop);
-      }
-
-      snake.unshift(newHead);
-    };
-
-    const gameLoop = window.setInterval(drawGame, 100);
-
-    return () => {
-      keyDownHandlerRef.current = null;
-      window.clearInterval(gameLoop);
-    };
+    imagesRef.current = { ground };
+    return () => { ground.onload = null; };
   }, []);
 
-  const handleCanvasKeyDown = (event) => {
-    keyDownHandlerRef.current?.(event);
-  };
+  useEffect(() => {
+    if (!running || game.over) return undefined;
+    const timer = window.setInterval(() => setGame(stepSnake), 130);
+    return () => window.clearInterval(timer);
+  }, [running, game.over]);
+
+  useEffect(() => {
+    const context = canvasRef.current.getContext('2d');
+    const { ground } = imagesRef.current;
+    context.fillStyle = '#b4d15b';
+    context.fillRect(0, 0, 608, 608);
+    if (ground?.complete && ground.naturalWidth) context.drawImage(ground, 0, 0);
+    if (game.food) {
+      context.font = '27px "Segoe UI Emoji", "Apple Color Emoji", sans-serif';
+      context.textAlign = 'center';
+      context.textBaseline = 'middle';
+      context.fillText(game.food.emoji ?? '🥕', game.food.x * BOX + BOX / 2, game.food.y * BOX + BOX / 2);
+    }
+    game.snake.forEach((part, index) => {
+      context.fillStyle = index === 0 ? '#175c20' : '#d33131';
+      context.fillRect(part.x * BOX, part.y * BOX, BOX, BOX);
+    });
+    context.fillStyle = 'white';
+    context.font = '50px Arial';
+    context.textAlign = 'start';
+    context.textBaseline = 'alphabetic';
+    context.fillText(game.score, BOX * 2.5, BOX * 1.7);
+  }, [game, imageVersion]);
+
+  useEffect(() => { if (!running) pointerRef.current = null; }, [running]);
 
   return (
-    <canvas
-      className="snake-game"
-      ref={canvasRef}
-      width={BOARD_SIZE}
-      height={BOARD_SIZE}
-      tabIndex={0}
-      aria-label={copy.games.snakeBoardLabel}
-      onKeyDown={handleCanvasKeyDown}
-    />
+    <section className="snake-layout">
+      <div className="snake-layout__board">
+        <canvas className="snake-game" ref={canvasRef} width={608} height={608} tabIndex={0}
+          aria-label={siteCopy.games.snakeUnlimitedBoardLabel ?? siteCopy.games.snakeBoardLabel}
+          onPointerDown={(event) => {
+            if (!running || !event.isPrimary || event.button !== 0) return;
+            event.currentTarget.focus({ preventScroll: true });
+            event.currentTarget.setPointerCapture(event.pointerId);
+            pointerRef.current = { x: event.clientX, y: event.clientY, id: event.pointerId };
+          }}
+          onPointerMove={(event) => {
+            const start = pointerRef.current;
+            if (!running || !start || start.id !== event.pointerId) return;
+            const direction = swipeDirection(event.clientX - start.x, event.clientY - start.y);
+            if (direction) {
+              turn(direction);
+              pointerRef.current = { x: event.clientX, y: event.clientY, id: event.pointerId };
+            }
+          }}
+          onPointerUp={() => { pointerRef.current = null; }}
+          onPointerCancel={() => { pointerRef.current = null; }}
+          onLostPointerCapture={() => { pointerRef.current = null; }} />
+      </div>
+      <div className="snake-directions" role="group" aria-label={copy.controls}>
+        {[['up', '↑'], ['left', '←'], ['down', '↓'], ['right', '→']].map(([direction, arrow]) => (
+          <button key={direction} className={`snake-directions__${direction}`} type="button" aria-label={copy[direction]}
+            onClick={() => { if (running) turn(direction); }}>{arrow}</button>
+        ))}
+      </div>
+    </section>
   );
-}
-
-function createFood() {
-  return {
-    x: Math.floor(Math.random() * 17 + 1) * BOX,
-    y: Math.floor(Math.random() * 15 + 3) * BOX,
-  };
 }

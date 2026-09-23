@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Ihre Datenschutzoptionen",
+    "description": "Die Zählung und Analyse eindeutiger Browser ist standardmäßig aktiviert. Sie können das gesamte optionale Tracking deaktivieren oder einzelne Dienste auswählen. Seitenladevorgänge werden immer ohne Browserkennung gezählt.",
+    "reject": "Alles ablehnen",
+    "accept": "Akzeptiere alles",
+    "close": "Ohne Änderungen schließen",
+    "rejectHelp": "Seitenaufrufe bleiben ohne Browserkennung gezählt.\nDer Unique-Browser-Zähler und alle Analysedienste werden deaktiviert.",
+    "settings": "Datenschutzeinstellungen",
+    "policy": "Datenschutzrichtlinie",
+    "customize": "Anpassen",
+    "optionsTitle": "Wählen Sie aus, was aktiviert bleibt",
+    "save": "Auswahl speichern",
+    "options": {
+      "uniqueCounter": "Unique-Browser-Zähler (First-Party-Cookie)",
+      "yandexWebvisor": "Yandex Webvisor (Interaktionsaufzeichnung)",
+      "microsoftClarity": "Microsoft Clarity (Interaktionsaufzeichnung)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Einstellungen gespeichert.",
+    "saveError": "Einstellungen konnten nicht gespeichert werden. Bisherige Einstellungen bleiben aktiv."
+  },
+  "counters": {
+    "pageViews": "Seite wird geladen",
+    "uniqueBrowsers": "Einzigartiger Browser"
+  },
+  "notice": {
+    "lastUpdated": "Letzte Aktualisierung: 23. September 2026",
+    "heading": "Besuchszahlen, Cookies und Analysen",
+    "paragraphs": [
+      "Die Website zählt jeden vollständigen Seitenladevorgang, einschließlich Neuladevorgänge, ohne eine Browser-ID zu erstellen. Auf dem Site-Server werden aggregierte tägliche Seitenladesummen für die letzten 365 UTC-Tage und eine Gesamtsumme aller Zeiten gespeichert. Hosting-Anbieter können IP-Adressen und technische Zugriffsprotokolle separat verarbeiten, um die Website bereitzustellen und zu sichern.",
+      "Der Unique-Browser-Zähler ist standardmäßig aktiviert. Beim ersten Besuch setzt die Website ein sicheres, HttpOnly-Browser-Cookie eines Erstanbieters mit dem Namen advs_visitor für bis zu 395 Tage. Es enthält einen Zufallswert; Der Server speichert seinen SHA-256-Hash und das letzte UTC-Besuchsdatum bis zu 395 Tage nach diesem Besuch. Die Zählungen beziehen sich auf Browserprofile, nicht auf Personen. Sie können diesen Zähler in den Datenschutzeinstellungen auf dieser Seite deaktivieren. Bei Deaktivierung stoppt der Zähler und die Website fordert die Löschung des Cookies und des gespeicherten Hashs dieses Browsers an; das Allzeitaggregat bleibt bestehen. Wenn das Löschen fehlschlägt, wird die Anforderung bei einem späteren Laden der Seite erneut versucht, während der Zähler deaktiviert bleibt.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor und Microsoft Clarity werden ebenfalls standardmäßig geladen, bevor Sie eine Auswahl treffen. Diese Anbieter können Seiten-URLs, Browser- und Gerätedetails, ungefähren Standort, Klicks, Scrollen, Sitzungsinformationen, Cookies und ähnliche Identifikatoren erhalten. Webvisor und Clarity können Seiteninteraktionen wiedergeben. Sie können Daten außerhalb Ihres Landes gemäß ihren eigenen Richtlinien verarbeiten. Sie können jeden Dienst in den Datenschutzeinstellungen deaktivieren oder alle optionalen Dienste mit „Alle ablehnen“ deaktivieren.",
+      "Die Schaltfläche „Datenschutzeinstellungen“ befindet sich auf dieser Seite. Anpassen öffnet einzelne Schalter, die Ihre aktuelle Auswahl anzeigen; Auswahl speichern übernimmt Änderungen. Alle akzeptieren aktiviert jeden Dienst. Mit der ×-Schaltfläche wird das Panel lediglich geschlossen, ohne dass Ihre Auswahl geändert wird. Ihre Auswahl und ihr Datum werden im localStorage und im Erstanbieter-Präferenzcookie advs_privacy_choice bis zu 395 Tage lang gespeichert. Dieses Präferenz-Cookie enthält Einstellungen und einen Zeitstempel, keine Besucherkennung. Eine Änderung wird nur übernommen, wenn sie an mindestens einem dieser Orte gespeichert werden kann; andernfalls bleiben die bisherigen Einstellungen aktiv. Ohne gespeicherte Auswahl sind alle optionalen Dienste aktiviert. Theme- und Spracheinstellungen werden bei Auswahl auch lokal gespeichert. Durch das Deaktivieren der Analyse wird das zukünftige Laden nach dem Neuladen der Seite verhindert. Daten, die bereits an einen Anbieter gesendet wurden, unterliegen weiterhin dessen Aufbewahrungsregeln, und bestehende Anbieter-Cookies können bestehen bleiben, bis sie in Ihrem Browser entfernt werden. Für Datenschutzfragen oder Datenanfragen nutzen Sie die Kontaktlinks auf der Website.",
+      "Website-Schriftarten werden von dieser Website bereitgestellt und nicht von Google angefordert. Bei den aktuellen Spielen werden keine persönlichen Spielaufzeichnungen zwischen Besuchen gespeichert. Wenn das Speichern von Datensätzen hinzugefügt wird, werden die Speicher- und Veröffentlichungsregeln beschrieben, bevor es aktiviert wird."
+    ]
+  }
+}

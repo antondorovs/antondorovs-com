@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Vaše izbire glede zasebnosti",
+    "description": "Štetje edinstvenega brskalnika in analitika sta privzeto omogočena. Izklopite lahko vsa neobvezna sledenja ali izberete posamezne storitve. Nalaganja strani se vedno štejejo brez identifikatorja brskalnika.",
+    "reject": "Zavrni vse",
+    "accept": "Sprejmi vse",
+    "close": "Zapri brez sprememb",
+    "rejectHelp": "Nalaganja strani se štejejo brez identifikatorja brskalnika.\nŠtevec edinstvenega brskalnika in vse analitične storitve bodo onemogočene.",
+    "settings": "Nastavitve zasebnosti",
+    "policy": "Politika zasebnosti",
+    "customize": "Prilagodite",
+    "optionsTitle": "Izberite, kaj ostane omogočeno",
+    "save": "Shrani izbor",
+    "options": {
+      "uniqueCounter": "Števec edinstvenega brskalnika (lastni piškotek)",
+      "yandexWebvisor": "Yandex Webvisor (posnetek interakcije)",
+      "microsoftClarity": "Microsoft Clarity (posnetek interakcij)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Nastavitve shranjene.",
+    "saveError": "Nastavitev ni bilo mogoče shraniti. Prejšnje nastavitve ostanejo aktivne."
+  },
+  "counters": {
+    "pageViews": "Stran se nalaga",
+    "uniqueBrowsers": "Edinstven brskalnik"
+  },
+  "notice": {
+    "lastUpdated": "Zadnja posodobitev: 23. september 2026",
+    "heading": "Število obiskov, piškotki in analitika",
+    "paragraphs": [
+      "Spletno mesto šteje vsako polno nalaganje strani, vključno s ponovnimi nalaganji, brez ustvarjanja identifikatorja brskalnika. Skupni dnevni vsoti nalaganja strani za zadnjih 365 dni UTC in vsote vseh časov so shranjeni na strežniku spletnega mesta. Ponudniki gostovanja lahko ločeno obdelujejo naslove IP in dnevnike tehničnega dostopa za dostavo in zaščito spletnega mesta.",
+      "Števec edinstvenega brskalnika je privzeto omogočen. Ob prvem obisku spletno mesto nastavi lastni varni piškotek brskalnika HttpOnly z imenom advs_visitor za do 395 dni. Vsebuje naključno vrednost; strežnik shrani svoj SHA-256 hash in zadnji datum obiska UTC do 395 dni po tem obisku. Štetje zajema profile brskalnikov, ne ljudi. Ta števec lahko onemogočite v nastavitvah zasebnosti na tej strani. Ko je onemogočen, se števec ustavi in ​​spletno mesto zahteva izbris piškotka tega brskalnika in shranjene zgoščene vrednosti; seštevek vseh časov ostaja. Če brisanje ne uspe, se zahteva znova poskusi ob poznejšem nalaganju strani, medtem ko števec ostane onemogočen.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor in Microsoft Clarity se prav tako privzeto naložijo, preden se odločite. Ti ponudniki lahko prejmejo URL-je strani, podrobnosti brskalnika in naprave, približno lokacijo, klike, drsenje, podatke o seji, piškotke in podobne identifikatorje. Webvisor in Clarity lahko predvajata interakcije strani. Podatke lahko obdelujejo zunaj vaše države v skladu s svojimi politikami. Vsako storitev lahko izklopite v nastavitvah zasebnosti ali uporabite možnost Zavrni vse, da izklopite vsako izbirno storitev.",
+      "Gumb za nastavitve zasebnosti je na tej strani. Prilagodi odpre posamezna stikala, ki prikazujejo vašo trenutno izbiro; Shrani izbor uveljavi spremembe. Sprejmi vse omogoči vsako storitev. Gumb × samo zapre ploščo, ne da bi spremenil vaš izbor. Vaša izbira in njen datum sta shranjena v localStorage in v lastnem piškotku z nastavitvami advs_privacy_choice do 395 dni. Ta prednostni piškotek vsebuje nastavitve in časovni žig, ne pa identifikatorja obiskovalca. Sprememba se uporabi samo, če jo je mogoče shraniti na vsaj eno od teh mest; sicer prejšnje nastavitve ostanejo aktivne. Brez shranjene izbire so omogočene vse izbirne storitve. Nastavitve teme in jezika se ob izbiri shranijo tudi lokalno. Onemogočanje analitike prepreči prihodnje nalaganje po ponovnem nalaganju strani; za podatke, ki so že poslani ponudniku, še naprej veljajo njegova pravila hrambe, obstoječi piškotki ponudnika pa lahko ostanejo, dokler jih ne odstranite v vašem brskalniku. Za vprašanja glede zasebnosti ali zahteve po podatkih uporabite povezave za stik na spletnem mestu.",
+      "Pisave spletnega mesta se strežejo s tega mesta, namesto da bi jih zahteval Google. Trenutne igre ne shranjujejo osebnih rezultatov iger med obiski. Če je dodano shranjevanje zapisov, bodo njegova pravila za shranjevanje in objavo opisana, preden je omogočeno."
+    ]
+  }
+}

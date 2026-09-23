@@ -3,14 +3,20 @@
 declare(strict_types=1);
 
 const COUNTER_STORAGE_PREFIX = "<?php http_response_code(404); exit; ?>\n";
+const VISITOR_COOKIE = 'advs_visitor';
+const VISITOR_COOKIE_DAYS = 395;
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store, max-age=0');
 
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+$action = $_GET['action'] ?? 'page';
 
-if (!in_array($method, ['GET', 'POST'], true)) {
+if (!in_array($method, ['GET', 'POST'], true) || !in_array($action, ['page', 'unique', 'forget'], true)) {
     header('Allow: GET, POST');
+    respond(['error' => 'Method not allowed.'], 405);
+}
+if ($method !== 'POST' && $action !== 'page') {
     respond(['error' => 'Method not allowed.'], 405);
 }
 
@@ -36,7 +42,10 @@ $todayKey = $today->format('Y-m-d');
 $oldestStoredDay = $today->modify('-364 days');
 $total = max(0, (int) ($storedData['total'] ?? 0));
 $storedDays = is_array($storedData['days'] ?? null) ? $storedData['days'] : [];
+$uniqueTotal = max(0, (int) ($storedData['uniqueTotal'] ?? 0));
+$storedVisitors = is_array($storedData['visitors'] ?? null) ? $storedData['visitors'] : [];
 $days = [];
+$visitors = [];
 
 foreach ($storedDays as $dayKey => $count) {
     $day = DateTimeImmutable::createFromFormat('!Y-m-d', (string) $dayKey, new DateTimeZone('UTC'));
@@ -48,14 +57,68 @@ foreach ($storedDays as $dayKey => $count) {
     $days[$day->format('Y-m-d')] = max(0, (int) $count);
 }
 
-if ($method === 'POST') {
+foreach ($storedVisitors as $visitorHash => $lastSeen) {
+    if (!is_string($visitorHash) || !preg_match('/^[a-f0-9]{64}$/', $visitorHash) || !is_string($lastSeen)) {
+        continue;
+    }
+    $lastDay = DateTimeImmutable::createFromFormat('!Y-m-d', $lastSeen, new DateTimeZone('UTC'));
+    if ($lastDay !== false && $lastDay >= $today->modify('-394 days') && $lastDay <= $today) {
+        $visitors[$visitorHash] = $lastDay->format('Y-m-d');
+    }
+}
+
+$changed = false;
+if ($method === 'POST' && $action === 'page') {
     $total++;
     $days[$todayKey] = max(0, (int) ($days[$todayKey] ?? 0)) + 1;
+    $changed = true;
+}
 
+if ($method === 'POST' && $action === 'unique') {
+    $visitorId = $_COOKIE[VISITOR_COOKIE] ?? null;
+    if (!is_string($visitorId) || !preg_match('/^[a-f0-9]{32}$/', $visitorId)) {
+        $visitorId = bin2hex(random_bytes(16));
+        setcookie(VISITOR_COOKIE, $visitorId, [
+            'expires' => time() + VISITOR_COOKIE_DAYS * 86400,
+            'path' => '/',
+            'secure' => true,
+            'httponly' => true,
+            'samesite' => 'Lax',
+        ]);
+    }
+    $visitorHash = hash('sha256', $visitorId);
+    if (!isset($visitors[$visitorHash])) {
+        $uniqueTotal++;
+    }
+    $visitors[$visitorHash] = $todayKey;
+    $changed = true;
+}
+
+if ($method === 'POST' && $action === 'forget') {
+    $visitorId = $_COOKIE[VISITOR_COOKIE] ?? null;
+    if (is_string($visitorId) && preg_match('/^[a-f0-9]{32}$/', $visitorId)) {
+        $visitorHash = hash('sha256', $visitorId);
+        if (isset($visitors[$visitorHash])) {
+            unset($visitors[$visitorHash]);
+            $changed = true;
+        }
+    }
+    setcookie(VISITOR_COOKIE, '', [
+        'expires' => time() - 3600,
+        'path' => '/',
+        'secure' => true,
+        'httponly' => true,
+        'samesite' => 'Lax',
+    ]);
+}
+
+if ($changed) {
     $encodedData = json_encode([
-        'version' => 2,
+        'version' => 3,
         'total' => $total,
         'days' => $days,
+        'uniqueTotal' => $uniqueTotal,
+        'visitors' => $visitors,
     ], JSON_UNESCAPED_SLASHES);
 
     if ($encodedData === false) {
@@ -76,12 +139,31 @@ $response = [
     'month' => sumRecentDays($days, $today, 30),
     'year' => sumRecentDays($days, $today, 365),
     'allTime' => $total,
+    'uniqueBrowsers' => [
+        'day' => countRecentVisitors($visitors, $today, 1),
+        'week' => countRecentVisitors($visitors, $today, 7),
+        'month' => countRecentVisitors($visitors, $today, 30),
+        'year' => countRecentVisitors($visitors, $today, 365),
+        'allTime' => $uniqueTotal,
+    ],
 ];
 
 flock($handle, LOCK_UN);
 fclose($handle);
 
 respond($response);
+
+function countRecentVisitors(array $visitors, DateTimeImmutable $today, int $numberOfDays): int
+{
+    $oldest = $today->modify(sprintf('-%d days', $numberOfDays - 1))->format('Y-m-d');
+    $count = 0;
+    foreach ($visitors as $lastSeen) {
+        if ($lastSeen >= $oldest) {
+            $count++;
+        }
+    }
+    return $count;
+}
 
 function sumRecentDays(array $days, DateTimeImmutable $today, int $numberOfDays): int
 {

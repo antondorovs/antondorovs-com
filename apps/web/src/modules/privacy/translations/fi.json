@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Yksityisyysvalintasi",
+    "description": "Ainutlaatuisen selaimen laskenta ja analytiikka ovat oletuksena käytössä. Voit poistaa käytöstä kaikki valinnaiset seurannat tai valita yksittäisiä palveluita. Sivulataukset lasketaan aina ilman selaimen tunnistetta.",
+    "reject": "Hylkää kaikki",
+    "accept": "Hyväksy kaikki",
+    "close": "Sulje ilman muutoksia",
+    "rejectHelp": "Sivulataukset lasketaan ilman selaintunnistetta.\nYksilöllisen selaimen laskuri ja kaikki analytiikkapalvelut poistetaan käytöstä.",
+    "settings": "Yksityisyysasetukset",
+    "policy": "Tietosuojakäytäntö",
+    "customize": "Mukauta",
+    "optionsTitle": "Valitse, mikä pysyy käytössä",
+    "save": "Tallenna valinta",
+    "options": {
+      "uniqueCounter": "Ainutlaatuisen selaimen laskuri (ensimmäisen osapuolen eväste)",
+      "yandexWebvisor": "Yandex Webvisor (vuorovaikutuksen tallennus)",
+      "microsoftClarity": "Microsoft Clarity (vuorovaikutuksen tallennus)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Asetukset tallennettu.",
+    "saveError": "Asetuksia ei voitu tallentaa. Aiemmat asetukset pysyvät voimassa."
+  },
+  "counters": {
+    "pageViews": "Sivujen lataukset",
+    "uniqueBrowsers": "Ainutlaatuinen selain"
+  },
+  "notice": {
+    "lastUpdated": "Viimeksi päivitetty: 23. syyskuuta 2026",
+    "heading": "Käyntimäärät, evästeet ja analytiikka",
+    "paragraphs": [
+      "Sivusto laskee jokaisen täyden sivun latauksen, uudelleenlataukset mukaan lukien, luomatta selaimen tunnistetta. Sivuston palvelimelle tallennetaan kootut päivittäiset sivulataukset viimeisten 365 UTC-päivän ajalta ja kaikkien aikojen kokonaismäärä. Isännöintipalveluntarjoajat voivat erikseen käsitellä IP-osoitteita ja teknisiä käyttölokeja sivuston toimittamiseksi ja suojaamiseksi.",
+      "Yksilöllisen selaimen laskuri on oletusarvoisesti käytössä. Ensimmäisellä vierailulla sivusto asettaa ensimmäisen osapuolen suojatun HttpOnly-selainevästeen nimeltä advs_visitor enintään 395 päiväksi. Se sisältää satunnaisen arvon; palvelin tallentaa SHA-256-tiivisteensä ja viimeisimmän UTC-käyntipäivämääränsä enintään 395 päivän ajan kyseisen käynnin jälkeen. Laskut kattavat selainprofiilit, eivät ihmisiä. Voit poistaa tämän laskurin käytöstä tämän sivun tietosuoja-asetuksista. Kun se on poistettu käytöstä, laskuri pysähtyy ja sivusto pyytää poistamaan tämän selaimen evästeen ja tallennetun hashin. kaikkien aikojen aggregaatti säilyy. Jos poistaminen epäonnistuu, pyyntöä yritetään uudelleen myöhemmällä sivulatauksella, kun laskuri pysyy poissa käytöstä.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor ja Microsoft Clarity latautuvat myös oletusarvoisesti, ennen kuin teet valinnan. Nämä palveluntarjoajat voivat vastaanottaa sivujen URL-osoitteita, selaimen ja laitteen tietoja, likimääräistä sijaintia, napsautuksia, vieritystä, istuntotietoja, evästeitä ja vastaavia tunnisteita. Webvisor ja Clarity voivat toistaa sivun vuorovaikutuksia. He voivat käsitellä tietoja maasi ulkopuolella omien käytäntöjensä mukaisesti. Voit poistaa jokaisen palvelun käytöstä Tietosuoja-asetuksista tai poistaa kaikki valinnaiset palvelut käytöstä Hylkää kaikki.",
+      "Yksityisyysasetukset-painike on tällä sivulla. Mukauta avaa yksittäiset kytkimet, jotka näyttävät nykyisen valintasi; Tallenna valinta ottaa muutokset käyttöön. Hyväksy kaikki mahdollistaa jokaisen palvelun. ×-painike vain sulkee paneelin muuttamatta valintaasi. Valintasi ja sen päivämäärä tallennetaan localStorage-tiedostoon ja ensimmäisen osapuolen advs_privacy_choice-evästeeseen jopa 395 päiväksi. Tämä asetuseväste sisältää asetukset ja aikaleiman, ei vierailijatunnistetta. Muutos otetaan käyttöön vain, jos se voidaan tallentaa ainakin yhteen näistä paikoista; muuten aiemmat asetukset pysyvät voimassa. Jos valintaa ei ole tallennettu, kaikki valinnaiset palvelut ovat käytössä. Teema- ja kieliasetukset tallennetaan myös paikallisesti, kun ne valitaan. Analytiikan poistaminen käytöstä estää tulevan lataamisen sivun uudelleenlatauksen jälkeen. palveluntarjoajalle jo lähetettyihin tietoihin sovelletaan sen säilytyssääntöjä, ja olemassa olevat palveluntarjoajan evästeet voivat säilyä, kunnes ne poistetaan selaimestasi. Yksityisyyskysymyksissä tai tietopyynnöissä käytä sivuston yhteystietoja.",
+      "Sivuston kirjasimia tarjotaan tältä sivustolta Googlen pyytämisen sijaan. Nykyiset pelit eivät tallenna henkilökohtaisia ​​peliennätyksiä käyntien välillä. Jos tietueen tallennus lisätään, sen tallennus- ja julkaisusäännöt kuvataan ennen kuin se otetaan käyttöön."
+    ]
+  }
+}

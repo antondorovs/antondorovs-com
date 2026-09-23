@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Dina integritetsval",
+    "description": "Räkning och analys av unika webbläsare är aktiverade som standard. Du kan stänga av all valfri spårning eller välja enskilda tjänster. Sidladdningar räknas alltid utan webbläsaridentifierare.",
+    "reject": "Avvisa alla",
+    "accept": "Acceptera alla",
+    "close": "Stäng utan ändringar",
+    "rejectHelp": "Sidladdningar förblir räknade utan webbläsaridentifierare.\nDen unika webbläsarräknaren och alla analystjänster kommer att inaktiveras.",
+    "settings": "Sekretessinställningar",
+    "policy": "Integritetspolicy",
+    "customize": "Anpassa",
+    "optionsTitle": "Välj vad som förblir aktiverat",
+    "save": "Spara valet",
+    "options": {
+      "uniqueCounter": "Unik webbläsarräknare (förstapartscookie)",
+      "yandexWebvisor": "Yandex Webvisor (interaktionsinspelning)",
+      "microsoftClarity": "Microsoft Clarity (interaktionsinspelning)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Inställningar sparade.",
+    "saveError": "Kunde inte spara inställningar. Tidigare inställningar förblir aktiva."
+  },
+  "counters": {
+    "pageViews": "Sidan laddas",
+    "uniqueBrowsers": "Unik webbläsare"
+  },
+  "notice": {
+    "lastUpdated": "Senast uppdaterad: 23 september 2026",
+    "heading": "Besöksantal, cookies och analyser",
+    "paragraphs": [
+      "Webbplatsen räknar varje helsidesladdning, inklusive omladdningar, utan att skapa en webbläsaridentifierare. Sammanlagda dagliga sidladdningssummor för de senaste 365 UTC-dagarna och en totalsumma genom tiderna lagras på webbplatsservern. Värdleverantörer kan separat behandla IP-adresser och tekniska åtkomstloggar för att leverera och säkra webbplatsen.",
+      "Räknaren för unik webbläsare är aktiverad som standard. Vid det första besöket ställer webbplatsen in en förstaparts, Secure, HttpOnly webbläsarcookie med namnet advs_visitor i upp till 395 dagar. Den innehåller ett slumpmässigt värde; servern lagrar sin SHA-256-hash och senaste UTC-besöksdatum i upp till 395 dagar efter det besöket. Räknar täcker webbläsarprofiler, inte personer. Du kan inaktivera denna räknare i Sekretessinställningarna på den här sidan. När den är inaktiverad stannar räknaren och webbplatsen begär radering av denna webbläsares cookie och lagrade hash; alla tiders aggregat kvarstår. Om raderingen misslyckas, görs ett nytt försök med begäran vid en senare sidladdning medan räknaren förblir inaktiverad.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor och Microsoft Clarity laddas också som standard innan du gör ett val. Dessa leverantörer kan ta emot sidadresser, webbläsare och enhetsdetaljer, ungefärlig plats, klick, rullning, sessionsinformation, cookies och liknande identifierare. Webvisor och Clarity kan spela upp sidinteraktioner. De kan behandla data utanför ditt land enligt sina egna policyer. Du kan stänga av varje tjänst i Sekretessinställningar eller använda Avvisa alla för att stänga av alla valfria tjänster.",
+      "Knappen Sekretessinställningar finns på den här sidan. Anpassa öppnar individuella växlar som visar ditt nuvarande val; Spara val tillämpar ändringar. Acceptera alla möjliggör varje tjänst. Knappen × stänger bara panelen utan att ändra ditt val. Ditt val och dess datum sparas i localStorage och i förstaparts advs_privacy_choice-preferenscookien i upp till 395 dagar. Denna inställningscookie innehåller inställningar och en tidsstämpel, inte en besökareidentifierare. En ändring tillämpas endast om den kan sparas på minst en av dessa platser; annars förblir de tidigare inställningarna aktiva. Utan något sparat val är alla valfria tjänster aktiverade. Tema- och språkinställningar lagras också lokalt när de väljs. Inaktivering av analys förhindrar framtida laddning efter att sidan laddas om. data som redan skickats till en leverantör förblir föremål för dess lagringsregler, och befintliga leverantörscookies kan finnas kvar tills de tas bort i din webbläsare. För sekretessfrågor eller dataförfrågningar, använd kontaktlänkarna på webbplatsen.",
+      "Webbplatsteckensnitt visas från den här webbplatsen i stället för efterfrågade från Google. De aktuella spelen sparar inte personliga spelrekord mellan besöken. Om postlagring läggs till kommer dess lagrings- och publiceringsregler att beskrivas innan det aktiveras."
+    ]
+  }
+}

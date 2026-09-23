@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Dine privatlivsvalg",
+    "description": "Unik browseroptælling og analyse er aktiveret som standard. Du kan slå al valgfri sporing fra eller vælge individuelle tjenester. Sideindlæsninger tælles altid uden en browser-id.",
+    "reject": "Afvis alle",
+    "accept": "Accepter alle",
+    "close": "Luk uden ændringer",
+    "rejectHelp": "Sideindlæsninger forbliver talt uden et browser-id.\nDen unikke browsertæller og alle analysetjenester vil blive deaktiveret.",
+    "settings": "Indstillinger for beskyttelse af personlige oplysninger",
+    "policy": "Privatlivspolitik",
+    "customize": "Tilpas",
+    "optionsTitle": "Vælg, hvad der forbliver aktiveret",
+    "save": "Gem valg",
+    "options": {
+      "uniqueCounter": "Unik browsertæller (førstepartscookie)",
+      "yandexWebvisor": "Yandex Webvisor (interaktionsoptagelse)",
+      "microsoftClarity": "Microsoft Clarity (interaktionsoptagelse)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Indstillinger gemt.",
+    "saveError": "Indstillingerne kunne ikke gemmes. Tidligere indstillinger forbliver aktive."
+  },
+  "counters": {
+    "pageViews": "Siden indlæses",
+    "uniqueBrowsers": "Unik browser"
+  },
+  "notice": {
+    "lastUpdated": "Sidst opdateret: 23. september 2026",
+    "heading": "Besøgstal, cookies og analyser",
+    "paragraphs": [
+      "Webstedet tæller hver fuld sideindlæsning, inklusive genindlæsninger, uden at oprette en browser-id. Samlede daglige sideindlæsnings-totaler for de sidste 365 UTC-dage og en total total er gemt på webstedets server. Hostingudbydere kan behandle IP-adresser og tekniske adgangslogfiler separat for at levere og sikre webstedet.",
+      "Den unikke browser-tæller er som standard aktiveret. Ved det første besøg sætter webstedet en førsteparts, sikker, HttpOnly browser-cookie ved navn advs_visitor i op til 395 dage. Den indeholder en tilfældig værdi; serveren gemmer sin SHA-256-hash og seneste UTC-besøgsdato i op til 395 dage efter det besøg. Tæller dækker browserprofiler, ikke personer. Du kan deaktivere denne tæller i indstillingerne for beskyttelse af personlige oplysninger på denne side. Når den er deaktiveret, stopper tælleren, og webstedet anmoder om sletning af denne browsers cookie og gemte hash; alle tiders aggregat forbliver. Hvis sletningen mislykkes, forsøges anmodningen igen ved en senere sideindlæsning, mens tælleren forbliver deaktiveret.",
+      "Google Analytics, Yandex Metrica, Yandex Webvisor og Microsoft Clarity indlæses også som standard, før du træffer et valg. Disse udbydere kan modtage side-URL'er, browser- og enhedsdetaljer, omtrentlig placering, klik, rulning, sessionsoplysninger, cookies og lignende identifikatorer. Webvisor og Clarity kan afspille sideinteraktioner igen. De kan behandle data uden for dit land i henhold til deres egne politikker. Du kan slå hver tjeneste fra i indstillingerne for beskyttelse af personlige oplysninger eller bruge Afvis alle til at deaktivere alle valgfrie tjenester.",
+      "Knappen Privatlivsindstillinger er på denne side. Tilpas åbner individuelle kontakter, der viser dit aktuelle valg; Gem valg anvender ændringer. Accepter alle muliggør enhver tjeneste. Knappen × lukker kun panelet uden at ændre dit valg. Dit valg og dets dato gemmes i localStorage og i førsteparts advs_privacy_choice præferencecookie i op til 395 dage. Denne præferencecookie indeholder indstillinger og et tidsstempel, ikke en besøgende-id. En ændring anvendes kun, hvis den kan gemmes på mindst et af disse steder; ellers forbliver de tidligere indstillinger aktive. Uden noget gemt valg er alle valgfri tjenester aktiveret. Tema- og sprogpræferencer gemmes også lokalt, når de vælges. Deaktivering af analyser forhindrer fremtidig indlæsning, efter at siden genindlæses; data, der allerede er sendt til en udbyder, forbliver underlagt dens opbevaringsregler, og eksisterende udbydercookies kan forblive, indtil de fjernes i din browser. For spørgsmål om privatliv eller dataanmodninger, brug kontaktlinkene på webstedet.",
+      "Webstedsskrifttyper serveres fra dette websted i stedet for anmodet fra Google. De aktuelle spil gemmer ikke personlige spilrekorder mellem besøgene. Hvis registreringslagring tilføjes, vil dens lagring og udgivelsesregler blive beskrevet, før den aktiveres."
+    ]
+  }
+}

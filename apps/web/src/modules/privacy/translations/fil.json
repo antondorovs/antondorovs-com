@@ -1,0 +1,39 @@
+{
+  "banner": {
+    "title": "Ang iyong mga pagpipilian sa privacy",
+    "description": "Ang pagbibilang at analytics ng natatanging browser ay pinagana bilang default. Maaari mong i-off ang lahat ng opsyonal na pagsubaybay o pumili ng mga indibidwal na serbisyo. Palaging binibilang ang mga pag-load ng page nang walang browser identifier.",
+    "reject": "Tanggihan ang lahat",
+    "accept": "Tanggapin lahat",
+    "close": "Isara nang walang pagbabago",
+    "rejectHelp": "Ang mga pag-load ng page ay mananatiling binibilang nang walang browser identifier.\nIdi-disable ang unique-browser counter at lahat ng serbisyo ng analytics.",
+    "settings": "Mga setting ng privacy",
+    "policy": "Patakaran sa privacy",
+    "customize": "I-customize",
+    "optionsTitle": "Piliin kung ano ang mananatiling naka-enable",
+    "save": "I-save ang pagpili",
+    "options": {
+      "uniqueCounter": "Unique-browser counter (first-party cookie)",
+      "yandexWebvisor": "Yandex Webvisor (pag-record ng pakikipag-ugnayan)",
+      "microsoftClarity": "Microsoft Clarity (pag-record ng pakikipag-ugnayan)",
+      "googleAnalytics": "Google Analytics",
+      "yandexMetrica": "Yandex Metrica"
+    },
+    "saved": "Na-save ang mga setting.",
+    "saveError": "Hindi ma-save ang mga setting. Nananatiling aktibo ang mga nakaraang setting."
+  },
+  "counters": {
+    "pageViews": "Mga pag-load ng page",
+    "uniqueBrowsers": "Natatanging browser"
+  },
+  "notice": {
+    "lastUpdated": "Huling na-update: Setyembre 23, 2026",
+    "heading": "Bisitahin ang mga bilang, cookies, at analytics",
+    "paragraphs": [
+      "Binibilang ng site ang bawat buong pag-load ng pahina, kabilang ang mga pag-reload, nang hindi gumagawa ng identifier ng browser. Pinagsama-samang mga kabuuang pang-araw-araw na pag-load ng pahina para sa huling 365 na araw ng UTC at isang kabuuang kabuuang oras ang nakaimbak sa server ng site. Maaaring hiwalay na iproseso ng mga provider ng hosting ang mga IP address at mga log ng teknikal na access upang maihatid at ma-secure ang site.",
+      "Ang unique-browser counter ay pinagana bilang default. Sa unang pagbisita, nagtatakda ang site ng first-party, Secure, HttpOnly browser cookie na pinangalanang advs_visitor nang hanggang 395 araw. Naglalaman ito ng random na halaga; iniimbak ng server ang SHA-256 hash nito at ang pinakabagong petsa ng pagbisita sa UTC nang hanggang 395 araw pagkatapos ng pagbisitang iyon. Ang mga bilang ay sumasaklaw sa mga profile ng browser, hindi mga tao. Maaari mong i-disable ang counter na ito sa mga setting ng Privacy sa page na ito. Kapag hindi pinagana, hihinto ang counter at humihiling ang site na tanggalin ang cookie at nakaimbak na hash ng browser na ito; ang lahat-ng-panahong pinagsama-samang nananatili. Kung nabigo ang pagtanggal, muling susubukan ang kahilingan sa pag-load ng pahina sa ibang pagkakataon habang nananatiling naka-disable ang counter.",
+      "Ang Google Analytics, Yandex Metrica, Yandex Webvisor, at Microsoft Clarity ay naglo-load din bilang default, bago ka pumili. Maaaring makatanggap ang mga provider na ito ng mga URL ng page, mga detalye ng browser at device, tinatayang lokasyon, mga pag-click, pag-scroll, impormasyon ng session, cookies, at mga katulad na identifier. Maaaring i-replay ng Webvisor at Clarity ang mga pakikipag-ugnayan sa page. Maaari silang magproseso ng data sa labas ng iyong bansa ayon sa sarili nilang mga patakaran. Maaari mong i-off ang bawat serbisyo sa mga setting ng Privacy o gamitin ang Tanggihan lahat para i-off ang bawat opsyonal na serbisyo.",
+      "Nasa pahinang ito ang button ng mga setting ng Privacy. Nagbubukas ang Customize ng mga indibidwal na switch na nagpapakita ng iyong kasalukuyang pinili; Nalalapat ang mga pagbabago sa pag-save ng seleksyon. Tanggapin ang lahat ay nagbibigay-daan sa bawat serbisyo. Isinasara lamang ng pindutang × ang panel nang hindi binabago ang iyong pinili. Ang iyong pinili at ang petsa nito ay naka-save sa localStorage at sa first-party na advs_privacy_choice na preference cookie nang hanggang 395 araw. Ang kagustuhang cookie na ito ay naglalaman ng mga setting at timestamp, hindi isang identifier ng bisita. Ang isang pagbabago ay inilalapat lamang kung ito ay mai-save sa kahit isa sa mga lugar na ito; kung hindi, ang mga naunang setting ay mananatiling aktibo. Nang walang naka-save na seleksyon, lahat ng opsyonal na serbisyo ay pinagana. Ang mga kagustuhan sa tema at wika ay lokal ding iniimbak kapag pinili. Pinipigilan ng hindi pagpapagana ng analytics ang pag-load sa hinaharap pagkatapos mag-reload ng page; Ang data na naipadala na sa isang provider ay nananatiling napapailalim sa mga panuntunan sa pagpapanatili nito, at ang mga umiiral na cookies ng provider ay maaaring manatili hanggang sa maalis sa iyong browser. Para sa mga tanong sa privacy o mga kahilingan sa data, gamitin ang mga link sa pakikipag-ugnayan sa site.",
+      "Ang mga font ng site ay inihahatid mula sa site na ito sa halip na hiniling mula sa Google. Ang mga kasalukuyang laro ay hindi nagse-save ng mga personal na tala ng laro sa pagitan ng mga pagbisita. Kung idinagdag ang pag-save ng record, ang mga panuntunan sa pag-imbak at paglalathala nito ay ilalarawan bago ito paganahin."
+    ]
+  }
+}
