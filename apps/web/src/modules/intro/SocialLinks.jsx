@@ -10,7 +10,7 @@ import './SocialLinks.css';
 export const socialLinks = [
   {
     key: 'telegram',
-    href: 'https://www.t.me/antondorovs',
+    href: 'https://t.me/antondorovs182',
     icon: telegramIcon,
   },
   {
